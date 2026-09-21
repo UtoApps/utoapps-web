@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UtoApps — app su misura in Ticino, dall'idea agli store</title>
+<meta name="description" content="Progettiamo, costruiamo, miglioriamo e manteniamo app iOS e Android da Minusio, accanto a Locarno. Un solo interlocutore dall'idea agli store.">
+<meta name="theme-color" content="#E1001A">
+<link rel="canonical" href="https://www.utoapps.ch/es/">
+<link rel="alternate" hreflang="it" href="https://www.utoapps.ch/">
+<link rel="alternate" hreflang="de" href="https://www.utoapps.ch/de/">
+<link rel="alternate" hreflang="fr" href="https://www.utoapps.ch/fr/">
+<link rel="alternate" hreflang="en" href="https://www.utoapps.ch/en/">
+<link rel="alternate" hreflang="es" href="https://www.utoapps.ch/es/">
+<link rel="alternate" hreflang="x-default" href="https://www.utoapps.ch/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="UtoApps">
+<meta property="og:url" content="https://www.utoapps.ch/es/">
+<meta property="og:locale" content="it_CH">
+<meta property="og:locale:alternate" content="de_CH">
+<meta property="og:locale:alternate" content="fr_CH">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:title" content="UtoApps — app su misura in Ticino, dall'idea agli store">
+<meta property="og:description" content="Progettiamo, costruiamo, miglioriamo e manteniamo app iOS e Android da Minusio, accanto a Locarno. Un solo interlocutore dall'idea agli store.">
+
+<style>
+/* ═══════════════════════════════════════════════════════════════════════
+   UtoApps — landing definitiva, cinque lingue in un solo file.
+   Identità ereditata dalla versione precedente: rosso #E1001A,
+   Archivo (display) + Newsreader (testo) + IBM Plex Mono (dati).
+   RITEMATIZZARE = TOCCARE SOLO :root E IL SUO GEMELLO SCURO.
+   Nessuna dipendenza esterna: i font stanno in fonts/, in locale.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@font-face{font-family:"Archivo";src:url("/fonts/archivo.woff2") format("woff2");font-weight:600 800;font-style:normal;font-display:swap}
+
+
+@font-face{font-family:"Newsreader";src:url("/fonts/newsreader-400.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url("/fonts/ibm-plex-mono-400.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url("/fonts/ibm-plex-mono-500.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}
+
+:root{
+  /* il rosso di marca: bande, barre, bordi, riempimenti SENZA testo */
+  --rosso:#E1001A;
+  /* rosso leggibile: testo rosso su carta, e fondi rossi che portano testo.
+     #E1001A dà 3,64:1 e non passa AA sotto i 24px — qui serve #A80014 (7,5:1) */
+  --rosso-testo:#A80014;
+  --rosso-pieno:#A80014;
+  --su-rosso:#FFFFFF;
+
+  --inchiostro:#16110F;
+  --carta:#FBF9F8;
+  --carta-2:#F2EDEB;
+  --carta-3:#FFFFFF;
+  --nebbia:#6E6360;
+  --linea:#E7E0DD;
+  --linea-forte:#D6CBC6;
+
+  --display:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --testo:"Newsreader",Georgia,"Times New Roman",serif;
+  --dati:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --misura:64ch;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --rosso:#FF3B4E;
+    --rosso-testo:#FF6472;
+    --rosso-pieno:#FF3B4E;
+    --su-rosso:#170406;
+
+    --inchiostro:#F4EFED;
+    --carta:#131011;
+    --carta-2:#1B1718;
+    --carta-3:#211C1D;
+    --nebbia:#A2938F;
+    --linea:#2E2627;
+    --linea-forte:#3D3334;
+  }
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--carta);color:var(--inchiostro);
+  font-family:var(--testo);font-size:17px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px;width:100%}
+h1,h2,h3,.eti{font-family:var(--display)}
+h1,h2,h3{text-wrap:balance;margin:0}
+p{margin:0;max-width:var(--misura);text-wrap:pretty;overflow-wrap:break-word}
+a{color:inherit}
+a:hover{color:var(--rosso-testo)}
+/* El anillo toma el color del texto del elemento, que por diseño ya contrasta con su
+   fondo. Antes era rojo fijo y sobre la banda roja de contacto medía 1,00:1. */
+:focus-visible{outline:3px solid currentColor;outline-offset:3px;border-radius:2px}
+img,svg{max-width:100%}
+
+.eti{
+  font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--nebbia);
+}
+
+/* ── il motivo della marca: la fascia rossa al vivo, in cima a tutto ───── */
+.fascia{height:10px;background:var(--rosso)}
+
+/* ── testata ──────────────────────────────────────────────────────────── */
+.testata{border-bottom:1px solid var(--linea)}
+.testata-alto{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;flex-wrap:wrap;padding:22px 0 18px;
+}
+.marchio{display:flex;align-items:center;gap:12px;text-decoration:none}
+.marchio:hover{color:inherit}
+.marchio svg{display:block;width:42px;height:42px;border-radius:10px;flex:none}
+.marchio .nome{font-family:var(--display);font-size:25px;font-weight:700;letter-spacing:-.02em}
+.marchio .nome b{color:var(--rosso-testo);font-weight:800}
+
+.lingue{display:flex;align-items:center;gap:2px}
+.lingua{
+  font-family:var(--dati);font-size:12px;letter-spacing:.1em;font-weight:400;
+  background:none;border:0;color:var(--nebbia);cursor:pointer;
+  padding:8px 9px;min-height:38px;line-height:1;
+  border-bottom:2px solid transparent;
+}
+.lingua:hover{color:var(--inchiostro)}
+.lingua[aria-pressed="true"]{
+  color:var(--inchiostro);font-weight:500;border-bottom-color:var(--rosso);
+}
+
+.testata-basso{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:10px 26px;flex-wrap:wrap;padding:0 0 14px;
+}
+.sede{
+  font-family:var(--dati);font-size:11px;letter-spacing:.12em;
+  color:var(--nebbia);text-transform:uppercase;
+}
+.nav{display:flex;flex-wrap:wrap;gap:4px 18px;margin-left:auto}
+.nav a{
+  font-family:var(--display);font-size:13.5px;font-weight:600;
+  text-decoration:none;color:var(--nebbia);padding:4px 0;
+  border-bottom:2px solid transparent;
+}
+.nav a:hover{color:var(--inchiostro);border-bottom-color:var(--rosso)}
+
+/* ── apertura ─────────────────────────────────────────────────────────── */
+.apertura{padding:52px 0 58px;display:grid;gap:26px;justify-items:start}
+.apertura h1{
+  font-size:clamp(34px,7.2vw,74px);font-weight:800;line-height:1.03;
+  letter-spacing:-.035em;max-width:16ch;
+}
+.apertura h1 em{font-style:normal;color:var(--rosso-testo)}
+.sommario{font-size:19px;line-height:1.6;color:var(--nebbia);max-width:56ch}
+.azioni{display:flex;gap:12px;flex-wrap:wrap;margin-top:2px}
+.btn{
+  font-family:var(--display);font-size:15.5px;font-weight:600;
+  padding:13px 22px;text-decoration:none;border:2px solid var(--rosso-pieno);
+  background:var(--rosso-pieno);color:var(--su-rosso);
+  transition:transform .16s ease;min-height:48px;
+  display:inline-flex;align-items:center;
+}
+.btn:hover{color:var(--su-rosso);transform:translateY(-2px)}
+.btn.vuoto{background:transparent;color:var(--rosso-testo);border-color:var(--rosso)}
+.btn.vuoto:hover{color:var(--rosso-testo)}
+
+/* ── sezioni ──────────────────────────────────────────────────────────── */
+section{padding:54px 0}
+.titolo-sez{display:grid;gap:11px;margin-bottom:34px;justify-items:start}
+.titolo-sez h2{font-size:clamp(26px,4.6vw,38px);font-weight:700;letter-spacing:-.025em}
+.titolo-sez p{color:var(--nebbia);font-size:17.5px}
+
+/* ═══ IL NOSTRO LAVORO ══════════════════════════════════════════════════
+   Ogni app è una SCHEDA: piastrella di marca + testo + striscia di dati.
+   Lo stato sta nella pastiglia (piena = pubblicata, vuota = in corso),
+   non in un numero: non sono una sequenza. ─────────────────────────── */
+.zona-app{background:var(--carta-2);border-top:1px solid var(--linea);
+          border-bottom:1px solid var(--linea)}
+.schede{display:grid;gap:20px}
+.scheda{
+  background:var(--carta-3);border:1px solid var(--linea);
+  display:grid;grid-template-columns:1fr;gap:20px;
+  padding:24px 20px;align-items:start;
+  transition:border-color .18s ease,transform .18s ease;
+}
+.scheda:hover{border-color:var(--linea-forte);transform:translateY(-2px)}
+/* la piastrella è un'insegna di marca: i suoi colori NON seguono il tema,
+   come non lo segue un logo. Funziona su carta e su fondo scuro. */
+.piastrella{width:78px;height:78px;border-radius:18px;display:block;flex:none}
+.corpo-scheda{display:grid;gap:13px;justify-items:start;min-width:0}
+.riga-titolo{display:flex;align-items:baseline;gap:13px;flex-wrap:wrap}
+.riga-titolo h3{font-size:26px;font-weight:800;letter-spacing:-.03em}
+.pastiglia{
+  font-family:var(--dati);font-size:10.5px;font-weight:500;letter-spacing:.13em;
+  text-transform:uppercase;padding:5px 11px;white-space:nowrap;
+}
+.pastiglia.viva{background:var(--rosso-pieno);color:var(--su-rosso)}
+.pastiglia.corso{background:transparent;color:var(--nebbia);
+                 border:1px solid var(--linea-forte)}
+.occhiello{font-size:18.5px;line-height:1.5;color:var(--inchiostro);max-width:52ch}
+.dettaglio{font-size:16px;color:var(--nebbia);line-height:1.6;max-width:60ch}
+
+/* le griglie a filo: colonne che dividono sempre il numero di celle,
+   altrimenti le tracce vuote lascerebbero un rettangolo grigio */
+.dati{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:1px;background:var(--linea);border:1px solid var(--linea);width:100%;
+  margin-top:4px;
+}
+.dato{background:var(--carta-3);padding:12px 14px;display:grid;gap:3px}
+.dato .k{font-family:var(--dati);font-size:10px;letter-spacing:.12em;
+         text-transform:uppercase;color:var(--nebbia)}
+.dato .v{font-family:var(--display);font-size:14.5px;font-weight:600;
+         letter-spacing:-.01em;line-height:1.35}
+
+.negozi{display:flex;gap:10px;flex-wrap:wrap;margin-top:2px}
+.negozio{
+  font-family:var(--display);font-size:14px;font-weight:600;
+  text-decoration:none;padding:11px 15px;border:1px solid var(--linea-forte);
+  color:var(--inchiostro);display:inline-flex;align-items:center;gap:7px;
+  min-height:44px;transition:border-color .16s ease,color .16s ease;
+}
+.negozio:hover{border-color:var(--rosso);color:var(--rosso-testo)}
+.negozio .frec{font-family:var(--dati);font-size:12px;color:var(--nebbia)}
+.negozio:hover .frec{color:var(--rosso-testo)}
+
+/* ── cosa facciamo ────────────────────────────────────────────────────── */
+.servizi{display:grid;grid-template-columns:1fr;gap:1px;
+         background:var(--linea);border:1px solid var(--linea)}
+.servizio{background:var(--carta);padding:26px 22px 28px;display:grid;gap:10px;align-content:start}
+.servizio h3{font-size:19px;font-weight:700;letter-spacing:-.01em}
+.servizio p{font-size:16px;color:var(--nebbia);line-height:1.58}
+
+
+/* ── come lavoriamo: qui il numero SERVE, è una sequenza vera ─────────── */
+.processo{display:grid;gap:0}
+.tappa{
+  display:grid;grid-template-columns:44px 1fr;gap:14px;
+  padding:22px 0;border-top:1px solid var(--linea);align-items:start;
+}
+.tappa:last-child{border-bottom:1px solid var(--linea)}
+.tappa .n{font-family:var(--dati);font-size:13px;color:var(--rosso-testo);
+          padding-top:5px;letter-spacing:.06em}
+.tappa h3{font-size:19px;font-weight:700;margin-bottom:6px;letter-spacing:-.01em}
+.tappa p{font-size:16px;color:var(--nebbia);line-height:1.58}
+
+/* ── perché noi ───────────────────────────────────────────────────────── */
+.motivi{display:grid;grid-template-columns:1fr;gap:28px}
+.motivo{display:grid;gap:9px;align-content:start}
+.motivo h3{font-size:17.5px;font-weight:700;letter-spacing:-.01em}
+.motivo p{font-size:16px;color:var(--nebbia);line-height:1.58}
+.motivo .barra{width:34px;height:4px;background:var(--rosso)}
+
+/* ── contatto ─────────────────────────────────────────────────────────── */
+.contatto{background:var(--rosso-pieno);color:var(--su-rosso);padding:54px 0 58px}
+.contatto .eti{color:var(--su-rosso);opacity:.85}
+.contatto h2{font-size:clamp(27px,5.2vw,44px);font-weight:800;letter-spacing:-.03em;
+             max-width:18ch;line-height:1.08;margin-top:12px}
+.contatto p{color:var(--su-rosso);margin-top:15px;font-size:18px;max-width:58ch}
+.vie{display:flex;gap:13px;flex-wrap:wrap;margin-top:28px}
+.via{
+  font-family:var(--display);font-size:15.5px;font-weight:600;
+  background:var(--su-rosso);color:var(--rosso-pieno);
+  padding:13px 20px;text-decoration:none;border:2px solid var(--su-rosso);
+  transition:transform .16s ease;min-height:48px;
+  display:inline-flex;align-items:center;overflow-wrap:anywhere;
+}
+.via:hover{transform:translateY(-2px);color:var(--rosso-pieno)}
+.via.vuota{background:transparent;color:var(--su-rosso)}
+.via.vuota:hover{color:var(--su-rosso)}
+
+/* ── piede legale ─────────────────────────────────────────────────────── */
+footer{padding:28px 0 44px;display:flex;justify-content:space-between;
+       gap:10px 20px;flex-wrap:wrap;align-items:baseline}
+footer .nota{font-family:var(--dati);font-size:11px;letter-spacing:.08em;
+             color:var(--nebbia);line-height:1.7}
+footer .nota a{color:var(--nebbia);text-decoration-thickness:1px;text-underline-offset:3px}
+footer .nota a:hover{color:var(--rosso-testo)}
+
+@media (min-width:560px){
+  body{font-size:18px}
+  .wrap{padding:0 28px}
+  .sommario{font-size:21px}
+  .tappa{grid-template-columns:64px 1fr;gap:22px}
+  .servizi{grid-template-columns:repeat(2,1fr)}
+  .motivi{grid-template-columns:repeat(2,1fr)}
+}
+@media (min-width:760px){
+  .apertura{padding:64px 0 74px}
+  section{padding:64px 0}
+  .titolo-sez{margin-bottom:40px}
+  .scheda{grid-template-columns:96px 1fr;gap:26px;padding:28px 28px 26px}
+  .piastrella{width:96px;height:96px;border-radius:22px}
+  .schede{gap:22px}
+  .riga-titolo h3{font-size:29px}
+  .occhiello{font-size:19.5px}
+  .dettaglio,.servizio p,.tappa p,.motivo p{font-size:16.5px}
+  .dato .v{font-size:15px}
+  .marchio svg{width:46px;height:46px;border-radius:11px}
+  .marchio .nome{font-size:27px}
+  .dati{grid-template-columns:repeat(4,1fr)}
+  .motivi{grid-template-columns:repeat(3,1fr)}
+}
+@media (min-width:1000px){
+  .servizi{grid-template-columns:repeat(4,1fr)}
+}
+
+@media (prefers-reduced-motion:no-preference){
+  html{scroll-behavior:smooth}
+  .apertura h1,.sommario,.azioni{animation:sali .7s cubic-bezier(.2,.7,.3,1) both}
+  .sommario{animation-delay:.09s}
+  .azioni{animation-delay:.17s}
+  @keyframes sali{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+}
+@media (prefers-reduced-motion:reduce){
+  .scheda:hover,.btn:hover,.via:hover{transform:none}
+  *{transition-duration:.01ms !important}
+}
+</style>
+</head>
+
+<body id="cima">
+
+<div class="fascia"></div>
+
+<header class="testata">
+  <div class="wrap testata-alto">
+    <a class="marchio" href="#cima">
+      <svg viewBox="0 0 64 64" role="img" aria-label="UtoApps">
+        <defs><clipPath id="q"><rect width="64" height="64" rx="15"/></clipPath></defs>
+        <g clip-path="url(#q)">
+          <rect width="64" height="64" fill="#E1001A"/>
+          <path d="M9 34 L19 15 L29 34 Z" fill="#fff" opacity=".55"/>
+          <path d="M21 34 L32 4 L43 34 Z" fill="#fff"/>
+          <path d="M35 34 L45 17 L55 34 Z" fill="#fff" opacity=".55"/>
+          <rect y="39" width="64" height="18" fill="#fff"/>
+          <text x="32" y="52.4" text-anchor="middle" font-size="16" font-weight="800"
+                fill="#E1001A" letter-spacing=".4"
+                font-family="Archivo,Helvetica,Arial,sans-serif">Apps</text>
+        </g>
+      </svg>
+      <span class="nome">Uto<b>Apps</b></span>
+    </a>
+
+    <div class="lingue" id="lingue" role="group" data-i18n-aria="footer.lang_label" aria-label="Lingua">
+      <button type="button" class="lingua" data-lang="it" lang="it" aria-pressed="true">IT</button>
+      <button type="button" class="lingua" data-lang="de" lang="de" aria-pressed="false">DE</button>
+      <button type="button" class="lingua" data-lang="fr" lang="fr" aria-pressed="false">FR</button>
+      <button type="button" class="lingua" data-lang="en" lang="en" aria-pressed="false">EN</button>
+      <button type="button" class="lingua" data-lang="es" lang="es" aria-pressed="false">ES</button>
+    </div>
+  </div>
+
+  <div class="wrap testata-basso">
+    <span class="sede" data-i18n="header.location">Minusio, vicino a Locarno · Ticino</span>
+    <nav class="nav">
+      <a href="#lavoro" data-i18n="nav.apps">Lavori</a>
+      <a href="#servizi" data-i18n="nav.services">Cosa facciamo</a>
+      <a href="#processo" data-i18n="nav.process">Come lavoriamo</a>
+      <a href="#perche" data-i18n="nav.why">Perché noi</a>
+      <a href="#contatto" data-i18n="nav.contact">Contatto</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="apertura">
+    <h1><span data-i18n="hero.h1_before">App fatte </span><em data-i18n="hero.h1_accent">bene</em><span data-i18n="hero.h1_after">, da chi le costruisce in prima persona</span></h1>
+    <p class="sommario" data-i18n="hero.lead">Progettiamo, costruiamo, miglioriamo e manteniamo applicazioni su misura. Un solo interlocutore dall'idea alla pubblicazione, senza intermediari. Se siete in zona, ci si vede di persona.</p>
+    <div class="azioni">
+      <a class="btn" href="#lavoro" data-i18n="hero.cta_primary">Guardate cosa costruiamo</a>
+      <a class="btn vuoto" href="mailto:info@utoapps.ch" data-i18n="hero.cta_secondary">Scriveteci</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ IL NOSTRO LAVORO ═════════════════════════════════════════════════ -->
+<div class="zona-app">
+  <div class="wrap">
+    <section id="lavoro">
+      <div class="titolo-sez">
+        <span class="eti" data-i18n="apps.label">Il nostro lavoro</span>
+        <h2 data-i18n="apps.title">Una pubblicata, una in costruzione, una in definizione.</h2>
+        <p data-i18n="apps.intro">Una è negli store. Una seconda è in costruzione: il prototipo gira già nel browser. La terza è ancora in definizione, senza una riga di codice scritta. Qui sotto trovate a che punto sono davvero, una per una.</p>
+      </div>
+
+      <div class="schede">
+
+        <!-- ── Chronic Friends ── -->
+        <article class="scheda">
+          <svg class="piastrella" viewBox="0 0 64 64" role="img" aria-label="Chronic Friends">
+            <defs><clipPath id="t1"><rect width="64" height="64" rx="15"/></clipPath></defs>
+            <g clip-path="url(#t1)">
+              <rect width="64" height="64" fill="#E1001A"/>
+              <path d="M7 24 H17 L22 12 L29 34 L35 20 L39 24 H57"
+                    fill="none" stroke="#fff" stroke-width="4.4"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+              <rect y="39" width="64" height="18" fill="#fff"/>
+              <text x="32" y="51.8" text-anchor="middle" font-size="11" font-weight="800"
+                    fill="#E1001A" letter-spacing="1.1"
+                    font-family="Archivo,Helvetica,Arial,sans-serif">SALUTE</text>
+            </g>
+          </svg>
+          <div class="corpo-scheda">
+            <div class="riga-titolo">
+              <h3 data-i18n="apps.items.0.name">Chronic Friends</h3>
+              <span class="pastiglia viva" data-i18n="apps.items.0.badge">Pubblicata</span>
+            </div>
+            <p class="occhiello" data-i18n="apps.items.0.lead">Diario dei sintomi e comunità per chi convive con una malattia infiammatoria cronica intestinale.</p>
+            <p class="dettaglio" data-i18n="apps.items.0.body">L'applicazione appartiene a un'altra organizzazione: noi l'abbiamo progettata, sviluppata e pubblicata, dalla prima schermata alla scheda negli store — interfaccia, banca dati, testi legali, traduzioni e pratiche di conformità. Ci siamo occupati anche della procedura di pubblicazione e abbiamo seguito la revisione fino all'approvazione di Apple e Google.</p>
+            <div class="dati">
+              <div class="dato"><span class="k" data-i18n="apps.items.0.facts.0.k">Piattaforme</span><span class="v" data-i18n="apps.items.0.facts.0.v">iOS · Android</span></div>
+              <div class="dato"><span class="k" data-i18n="apps.items.0.facts.1.k">Settore</span><span class="v" data-i18n="apps.items.0.facts.1.v">Salute</span></div>
+              <div class="dato"><span class="k" data-i18n="apps.items.0.facts.2.k">Negli store da</span><span class="v" data-i18n="apps.items.0.facts.2.v">Agosto 2026</span></div>
+              <div class="dato"><span class="k" data-i18n="apps.items.0.facts.3.k">Titolarità</span><span class="v" data-i18n="apps.items.0.facts.3.v">Un'altra organizzazione</span></div>
+            </div>
+            <div class="negozi">
+              <a class="negozio" href="https://apps.apple.com/app/id6792334658"
+                 target="_blank" rel="noopener">App Store <span class="frec" aria-hidden="true">↗</span></a>
+              <a class="negozio" href="https://play.google.com/store/apps/details?id=org.chronicfriends.app"
+                 target="_blank" rel="noopener">Google Play <span class="frec" aria-hidden="true">↗</span></a>
+              <a class="negozio" href="https://chronicfriends.org"
+                 target="_blank" rel="noopener">chronicfriends.org <span class="frec" aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ── VetSanit ── -->
+        <article class="scheda">
+          <svg class="piastrella" viewBox="0 0 64 64" role="img" aria-label="VetSanit">
+            <defs><clipPath id="t2"><rect width="64" height="64" rx="15"/></clipPath></defs>
+            <g clip-path="url(#t2)">
+              <rect width="64" height="64" fill="#E1001A"/>
+              <!-- testa di bovino: l'animale da reddito per eccellenza in Ticino -->
+              <path d="M22.5 12.5 C19.5 7.5 24.5 5 27 8.5" stroke="#fff" stroke-width="3"
+                    fill="none" stroke-linecap="round"/>
+              <path d="M41.5 12.5 C44.5 7.5 39.5 5 37 8.5" stroke="#fff" stroke-width="3"
+                    fill="none" stroke-linecap="round"/>
+              <ellipse cx="16.5" cy="19" rx="6.5" ry="4" fill="#fff"
+                       transform="rotate(-20 16.5 19)"/>
+              <ellipse cx="47.5" cy="19" rx="6.5" ry="4" fill="#fff"
+                       transform="rotate(20 47.5 19)"/>
+              <path d="M23 16 C23 12.4 26 10.5 32 10.5 C38 10.5 41 12.4 41 16
+                       V22.5 C41 29.8 37.2 34.5 32 34.5 C26.8 34.5 23 29.8 23 22.5 Z"
+                    fill="#fff"/>
+              <circle cx="29.2" cy="28.4" r="1.7" fill="#E1001A"/>
+              <circle cx="34.8" cy="28.4" r="1.7" fill="#E1001A"/>
+              <rect y="39" width="64" height="18" fill="#fff"/>
+              <text x="32" y="51.8" text-anchor="middle" font-size="11" font-weight="800"
+                    fill="#E1001A" letter-spacing="1.1"
+                    font-family="Archivo,Helvetica,Arial,sans-serif">STALLA</text>
+            </g>
+          </svg>
+          <div class="corpo-scheda">
+            <div class="riga-titolo">
+              <h3 data-i18n="apps.items.1.name">VetSanit</h3>
+              <span class="pastiglia corso" data-i18n="apps.items.1.badge">In definizione</span>
+            </div>
+            <p class="occhiello" data-i18n="apps.items.1.lead">L'idea: il veterinario che gira le aziende agricole registrerà ogni intervento e farà la fattura sul posto.</p>
+            <p class="dettaglio" data-i18n="apps.items.1.body">Bovini, caprini, suini, equini. L'idea è che ogni intervento resti legato all'animale e all'azienda agricola, così lo storico si ritrova anche anni dopo, e che la fattura si emetta dall'applicazione, sul posto, prima di risalire in macchina. Non c'è ancora una riga di codice: prima vogliamo ascoltare i veterinari che fanno quel giro ogni giorno e capire cosa serve davvero.</p>
+            <div class="dati">
+              <div class="dato"><span class="k" data-i18n="apps.items.1.facts.0.k">Piattaforme</span><span class="v" data-i18n="apps.items.1.facts.0.v">iOS · Android (previste)</span></div>
+              <div class="dato"><span class="k" data-i18n="apps.items.1.facts.1.k">Settore</span><span class="v" data-i18n="apps.items.1.facts.1.v">Veterinaria · zootecnia</span></div>
+              <div class="dato"><span class="k" data-i18n="apps.items.1.facts.2.k">A che punto</span><span class="v" data-i18n="apps.items.1.facts.2.v">In definizione</span></div>
+              <div class="dato"><span class="k" data-i18n="apps.items.1.facts.3.k">Cerchiamo</span><span class="v" data-i18n="apps.items.1.facts.3.v">Veterinari con cui parlare</span></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ── Calenzzu ── -->
+        <article class="scheda">
+          <svg class="piastrella" viewBox="0 0 64 64" role="img" aria-label="Calenzzu">
+            <defs>
+              <clipPath id="t3"><rect width="64" height="64" rx="15"/></clipPath>
+              <clipPath id="cSx"><circle cx="25" cy="22" r="12.5"/></clipPath>
+            </defs>
+            <g clip-path="url(#t3)">
+              <rect width="64" height="64" fill="#E1001A"/>
+              <!-- due agende che si sovrappongono: il pieno è il giorno libero per entrambi -->
+              <circle cx="25" cy="22" r="12.5" fill="#fff" opacity=".45"/>
+              <circle cx="39" cy="22" r="12.5" fill="#fff" opacity=".45"/>
+              <circle cx="39" cy="22" r="12.5" fill="#fff" clip-path="url(#cSx)"/>
+              <rect y="39" width="64" height="18" fill="#fff"/>
+              <text x="32" y="51.8" text-anchor="middle" font-size="11" font-weight="800"
+                    fill="#E1001A" letter-spacing="1.1"
+                    font-family="Archivo,Helvetica,Arial,sans-serif">AGENDA</text>
+            </g>
+          </svg>
+          <div class="corpo-scheda">
+            <div class="riga-titolo">
+              <h3 data-i18n="apps.items.2.name">Calenzzu</h3>
+              <span class="pastiglia corso" data-i18n="apps.items.2.badge">In costruzione</span>
+            </div>
+            <p class="occhiello" data-i18n="apps.items.2.lead">Mette insieme i calendari — personali e di lavoro — di due persone e dice quali giorni sono liberi per entrambe.</p>
+            <p class="dettaglio" data-i18n="apps.items.2.body">Il problema non sono le date: è che nessuno sa quando sono liberi tutti e due. Calenzzu unisce i calendari di entrambi, anche più account Google fra personali e di lavoro, e mostra i giorni in comune, dal pomeriggio libero alla settimana di vacanza. Oggi la logica gira su un prototipo web; il collegamento agli account e l'applicazione arrivano dopo.</p>
+            <div class="dati">
+              <div class="dato"><span class="k" data-i18n="apps.items.2.facts.0.k">Piattaforme</span><span class="v" data-i18n="apps.items.2.facts.0.v">Web (poi l'applicazione)</span></div>
+              <div class="dato"><span class="k" data-i18n="apps.items.2.facts.1.k">Settore</span><span class="v" data-i18n="apps.items.2.facts.1.v">Organizzazione personale</span></div>
+              <div class="dato"><span class="k" data-i18n="apps.items.2.facts.2.k">A che punto</span><span class="v" data-i18n="apps.items.2.facts.2.v">Prototipo web</span></div>
+              <div class="dato"><span class="k" data-i18n="apps.items.2.facts.3.k">Calendari</span><span class="v" data-i18n="apps.items.2.facts.3.v">Google, più account</span></div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section id="servizi">
+    <div class="titolo-sez">
+      <span class="eti" data-i18n="services.label">Cosa facciamo</span>
+      <h2 data-i18n="services.title">Quattro modi di lavorare insieme</h2>
+    </div>
+    <div class="servizi">
+      <div class="servizio">
+        <h3 data-i18n="services.items.0.title">Creazione</h3>
+        <p data-i18n="services.items.0.body">Dall'idea alla consegna: progettazione, sviluppo e pratiche noiose. Curiamo noi la pubblicazione su App Store e Google Play e seguiamo la revisione; l'approvazione la decidono Apple e Google.</p>
+      </div>
+      <div class="servizio">
+        <h3 data-i18n="services.items.1.title">Design</h3>
+        <p data-i18n="services.items.1.body">Interfacce pensate per capirsi in fretta, senza istruzioni. Curiamo i dettagli che si notano solo quando mancano: leggibilità, dimensioni, contrasto.</p>
+      </div>
+      <div class="servizio">
+        <h3 data-i18n="services.items.2.title">Miglioramento</h3>
+        <p data-i18n="services.items.2.body">Avete già un'applicazione che funziona a metà, che è lenta o che non fa quello che vi serve? L'analizziamo, vi diciamo cosa non va e vi proponiamo come sistemarla.</p>
+      </div>
+      <div class="servizio">
+        <h3 data-i18n="services.items.3.title">Manutenzione</h3>
+        <p data-i18n="services.items.3.body">Un'applicazione non è finita il giorno della pubblicazione. Aggiornamenti di sistema, sicurezza e correzioni: quello di cui ci occupiamo dopo lo mettiamo per iscritto in un accordo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="processo">
+    <div class="titolo-sez">
+      <span class="eti" data-i18n="process.label">Come lavoriamo</span>
+      <h2 data-i18n="process.title">Cinque tappe, in quest'ordine</h2>
+    </div>
+    <div class="processo">
+      <div class="tappa">
+        <div class="n" aria-hidden="true">01</div>
+        <div>
+          <h3 data-i18n="process.items.0.title">Ascoltare</h3>
+          <p data-i18n="process.items.0.body">Un incontro, di persona se siete in zona. Capiamo cosa vi serve davvero, che a volte non è quello che avevate in mente all'inizio.</p>
+        </div>
+      </div>
+      <div class="tappa">
+        <div class="n" aria-hidden="true">02</div>
+        <div>
+          <h3 data-i18n="process.items.1.title">Preventivo chiaro</h3>
+          <p data-i18n="process.items.1.body">Un prezzo, per iscritto, con dentro cosa è compreso e cosa no. Se durante il lavoro cambia qualcosa, ve lo diciamo prima — non nella fattura.</p>
+        </div>
+      </div>
+      <div class="tappa">
+        <div class="n" aria-hidden="true">03</div>
+        <div>
+          <h3 data-i18n="process.items.2.title">Vedere prima di costruire</h3>
+          <p data-i18n="process.items.2.body">Prima di scrivere il codice definitivo vi mostriamo come sarà. Correggere una bozza costa poco; correggere un'applicazione già costruita costa molto.</p>
+        </div>
+      </div>
+      <div class="tappa">
+        <div class="n" aria-hidden="true">04</div>
+        <div>
+          <h3 data-i18n="process.items.3.title">Costruire e provare</h3>
+          <p data-i18n="process.items.3.body">Sviluppo a passi brevi, con qualcosa da provare a ogni passo. Niente mesi di silenzio seguiti da una sorpresa: vedete l'applicazione crescere.</p>
+        </div>
+      </div>
+      <div class="tappa">
+        <div class="n" aria-hidden="true">05</div>
+        <div>
+          <h3 data-i18n="process.items.4.title">Pubblicare e restare</h3>
+          <p data-i18n="process.items.4.body">Della pubblicazione negli store ci occupiamo noi e seguiamo la revisione; l'approvazione la decidono Apple e Google. Poi restiamo raggiungibili: parlate con chi ha costruito l'app.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="perche">
+    <div class="titolo-sez">
+      <span class="eti" data-i18n="why.label">Perché noi</span>
+      <h2 data-i18n="why.title">Tre differenze concrete</h2>
+    </div>
+    <div class="motivi">
+      <div class="motivo">
+        <div class="barra"></div>
+        <h3 data-i18n="why.items.0.title">Siamo qui</h3>
+        <p data-i18n="why.items.0.body">Siamo a Minusio, accanto a Locarno: se siete in zona possiamo passare dal vostro ufficio, altrimenti si lavora a distanza. Parliamo italiano, inglese e spagnolo.</p>
+      </div>
+      <div class="motivo">
+        <div class="barra"></div>
+        <h3 data-i18n="why.items.1.title">Parliamo senza gergo</h3>
+        <p data-i18n="why.items.1.body">Vi spieghiamo cosa stiamo facendo con parole normali. Se una cosa è una brutta idea, ve lo diciamo, anche quando accettarla sarebbe più comodo per noi.</p>
+      </div>
+      <div class="motivo">
+        <div class="barra"></div>
+        <h3 data-i18n="why.items.2.title">L'applicazione è vostra</h3>
+        <p data-i18n="why.items.2.body">Codice, account degli store e nome di dominio restano intestati a voi. Se un giorno volete cambiare fornitore, potete farlo senza chiedere il permesso.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div class="contatto" id="contatto">
+  <div class="wrap">
+    <span class="eti" data-i18n="contact.label">Contatto</span>
+    <h2 data-i18n="contact.title">Raccontateci cosa avete in mente.</h2>
+    <p data-i18n="contact.body">Il primo incontro non si paga e non vi impegna a nulla. Se non siamo la scelta giusta per voi, ve lo diciamo subito. Scriveteci a info@utoapps.ch.</p>
+    <div class="vie">
+      <a class="via" href="mailto:info@utoapps.ch">info@utoapps.ch</a>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <footer>
+    <span class="nota" data-i18n="footer.owner_line">UtoApps · Gerard Mir Ferrera · ditta individuale · Minusio, vicino a Locarno (TI)</span>
+    <span class="nota" id="legale"><a href="/impressum.html">Note legali</a> · <a href="/privacy.html">Informativa sulla privacy</a></span>
+  </footer>
+</div>
+
+<script>
+window.LINGUA_PAGINA = "es";
+const I18N = {
+  "it": {
+    "apps": {
+      "label": "Il nostro lavoro",
+      "title": "Una pubblicata, una in costruzione, una in definizione.",
+      "intro": "Una è negli store. Una seconda è in costruzione: il prototipo gira già nel browser. La terza è ancora in definizione, senza una riga di codice scritta. Qui sotto trovate a che punto sono davvero, una per una.",
+      "items": [
+        {
+          "slug": "chronicfriends",
+          "name": "Chronic Friends",
+          "badge": "Pubblicata",
+          "lead": "Diario dei sintomi e comunità per chi convive con una malattia infiammatoria cronica intestinale.",
+          "body": "L'applicazione appartiene a un'altra organizzazione: noi l'abbiamo progettata, sviluppata e pubblicata, dalla prima schermata alla scheda negli store — interfaccia, banca dati, testi legali, traduzioni e pratiche di conformità. Ci siamo occupati anche della procedura di pubblicazione e abbiamo seguito la revisione fino all'approvazione di Apple e Google.",
+          "facts": [
+            {
+              "k": "Piattaforme",
+              "v": "iOS · Android"
+            },
+            {
+              "k": "Settore",
+              "v": "Salute"
+            },
+            {
+              "k": "Negli store da",
+              "v": "Agosto 2026"
+            },
+            {
+              "k": "Titolarità",
+              "v": "Un'altra organizzazione"
+            }
+          ]
+        },
+        {
+          "slug": "vetsanit",
+          "name": "VetSanit",
+          "badge": "In definizione",
+          "lead": "L'idea: il veterinario che gira le aziende agricole registrerà ogni intervento e farà la fattura sul posto.",
+          "body": "Bovini, caprini, suini, equini. L'idea è che ogni intervento resti legato all'animale e all'azienda agricola, così lo storico si ritrova anche anni dopo, e che la fattura si emetta dall'applicazione, sul posto, prima di risalire in macchina. Non c'è ancora una riga di codice: prima vogliamo ascoltare i veterinari che fanno quel giro ogni giorno e capire cosa serve davvero.",
+          "facts": [
+            {
+              "k": "Piattaforme",
+              "v": "iOS · Android (previste)"
+            },
+            {
+              "k": "Settore",
+              "v": "Veterinaria · zootecnia"
+            },
+            {
+              "k": "A che punto",
+              "v": "In definizione"
+            },
+            {
+              "k": "Cerchiamo",
+              "v": "Veterinari con cui parlare"
+            }
+          ]
+        },
+        {
+          "slug": "calenzzu",
+          "name": "Calenzzu",
+          "badge": "In costruzione",
+          "lead": "Mette insieme i calendari — personali e di lavoro — di due persone e dice quali giorni sono liberi per entrambe.",
+          "body": "Il problema non sono le date: è che nessuno sa quando sono liberi tutti e due. Calenzzu unisce i calendari di entrambi, anche più account Google fra personali e di lavoro, e mostra i giorni in comune, dal pomeriggio libero alla settimana di vacanza. Oggi la logica gira su un prototipo web; il collegamento agli account e l'applicazione arrivano dopo.",
+          "facts": [
+            {
+              "k": "Piattaforme",
+              "v": "Web (poi l'applicazione)"
+            },
+            {
+              "k": "Settore",
+              "v": "Organizzazione personale"
+            },
+            {
+              "k": "A che punto",
+              "v": "Prototipo web"
+            },
+            {
+              "k": "Calendari",
+              "v": "Google, più account"
+            }
+          ]
+        }
+      ]
+    },
+    "contact": {
+      "label": "Contatto",
+      "title": "Raccontateci cosa avete in mente.",
+      "body": "Il primo incontro non si paga e non vi impegna a nulla. Se non siamo la scelta giusta per voi, ve lo diciamo subito. Scriveteci a info@utoapps.ch."
+    },
+    "footer": {
+      "owner_line": "UtoApps · Gerard Mir Ferrera · ditta individuale · Minusio, vicino a Locarno (TI)",
+      "legal_note": "Note legali · Informativa sulla privacy",
+      "lang_label": "Lingua"
+    },
+    "header": {
+      "location": "Minusio, vicino a Locarno · Ticino"
+    },
+    "hero": {
+      "h1_before": "App fatte ",
+      "h1_accent": "bene",
+      "h1_after": ", da chi le costruisce in prima persona",
+      "lead": "Progettiamo, costruiamo, miglioriamo e manteniamo applicazioni su misura. Un solo interlocutore dall'idea alla pubblicazione, senza intermediari. Se siete in zona, ci si vede di persona.",
+      "cta_primary": "Guardate cosa costruiamo",
+      "cta_secondary": "Scriveteci"
+    },
+    "lang": "it",
+    "meta": {
+      "title": "UtoApps — app su misura in Ticino, dall'idea agli store",
+      "description": "Progettiamo, costruiamo, miglioriamo e manteniamo app iOS e Android da Minusio, accanto a Locarno. Un solo interlocutore dall'idea agli store."
+    },
+    "nav": {
+      "apps": "Lavori",
+      "services": "Cosa facciamo",
+      "process": "Come lavoriamo",
+      "why": "Perché noi",
+      "contact": "Contatto"
+    },
+    "process": {
+      "label": "Come lavoriamo",
+      "title": "Cinque tappe, in quest'ordine",
+      "items": [
+        {
+          "title": "Ascoltare",
+          "body": "Un incontro, di persona se siete in zona. Capiamo cosa vi serve davvero, che a volte non è quello che avevate in mente all'inizio."
+        },
+        {
+          "title": "Preventivo chiaro",
+          "body": "Un prezzo, per iscritto, con dentro cosa è compreso e cosa no. Se durante il lavoro cambia qualcosa, ve lo diciamo prima — non nella fattura."
+        },
+        {
+          "title": "Vedere prima di costruire",
+          "body": "Prima di scrivere il codice definitivo vi mostriamo come sarà. Correggere una bozza costa poco; correggere un'applicazione già costruita costa molto."
+        },
+        {
+          "title": "Costruire e provare",
+          "body": "Sviluppo a passi brevi, con qualcosa da provare a ogni passo. Niente mesi di silenzio seguiti da una sorpresa: vedete l'applicazione crescere."
+        },
+        {
+          "title": "Pubblicare e restare",
+          "body": "Della pubblicazione negli store ci occupiamo noi e seguiamo la revisione; l'approvazione la decidono Apple e Google. Poi restiamo raggiungibili: parlate con chi ha costruito l'app."
+        }
+      ]
+    },
+    "services": {
+      "label": "Cosa facciamo",
+      "title": "Quattro modi di lavorare insieme",
+      "items": [
+        {
+          "title": "Creazione",
+          "body": "Dall'idea alla consegna: progettazione, sviluppo e pratiche noiose. Curiamo noi la pubblicazione su App Store e Google Play e seguiamo la revisione; l'approvazione la decidono Apple e Google."
+        },
+        {
+          "title": "Design",
+          "body": "Interfacce pensate per capirsi in fretta, senza istruzioni. Curiamo i dettagli che si notano solo quando mancano: leggibilità, dimensioni, contrasto."
+        },
+        {
+          "title": "Miglioramento",
+          "body": "Avete già un'applicazione che funziona a metà, che è lenta o che non fa quello che vi serve? L'analizziamo, vi diciamo cosa non va e vi proponiamo come sistemarla."
+        },
+        {
+          "title": "Manutenzione",
+          "body": "Un'applicazione non è finita il giorno della pubblicazione. Aggiornamenti di sistema, sicurezza e correzioni: quello di cui ci occupiamo dopo lo mettiamo per iscritto in un accordo."
+        }
+      ]
+    },
+    "why": {
+      "label": "Perché noi",
+      "title": "Tre differenze concrete",
+      "items": [
+        {
+          "title": "Siamo qui",
+          "body": "Siamo a Minusio, accanto a Locarno: se siete in zona possiamo passare dal vostro ufficio, altrimenti si lavora a distanza. Parliamo italiano, inglese e spagnolo."
+        },
+        {
+          "title": "Parliamo senza gergo",
+          "body": "Vi spieghiamo cosa stiamo facendo con parole normali. Se una cosa è una brutta idea, ve lo diciamo, anche quando accettarla sarebbe più comodo per noi."
+        },
+        {
+          "title": "L'applicazione è vostra",
+          "body": "Codice, account degli store e nome di dominio restano intestati a voi. Se un giorno volete cambiare fornitore, potete farlo senza chiedere il permesso."
+        }
+      ]
+    }
+  },
+  "de": {
+    "apps": {
+      "label": "Unsere Arbeit",
+      "title": "Drei Apps, drei Etappen",
+      "intro": "Drei Apps, drei verschiedene Stände: Eine steht in den Stores, eine ist im Aufbau, die dritte ist noch in Abklärung – da steht bewusst noch keine Zeile Code. Hier lesen Sie, wie weit jede wirklich ist.",
+      "items": [
+        {
+          "slug": "chronicfriends",
+          "name": "Chronic Friends",
+          "badge": "Veröffentlicht",
+          "lead": "Symptomtagebuch und Community für Menschen mit chronisch-entzündlicher Darmerkrankung (CED). Für iOS und Android.",
+          "body": "Die App gehört einer anderen Organisation. Gestaltet, entwickelt und veröffentlicht haben wir sie – von der ersten Skizze bis zum Eintrag in beiden Stores: Oberfläche, Datenbank, Rechtstexte, Übersetzungen und die Einreichung samt Papierkram. Über die Freigabe haben Apple und Google entschieden; seither ist die App erhältlich.",
+          "facts": [
+            {
+              "k": "Plattformen",
+              "v": "iOS · Android"
+            },
+            {
+              "k": "Bereich",
+              "v": "Gesundheit"
+            },
+            {
+              "k": "In den Stores",
+              "v": "August 2026"
+            },
+            {
+              "k": "Inhaberschaft",
+              "v": "Andere Organisation"
+            }
+          ]
+        },
+        {
+          "slug": "vetsanit",
+          "name": "VetSanit",
+          "badge": "In Abklärung",
+          "lead": "Geplant für Tierärztinnen und Tierärzte, die auf die Höfe fahren: Behandlungen erfassen und die Rechnung gleich vor Ort stellen.",
+          "body": "Rinder, Ziegen, Schweine, Pferde. Jede Behandlung soll dem einzelnen Tier und dem Betrieb zugeordnet bleiben, damit sich die Vorgeschichte auch Jahre später wiederfindet. Und die Rechnung soll in der App entstehen, bevor man wieder ins Auto steigt – nicht am Abend, nicht am Sonntag. Geschrieben ist bisher keine Zeile Code: Zuerst wollen wir hören, was im Stall wirklich fehlt.",
+          "facts": [
+            {
+              "k": "Plattformen",
+              "v": "iOS · Android (geplant)"
+            },
+            {
+              "k": "Bereich",
+              "v": "Tiermedizin · Nutztiere"
+            },
+            {
+              "k": "Stand",
+              "v": "In Abklärung"
+            },
+            {
+              "k": "Wir suchen",
+              "v": "Tierärzte für Gespräche"
+            }
+          ]
+        },
+        {
+          "slug": "calenzzu",
+          "name": "Calenzzu",
+          "badge": "Im Aufbau",
+          "lead": "Legt die Kalender von zwei Personen übereinander – privat und beruflich – und zeigt, wann beide frei sind.",
+          "body": "Der Engpass sind nicht die Kalender, sondern die Frage, wann beide gleichzeitig Zeit haben. Calenzzu führt sie zusammen, auch mehrere Google-Konten pro Person, und zeigt die Überschneidungen: die gemeinsamen freien Tage, vom freien Nachmittag bis zur Ferienwoche. Heute läuft ein Prototyp im Browser, die App kommt später.",
+          "facts": [
+            {
+              "k": "Plattformen",
+              "v": "Web (App folgt)"
+            },
+            {
+              "k": "Bereich",
+              "v": "Persönliche Organisation"
+            },
+            {
+              "k": "Stand",
+              "v": "Prototyp im Web"
+            },
+            {
+              "k": "Kalender",
+              "v": "Google, mehrere Konten"
+            }
+          ]
+        }
+      ]
+    },
+    "contact": {
+      "label": "Kontakt",
+      "title": "Erzählen Sie uns, was Sie vorhaben.",
+      "body": "Das erste Gespräch kostet nichts und verpflichtet Sie zu nichts. Wenn wir nicht die richtige Wahl für Sie sind, sagen wir es Ihnen gleich. Wir korrespondieren auf Italienisch, Englisch oder Spanisch – nehmen Sie einfach die Sprache, die Ihnen davon am nächsten liegt. Schreiben Sie uns an info@utoapps.ch."
+    },
+    "footer": {
+      "owner_line": "UtoApps · Gerard Mir Ferrera · Einzelfirma · Minusio bei Locarno (TI)",
+      "legal_note": "Impressum · Datenschutz",
+      "lang_label": "Sprache"
+    },
+    "header": {
+      "location": "Minusio bei Locarno · Tessin"
+    },
+    "hero": {
+      "h1_before": "Apps aus dem Tessin – Sie reden ",
+      "h1_accent": "direkt",
+      "h1_after": " mit dem Entwickler.",
+      "lead": "Wir planen, bauen, verbessern und betreuen Apps für iOS und Android. Eine Ansprechperson von der ersten Skizze bis in die Stores, keine Vermittler. Sind Sie in der Region, sehen wir uns persönlich.",
+      "cta_primary": "Unsere Arbeit ansehen",
+      "cta_secondary": "Schreiben Sie uns"
+    },
+    "lang": "de",
+    "meta": {
+      "title": "UtoApps – App-Entwicklung in Minusio bei Locarno",
+      "description": "UtoApps aus Minusio bei Locarno plant, gestaltet, verbessert und betreut Apps für iOS und Android. Eine Ansprechperson, von der Skizze bis in die Stores."
+    },
+    "nav": {
+      "apps": "Unsere Arbeit",
+      "services": "Leistungen",
+      "process": "Ablauf",
+      "why": "Warum wir",
+      "contact": "Kontakt"
+    },
+    "process": {
+      "label": "Wie wir arbeiten",
+      "title": "Fünf Schritte, in dieser Reihenfolge",
+      "items": [
+        {
+          "title": "Zuhören",
+          "body": "Ein Gespräch, persönlich, wenn Sie in der Region sind. Wir finden heraus, was Sie wirklich brauchen – manchmal ist das nicht das, was Sie ursprünglich wollten."
+        },
+        {
+          "title": "Klare Offerte",
+          "body": "Ein Preis, schriftlich, mit allem, was drin ist, und allem, was nicht. Ändert sich während der Arbeit etwas, sagen wir es vorher – nicht erst auf der Rechnung."
+        },
+        {
+          "title": "Früh sehen",
+          "body": "Bevor die erste Zeile Code entsteht, zeigen wir Ihnen, wie es aussehen wird. Eine Zeichnung zu ändern kostet wenig, eine gebaute App zu ändern kostet viel."
+        },
+        {
+          "title": "Bauen und testen",
+          "body": "Kurze Schritte, und bei jedem Schritt etwas zum Ausprobieren. Keine monatelange Funkstille und am Schluss eine böse Überraschung."
+        },
+        {
+          "title": "Publizieren und bleiben",
+          "body": "Das Einreichen im App Store und bei Google Play übernehmen wir, die Prüfung begleiten wir. Über die Freigabe entscheiden Apple und Google. Danach bleiben wir erreichbar."
+        }
+      ]
+    },
+    "services": {
+      "label": "Was wir machen",
+      "title": "Vier Arten der Zusammenarbeit",
+      "items": [
+        {
+          "title": "Entwicklung",
+          "body": "Vom ersten Konzept bis zur fertigen App: Gestaltung, Programmierung, Einreichung im App Store und bei Google Play – Papierkram inklusive. Über die Freigabe entscheiden Apple und Google."
+        },
+        {
+          "title": "Gestaltung",
+          "body": "Oberflächen, die man ohne Anleitung versteht. Auch das, was erst auffällt, wenn es fehlt: Lesbarkeit, Kontrast, Schriftgrösse, klare Bedienung."
+        },
+        {
+          "title": "Verbesserung",
+          "body": "Sie haben eine App, die halb fertig ist, langsam läuft oder von niemandem benutzt wird? Wir schauen sie an, sagen Ihnen, was klemmt, und schlagen vor, was sich ändern lässt."
+        },
+        {
+          "title": "Wartung",
+          "body": "Eine App ist am Tag der Veröffentlichung nicht fertig. Updates für neue Systemversionen, Sicherheit und Fehlerbehebungen: Was wir übernehmen, halten wir schriftlich fest."
+        }
+      ]
+    },
+    "why": {
+      "label": "Warum wir",
+      "title": "Drei konkrete Unterschiede",
+      "items": [
+        {
+          "title": "Wir sind hier",
+          "body": "Wir sitzen in Minusio, gleich neben Locarno. Sind Sie in der Region, kommen wir vorbei; sonst läuft alles aus der Ferne. Gearbeitet wird auf Italienisch, Englisch oder Spanisch."
+        },
+        {
+          "title": "Klartext statt Jargon",
+          "body": "Wir erklären in verständlichen Worten, woran wir gerade arbeiten. Und wenn eine Idee schlecht ist, sagen wir es – auch wenn ein Ja für uns bequemer wäre."
+        },
+        {
+          "title": "Die App gehört Ihnen",
+          "body": "Der Code gehört Ihnen, Store-Konten und Domain laufen auf Ihren Namen. Wollen Sie eines Tages den Anbieter wechseln, können Sie das tun, ohne uns zu fragen."
+        }
+      ]
+    }
+  },
+  "fr": {
+    "lang": "fr",
+    "meta": {
+      "title": "UtoApps — applications iOS et Android, Minusio",
+      "description": "UtoApps conçoit, développe et entretient des applications iOS et Android depuis Minusio, près de Locarno. Un seul interlocuteur, de l’idée à la publication."
+    },
+    "nav": {
+      "apps": "Réalisations",
+      "services": "Prestations",
+      "process": "Méthode",
+      "why": "Pourquoi nous choisir",
+      "contact": "Contact"
+    },
+    "header": {
+      "location": "Minusio, près de Locarno · Tessin"
+    },
+    "hero": {
+      "h1_before": "Une application ",
+      "h1_accent": "bien faite",
+      "h1_after": ", par celui qui la développe.",
+      "lead": "UtoApps conçoit, développe, améliore et entretient des applications iOS et Android. Un seul interlocuteur, de l’idée à la publication. Et si vous êtes dans la région, nous venons vous voir.",
+      "cta_primary": "Voir nos réalisations",
+      "cta_secondary": "Écrivez-nous"
+    },
+    "apps": {
+      "label": "Nos réalisations",
+      "title": "Ce sur quoi nous travaillons",
+      "intro": "Trois applications, trois moments différents : une publiée sur l’App Store et Google Play, une en construction dont le prototype tourne déjà, une encore en définition. Voici où en est vraiment chacune.",
+      "items": [
+        {
+          "slug": "chronicfriends",
+          "name": "Chronic Friends",
+          "badge": "Publiée",
+          "lead": "Journal des symptômes et communauté pour les personnes atteintes d’une maladie inflammatoire chronique de l’intestin.",
+          "body": "L’application appartient à une autre organisation : nous l’avons conçue, développée et publiée pour elle, du premier écran jusqu’à la fiche sur l’App Store et Google Play — interface, base de données, textes juridiques, traductions et démarches de conformité. Nous avons mené le dépôt et l’examen jusqu’au bout ; l’autorisation, elle, appartient à Apple et à Google.",
+          "facts": [
+            {
+              "k": "Plateformes",
+              "v": "iOS · Android"
+            },
+            {
+              "k": "Secteur",
+              "v": "Santé"
+            },
+            {
+              "k": "Publiée depuis",
+              "v": "août 2026"
+            },
+            {
+              "k": "Propriété",
+              "v": "Une autre organisation"
+            }
+          ]
+        },
+        {
+          "slug": "vetsanit",
+          "name": "VetSanit",
+          "badge": "En définition",
+          "lead": "L’idée : permettre au vétérinaire qui va de ferme en ferme d’enregistrer chaque soin et d’établir la facture sur place.",
+          "body": "Bovins, caprins, porcins, chevaux. Chaque intervention resterait liée à l’animal et à l’exploitation, pour retrouver l’historique des années plus tard, et la facture partirait de l’application, sur place, avant de remonter en voiture. Pas une ligne de code n’est écrite, et c’est voulu : nous en sommes à définir ce qui doit y figurer, avec les vétérinaires qui voudront bien nous en parler.",
+          "facts": [
+            {
+              "k": "Plateformes",
+              "v": "iOS · Android (prévus)"
+            },
+            {
+              "k": "Secteur",
+              "v": "Vétérinaire · élevage"
+            },
+            {
+              "k": "Avancement",
+              "v": "En définition"
+            },
+            {
+              "k": "Nous cherchons",
+              "v": "Vétérinaires à qui parler"
+            }
+          ]
+        },
+        {
+          "slug": "calenzzu",
+          "name": "Calenzzu",
+          "badge": "En construction",
+          "lead": "Réunit les agendas – privés et professionnels – de deux personnes et montre les jours où elles sont libres toutes les deux.",
+          "body": "Deux personnes n’ont presque jamais les deux agendas sous les yeux en même temps. Calenzzu les rassemble – privés et professionnels, plusieurs comptes Google si besoin – et affiche les jours où elles sont libres toutes les deux, d’un après-midi de libre à une semaine de vacances. Aujourd’hui, c’est un prototype web qui fonctionne ; l’application viendra ensuite.",
+          "facts": [
+            {
+              "k": "Plateformes",
+              "v": "Web (l’application ensuite)"
+            },
+            {
+              "k": "Secteur",
+              "v": "Organisation personnelle"
+            },
+            {
+              "k": "Avancement",
+              "v": "Prototype web"
+            },
+            {
+              "k": "Agendas",
+              "v": "Google, plusieurs comptes"
+            }
+          ]
+        }
+      ]
+    },
+    "services": {
+      "label": "Ce que nous faisons",
+      "title": "Quatre façons de travailler ensemble",
+      "items": [
+        {
+          "title": "Création",
+          "body": "De l’idée à l’application terminée : conception, développement et démarches comprises. Nous la déposons sur l’App Store et Google Play et suivons l’examen ; l’autorisation dépend d’Apple et de Google."
+        },
+        {
+          "title": "Design",
+          "body": "Des interfaces qui se comprennent sans mode d’emploi : des textes lisibles, des boutons là où on les cherche, rien qui oblige à deviner."
+        },
+        {
+          "title": "Amélioration",
+          "body": "Vous avez déjà une application lente, à moitié faite ou que personne n’utilise ? Nous l’examinons, nous vous disons ce qui cloche et ce que cela demande de corriger – avant de toucher au code."
+        },
+        {
+          "title": "Maintenance",
+          "body": "Une application n’est pas finie le jour de sa publication. Mises à jour, corrections, nouvelles versions d’iOS et d’Android : ce dont nous nous chargeons ensuite est fixé par écrit dans un accord."
+        }
+      ]
+    },
+    "process": {
+      "label": "Comment nous travaillons",
+      "title": "Cinq étapes, dans cet ordre",
+      "items": [
+        {
+          "title": "Écouter",
+          "body": "Une rencontre, chez vous si vous êtes dans la région, sinon à distance. Nous cherchons ce qu’il vous faut vraiment, ce qui n’est pas toujours ce que vous aviez en tête."
+        },
+        {
+          "title": "Devis clair",
+          "body": "Un prix, par écrit, avec ce qui est compris et ce qui ne l’est pas. Si quelque chose change en cours de route, vous l’apprenez avant – pas sur la facture."
+        },
+        {
+          "title": "Maquette avant le code",
+          "body": "Avant le code définitif, nous vous montrons à quoi cela ressemblera. Corriger une maquette coûte peu ; corriger une application déjà développée coûte cher."
+        },
+        {
+          "title": "Développer et tester",
+          "body": "Un développement à petits pas, avec quelque chose à essayer à chaque étape. Pas des mois de silence suivis d’une surprise le jour de la livraison."
+        },
+        {
+          "title": "Publier et rester",
+          "body": "Nous déposons l’application sur l’App Store et Google Play et suivons l’examen. La décision revient à Apple et à Google. Ensuite, vous écrivez toujours à la personne qui l’a développée."
+        }
+      ]
+    },
+    "why": {
+      "label": "Pourquoi nous",
+      "title": "Trois différences concrètes",
+      "items": [
+        {
+          "title": "Nous sommes au Tessin",
+          "body": "À Minusio, à côté de Locarno, au bord du lac Majeur. Si vous êtes dans la région, nous passons vous voir ; sinon, tout se fait à distance. Nous travaillons en italien, en anglais et en espagnol."
+        },
+        {
+          "title": "Sans jargon",
+          "body": "Nous expliquons ce que nous faisons avec des mots de tous les jours. Et si une idée est mauvaise, nous vous le disons, même quand il serait plus simple de dire oui."
+        },
+        {
+          "title": "L’application est à vous",
+          "body": "Le code, les comptes App Store et Google Play et le nom de domaine vous appartiennent. Si un jour vous voulez changer de prestataire, vous n’avez à demander l’autorisation de personne."
+        }
+      ]
+    },
+    "contact": {
+      "label": "Contact",
+      "title": "Racontez-nous ce que vous avez en tête",
+      "body": "Le premier entretien ne vous coûte rien et ne vous engage à rien. Si nous ne sommes pas le bon choix pour vous, nous vous le disons tout de suite. Écrivez-nous à info@utoapps.ch en italien, en anglais ou en espagnol : nos trois langues de travail, prenez celle qui vous arrange."
+    },
+    "footer": {
+      "owner_line": "UtoApps · Gerard Mir Ferrera · entreprise individuelle · Minusio, près de Locarno (TI)",
+      "legal_note": "Mentions légales · Protection des données",
+      "lang_label": "Langue"
+    }
+  },
+  "en": {
+    "lang": "en",
+    "meta": {
+      "title": "UtoApps – custom apps in Ticino, from idea to store",
+      "description": "We build, improve and maintain iOS and Android apps from Minusio, next to Locarno. One point of contact from the first idea to the store, no middlemen."
+    },
+    "nav": {
+      "apps": "Work",
+      "services": "What we do",
+      "process": "How we work",
+      "why": "Why us",
+      "contact": "Contact"
+    },
+    "header": {
+      "location": "Minusio, near Locarno · Ticino, Switzerland"
+    },
+    "hero": {
+      "h1_before": "Apps built ",
+      "h1_accent": "properly",
+      "h1_after": " – by the person you talk to.",
+      "lead": "UtoApps designs, builds, improves and maintains apps for companies and professionals. One point of contact from the first idea to the store, no middlemen. If you’re in the area, we meet in person.",
+      "cta_primary": "See our work",
+      "cta_secondary": "Get in touch"
+    },
+    "apps": {
+      "label": "Our work",
+      "title": "Three apps, three stages",
+      "intro": "One is published in the stores, one is being built, and one is still being scoped — no code written yet, on purpose. Here’s where each of them really stands.",
+      "items": [
+        {
+          "slug": "chronicfriends",
+          "name": "Chronic Friends",
+          "badge": "Published",
+          "lead": "A symptom diary and a community for people living with inflammatory bowel disease (IBD, Crohn’s and colitis).",
+          "body": "The app belongs to another organisation; we designed it, developed it and published it on their behalf – from the first screen to the store listing: interface, database, privacy policy and terms of use, translations, and the compliance paperwork both stores ask for. It is live on iOS and Android.",
+          "facts": [
+            {
+              "k": "Platforms",
+              "v": "iOS · Android"
+            },
+            {
+              "k": "Sector",
+              "v": "Health"
+            },
+            {
+              "k": "In stores",
+              "v": "August 2026"
+            },
+            {
+              "k": "Ownership",
+              "v": "Another organisation"
+            }
+          ]
+        },
+        {
+          "slug": "vetsanit",
+          "name": "VetSanit",
+          "badge": "Being scoped",
+          "lead": "A planned app for vets who drive out to farms: it will record each visit animal by animal and invoice before they leave.",
+          "body": "Cattle, goats, pigs, horses. The idea is that every intervention stays attached to the animal and to the holding, so the history is still there years later, and that the invoice leaves the app on the spot, before the drive home – not that evening, not on Sunday. Nothing has been built yet: first we want vets to tell us what is actually missing out there.",
+          "facts": [
+            {
+              "k": "Platforms",
+              "v": "iOS · Android (planned)"
+            },
+            {
+              "k": "Sector",
+              "v": "Veterinary · livestock"
+            },
+            {
+              "k": "Stage",
+              "v": "Being scoped"
+            },
+            {
+              "k": "Looking for",
+              "v": "Vets to talk to"
+            }
+          ]
+        },
+        {
+          "slug": "calenzzu",
+          "name": "Calenzzu",
+          "badge": "Being built",
+          "lead": "Puts two people’s calendars side by side, private and work, and shows the days when both of them are free.",
+          "body": "The problem isn’t the dates. It’s that nobody knows when both people are free at the same time. Calenzzu merges both sets of calendars – several Google accounts each, private and work – and shows the days they have in common, from one free afternoon to a whole week away. Today the logic runs as a working prototype in the browser; the app comes after.",
+          "facts": [
+            {
+              "k": "Platforms",
+              "v": "Web (app later)"
+            },
+            {
+              "k": "Sector",
+              "v": "Personal organisation"
+            },
+            {
+              "k": "Stage",
+              "v": "Web prototype"
+            },
+            {
+              "k": "Calendars",
+              "v": "Google, several accounts"
+            }
+          ]
+        }
+      ]
+    },
+    "services": {
+      "label": "What we do",
+      "title": "Four ways to work together",
+      "items": [
+        {
+          "title": "From scratch",
+          "body": "From the idea to an app submitted to the App Store and Google Play. Design, development and the dull paperwork included, and we see the review through. Approval is Apple’s and Google’s call."
+        },
+        {
+          "title": "Design",
+          "body": "Interfaces you understand without instructions – including the details you only notice when they’re missing: legibility, size, contrast."
+        },
+        {
+          "title": "Improvements",
+          "body": "Have an app that’s half-finished, too slow, or that doesn’t do what you need? We go through it, tell you plainly what is wrong and set out how to put it right."
+        },
+        {
+          "title": "Maintenance",
+          "body": "An app isn’t finished the day it goes live. Updates for new system versions, security patches and fixes: what we look after afterwards is set out in a written agreement."
+        }
+      ]
+    },
+    "process": {
+      "label": "How we work",
+      "title": "Five stages, in this order",
+      "items": [
+        {
+          "title": "Listening",
+          "body": "A meeting, in person if you’re in the area. We work out what you actually need, which is sometimes not what you had in mind at the start."
+        },
+        {
+          "title": "A clear quote",
+          "body": "One price, in writing, saying what’s included and what isn’t. If something changes while the work is going on, you hear about it then – not on the invoice."
+        },
+        {
+          "title": "Seeing it early",
+          "body": "Before the final code is written we show you how it will look. Changing a sketch costs little; changing an app that’s already built costs a lot."
+        },
+        {
+          "title": "Building and testing",
+          "body": "Development in short steps, with something to try at the end of each one. No months of silence and then a surprise: you watch the app grow."
+        },
+        {
+          "title": "Publishing and staying",
+          "body": "We handle the submission to both stores and see the review through; approval is Apple’s and Google’s call. Once it is live we stay reachable: you talk to whoever built the app."
+        }
+      ]
+    },
+    "why": {
+      "label": "Why us",
+      "title": "Three real differences",
+      "items": [
+        {
+          "title": "We’re here",
+          "body": "We’re in Minusio, right next to Locarno. If you’re in the area we can come to your office; if not, everything works remotely. We speak Italian, English and Spanish."
+        },
+        {
+          "title": "We speak without jargon",
+          "body": "We explain what we’re doing in ordinary words. And if an idea is a bad one we say so, even when agreeing would be easier for us."
+        },
+        {
+          "title": "The app belongs to you",
+          "body": "The code, the store accounts and the domain name stay in your name. If one day you want to change supplier, you can do it without asking anyone’s permission."
+        }
+      ]
+    },
+    "contact": {
+      "label": "Contact",
+      "title": "Tell us what you have in mind.",
+      "body": "The first conversation costs nothing and commits you to nothing. If we’re not the right choice for you, we’ll say so at the start. Write to info@utoapps.ch."
+    },
+    "footer": {
+      "owner_line": "UtoApps · Gerard Mir Ferrera · sole proprietorship · Minusio, near Locarno (TI), Switzerland",
+      "legal_note": "Legal notice · Privacy policy",
+      "lang_label": "Language"
+    }
+  },
+  "es": {
+    "lang": "es",
+    "meta": {
+      "title": "UtoApps · Apps a medida en Ticino, de la idea a las tiendas",
+      "description": "Creamos, diseñamos, mejoramos y mantenemos aplicaciones para iOS y Android desde Minusio, junto a Locarno. Un solo interlocutor de la idea a las tiendas."
+    },
+    "nav": {
+      "apps": "Nuestro trabajo",
+      "services": "Servicios",
+      "process": "Proceso",
+      "why": "Por qué nosotros",
+      "contact": "Contacto"
+    },
+    "header": {
+      "location": "Minusio, junto a Locarno · Ticino"
+    },
+    "hero": {
+      "h1_before": "Apps ",
+      "h1_accent": "bien",
+      "h1_after": " hechas, por alguien con nombre y apellido.",
+      "lead": "UtoApps crea, diseña, mejora y mantiene aplicaciones a medida. Un solo interlocutor de la idea a la publicación, sin intermediarios. Si está en la zona, nos vemos en persona.",
+      "cta_primary": "Ver nuestro trabajo",
+      "cta_secondary": "Escríbanos"
+    },
+    "apps": {
+      "label": "Nuestro trabajo",
+      "title": "Una publicada, una en construcción, una en definición.",
+      "intro": "Una la diseñamos, desarrollamos y publicamos para otra organización, y ya está en las tiendas. De las nuestras, una funciona como prototipo en el navegador y la otra sigue en definición, sin código todavía. Aquí, en qué punto está cada una.",
+      "items": [
+        {
+          "slug": "chronicfriends",
+          "name": "Chronic Friends",
+          "badge": "Publicada",
+          "lead": "Diario de síntomas y comunidad para quien convive con una enfermedad inflamatoria intestinal.",
+          "body": "La app pertenece a otra organización: nosotros la diseñamos, la desarrollamos y la publicamos, desde la primera pantalla hasta la ficha en las tiendas. Interfaz, base de datos, textos legales, traducciones y trámites de cumplimiento normativo, además del envío a App Store y Google Play y el seguimiento de la revisión hasta verla disponible.",
+          "facts": [
+            {
+              "k": "Plataformas",
+              "v": "iOS · Android"
+            },
+            {
+              "k": "Sector",
+              "v": "Salud"
+            },
+            {
+              "k": "En tiendas",
+              "v": "Desde agosto 2026"
+            },
+            {
+              "k": "Titularidad",
+              "v": "Otra organización"
+            }
+          ]
+        },
+        {
+          "slug": "vetsanit",
+          "name": "VetSanit",
+          "badge": "En definición",
+          "lead": "La idea, todavía sin código: que el veterinario de granja registre cada intervención animal por animal y facture allí mismo.",
+          "body": "Bovino, caprino, porcino y equino. La intención es que cada intervención quede ligada al animal y a la explotación, para poder consultar el historial años después, y que la factura salga de la propia app en la granja, antes de volver al coche: no por la noche ni el domingo. No hay ni una línea de código escrita, y es a propósito: primero queremos escuchar a los veterinarios que hacen ese trayecto cada día.",
+          "facts": [
+            {
+              "k": "Plataformas",
+              "v": "iOS · Android (previstas)"
+            },
+            {
+              "k": "Sector",
+              "v": "Veterinaria · ganadería"
+            },
+            {
+              "k": "En qué punto",
+              "v": "En definición"
+            },
+            {
+              "k": "Buscamos",
+              "v": "Veterinarios con quien hablar"
+            }
+          ]
+        },
+        {
+          "slug": "calenzzu",
+          "name": "Calenzzu",
+          "badge": "En construcción",
+          "lead": "Junta los calendarios —personales y de trabajo— de dos personas y muestra qué días tienen libres los dos.",
+          "body": "Cuadrar dos agendas es el paso que casi nunca se da: no hay forma rápida de saber cuándo están libres los dos a la vez. Calenzzu une los dos calendarios, con varias cuentas de Google entre personales y de trabajo, marca los solapamientos y muestra los días en común, desde una tarde suelta hasta una semana de vacaciones. Hoy es un prototipo que ya funciona en el navegador; la app llegará después.",
+          "facts": [
+            {
+              "k": "Plataformas",
+              "v": "Web (después la app)"
+            },
+            {
+              "k": "Sector",
+              "v": "Organización personal"
+            },
+            {
+              "k": "En qué punto",
+              "v": "Prototipo web"
+            },
+            {
+              "k": "Calendarios",
+              "v": "Google, varias cuentas"
+            }
+          ]
+        }
+      ]
+    },
+    "services": {
+      "label": "Qué hacemos",
+      "title": "Cuatro maneras de trabajar juntos",
+      "items": [
+        {
+          "title": "Creación",
+          "body": "De la idea a la aplicación terminada: diseño, desarrollo, los trámites aburridos y el envío a App Store y Google Play. Acompañamos la revisión, aunque la aprobación la deciden Apple y Google."
+        },
+        {
+          "title": "Diseño",
+          "body": "Interfaces pensadas para entenderse a la primera. Cuidamos también lo que solo se nota cuando falta: que se lea bien, que los botones se acierten y que se use sin manual."
+        },
+        {
+          "title": "Mejora",
+          "body": "¿Tiene una aplicación que se quedó a medias, va lenta o no la usa nadie? La revisamos, le decimos con claridad qué falla y le proponemos por escrito cómo abordarlo."
+        },
+        {
+          "title": "Mantenimiento",
+          "body": "Una aplicación no está terminada el día que se publica. Actualizaciones, seguridad y correcciones, siempre según lo que acordemos por escrito."
+        }
+      ]
+    },
+    "process": {
+      "label": "Cómo trabajamos",
+      "title": "Cinco etapas, en este orden",
+      "items": [
+        {
+          "title": "Escuchar",
+          "body": "Una reunión, en persona si está en la zona y si no a distancia. Entendemos qué necesita de verdad, y a veces no es lo que tenía en la cabeza al principio."
+        },
+        {
+          "title": "Presupuesto claro",
+          "body": "Un precio por escrito, con lo que entra y lo que no. Si durante el trabajo cambia algo, se lo decimos antes, no en la factura."
+        },
+        {
+          "title": "Ver pronto",
+          "body": "Antes de escribir el código definitivo le mostramos cómo va a ser. Corregir un dibujo cuesta poco; corregir una aplicación ya construida cuesta mucho."
+        },
+        {
+          "title": "Construir y probar",
+          "body": "Desarrollo en tramos cortos, con algo que probar al final de cada uno. Nada de meses de silencio seguidos de una sorpresa: usted ve cómo avanza."
+        },
+        {
+          "title": "Publicar y quedarnos",
+          "body": "Nos ocupamos del envío a App Store y Google Play y acompañamos la revisión; la aprobación la deciden Apple y Google. Después escribe a la misma persona que construyó la app."
+        }
+      ]
+    },
+    "why": {
+      "label": "Por qué nosotros",
+      "title": "Tres diferencias concretas",
+      "items": [
+        {
+          "title": "Estamos aquí",
+          "body": "Trabajamos desde Minusio, junto a Locarno. Si está en la zona, podemos pasar por su oficina; si no, trabajamos a distancia con el mismo interlocutor. Hablamos italiano, inglés y español."
+        },
+        {
+          "title": "Hablamos sin jerga",
+          "body": "Le explicamos lo que hacemos con palabras normales. Y si una idea es mala se lo decimos, aunque decir que sí nos resulte más cómodo."
+        },
+        {
+          "title": "La app es suya",
+          "body": "El código, las cuentas de las tiendas y el dominio quedan a su nombre. Si algún día quiere cambiar de proveedor, puede hacerlo sin pedir permiso."
+        }
+      ]
+    },
+    "contact": {
+      "label": "Contacto",
+      "title": "Cuéntenos qué tiene en mente.",
+      "body": "La primera conversación es gratuita y no le compromete a nada. Si no somos la opción adecuada para usted, se lo decimos de entrada."
+    },
+    "footer": {
+      "owner_line": "UtoApps · Gerard Mir Ferrera · empresa individual · Minusio, junto a Locarno (TI)",
+      "legal_note": "Aviso legal · Política de privacidad",
+      "lang_label": "Idioma"
+    }
+  }
+};
+
+/* ── cambio lingua senza ricaricare ──────────────────────────────────────
+   La pagina è già dipinta in italiano nell'HTML: qui si sostituiscono
+   soltanto i testi, quando il visitatore sceglie un'altra lingua. */
+(function () {
+  var CHIAVE = "utoapps.lingua";
+  var LEGALI = ["impressum.html", "privacy.html"];
+
+  function leggi(dizionario, percorso) {
+    var v = dizionario, p = percorso.split(".");
+    for (var i = 0; i < p.length; i++) {
+      if (v === null || typeof v !== "object") return null;
+      v = v[p[i]];
+    }
+    return typeof v === "string" ? v : null;
+  }
+
+  function meta(sel, valore) {
+    var el = document.querySelector(sel);
+    if (el && valore) el.setAttribute("content", valore);
+  }
+
+  /* "Note legali · Informativa sulla privacy" → due link.
+     Se una lingua non usa il separatore " · " (il francese non lo fa),
+     resta una frase semplice, senza link inventati. */
+  function radice(lingua) { return lingua === "it" ? "/" : "/" + lingua + "/"; }
+
+  /* I due link esistono già nell'HTML: qui cambiano solo testo e destinazione,
+     così restano cliccabili anche senza JavaScript. */
+  function piedeLegale(testo, lingua) {
+    var el = document.getElementById("legale");
+    if (!el) return;
+    var pezzi = testo.split(" · ");
+    var link = el.querySelectorAll("a");
+    if (pezzi.length !== 2 || link.length !== 2) { el.textContent = testo; return; }
+    for (var i = 0; i < 2; i++) {
+      link[i].textContent = pezzi[i];
+      link[i].setAttribute("href", radice(lingua) + LEGALI[i]);
+    }
+  }
+
+  function applica(lingua) {
+    var d = I18N[lingua];
+    if (!d) return;
+
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      var t = leggi(d, el.getAttribute("data-i18n"));
+      if (t !== null) el.textContent = t;
+    });
+    document.querySelectorAll("[data-i18n-aria]").forEach(function (el) {
+      var t = leggi(d, el.getAttribute("data-i18n-aria"));
+      if (t !== null) el.setAttribute("aria-label", t);
+    });
+
+    piedeLegale(d.footer.legal_note, lingua);
+
+    document.documentElement.lang = lingua;
+    document.title = d.meta.title;
+    meta('meta[name="description"]', d.meta.description);
+    meta('meta[property="og:title"]', d.meta.title);
+    meta('meta[property="og:description"]', d.meta.description);
+
+    document.querySelectorAll(".lingua").forEach(function (b) {
+      b.setAttribute("aria-pressed", String(b.dataset.lang === lingua));
+    });
+
+    try { localStorage.setItem(CHIAVE, lingua); } catch (e) {}
+    /* L'indirizzo resta coerente con la lingua mostrata, senza ricaricare. */
+    try { history.replaceState(null, "", radice(lingua) + (window.FILE_PAGINA || "")); } catch (e) {}
+  }
+
+  document.getElementById("lingue").addEventListener("click", function (ev) {
+    var b = ev.target.closest(".lingua");
+    if (b) applica(b.dataset.lang);
+  });
+
+  /* /de/ /fr/ /en/ /es/ fissano window.LINGUA_PAGINA: lì comanda l'indirizzo.
+     Nella radice comanda invece la scelta salvata dal visitatore. */
+  var iniziale = (window.LINGUA_PAGINA && I18N[window.LINGUA_PAGINA]) ? window.LINGUA_PAGINA : null;
+  if (!iniziale) {
+    try { var s = localStorage.getItem(CHIAVE); if (s && I18N[s]) iniziale = s; } catch (e) {}
+  }
+  if (iniziale && iniziale !== "it") applica(iniziale);
+  else piedeLegale(I18N.it.footer.legal_note, "it");
+})();
+</script>
+
+</body>
+</html>

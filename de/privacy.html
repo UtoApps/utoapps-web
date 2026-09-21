@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Datenschutz · UtoApps</title>
+<meta name="description" content="Diese Website erhebt so wenig wie möglich. Hier steht genau, was.">
+<link rel="canonical" href="https://www.utoapps.ch/de/privacy.html">
+<link rel="alternate" hreflang="it" href="https://www.utoapps.ch/privacy.html">
+<link rel="alternate" hreflang="de" href="https://www.utoapps.ch/de/privacy.html">
+<link rel="alternate" hreflang="fr" href="https://www.utoapps.ch/fr/privacy.html">
+<link rel="alternate" hreflang="en" href="https://www.utoapps.ch/en/privacy.html">
+<link rel="alternate" hreflang="es" href="https://www.utoapps.ch/es/privacy.html">
+<link rel="alternate" hreflang="x-default" href="https://www.utoapps.ch/privacy.html">
+<style>
+/* ═══════════════════════════════════════════════════════════════════════
+   UtoApps — landing definitiva, cinque lingue in un solo file.
+   Identità ereditata dalla versione precedente: rosso #E1001A,
+   Archivo (display) + Newsreader (testo) + IBM Plex Mono (dati).
+   RITEMATIZZARE = TOCCARE SOLO :root E IL SUO GEMELLO SCURO.
+   Nessuna dipendenza esterna: i font stanno in fonts/, in locale.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@font-face{font-family:"Archivo";src:url("/fonts/archivo.woff2") format("woff2");font-weight:600 800;font-style:normal;font-display:swap}
+
+
+@font-face{font-family:"Newsreader";src:url("/fonts/newsreader-400.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url("/fonts/ibm-plex-mono-400.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url("/fonts/ibm-plex-mono-500.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}
+
+:root{
+  /* il rosso di marca: bande, barre, bordi, riempimenti SENZA testo */
+  --rosso:#E1001A;
+  /* rosso leggibile: testo rosso su carta, e fondi rossi che portano testo.
+     #E1001A dà 3,64:1 e non passa AA sotto i 24px — qui serve #A80014 (7,5:1) */
+  --rosso-testo:#A80014;
+  --rosso-pieno:#A80014;
+  --su-rosso:#FFFFFF;
+
+  --inchiostro:#16110F;
+  --carta:#FBF9F8;
+  --carta-2:#F2EDEB;
+  --carta-3:#FFFFFF;
+  --nebbia:#6E6360;
+  --linea:#E7E0DD;
+  --linea-forte:#D6CBC6;
+
+  --display:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --testo:"Newsreader",Georgia,"Times New Roman",serif;
+  --dati:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --misura:64ch;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --rosso:#FF3B4E;
+    --rosso-testo:#FF6472;
+    --rosso-pieno:#FF3B4E;
+    --su-rosso:#170406;
+
+    --inchiostro:#F4EFED;
+    --carta:#131011;
+    --carta-2:#1B1718;
+    --carta-3:#211C1D;
+    --nebbia:#A2938F;
+    --linea:#2E2627;
+    --linea-forte:#3D3334;
+  }
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--carta);color:var(--inchiostro);
+  font-family:var(--testo);font-size:17px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px;width:100%}
+h1,h2,h3,.eti{font-family:var(--display)}
+h1,h2,h3{text-wrap:balance;margin:0}
+p{margin:0;max-width:var(--misura);text-wrap:pretty;overflow-wrap:break-word}
+a{color:inherit}
+a:hover{color:var(--rosso-testo)}
+/* El anillo toma el color del texto del elemento, que por diseño ya contrasta con su
+   fondo. Antes era rojo fijo y sobre la banda roja de contacto medía 1,00:1. */
+:focus-visible{outline:3px solid currentColor;outline-offset:3px;border-radius:2px}
+img,svg{max-width:100%}
+
+.eti{
+  font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--nebbia);
+}
+
+/* ── il motivo della marca: la fascia rossa al vivo, in cima a tutto ───── */
+.fascia{height:10px;background:var(--rosso)}
+
+/* ── testata ──────────────────────────────────────────────────────────── */
+.testata{border-bottom:1px solid var(--linea)}
+.testata-alto{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;flex-wrap:wrap;padding:22px 0 18px;
+}
+.marchio{display:flex;align-items:center;gap:12px;text-decoration:none}
+.marchio:hover{color:inherit}
+.marchio svg{display:block;width:42px;height:42px;border-radius:10px;flex:none}
+.marchio .nome{font-family:var(--display);font-size:25px;font-weight:700;letter-spacing:-.02em}
+.marchio .nome b{color:var(--rosso-testo);font-weight:800}
+
+.lingue{display:flex;align-items:center;gap:2px}
+.lingua{
+  font-family:var(--dati);font-size:12px;letter-spacing:.1em;font-weight:400;
+  background:none;border:0;color:var(--nebbia);cursor:pointer;
+  padding:8px 9px;min-height:38px;line-height:1;
+  border-bottom:2px solid transparent;
+}
+.lingua:hover{color:var(--inchiostro)}
+.lingua[aria-pressed="true"]{
+  color:var(--inchiostro);font-weight:500;border-bottom-color:var(--rosso);
+}
+
+.testata-basso{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:10px 26px;flex-wrap:wrap;padding:0 0 14px;
+}
+.sede{
+  font-family:var(--dati);font-size:11px;letter-spacing:.12em;
+  color:var(--nebbia);text-transform:uppercase;
+}
+.nav{display:flex;flex-wrap:wrap;gap:4px 18px;margin-left:auto}
+.nav a{
+  font-family:var(--display);font-size:13.5px;font-weight:600;
+  text-decoration:none;color:var(--nebbia);padding:4px 0;
+  border-bottom:2px solid transparent;
+}
+.nav a:hover{color:var(--inchiostro);border-bottom-color:var(--rosso)}
+
+/* ── apertura ─────────────────────────────────────────────────────────── */
+.apertura{padding:52px 0 58px;display:grid;gap:26px;justify-items:start}
+.apertura h1{
+  font-size:clamp(34px,7.2vw,74px);font-weight:800;line-height:1.03;
+  letter-spacing:-.035em;max-width:16ch;
+}
+.apertura h1 em{font-style:normal;color:var(--rosso-testo)}
+.sommario{font-size:19px;line-height:1.6;color:var(--nebbia);max-width:56ch}
+.azioni{display:flex;gap:12px;flex-wrap:wrap;margin-top:2px}
+.btn{
+  font-family:var(--display);font-size:15.5px;font-weight:600;
+  padding:13px 22px;text-decoration:none;border:2px solid var(--rosso-pieno);
+  background:var(--rosso-pieno);color:var(--su-rosso);
+  transition:transform .16s ease;min-height:48px;
+  display:inline-flex;align-items:center;
+}
+.btn:hover{color:var(--su-rosso);transform:translateY(-2px)}
+.btn.vuoto{background:transparent;color:var(--rosso-testo);border-color:var(--rosso)}
+.btn.vuoto:hover{color:var(--rosso-testo)}
+
+/* ── sezioni ──────────────────────────────────────────────────────────── */
+section{padding:54px 0}
+.titolo-sez{display:grid;gap:11px;margin-bottom:34px;justify-items:start}
+.titolo-sez h2{font-size:clamp(26px,4.6vw,38px);font-weight:700;letter-spacing:-.025em}
+.titolo-sez p{color:var(--nebbia);font-size:17.5px}
+
+/* ═══ IL NOSTRO LAVORO ══════════════════════════════════════════════════
+   Ogni app è una SCHEDA: piastrella di marca + testo + striscia di dati.
+   Lo stato sta nella pastiglia (piena = pubblicata, vuota = in corso),
+   non in un numero: non sono una sequenza. ─────────────────────────── */
+.zona-app{background:var(--carta-2);border-top:1px solid var(--linea);
+          border-bottom:1px solid var(--linea)}
+.schede{display:grid;gap:20px}
+.scheda{
+  background:var(--carta-3);border:1px solid var(--linea);
+  display:grid;grid-template-columns:1fr;gap:20px;
+  padding:24px 20px;align-items:start;
+  transition:border-color .18s ease,transform .18s ease;
+}
+.scheda:hover{border-color:var(--linea-forte);transform:translateY(-2px)}
+/* la piastrella è un'insegna di marca: i suoi colori NON seguono il tema,
+   come non lo segue un logo. Funziona su carta e su fondo scuro. */
+.piastrella{width:78px;height:78px;border-radius:18px;display:block;flex:none}
+.corpo-scheda{display:grid;gap:13px;justify-items:start;min-width:0}
+.riga-titolo{display:flex;align-items:baseline;gap:13px;flex-wrap:wrap}
+.riga-titolo h3{font-size:26px;font-weight:800;letter-spacing:-.03em}
+.pastiglia{
+  font-family:var(--dati);font-size:10.5px;font-weight:500;letter-spacing:.13em;
+  text-transform:uppercase;padding:5px 11px;white-space:nowrap;
+}
+.pastiglia.viva{background:var(--rosso-pieno);color:var(--su-rosso)}
+.pastiglia.corso{background:transparent;color:var(--nebbia);
+                 border:1px solid var(--linea-forte)}
+.occhiello{font-size:18.5px;line-height:1.5;color:var(--inchiostro);max-width:52ch}
+.dettaglio{font-size:16px;color:var(--nebbia);line-height:1.6;max-width:60ch}
+
+/* le griglie a filo: colonne che dividono sempre il numero di celle,
+   altrimenti le tracce vuote lascerebbero un rettangolo grigio */
+.dati{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:1px;background:var(--linea);border:1px solid var(--linea);width:100%;
+  margin-top:4px;
+}
+.dato{background:var(--carta-3);padding:12px 14px;display:grid;gap:3px}
+.dato .k{font-family:var(--dati);font-size:10px;letter-spacing:.12em;
+         text-transform:uppercase;color:var(--nebbia)}
+.dato .v{font-family:var(--display);font-size:14.5px;font-weight:600;
+         letter-spacing:-.01em;line-height:1.35}
+
+.negozi{display:flex;gap:10px;flex-wrap:wrap;margin-top:2px}
+.negozio{
+  font-family:var(--display);font-size:14px;font-weight:600;
+  text-decoration:none;padding:11px 15px;border:1px solid var(--linea-forte);
+  color:var(--inchiostro);display:inline-flex;align-items:center;gap:7px;
+  min-height:44px;transition:border-color .16s ease,color .16s ease;
+}
+.negozio:hover{border-color:var(--rosso);color:var(--rosso-testo)}
+.negozio .frec{font-family:var(--dati);font-size:12px;color:var(--nebbia)}
+.negozio:hover .frec{color:var(--rosso-testo)}
+
+/* ── cosa facciamo ────────────────────────────────────────────────────── */
+.servizi{display:grid;grid-template-columns:1fr;gap:1px;
+         background:var(--linea);border:1px solid var(--linea)}
+.servizio{background:var(--carta);padding:26px 22px 28px;display:grid;gap:10px;align-content:start}
+.servizio h3{font-size:19px;font-weight:700;letter-spacing:-.01em}
+.servizio p{font-size:16px;color:var(--nebbia);line-height:1.58}
+
+
+/* ── come lavoriamo: qui il numero SERVE, è una sequenza vera ─────────── */
+.processo{display:grid;gap:0}
+.tappa{
+  display:grid;grid-template-columns:44px 1fr;gap:14px;
+  padding:22px 0;border-top:1px solid var(--linea);align-items:start;
+}
+.tappa:last-child{border-bottom:1px solid var(--linea)}
+.tappa .n{font-family:var(--dati);font-size:13px;color:var(--rosso-testo);
+          padding-top:5px;letter-spacing:.06em}
+.tappa h3{font-size:19px;font-weight:700;margin-bottom:6px;letter-spacing:-.01em}
+.tappa p{font-size:16px;color:var(--nebbia);line-height:1.58}
+
+/* ── perché noi ───────────────────────────────────────────────────────── */
+.motivi{display:grid;grid-template-columns:1fr;gap:28px}
+.motivo{display:grid;gap:9px;align-content:start}
+.motivo h3{font-size:17.5px;font-weight:700;letter-spacing:-.01em}
+.motivo p{font-size:16px;color:var(--nebbia);line-height:1.58}
+.motivo .barra{width:34px;height:4px;background:var(--rosso)}
+
+/* ── contatto ─────────────────────────────────────────────────────────── */
+.contatto{background:var(--rosso-pieno);color:var(--su-rosso);padding:54px 0 58px}
+.contatto .eti{color:var(--su-rosso);opacity:.85}
+.contatto h2{font-size:clamp(27px,5.2vw,44px);font-weight:800;letter-spacing:-.03em;
+             max-width:18ch;line-height:1.08;margin-top:12px}
+.contatto p{color:var(--su-rosso);margin-top:15px;font-size:18px;max-width:58ch}
+.vie{display:flex;gap:13px;flex-wrap:wrap;margin-top:28px}
+.via{
+  font-family:var(--display);font-size:15.5px;font-weight:600;
+  background:var(--su-rosso);color:var(--rosso-pieno);
+  padding:13px 20px;text-decoration:none;border:2px solid var(--su-rosso);
+  transition:transform .16s ease;min-height:48px;
+  display:inline-flex;align-items:center;overflow-wrap:anywhere;
+}
+.via:hover{transform:translateY(-2px);color:var(--rosso-pieno)}
+.via.vuota{background:transparent;color:var(--su-rosso)}
+.via.vuota:hover{color:var(--su-rosso)}
+
+/* ── piede legale ─────────────────────────────────────────────────────── */
+footer{padding:28px 0 44px;display:flex;justify-content:space-between;
+       gap:10px 20px;flex-wrap:wrap;align-items:baseline}
+footer .nota{font-family:var(--dati);font-size:11px;letter-spacing:.08em;
+             color:var(--nebbia);line-height:1.7}
+footer .nota a{color:var(--nebbia);text-decoration-thickness:1px;text-underline-offset:3px}
+footer .nota a:hover{color:var(--rosso-testo)}
+
+@media (min-width:560px){
+  body{font-size:18px}
+  .wrap{padding:0 28px}
+  .sommario{font-size:21px}
+  .tappa{grid-template-columns:64px 1fr;gap:22px}
+  .servizi{grid-template-columns:repeat(2,1fr)}
+  .motivi{grid-template-columns:repeat(2,1fr)}
+}
+@media (min-width:760px){
+  .apertura{padding:64px 0 74px}
+  section{padding:64px 0}
+  .titolo-sez{margin-bottom:40px}
+  .scheda{grid-template-columns:96px 1fr;gap:26px;padding:28px 28px 26px}
+  .piastrella{width:96px;height:96px;border-radius:22px}
+  .schede{gap:22px}
+  .riga-titolo h3{font-size:29px}
+  .occhiello{font-size:19.5px}
+  .dettaglio,.servizio p,.tappa p,.motivo p{font-size:16.5px}
+  .dato .v{font-size:15px}
+  .marchio svg{width:46px;height:46px;border-radius:11px}
+  .marchio .nome{font-size:27px}
+  .dati{grid-template-columns:repeat(4,1fr)}
+  .motivi{grid-template-columns:repeat(3,1fr)}
+}
+@media (min-width:1000px){
+  .servizi{grid-template-columns:repeat(4,1fr)}
+}
+
+@media (prefers-reduced-motion:no-preference){
+  html{scroll-behavior:smooth}
+  .apertura h1,.sommario,.azioni{animation:sali .7s cubic-bezier(.2,.7,.3,1) both}
+  .sommario{animation-delay:.09s}
+  .azioni{animation-delay:.17s}
+  @keyframes sali{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+}
+@media (prefers-reduced-motion:reduce){
+  .scheda:hover,.btn:hover,.via:hover{transform:none}
+  *{transition-duration:.01ms !important}
+}
+
+.legale{max-width:var(--misura);margin:0 auto;padding:0 20px 64px}
+.legale header{display:flex;align-items:center;justify-content:space-between;
+               gap:16px;flex-wrap:wrap;padding:28px 0 22px}
+.legale h1{font-family:var(--display);font-size:clamp(28px,5vw,40px);line-height:1.08;
+           letter-spacing:-.02em;margin:18px 0 10px}
+.legale .occhiello{font-family:var(--dati);font-size:12px;letter-spacing:.08em;
+                   text-transform:uppercase;color:var(--nebbia)}
+.legale .guida{font-family:var(--testo);font-size:18px;color:var(--nebbia);margin:0 0 34px}
+.legale h2{font-family:var(--display);font-size:19px;letter-spacing:-.01em;
+           margin:30px 0 8px;padding-top:18px;border-top:1px solid var(--linea)}
+.legale p{font-family:var(--testo);font-size:17px;line-height:1.62;margin:0 0 10px}
+.legale a{color:var(--rosso-testo);text-decoration-thickness:1px;text-underline-offset:3px}
+.legale .torna{font-family:var(--dati);font-size:12px;letter-spacing:.06em}
+.legale .lingue-legali{font-family:var(--dati);font-size:12px;letter-spacing:.06em;
+                       color:var(--nebbia);margin-top:40px;padding-top:18px;
+                       border-top:1px solid var(--linea)}
+.legale .lingue-legali a{color:var(--nebbia)}
+.legale .lingue-legali [aria-current]{color:var(--inchiostro);text-decoration:none;font-weight:500}
+</style>
+</head>
+<body>
+<div class="legale">
+  <header>
+    <a class="marchio" href="#cima">
+      <svg viewBox="0 0 64 64" role="img" aria-label="UtoApps">
+        <defs><clipPath id="q"><rect width="64" height="64" rx="15"/></clipPath></defs>
+        <g clip-path="url(#q)">
+          <rect width="64" height="64" fill="#E1001A"/>
+          <path d="M9 34 L19 15 L29 34 Z" fill="#fff" opacity=".55"/>
+          <path d="M21 34 L32 4 L43 34 Z" fill="#fff"/>
+          <path d="M35 34 L45 17 L55 34 Z" fill="#fff" opacity=".55"/>
+          <rect y="39" width="64" height="18" fill="#fff"/>
+          <text x="32" y="52.4" text-anchor="middle" font-size="16" font-weight="800"
+                fill="#E1001A" letter-spacing=".4"
+                font-family="Archivo,Helvetica,Arial,sans-serif">Apps</text>
+        </g>
+      </svg>
+      <span class="nome">Uto<b>Apps</b></span>
+    </a>
+    <a class="torna" href="/de/">Zurück zur Startseite</a>
+  </header>
+  <main>
+    <p class="occhiello">UtoApps</p>
+    <h1>Datenschutz</h1>
+    <p class="guida">Diese Website erhebt so wenig wie möglich. Hier steht genau, was.</p>
+    <h2>Verantwortliche Stelle</h2><p>Gerard Mir Ferrera (UtoApps) · Via Rinaldo Simen 4 · 6648 Minusio (TI) · Schweiz</p><p><a href="mailto:info@utoapps.ch">info@utoapps.ch</a></p><h2>Was diese Website nicht tut</h2><p>Sie setzt keine Cookies. Sie verwendet keine Statistik- oder Analysewerkzeuge. Sie hat keine Social-Media-Schaltflächen und bindet keine Inhalte Dritter ein.</p><p>Die Schriften liegen zusammen mit der Website auf demselben Server. Sie werden nicht von aussen nachgeladen, damit Ihre IP-Adresse zum Lesen dieser Seite an keinen Dritten geht.</p><h2>Vom Server erfasste Daten</h2><p>Die Website wird bei GitHub Pages (GitHub, Inc., USA) gehostet. Wie jeder Webserver hält er die Aufrufe in Protokolldateien fest, unter anderem IP-Adresse, Datum und Uhrzeit, aufgerufene Seite und Browsertyp.</p><p>Sie dienen dem Betrieb und der Sicherheit des Dienstes. Wir greifen nicht darauf zu und führen sie auf keine Person zurück.</p><h2>Wenn Sie uns schreiben</h2><p>Das Postfach info@utoapps.ch läuft über Google Workspace (Google Ireland Limited).</p><p>Ihre Nachricht, Ihre E-Mail-Adresse und das, was Sie uns erzählen, bleiben so lange im Postfach, wie es für die Antwort und die daraus entstehende Arbeit nötig ist. Wir nutzen sie für nichts anderes, schicken Ihnen keine Werbung und geben sie an niemanden weiter.</p><h2>Übermittlung ins Ausland</h2><p>GitHub und Google bearbeiten Daten auch ausserhalb der Schweiz, unter anderem in den USA, gestützt auf die vertraglichen Garantien nach dem revidierten Datenschutzgesetz (revDSG).</p><h2>Ihre Rechte</h2><p>Sie können jederzeit fragen, welche Daten Sie betreffen, und sie berichtigen oder löschen lassen: <a href="mailto:info@utoapps.ch">info@utoapps.ch</a>.</p><p>Sind Sie mit unserer Antwort nicht einverstanden, können Sie sich an den Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) in Bern wenden.</p><h2>Änderungen</h2><p>Diese Erklärung ändert sich, wenn sich die eingesetzten Werkzeuge ändern. Fassung vom 21. September 2026.</p>
+    <p class="lingue-legali"><a href="/privacy.html" hreflang="it">IT</a> · <a href="/de/privacy.html" hreflang="de" aria-current="page">DE</a> · <a href="/fr/privacy.html" hreflang="fr">FR</a> · <a href="/en/privacy.html" hreflang="en">EN</a> · <a href="/es/privacy.html" hreflang="es">ES</a> · <a href="/de/impressum.html">Impressum</a></p>
+  </main>
+</div>
+</body>
+</html>
