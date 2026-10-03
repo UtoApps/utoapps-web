@@ -753,6 +753,13 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
   color:var(--rosso-testo);background:linear-gradient(180deg,var(--tinta-1),var(--tinta-2));border:1px solid var(--bordo-scheda)}
 .chips svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;flex:none}
 
+/* ═══ 3 ott 2026: DIECI servizi (+ Google Search); la riga che dice cos'è l'App semplice ═══ */
+.per-chi-carta{display:block;margin-top:10px;font-size:14px;line-height:1.45;color:var(--nebbia)}
+@media (min-width:1080px){.griglia-nove > .carta-rossa{grid-column:1 / -1}}
+
+/* ═══ 3 ott 2026: il marchio più grande nelle schede di contatto (era 44 px) ═══ */
+.logo-contatto{height:68px;margin-bottom:24px}
+
 /* ── margen vertical de la cabecera (ver build-site.py, parche 7) ─────── */
 .testata .testata-alto{padding-block:32px 18px}
 .testata .testata-basso{padding-block:0 16px}
@@ -788,7 +795,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
 <div class="wrap eroe-griglia">
   <div class="apertura">
     <h1 data-i18n="hero.titolo">Meno lavoro a mano, più tempo per i vostri clienti.</h1>
-    <p class="sottotitolo" data-i18n="hero.sottotitolo">Nove modi per lavorare meglio, costruiti su misura per il vostro mestiere.</p>
+    <p class="sottotitolo" data-i18n="hero.sottotitolo">Dieci modi per lavorare meglio, costruiti su misura per il vostro mestiere.</p>
     <p class="sommario" data-i18n="hero.lead">Progettiamo, miglioriamo e automatizziamo flussi di lavoro su misura per la vostra attività.</p>
     <div class="azioni">
       <a class="btn" href="#home-servizi" data-i18n="hero.cta_primary">Guardate cosa costruiamo</a>
@@ -818,13 +825,13 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
   <section id="home-servizi" class="home-nove">
     <div class="titolo-sez">
       <a class="eti eti-link" href="#servizi"><span data-i18n="servizi.label">Cosa facciamo</span> <span class="frec" aria-hidden="true">→</span></a>
-      <h2 data-i18n="servizi.title">Nove servizi. Uno solo, o tutti insieme.</h2>
+      <h2 data-i18n="servizi.title">Dieci servizi. Uno solo, o tutti insieme.</h2>
     </div>
     <div class="griglia-nove">
       <a class="rec-card rec-passi-card carta-servizio google-card" href="#google">
         <div class="rec-testo">
-          <span class="eti"><span class="num-carta" aria-hidden="true">01</span><span data-i18n="google.label">Google e Google Maps</span></span>
-          <h3 data-i18n="google.name">Farsi trovare su Google</h3>
+          <span class="eti"><span class="num-carta" aria-hidden="true">01</span><span data-i18n="google.label">La vostra scheda</span></span>
+          <h3 data-i18n="google.name">Google Maps</h3>
           <p data-i18n="google.lead">Quando cercano la vostra attività, Google mostra una scheda con orari, foto e indicazioni. La completiamo noi.</p>
         </div>
         <div class="mock-google" aria-hidden="true">
@@ -841,10 +848,23 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
         </div>
         <span class="rec-prezzo"><span class="kit" data-i18n="google.livelli.0.nome">Scheda Google completa</span><span class="cifra"><span data-i18n="ui.prezzo_da">da</span> <span data-i18n="google.livelli.0.da">CHF 290</span> <span class="frec" aria-hidden="true">→</span></span></span>
       </a>
+      <a class="rec-card rec-passi-card carta-servizio" href="#google-search">
+        <div class="rec-testo">
+          <span class="eti"><span class="num-carta" aria-hidden="true">02</span><span data-i18n="search.label">Fatevi trovare nelle ricerche</span></span>
+          <h3 data-i18n="search.name">Google Search</h3>
+          <p data-i18n="search.lead">Quando cercano quello che fate, Google deve capire il vostro sito. Lo prepariamo noi.</p>
+        </div>
+        <ol class="rec-passi">
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg><span data-i18n="search.carta.passi.0">Scopriamo le parole che la gente cerca davvero.</span></li>
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 8.5h18"/><path d="M6.5 12.5h7M6.5 15.5h5"/></svg><span data-i18n="search.carta.passi.1">Le mettiamo nei titoli e nei testi del vostro sito.</span></li>
+          <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 11.2L20.5 3.5l-7.7 17-2.4-6.9z"/><path d="M10.4 13.6l10.1-10.1"/></svg><span data-i18n="search.carta.passi.2">Lo segnaliamo a Google e sistemiamo i vostri dati su search.ch e local.ch.</span></li>
+        </ol>
+        <span class="rec-prezzo"><span class="kit" data-i18n="search.livelli.0.nome">Sito pronto per Google</span><span class="cifra"><span data-i18n="ui.prezzo_da">da</span> <span data-i18n="search.livelli.0.da">CHF 490</span> <span class="frec" aria-hidden="true">→</span></span></span>
+      </a>
       <a class="rec-card rec-passi-card carta-servizio" href="#recensioni">
         <div class="rec-testo">
-          <span class="eti"><span class="num-carta" aria-hidden="true">02</span><span data-i18n="recensioni.home.label">Per ogni mestiere</span></span>
-          <h3 data-i18n="recensioni.name">Recensioni Google in un clic</h3>
+          <span class="eti"><span class="num-carta" aria-hidden="true">03</span><span data-i18n="recensioni.home.label">Per ogni mestiere</span></span>
+          <h3 data-i18n="recensioni.name">Customer Feedback</h3>
           <p data-i18n="recensioni.problema.0">Chi vi cerca su Google guarda prima le stelle, poi tutto il resto.</p>
         </div>
         <ol class="rec-passi">
@@ -856,7 +876,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
       </a>
       <a class="rec-card rec-passi-card carta-servizio" href="#servizio-app">
         <div class="rec-testo">
-          <span class="eti"><span class="num-carta" aria-hidden="true">03</span><span data-i18n="servizi.items.0.carta.eti">Sul telefono dei clienti</span></span>
+          <span class="eti"><span class="num-carta" aria-hidden="true">04</span><span data-i18n="servizi.items.0.carta.eti">Sul telefono dei clienti</span></span>
           <h3 data-i18n="servizi.items.0.name">App iOS e Android</h3>
           <p data-i18n="servizi.items.0.lead">L'applicazione che i vostri clienti — o i vostri collaboratori — si installano sul telefono.</p>
         </div>
@@ -865,11 +885,12 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
           <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 16v-5a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg><span data-i18n="servizi.items.0.carta.passi.1">Ricevono i vostri avvisi: offerte, turni, promemoria.</span></li>
           <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/><path d="M9 14.5l2 2 4-4"/></svg><span data-i18n="servizi.items.0.carta.passi.2">Prenotano, ordinano o registrano in un tocco.</span></li>
         </ol>
-        <span class="rec-prezzo"><span class="kit" data-i18n="servizi.items.0.livelli.0.nome">App semplice</span><span class="cifra"><span data-i18n="ui.prezzo_da">da</span> <span data-i18n="servizi.items.0.livelli.0.da">CHF 6'000</span> <span class="frec" aria-hidden="true">→</span></span></span>
+        <span class="rec-prezzo"><span class="kit" data-i18n="servizi.items.0.livelli.0.nome">App semplice</span><span class="cifra"><span data-i18n="ui.prezzo_da">da</span> <span data-i18n="servizi.items.0.livelli.0.da">CHF 4'900</span> <span class="frec" aria-hidden="true">→</span></span></span>
+        <span class="per-chi-carta" data-i18n="servizi.items.0.livelli.0.per_chi">Informazioni, avvisi, niente registrazione.</span>
       </a>
       <a class="rec-card rec-passi-card carta-servizio" href="#servizio-siti-web">
         <div class="rec-testo">
-          <span class="eti"><span class="num-carta" aria-hidden="true">04</span><span data-i18n="servizi.items.1.carta.eti">Dove vi cercano</span></span>
+          <span class="eti"><span class="num-carta" aria-hidden="true">05</span><span data-i18n="servizi.items.1.carta.eti">Dove vi cercano</span></span>
           <h3 data-i18n="servizi.items.1.name">Siti web e web app</h3>
           <p data-i18n="servizi.items.1.lead">Il vostro indirizzo su internet, e gli strumenti che ci girano dentro.</p>
         </div>
@@ -882,7 +903,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
       </a>
       <a class="rec-card rec-passi-card carta-servizio" href="#servizio-software">
         <div class="rec-testo">
-          <span class="eti"><span class="num-carta" aria-hidden="true">05</span><span data-i18n="servizi.items.2.carta.eti">Al posto di quaderni ed Excel</span></span>
+          <span class="eti"><span class="num-carta" aria-hidden="true">06</span><span data-i18n="servizi.items.2.carta.eti">Al posto di quaderni ed Excel</span></span>
           <h3 data-i18n="servizi.items.2.name">Software gestionale</h3>
           <p data-i18n="servizi.items.2.lead">Il programma fatto su misura per come lavorate voi.</p>
         </div>
@@ -895,7 +916,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
       </a>
       <a class="rec-card rec-passi-card carta-servizio" href="#servizio-automazioni">
         <div class="rec-testo">
-          <span class="eti"><span class="num-carta" aria-hidden="true">06</span><span data-i18n="servizi.items.3.carta.eti">Meno copia-incolla</span></span>
+          <span class="eti"><span class="num-carta" aria-hidden="true">07</span><span data-i18n="servizi.items.3.carta.eti">Meno copia-incolla</span></span>
           <h3 data-i18n="servizi.items.3.name">Automazioni</h3>
           <p data-i18n="servizi.items.3.lead">Il lavoro ripetitivo fatto da solo, ogni giorno, senza sbagliare.</p>
         </div>
@@ -908,7 +929,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
       </a>
       <a class="rec-card rec-passi-card carta-servizio" href="#servizio-design">
         <div class="rec-testo">
-          <span class="eti"><span class="num-carta" aria-hidden="true">07</span><span data-i18n="servizi.items.4.carta.eti">Prima di costruire</span></span>
+          <span class="eti"><span class="num-carta" aria-hidden="true">08</span><span data-i18n="servizi.items.4.carta.eti">Prima di costruire</span></span>
           <h3 data-i18n="servizi.items.4.name">Design</h3>
           <span class="chips-eti" data-i18n="servizi.items.4.carta.chips_label">Cosa disegniamo</span><ul class="chips"><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6.5" y="2" width="11" height="20" rx="2.2"/><path d="M12 6.5v7M9 10.5l3 3 3-3M10.5 18.5h3"/></svg><span data-i18n="servizi.items.4.carta.chips.0">App</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 8.5h18"/><path d="M6.5 12.5h7M6.5 15.5h5"/></svg><span data-i18n="servizi.items.4.carta.chips.1">Siti web</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 14.5h18M9 9v11"/></svg><span data-i18n="servizi.items.4.carta.chips.2">Software</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M7.5 16.5v-3.5M12 16.5v-5M16.5 16.5v-2"/></svg><span data-i18n="servizi.items.4.carta.chips.3">Pannelli di controllo</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></svg><span data-i18n="servizi.items.4.carta.chips.4">Automazioni</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="5.5" cy="6" r="2.3"/><circle cx="18.5" cy="6" r="2.3"/><circle cx="12" cy="18" r="2.3"/><path d="M7.8 6h8.4M6.6 8.1l4.3 7.8M17.4 8.1l-4.3 7.8"/></svg><span data-i18n="servizi.items.4.carta.chips.5">Flussi di lavoro</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.5l2.6 5.3 5.8.8-4.2 4.1 1 5.8L12 16.8l-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z"/></svg><span data-i18n="servizi.items.4.carta.chips.6">Logo e marchio</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="8" cy="12" r="2"/><path d="M12.5 10.5h5M12.5 13.5h4"/></svg><span data-i18n="servizi.items.4.carta.chips.7">Biglietti da visita</span></li></ul>
         </div>
@@ -921,7 +942,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
       </a>
       <a class="rec-card rec-passi-card carta-servizio" href="#servizio-manutenzione">
         <div class="rec-testo">
-          <span class="eti"><span class="num-carta" aria-hidden="true">08</span><span data-i18n="servizi.items.5.carta.eti">Dopo la consegna</span></span>
+          <span class="eti"><span class="num-carta" aria-hidden="true">09</span><span data-i18n="servizi.items.5.carta.eti">Dopo la consegna</span></span>
           <h3 data-i18n="servizi.items.5.name">Manutenzione e miglioramenti</h3>
           <p data-i18n="servizi.items.5.lead">Quello che tiene in piedi il lavoro fatto, mese dopo mese.</p>
         </div>
@@ -934,7 +955,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
       </a>
       <a class="rec-card rec-passi-card carta-servizio carta-rossa" href="#contatto">
         <div class="rec-testo">
-          <span class="eti"><span class="num-carta" aria-hidden="true">09</span><span data-i18n="servizi.nuovo.carta.eti">Su misura</span></span>
+          <span class="eti"><span class="num-carta" aria-hidden="true">10</span><span data-i18n="servizi.nuovo.carta.eti">Su misura</span></span>
           <h3 data-i18n="servizi.nuovo.name">Nuovi progetti su misura</h3>
           <p data-i18n="servizi.nuovo.lead">Un'idea che non sta in questa lista? La progettiamo e la sviluppiamo da zero, su misura per voi.</p>
         </div>
@@ -1007,6 +1028,18 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
           <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 20c0-9 6-15 16-16-1 10-7 16-16 16z"/><path d="M4 20l8-8"/></svg>
           <span class="nome-mestiere" data-i18n="settori.items.11.name">Aziende agricole e veterinari</span>
         </a>
+        <a class="mestiere" href="#settore-influencer">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6.5" y="2" width="11" height="20" rx="2.2"/><path d="M10.5 9v6l5-3z"/></svg>
+          <span class="nome-mestiere" data-i18n="settori.items.12.name">Influencer e creator</span>
+        </a>
+        <a class="mestiere" href="#settore-fotografi">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 8h3.5l1.6-2.5h6.8L17 8h3.5v11h-17z"/><circle cx="12" cy="13.3" r="3.6"/></svg>
+          <span class="nome-mestiere" data-i18n="settori.items.13.name">Fotografi e studi fotografici</span>
+        </a>
+        <a class="mestiere" href="#settore-giornalisti">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 5h12.5v14H6a2 2 0 0 1-2-2z"/><path d="M16.5 9H20v8a2 2 0 0 1-2 2"/><path d="M7.5 9h6M7.5 12.5h6M7.5 16h4"/></svg>
+          <span class="nome-mestiere" data-i18n="settori.items.14.name">Giornalisti e redazioni</span>
+        </a>
       </div>
       <div class="coda-settori">
         <p data-i18n="settori.cta">Il vostro caso è diverso? Bene. Raccontatecelo.</p>
@@ -1041,19 +1074,25 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
     <nav class="briciole" aria-label="Percorso"><a href="#home" data-i18n="ui.home">Home</a><span aria-hidden="true">/</span><span data-i18n="servizi.label">Cosa facciamo</span></nav>
     <a class="btn vuoto torna-home" href="#home"><span aria-hidden="true">←</span>&nbsp;<span data-i18n="ui.home">Home</span></a>
     <header class="testa-pagina">
-      <h1 id="h-servizi" data-i18n="servizi.title">Nove servizi. Uno solo, o tutti insieme.</h1>
-      <p class="lead-pagina" data-i18n="servizi.intro">Nove servizi: otto con il prezzo scritto, più i progetti nuovi su misura per voi. Prendete solo quello che vi serve.</p>
+      <h1 id="h-servizi" data-i18n="servizi.title">Dieci servizi. Uno solo, o tutti insieme.</h1>
+      <p class="lead-pagina" data-i18n="servizi.intro">Dieci servizi: nove con il prezzo scritto, più i progetti nuovi su misura per voi. Prendete solo quello che vi serve.</p>
     </header>
     <div class="servizi">
         <a class="servizio" href="#google">
           <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="7"/><path d="M15.6 15.6L21 21"/><path d="M10.5 14.2s-2.9-2.5-2.9-4.6a2.9 2.9 0 0 1 5.8 0c0 2.1-2.9 4.6-2.9 4.6z"/></svg>
-          <h3 data-i18n="google.name">Farsi trovare su Google</h3>
+          <h3 data-i18n="google.name">Google Maps</h3>
           <p data-i18n="google.lead">Quando cercano la vostra attività, Google mostra una scheda con orari, foto e indicazioni. La completiamo noi.</p>
+          <span class="frec" aria-hidden="true">→</span>
+        </a>
+        <a class="servizio" href="#google-search">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="7"/><path d="M15.6 15.6L21 21"/><path d="M7.4 9h6.2M7.4 12h4.2"/></svg>
+          <h3 data-i18n="search.name">Google Search</h3>
+          <p data-i18n="search.lead">Quando cercano quello che fate, Google deve capire il vostro sito. Lo prepariamo noi.</p>
           <span class="frec" aria-hidden="true">→</span>
         </a>
         <a class="servizio" href="#recensioni">
           <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M5.5 5.5h2v2h-2zM16.5 5.5h2v2h-2zM5.5 16.5h2v2h-2z"/><path d="M17.5 13l1 2.1 2.3.3-1.7 1.6.4 2.3-2-1.1-2 1.1.4-2.3-1.7-1.6 2.3-.3z"/></svg>
-          <h3 data-i18n="recensioni.name">Recensioni Google in un clic</h3>
+          <h3 data-i18n="recensioni.name">Customer Feedback</h3>
           <p data-i18n="recensioni.lead">Il cliente inquadra il codice QR con il telefono, tocca le stelle e scrive due righe. Trenta secondi.</p>
           <span class="frec" aria-hidden="true">→</span>
         </a>
@@ -1198,7 +1237,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
         <div class="corpo-app">
           <div class="riga-titolo">
             <h3 data-i18n="portfolio.romizzu.name">Romizzu</h3>
-            <span class="pastiglia viva" data-i18n="portfolio.romizzu.badge">In vendita</span>
+            <span class="pastiglia viva" data-i18n="portfolio.romizzu.badge">Live</span>
           </div>
           <p class="riga-app" data-i18n="portfolio.romizzu.riga">Marchio di nastro per le dita per BJJ e grappling, in vendita su Amazon USA e su romizzu.com.</p>
           <p class="riga-app" data-i18n="portfolio.romizzu.cosa">Per Romizzu abbiamo costruito il negozio online, il gestionale (vendite, magazzino, finanza) e le automazioni con Amazon.</p>
@@ -1225,10 +1264,10 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
         <div class="corpo-app">
           <div class="riga-titolo">
             <h3 data-i18n="portfolio.items.2.name">Calenzzu</h3>
-            <span class="pastiglia corso" data-i18n="portfolio.items.2.badge">In definizione</span>
+            <span class="pastiglia corso" data-i18n="portfolio.items.2.badge">In costruzione</span>
           </div>
           <p class="riga-app" data-i18n="portfolio.items.2.riga">Mette insieme i calendari di due persone e mostra i giorni liberi per entrambe.</p>
-          <p class="fatto-app" data-i18n="portfolio.items.2.fatto">In definizione</p>
+          <p class="fatto-app" data-i18n="portfolio.items.2.fatto">In costruzione</p>
           <p class="titolarita" data-i18n="portfolio.items.2.titolarita">Prodotto UtoApps.</p>
           <span class="link-app muto" data-i18n="ui.sito_in_costruzione">sito in costruzione</span>
         </div>
@@ -1257,7 +1296,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
         <span class="eti" data-i18n="ui.livelli">Livelli e prezzi</span>
         <div class="livelli"><div class="livello" id="servizio-app-livello-1">
   <h3 data-i18n="servizi.items.0.livelli.0.nome">App semplice</h3>
-  <p class="prezzo-l"><span class="da" data-i18n="ui.prezzo_da">da</span> <span data-i18n="servizi.items.0.livelli.0.da">CHF 6'000</span></p>
+  <p class="prezzo-l"><span class="da" data-i18n="ui.prezzo_da">da</span> <span data-i18n="servizi.items.0.livelli.0.da">CHF 4'900</span></p>
   <p class="per-chi" data-i18n="servizi.items.0.livelli.0.per_chi">Informazioni, avvisi, niente registrazione.</p>
   <span class="eti mini" data-i18n="ui.include">Comprende</span>
   <ul class="include"><li data-i18n="servizi.items.0.livelli.0.include.0">Fino a 6 schermate</li><li data-i18n="servizi.items.0.livelli.0.include.1">Avvisi sul telefono</li><li data-i18n="servizi.items.0.livelli.0.include.2">Invio agli store compreso</li></ul>
@@ -1532,11 +1571,11 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
 <!-- ═══ PAGINA: Farsi trovare su Google (2 ott 2026) — nessuna promessa di posizione: lo decide Google ═══ -->
 <article class="pagina" id="google" aria-labelledby="h-google">
   <div class="wrap">
-    <nav class="briciole" aria-label="Percorso"><a href="#home" data-i18n="ui.home">Home</a><span aria-hidden="true">/</span><span data-i18n="google.name">Farsi trovare su Google</span></nav>
+    <nav class="briciole" aria-label="Percorso"><a href="#home" data-i18n="ui.home">Home</a><span aria-hidden="true">/</span><span data-i18n="google.name">Google Maps</span></nav>
     <a class="btn vuoto torna-home" href="#home"><span aria-hidden="true">←</span>&nbsp;<span data-i18n="ui.home">Home</span></a>
     <header class="testa-pagina">
       <svg class="ico grande" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="7"/><path d="M15.6 15.6L21 21"/><path d="M10.5 14.2s-2.9-2.5-2.9-4.6a2.9 2.9 0 0 1 5.8 0c0 2.1-2.9 4.6-2.9 4.6z"/></svg>
-      <h1 id="h-google" data-i18n="google.name">Farsi trovare su Google</h1>
+      <h1 id="h-google" data-i18n="google.name">Google Maps</h1>
       <p class="lead-pagina" data-i18n="google.lead">Quando cercano la vostra attività, Google mostra una scheda con orari, foto e indicazioni. La completiamo noi.</p>
     </header>
     <div class="principale">
@@ -1560,13 +1599,44 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
   </div>
 </article>
 
+<!-- ═══ PAGINA: Google Search (3 ott 2026) — nessuna promessa di posizione: lo decide Google ═══ -->
+<article class="pagina" id="google-search" aria-labelledby="h-google-search">
+  <div class="wrap">
+    <nav class="briciole" aria-label="Percorso"><a href="#home" data-i18n="ui.home">Home</a><span aria-hidden="true">/</span><span data-i18n="search.name">Google Search</span></nav>
+    <a class="btn vuoto torna-home" href="#home"><span aria-hidden="true">←</span>&nbsp;<span data-i18n="ui.home">Home</span></a>
+    <header class="testa-pagina">
+      <svg class="ico grande" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="7"/><path d="M15.6 15.6L21 21"/><path d="M7.4 9h6.2M7.4 12h4.2"/></svg>
+      <h1 id="h-google-search" data-i18n="search.name">Google Search</h1>
+      <p class="lead-pagina" data-i18n="search.lead">Quando cercano quello che fate, Google deve capire il vostro sito. Lo prepariamo noi.</p>
+    </header>
+    <div class="principale">
+      <div class="blocco"><span class="eti" data-i18n="servizi.label">Cosa facciamo</span><ul class="segnali"><li data-i18n="search.cosa.0">Cerchiamo le parole che la gente scrive davvero su Google per trovare quello che fate, nella vostra zona e nella vostra lingua.</li><li data-i18n="search.cosa.1">Titolo e descrizione di ogni pagina con quelle parole: sono le righe che Google mostra nei risultati.</li><li data-i18n="search.cosa.2">Il sito su Google Search Console, lo strumento gratuito di Google: così sa che esiste e vi dice come lo trova.</li><li data-i18n="search.cosa.3">La mappa del sito inviata a Google, perché veda tutte le pagine.</li><li data-i18n="search.cosa.4">Nome, indirizzo e telefono uguali dappertutto: sito, scheda Google, search.ch e local.ch.</li><li data-i18n="search.cosa.5">Vi spieghiamo come controllare da soli, ogni mese, come vi trovano.</li></ul></div>
+      <div class="blocco" id="google-search-livelli">
+        <span class="eti" data-i18n="ui.livelli">Livelli e prezzi</span>
+        <div class="livelli"><div class="livello" id="google-search-livello-1">
+  <h3 data-i18n="search.livelli.0.nome">Sito pronto per Google</h3>
+  <p class="prezzo-l"><span class="da" data-i18n="ui.prezzo_da">da</span> <span data-i18n="search.livelli.0.da">CHF 490</span></p>
+  <p class="per-chi" data-i18n="search.livelli.0.per_chi">Per chi ha già un sito, ma su Google non si vede.</p>
+  <span class="eti mini" data-i18n="ui.include">Comprende</span>
+  <ul class="include"><li data-i18n="search.livelli.0.include.0">Parole giuste, titoli e descrizioni</li><li data-i18n="search.livelli.0.include.1">Search Console e mappa del sito</li><li data-i18n="search.livelli.0.include.2">Dati giusti su search.ch e local.ch</li></ul>
+</div></div>
+<p class="nota-prezzi" data-i18n="servizi.nota_prezzi">I prezzi sono punti di partenza, non offerte. Vale il preventivo scritto.</p>
+        <a class="rimando" href="#google-livello-1"><span data-i18n="search.rimando">La scheda su Google Maps è un'altra cosa: da CHF 290</span><span class="frec" aria-hidden="true">→</span></a>
+      </div>
+      <p class="tempo"><span class="eti" data-i18n="ui.tempo">Tempi</span><span data-i18n="search.tempo">Il lavoro: pochi giorni. Google può metterci alcune settimane a mostrare i cambiamenti.</span></p>
+      <details class="onesta"><summary><span class="eti" data-i18n="ui.onesta">Onestamente</span></summary><p data-i18n="search.onesta">Il primo posto su Google non si compra e nessuno può prometterlo: diffidate di chi lo fa. Google sceglie da solo cosa mostrare; noi facciamo in modo che il vostro sito sia chiaro e scritto con le parole che la gente cerca davvero.</p></details>
+    </div>
+    <a class="btn vuoto torna-home giu" href="#home"><span aria-hidden="true">←</span>&nbsp;<span data-i18n="ui.home">Home</span></a>
+  </div>
+</article>
+
 <article class="pagina" id="recensioni" aria-labelledby="h-recensioni">
   <div class="wrap">
     <nav class="briciole" aria-label="Percorso"><a href="#home" data-i18n="ui.home">Home</a><span aria-hidden="true">/</span><a href="#home-servizi" data-i18n="recensioni.label">Il primo passo per tutti</a></nav>
     <a class="btn vuoto torna-home" href="#home"><span aria-hidden="true">←</span>&nbsp;<span data-i18n="ui.home">Home</span></a>
     <header class="testa-pagina">
       <svg class="ico grande" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M5.5 5.5h2v2h-2zM16.5 5.5h2v2h-2zM5.5 16.5h2v2h-2z"/><path d="M17.5 13l1 2.1 2.3.3-1.7 1.6.4 2.3-2-1.1-2 1.1.4-2.3-1.7-1.6 2.3-.3z"/></svg>
-      <h1 id="h-recensioni" data-i18n="recensioni.name">Recensioni Google in un clic</h1>
+      <h1 id="h-recensioni" data-i18n="recensioni.name">Customer Feedback</h1>
       <p class="lead-pagina" data-i18n="recensioni.lead">Il cliente inquadra il codice QR con il telefono, tocca le stelle e scrive due righe. Trenta secondi.</p>
     </header>
     <div class="principale">
@@ -1680,7 +1750,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
             <div><dt data-i18n="ui.dove">Dove si mette</dt><dd data-i18n="settori.items.0.recensioni.dove">Un cartellino alla cassa e il codice sullo scontrino.</dd></div>
             <div><dt data-i18n="ui.quando">Quando chiederla</dt><dd data-i18n="settori.items.0.recensioni.quando">Alla consegna del sacchetto, a ogni cliente.</dd></div>
           </dl>
-          <a class="rimando" href="#recensioni-livello-1"><span data-i18n="recensioni.name">Recensioni Google in un clic</span><span class="rim-sep" aria-hidden="true">›</span><strong data-i18n="settori.recensioni_kit.livello">Codice QR</strong><span class="rim-sep" aria-hidden="true">·</span><span class="prezzo-r"><span data-i18n="settori.recensioni_kit.da">gratis</span></span><span class="frec" aria-hidden="true">→</span></a>
+          <a class="rimando" href="#recensioni-livello-1"><span data-i18n="recensioni.name">Customer Feedback</span><span class="rim-sep" aria-hidden="true">›</span><strong data-i18n="settori.recensioni_kit.livello">Codice QR</strong><span class="rim-sep" aria-hidden="true">·</span><span class="prezzo-r"><span data-i18n="settori.recensioni_kit.da">gratis</span></span><span class="frec" aria-hidden="true">→</span></a>
         </div>
       </div>
     </div>
@@ -1752,7 +1822,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
             <div><dt data-i18n="ui.dove">Dove si mette</dt><dd data-i18n="settori.items.1.recensioni.dove">Sul tavolo, accanto al menù, e sullo scontrino.</dd></div>
             <div><dt data-i18n="ui.quando">Quando chiederla</dt><dd data-i18n="settori.items.1.recensioni.quando">Con il conto: si scrive lì, non a casa.</dd></div>
           </dl>
-          <a class="rimando" href="#recensioni-livello-1"><span data-i18n="recensioni.name">Recensioni Google in un clic</span><span class="rim-sep" aria-hidden="true">›</span><strong data-i18n="settori.recensioni_kit.livello">Codice QR</strong><span class="rim-sep" aria-hidden="true">·</span><span class="prezzo-r"><span data-i18n="settori.recensioni_kit.da">gratis</span></span><span class="frec" aria-hidden="true">→</span></a>
+          <a class="rimando" href="#recensioni-livello-1"><span data-i18n="recensioni.name">Customer Feedback</span><span class="rim-sep" aria-hidden="true">›</span><strong data-i18n="settori.recensioni_kit.livello">Codice QR</strong><span class="rim-sep" aria-hidden="true">·</span><span class="prezzo-r"><span data-i18n="settori.recensioni_kit.da">gratis</span></span><span class="frec" aria-hidden="true">→</span></a>
         </div>
       </div>
     </div>
@@ -1824,7 +1894,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
             <div><dt data-i18n="ui.dove">Dove si mette</dt><dd data-i18n="settori.items.2.recensioni.dove">Sulla fattura e nel messaggio «la sua auto è pronta».</dd></div>
             <div><dt data-i18n="ui.quando">Quando chiederla</dt><dd data-i18n="settori.items.2.recensioni.quando">Alla riconsegna delle chiavi.</dd></div>
           </dl>
-          <a class="rimando" href="#recensioni-livello-1"><span data-i18n="recensioni.name">Recensioni Google in un clic</span><span class="rim-sep" aria-hidden="true">›</span><strong data-i18n="settori.recensioni_kit.livello">Codice QR</strong><span class="rim-sep" aria-hidden="true">·</span><span class="prezzo-r"><span data-i18n="settori.recensioni_kit.da">gratis</span></span><span class="frec" aria-hidden="true">→</span></a>
+          <a class="rimando" href="#recensioni-livello-1"><span data-i18n="recensioni.name">Customer Feedback</span><span class="rim-sep" aria-hidden="true">›</span><strong data-i18n="settori.recensioni_kit.livello">Codice QR</strong><span class="rim-sep" aria-hidden="true">·</span><span class="prezzo-r"><span data-i18n="settori.recensioni_kit.da">gratis</span></span><span class="frec" aria-hidden="true">→</span></a>
         </div>
       </div>
     </div>
@@ -1896,7 +1966,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
             <div><dt data-i18n="ui.dove">Dove si mette</dt><dd data-i18n="settori.items.3.recensioni.dove">Allo specchio e alla cassa.</dd></div>
             <div><dt data-i18n="ui.quando">Quando chiederla</dt><dd data-i18n="settori.items.3.recensioni.quando">La sera stessa, con un messaggio: il taglio è ancora nuovo.</dd></div>
           </dl>
-          <a class="rimando" href="#recensioni-livello-1"><span data-i18n="recensioni.name">Recensioni Google in un clic</span><span class="rim-sep" aria-hidden="true">›</span><strong data-i18n="settori.recensioni_kit.livello">Codice QR</strong><span class="rim-sep" aria-hidden="true">·</span><span class="prezzo-r"><span data-i18n="settori.recensioni_kit.da">gratis</span></span><span class="frec" aria-hidden="true">→</span></a>
+          <a class="rimando" href="#recensioni-livello-1"><span data-i18n="recensioni.name">Customer Feedback</span><span class="rim-sep" aria-hidden="true">›</span><strong data-i18n="settori.recensioni_kit.livello">Codice QR</strong><span class="rim-sep" aria-hidden="true">·</span><span class="prezzo-r"><span data-i18n="settori.recensioni_kit.da">gratis</span></span><span class="frec" aria-hidden="true">→</span></a>
         </div>
       </div>
     </div>
@@ -1968,7 +2038,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
             <div><dt data-i18n="ui.dove">Dove si mette</dt><dd data-i18n="settori.items.4.recensioni.dove">Nel messaggio di controllo dopo la guarigione.</dd></div>
             <div><dt data-i18n="ui.quando">Quando chiederla</dt><dd data-i18n="settori.items.4.recensioni.quando">Tre settimane dopo, a guarigione finita.</dd></div>
           </dl>
-          <a class="rimando" href="#recensioni-livello-1"><span data-i18n="recensioni.name">Recensioni Google in un clic</span><span class="rim-sep" aria-hidden="true">›</span><strong data-i18n="settori.recensioni_kit.livello">Codice QR</strong><span class="rim-sep" aria-hidden="true">·</span><span class="prezzo-r"><span data-i18n="settori.recensioni_kit.da">gratis</span></span><span class="frec" aria-hidden="true">→</span></a>
+          <a class="rimando" href="#recensioni-livello-1"><span data-i18n="recensioni.name">Customer Feedback</span><span class="rim-sep" aria-hidden="true">›</span><strong data-i18n="settori.recensioni_kit.livello">Codice QR</strong><span class="rim-sep" aria-hidden="true">·</span><span class="prezzo-r"><span data-i18n="settori.recensioni_kit.da">gratis</span></span><span class="frec" aria-hidden="true">→</span></a>
         </div>
       </div>
     </div>
@@ -2040,7 +2110,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
             <div><dt data-i18n="ui.dove">Dove si mette</dt><dd data-i18n="settori.items.5.recensioni.dove">Sulla busta della consegna e nel messaggio «il suo ordine è pronto».</dd></div>
             <div><dt data-i18n="ui.quando">Quando chiederla</dt><dd data-i18n="settori.items.5.recensioni.quando">Al ritiro, con il lavoro in mano.</dd></div>
           </dl>
-          <a class="rimando" href="#recensioni-livello-1"><span data-i18n="recensioni.name">Recensioni Google in un clic</span><span class="rim-sep" aria-hidden="true">›</span><strong data-i18n="settori.recensioni_kit.livello">Codice QR</strong><span class="rim-sep" aria-hidden="true">·</span><span class="prezzo-r"><span data-i18n="settori.recensioni_kit.da">gratis</span></span><span class="frec" aria-hidden="true">→</span></a>
+          <a class="rimando" href="#recensioni-livello-1"><span data-i18n="recensioni.name">Customer Feedback</span><span class="rim-sep" aria-hidden="true">›</span><strong data-i18n="settori.recensioni_kit.livello">Codice QR</strong><span class="rim-sep" aria-hidden="true">·</span><span class="prezzo-r"><span data-i18n="settori.recensioni_kit.da">gratis</span></span><span class="frec" aria-hidden="true">→</span></a>
         </div>
       </div>
     </div>
@@ -2112,7 +2182,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
             <div><dt data-i18n="ui.dove">Dove si mette</dt><dd data-i18n="settori.items.6.recensioni.dove">Sulla fattura finale e nel messaggio di fine lavoro.</dd></div>
             <div><dt data-i18n="ui.quando">Quando chiederla</dt><dd data-i18n="settori.items.6.recensioni.quando">Una settimana dopo: il lavoro è finito e il cantiere è pulito.</dd></div>
           </dl>
-          <a class="rimando" href="#recensioni-livello-1"><span data-i18n="recensioni.name">Recensioni Google in un clic</span><span class="rim-sep" aria-hidden="true">›</span><strong data-i18n="settori.recensioni_kit.livello">Codice QR</strong><span class="rim-sep" aria-hidden="true">·</span><span class="prezzo-r"><span data-i18n="settori.recensioni_kit.da">gratis</span></span><span class="frec" aria-hidden="true">→</span></a>
+          <a class="rimando" href="#recensioni-livello-1"><span data-i18n="recensioni.name">Customer Feedback</span><span class="rim-sep" aria-hidden="true">›</span><strong data-i18n="settori.recensioni_kit.livello">Codice QR</strong><span class="rim-sep" aria-hidden="true">·</span><span class="prezzo-r"><span data-i18n="settori.recensioni_kit.da">gratis</span></span><span class="frec" aria-hidden="true">→</span></a>
         </div>
       </div>
     </div>
@@ -2184,7 +2254,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
             <div><dt data-i18n="ui.dove">Dove si mette</dt><dd data-i18n="settori.items.7.recensioni.dove">Alla reception, mai in sala d'attesa davanti ad altri. Nelle risposte pubbliche non si conferma mai che una persona è paziente.</dd></div>
             <div><dt data-i18n="ui.quando">Quando chiederla</dt><dd data-i18n="settori.items.7.recensioni.quando">A fine cura, con un messaggio, solo a chi ha dato il consenso scritto. Nel messaggio niente dati sulla salute.</dd></div>
           </dl>
-          <a class="rimando" href="#recensioni-livello-1"><span data-i18n="recensioni.name">Recensioni Google in un clic</span><span class="rim-sep" aria-hidden="true">›</span><strong data-i18n="settori.recensioni_kit.livello">Codice QR</strong><span class="rim-sep" aria-hidden="true">·</span><span class="prezzo-r"><span data-i18n="settori.recensioni_kit.da">gratis</span></span><span class="frec" aria-hidden="true">→</span></a>
+          <a class="rimando" href="#recensioni-livello-1"><span data-i18n="recensioni.name">Customer Feedback</span><span class="rim-sep" aria-hidden="true">›</span><strong data-i18n="settori.recensioni_kit.livello">Codice QR</strong><span class="rim-sep" aria-hidden="true">·</span><span class="prezzo-r"><span data-i18n="settori.recensioni_kit.da">gratis</span></span><span class="frec" aria-hidden="true">→</span></a>
         </div>
       </div>
     </div>
@@ -2256,7 +2326,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
             <div><dt data-i18n="ui.dove">Dove si mette</dt><dd data-i18n="settori.items.8.recensioni.dove">In camera, accanto al wifi, e nel messaggio del giorno dopo.</dd></div>
             <div><dt data-i18n="ui.quando">Quando chiederla</dt><dd data-i18n="settori.items.8.recensioni.quando">Il giorno dopo la partenza: il ricordo è ancora buono.</dd></div>
           </dl>
-          <a class="rimando" href="#recensioni-livello-1"><span data-i18n="recensioni.name">Recensioni Google in un clic</span><span class="rim-sep" aria-hidden="true">›</span><strong data-i18n="settori.recensioni_kit.livello">Codice QR</strong><span class="rim-sep" aria-hidden="true">·</span><span class="prezzo-r"><span data-i18n="settori.recensioni_kit.da">gratis</span></span><span class="frec" aria-hidden="true">→</span></a>
+          <a class="rimando" href="#recensioni-livello-1"><span data-i18n="recensioni.name">Customer Feedback</span><span class="rim-sep" aria-hidden="true">›</span><strong data-i18n="settori.recensioni_kit.livello">Codice QR</strong><span class="rim-sep" aria-hidden="true">·</span><span class="prezzo-r"><span data-i18n="settori.recensioni_kit.da">gratis</span></span><span class="frec" aria-hidden="true">→</span></a>
         </div>
       </div>
     </div>
@@ -2328,7 +2398,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
             <div><dt data-i18n="ui.dove">Dove si mette</dt><dd data-i18n="settori.items.9.recensioni.dove">All'ingresso e nell'app.</dd></div>
             <div><dt data-i18n="ui.quando">Quando chiederla</dt><dd data-i18n="settori.items.9.recensioni.quando">Dopo le prime lezioni, a tutti gli iscritti allo stesso modo.</dd></div>
           </dl>
-          <a class="rimando" href="#recensioni-livello-1"><span data-i18n="recensioni.name">Recensioni Google in un clic</span><span class="rim-sep" aria-hidden="true">›</span><strong data-i18n="settori.recensioni_kit.livello">Codice QR</strong><span class="rim-sep" aria-hidden="true">·</span><span class="prezzo-r"><span data-i18n="settori.recensioni_kit.da">gratis</span></span><span class="frec" aria-hidden="true">→</span></a>
+          <a class="rimando" href="#recensioni-livello-1"><span data-i18n="recensioni.name">Customer Feedback</span><span class="rim-sep" aria-hidden="true">›</span><strong data-i18n="settori.recensioni_kit.livello">Codice QR</strong><span class="rim-sep" aria-hidden="true">·</span><span class="prezzo-r"><span data-i18n="settori.recensioni_kit.da">gratis</span></span><span class="frec" aria-hidden="true">→</span></a>
         </div>
       </div>
     </div>
@@ -2400,7 +2470,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
             <div><dt data-i18n="ui.dove">Dove si mette</dt><dd data-i18n="settori.items.10.recensioni.dove">Nell'e-mail di chiusura della pratica.</dd></div>
             <div><dt data-i18n="ui.quando">Quando chiederla</dt><dd data-i18n="settori.items.10.recensioni.quando">A pratica chiusa: dichiarazione consegnata, rogito firmato, casa venduta. Per avvocati e notai, prima si verifica cosa permette l'ordine.</dd></div>
           </dl>
-          <a class="rimando" href="#recensioni-livello-1"><span data-i18n="recensioni.name">Recensioni Google in un clic</span><span class="rim-sep" aria-hidden="true">›</span><strong data-i18n="settori.recensioni_kit.livello">Codice QR</strong><span class="rim-sep" aria-hidden="true">·</span><span class="prezzo-r"><span data-i18n="settori.recensioni_kit.da">gratis</span></span><span class="frec" aria-hidden="true">→</span></a>
+          <a class="rimando" href="#recensioni-livello-1"><span data-i18n="recensioni.name">Customer Feedback</span><span class="rim-sep" aria-hidden="true">›</span><strong data-i18n="settori.recensioni_kit.livello">Codice QR</strong><span class="rim-sep" aria-hidden="true">·</span><span class="prezzo-r"><span data-i18n="settori.recensioni_kit.da">gratis</span></span><span class="frec" aria-hidden="true">→</span></a>
         </div>
       </div>
     </div>
@@ -2472,7 +2542,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
             <div><dt data-i18n="ui.dove">Dove si mette</dt><dd data-i18n="settori.items.11.recensioni.dove">Al banco della cantina o dello spaccio, e sulla fattura del veterinario.</dd></div>
             <div><dt data-i18n="ui.quando">Quando chiederla</dt><dd data-i18n="settori.items.11.recensioni.quando">Con il prodotto in mano, o a fine visita.</dd></div>
           </dl>
-          <a class="rimando" href="#recensioni-livello-1"><span data-i18n="recensioni.name">Recensioni Google in un clic</span><span class="rim-sep" aria-hidden="true">›</span><strong data-i18n="settori.recensioni_kit.livello">Codice QR</strong><span class="rim-sep" aria-hidden="true">·</span><span class="prezzo-r"><span data-i18n="settori.recensioni_kit.da">gratis</span></span><span class="frec" aria-hidden="true">→</span></a>
+          <a class="rimando" href="#recensioni-livello-1"><span data-i18n="recensioni.name">Customer Feedback</span><span class="rim-sep" aria-hidden="true">›</span><strong data-i18n="settori.recensioni_kit.livello">Codice QR</strong><span class="rim-sep" aria-hidden="true">·</span><span class="prezzo-r"><span data-i18n="settori.recensioni_kit.da">gratis</span></span><span class="frec" aria-hidden="true">→</span></a>
         </div>
       </div>
     </div>
@@ -2482,6 +2552,222 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
       <p data-i18n="settori.items.11.primo_passo">Il registro sul telefono: se si scrive dove succede, si scrive giusto.</p>
     </div>
     <p class="fatto-vero"><span class="eti" data-i18n="ui.nota">Un fatto</span><span data-i18n="settori.items.11.nota">VetSanit, l'app per il servizio sanitario in azienda agricola, nasce da questi problemi. È in costruzione e cerchiamo veterinari con cui parlare.</span></p>
+    <a class="btn vuoto torna-home giu" href="#home"><span aria-hidden="true">←</span>&nbsp;<span data-i18n="ui.home">Home</span></a>
+  </div>
+</article>
+
+<article class="pagina" id="settore-influencer" aria-labelledby="h-settore-influencer">
+  <div class="wrap">
+    <nav class="briciole" aria-label="Percorso"><a href="#home" data-i18n="ui.home">Home</a><span aria-hidden="true">/</span><a href="#settori" data-i18n="settori.label">Il vostro settore</a></nav>
+    <a class="btn vuoto torna-home" href="#home"><span aria-hidden="true">←</span>&nbsp;<span data-i18n="ui.home">Home</span></a>
+    <header class="testa-pagina">
+      <svg class="ico grande" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6.5" y="2" width="11" height="20" rx="2.2"/><path d="M10.5 9v6l5-3z"/></svg>
+      <h1 id="h-settore-influencer" data-i18n="settori.items.12.name">Influencer e creator</h1>
+      <p class="esempi-pagina" data-i18n="settori.items.12.esempi">Instagram, TikTok, YouTube, podcast, blog</p>
+      <p class="lead-pagina" data-i18n="settori.items.12.intro">Il lavoro vero è creare. Ma metà della giornata se ne va tra messaggi, proposte e conti.</p>
+    </header>
+    <div class="coppie">
+      <div class="coppia">
+        <div class="problema">
+          <span class="eti" data-i18n="ui.il_problema">Il problema</span>
+          <h3 data-i18n="settori.items.12.problemi.0.t">Le proposte arrivano da tutte le parti</h3>
+          <p data-i18n="settori.items.12.problemi.0.d">Messaggi privati, e-mail, WhatsApp: una collaborazione si perde nel mucchio.</p>
+        </div>
+        <div class="soluzione">
+          <span class="eti" data-i18n="ui.soluzione">La soluzione</span>
+          <h3 data-i18n="settori.items.12.soluzioni.0.t">Una pagina vostra, con il media kit</h3>
+          <p data-i18n="settori.items.12.soluzioni.0.d">Chi siete, i numeri che volete mostrare e un modulo per le proposte dei brand.</p>
+          <a class="rimando" href="#servizio-siti-web-livello-1"><span data-i18n="servizi.items.1.name">Siti web e web app</span><span class="rim-sep" aria-hidden="true">›</span><strong data-i18n="settori.items.12.soluzioni.0.livello">Sito di una pagina</strong><span class="rim-sep" aria-hidden="true">·</span><span class="prezzo-r"><span data-i18n="ui.prezzo_da">da</span> <span data-i18n="settori.items.12.soluzioni.0.da">CHF 1'500</span></span><span class="frec" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <div class="coppia">
+        <div class="problema">
+          <span class="eti" data-i18n="ui.il_problema">Il problema</span>
+          <h3 data-i18n="settori.items.12.problemi.1.t">Il pubblico sta su piattaforme non vostre</h3>
+          <p data-i18n="settori.items.12.problemi.1.d">Se l'algoritmo cambia o il profilo si blocca, non potete più scrivere a chi vi segue.</p>
+        </div>
+        <div class="soluzione">
+          <span class="eti" data-i18n="ui.soluzione">La soluzione</span>
+          <h3 data-i18n="settori.items.12.soluzioni.1.t">La vostra lista di contatti</h3>
+          <p data-i18n="settori.items.12.soluzioni.1.d">Iscrizione con l'e-mail dal vostro sito: se una piattaforma cambia, il pubblico resta vostro.</p>
+          <a class="rimando" href="#servizio-automazioni-livello-1"><span data-i18n="servizi.items.3.name">Automazioni</span><span class="rim-sep" aria-hidden="true">›</span><strong data-i18n="settori.items.12.soluzioni.1.livello">Un passaggio</strong><span class="rim-sep" aria-hidden="true">·</span><span class="prezzo-r"><span data-i18n="ui.prezzo_da">da</span> <span data-i18n="settori.items.12.soluzioni.1.da">CHF 900</span></span><span class="frec" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <div class="coppia">
+        <div class="problema">
+          <span class="eti" data-i18n="ui.il_problema">Il problema</span>
+          <h3 data-i18n="settori.items.12.problemi.2.t">Consegne e pagamenti a memoria</h3>
+          <p data-i18n="settori.items.12.problemi.2.d">Quando va pubblicato il video, quanto vi deve il brand, cosa manca: tutto in testa.</p>
+        </div>
+        <div class="soluzione">
+          <span class="eti" data-i18n="ui.soluzione">La soluzione</span>
+          <h3 data-i18n="settori.items.12.soluzioni.2.t">Collaborazioni e scadenze in una lista</h3>
+          <p data-i18n="settori.items.12.soluzioni.2.d">Ogni brand, cosa consegnare e quando, e se ha già pagato. Il promemoria parte da solo.</p>
+          <a class="rimando" href="#servizio-automazioni-livello-2"><span data-i18n="servizi.items.3.name">Automazioni</span><span class="rim-sep" aria-hidden="true">›</span><strong data-i18n="settori.items.12.soluzioni.2.livello">Scadenze e liste</strong><span class="rim-sep" aria-hidden="true">·</span><span class="prezzo-r"><span data-i18n="ui.prezzo_da">da</span> <span data-i18n="settori.items.12.soluzioni.2.da">CHF 1'800</span></span><span class="frec" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <div class="rec-settore">
+        <svg class="ico rec-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M5.5 5.5h2v2h-2zM16.5 5.5h2v2h-2zM5.5 16.5h2v2h-2z"/><path d="M17.5 13l1 2.1 2.3.3-1.7 1.6.4 2.3-2-1.1-2 1.1.4-2.3-1.7-1.6 2.3-.3z"/></svg>
+        <div class="rec-corpo">
+          <span class="eti" data-i18n="ui.recensioni">Le recensioni, nel vostro mestiere</span>
+          <dl class="dove-quando">
+            <div><dt data-i18n="ui.dove">Dove si mette</dt><dd data-i18n="settori.items.12.recensioni.dove">Il link nella bio e in fondo alle e-mail ai brand.</dd></div>
+            <div><dt data-i18n="ui.quando">Quando chiederla</dt><dd data-i18n="settori.items.12.recensioni.quando">Quando un brand vi dice che la collaborazione è andata bene.</dd></div>
+          </dl>
+          <a class="rimando" href="#recensioni-livello-1"><span data-i18n="recensioni.name">Customer Feedback</span><span class="rim-sep" aria-hidden="true">›</span><strong data-i18n="settori.recensioni_kit.livello">Codice QR</strong><span class="rim-sep" aria-hidden="true">·</span><span class="prezzo-r"><span data-i18n="settori.recensioni_kit.da">gratis</span></span><span class="frec" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+    <p class="nota-prezzi" data-i18n="servizi.nota_prezzi">I prezzi sono punti di partenza, non offerte. Vale il preventivo scritto.</p>
+    <div class="passo">
+      <span class="eti" data-i18n="ui.primo_passo">Da dove partire</span>
+      <p data-i18n="settori.items.12.primo_passo">La pagina con il media kit: costa poco e la mandate a ogni brand che vi scrive.</p>
+    </div>
+    
+    <a class="btn vuoto torna-home giu" href="#home"><span aria-hidden="true">←</span>&nbsp;<span data-i18n="ui.home">Home</span></a>
+  </div>
+</article>
+
+<article class="pagina" id="settore-fotografi" aria-labelledby="h-settore-fotografi">
+  <div class="wrap">
+    <nav class="briciole" aria-label="Percorso"><a href="#home" data-i18n="ui.home">Home</a><span aria-hidden="true">/</span><a href="#settori" data-i18n="settori.label">Il vostro settore</a></nav>
+    <a class="btn vuoto torna-home" href="#home"><span aria-hidden="true">←</span>&nbsp;<span data-i18n="ui.home">Home</span></a>
+    <header class="testa-pagina">
+      <svg class="ico grande" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 8h3.5l1.6-2.5h6.8L17 8h3.5v11h-17z"/><circle cx="12" cy="13.3" r="3.6"/></svg>
+      <h1 id="h-settore-fotografi" data-i18n="settori.items.13.name">Fotografi e studi fotografici</h1>
+      <p class="esempi-pagina" data-i18n="settori.items.13.esempi">Matrimoni, ritratti, eventi, prodotti, immobili</p>
+      <p class="lead-pagina" data-i18n="settori.items.13.intro">Le foto sono pronte. Poi iniziano i messaggi: quali sceglie il cliente, come gliele mandate, quando paga.</p>
+    </header>
+    <div class="coppie">
+      <div class="coppia">
+        <div class="problema">
+          <span class="eti" data-i18n="ui.il_problema">Il problema</span>
+          <h3 data-i18n="settori.items.13.problemi.0.t">Il portfolio è vecchio di due anni</h3>
+          <p data-i18n="settori.items.13.problemi.0.d">I lavori migliori stanno nel computer, non dove li vedono i clienti nuovi.</p>
+        </div>
+        <div class="soluzione">
+          <span class="eti" data-i18n="ui.soluzione">La soluzione</span>
+          <h3 data-i18n="settori.items.13.soluzioni.0.t">Un portfolio che aggiornate voi</h3>
+          <p data-i18n="settori.items.13.soluzioni.0.d">Caricate i lavori nuovi dal telefono, divisi per tipo di servizio.</p>
+          <a class="rimando" href="#servizio-siti-web-livello-2"><span data-i18n="servizi.items.1.name">Siti web e web app</span><span class="rim-sep" aria-hidden="true">›</span><strong data-i18n="settori.items.13.soluzioni.0.livello">Sito aziendale</strong><span class="rim-sep" aria-hidden="true">·</span><span class="prezzo-r"><span data-i18n="ui.prezzo_da">da</span> <span data-i18n="settori.items.13.soluzioni.0.da">CHF 3'500</span></span><span class="frec" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <div class="coppia">
+        <div class="problema">
+          <span class="eti" data-i18n="ui.il_problema">Il problema</span>
+          <h3 data-i18n="settori.items.13.problemi.1.t">Date e acconti a voce</h3>
+          <p data-i18n="settori.items.13.problemi.1.d">Un matrimonio fissato per messaggio e mai confermato: due clienti per lo stesso sabato.</p>
+        </div>
+        <div class="soluzione">
+          <span class="eti" data-i18n="ui.soluzione">La soluzione</span>
+          <h3 data-i18n="settori.items.13.soluzioni.1.t">Prenotazione con acconto</h3>
+          <p data-i18n="settori.items.13.soluzioni.1.d">Il cliente sceglie una data libera, paga l'acconto e riceve la conferma. Da solo.</p>
+          <a class="rimando" href="#servizio-automazioni-livello-3"><span data-i18n="servizi.items.3.name">Automazioni</span><span class="rim-sep" aria-hidden="true">›</span><strong data-i18n="settori.items.13.soluzioni.1.livello">Flusso a più passaggi</strong><span class="rim-sep" aria-hidden="true">·</span><span class="prezzo-r"><span data-i18n="ui.prezzo_da">da</span> <span data-i18n="settori.items.13.soluzioni.1.da">CHF 2'500</span></span><span class="frec" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <div class="coppia">
+        <div class="problema">
+          <span class="eti" data-i18n="ui.il_problema">Il problema</span>
+          <h3 data-i18n="settori.items.13.problemi.2.t">«Quando arrivano le foto?»</h3>
+          <p data-i18n="settori.items.13.problemi.2.d">Link che scadono, file troppo pesanti, la scelta delle foto fatta per messaggio.</p>
+        </div>
+        <div class="soluzione">
+          <span class="eti" data-i18n="ui.soluzione">La soluzione</span>
+          <h3 data-i18n="settori.items.13.soluzioni.2.t">Una galleria privata per ogni cliente</h3>
+          <p data-i18n="settori.items.13.soluzioni.2.d">Vede solo le sue foto, sceglie con un clic e scarica quelle pronte.</p>
+          <a class="rimando" href="#servizio-siti-web-livello-3"><span data-i18n="servizi.items.1.name">Siti web e web app</span><span class="rim-sep" aria-hidden="true">›</span><strong data-i18n="settori.items.13.soluzioni.2.livello">Sito che lavora</strong><span class="rim-sep" aria-hidden="true">·</span><span class="prezzo-r"><span data-i18n="ui.prezzo_da">da</span> <span data-i18n="settori.items.13.soluzioni.2.da">CHF 8'000</span></span><span class="frec" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <div class="rec-settore">
+        <svg class="ico rec-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M5.5 5.5h2v2h-2zM16.5 5.5h2v2h-2zM5.5 16.5h2v2h-2z"/><path d="M17.5 13l1 2.1 2.3.3-1.7 1.6.4 2.3-2-1.1-2 1.1.4-2.3-1.7-1.6 2.3-.3z"/></svg>
+        <div class="rec-corpo">
+          <span class="eti" data-i18n="ui.recensioni">Le recensioni, nel vostro mestiere</span>
+          <dl class="dove-quando">
+            <div><dt data-i18n="ui.dove">Dove si mette</dt><dd data-i18n="settori.items.13.recensioni.dove">Il codice sul biglietto che accompagna le stampe o l'album.</dd></div>
+            <div><dt data-i18n="ui.quando">Quando chiederla</dt><dd data-i18n="settori.items.13.recensioni.quando">Quando consegnate le foto finite.</dd></div>
+          </dl>
+          <a class="rimando" href="#recensioni-livello-1"><span data-i18n="recensioni.name">Customer Feedback</span><span class="rim-sep" aria-hidden="true">›</span><strong data-i18n="settori.recensioni_kit.livello">Codice QR</strong><span class="rim-sep" aria-hidden="true">·</span><span class="prezzo-r"><span data-i18n="settori.recensioni_kit.da">gratis</span></span><span class="frec" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+    <p class="nota-prezzi" data-i18n="servizi.nota_prezzi">I prezzi sono punti di partenza, non offerte. Vale il preventivo scritto.</p>
+    <div class="passo">
+      <span class="eti" data-i18n="ui.primo_passo">Da dove partire</span>
+      <p data-i18n="settori.items.13.primo_passo">La prenotazione con acconto: niente più date doppie, e l'acconto arriva prima del lavoro.</p>
+    </div>
+    
+    <a class="btn vuoto torna-home giu" href="#home"><span aria-hidden="true">←</span>&nbsp;<span data-i18n="ui.home">Home</span></a>
+  </div>
+</article>
+
+<article class="pagina" id="settore-giornalisti" aria-labelledby="h-settore-giornalisti">
+  <div class="wrap">
+    <nav class="briciole" aria-label="Percorso"><a href="#home" data-i18n="ui.home">Home</a><span aria-hidden="true">/</span><a href="#settori" data-i18n="settori.label">Il vostro settore</a></nav>
+    <a class="btn vuoto torna-home" href="#home"><span aria-hidden="true">←</span>&nbsp;<span data-i18n="ui.home">Home</span></a>
+    <header class="testa-pagina">
+      <svg class="ico grande" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 5h12.5v14H6a2 2 0 0 1-2-2z"/><path d="M16.5 9H20v8a2 2 0 0 1-2 2"/><path d="M7.5 9h6M7.5 12.5h6M7.5 16h4"/></svg>
+      <h1 id="h-settore-giornalisti" data-i18n="settori.items.14.name">Giornalisti e redazioni</h1>
+      <p class="esempi-pagina" data-i18n="settori.items.14.esempi">Freelance, giornali locali, riviste, radio, newsletter</p>
+      <p class="lead-pagina" data-i18n="settori.items.14.intro">La notizia va scritta in fretta. Ma prima bisogna trovare la registrazione, la fonte e il numero giusto.</p>
+    </header>
+    <div class="coppie">
+      <div class="coppia">
+        <div class="problema">
+          <span class="eti" data-i18n="ui.il_problema">Il problema</span>
+          <h3 data-i18n="settori.items.14.problemi.0.t">Ore a trascrivere le interviste</h3>
+          <p data-i18n="settori.items.14.problemi.0.d">Un'ora di registrazione, tre ore in cuffia per tirarne fuori le citazioni.</p>
+        </div>
+        <div class="soluzione">
+          <span class="eti" data-i18n="ui.soluzione">La soluzione</span>
+          <h3 data-i18n="settori.items.14.soluzioni.0.t">Trascrizione automatica, ricontrollata da voi</h3>
+          <p data-i18n="settori.items.14.soluzioni.0.d">L'intervista diventa testo, con il minuto esatto di ogni frase. Le citazioni le verificate voi.</p>
+          <a class="rimando" href="#servizio-automazioni-livello-4"><span data-i18n="servizi.items.3.name">Automazioni</span><span class="rim-sep" aria-hidden="true">›</span><strong data-i18n="settori.items.14.soluzioni.0.livello">Con intelligenza artificiale</strong><span class="rim-sep" aria-hidden="true">·</span><span class="prezzo-r"><span data-i18n="ui.prezzo_da">da</span> <span data-i18n="settori.items.14.soluzioni.0.da">CHF 6'000</span></span><span class="frec" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <div class="coppia">
+        <div class="problema">
+          <span class="eti" data-i18n="ui.il_problema">Il problema</span>
+          <h3 data-i18n="settori.items.14.problemi.1.t">Fonti e contatti sparsi ovunque</h3>
+          <p data-i18n="settori.items.14.problemi.1.d">Il numero che serve è in un vecchio messaggio. Da qualche parte.</p>
+        </div>
+        <div class="soluzione">
+          <span class="eti" data-i18n="ui.soluzione">La soluzione</span>
+          <h3 data-i18n="settori.items.14.soluzioni.1.t">L'archivio delle fonti</h3>
+          <p data-i18n="settori.items.14.soluzioni.1.d">Persone, numeri e ultime telefonate in un posto solo, con la ricerca.</p>
+          <a class="rimando" href="#servizio-software-livello-2"><span data-i18n="servizi.items.2.name">Software gestionale</span><span class="rim-sep" aria-hidden="true">›</span><strong data-i18n="settori.items.14.soluzioni.1.livello">Strumento interno</strong><span class="rim-sep" aria-hidden="true">·</span><span class="prezzo-r"><span data-i18n="ui.prezzo_da">da</span> <span data-i18n="settori.items.14.soluzioni.1.da">CHF 7'000</span></span><span class="frec" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <div class="coppia">
+        <div class="problema">
+          <span class="eti" data-i18n="ui.il_problema">Il problema</span>
+          <h3 data-i18n="settori.items.14.problemi.2.t">I lettori arrivano da piattaforme non vostre</h3>
+          <p data-i18n="settori.items.14.problemi.2.d">Se l'algoritmo cambia, chi vi legge non vi vede più.</p>
+        </div>
+        <div class="soluzione">
+          <span class="eti" data-i18n="ui.soluzione">La soluzione</span>
+          <h3 data-i18n="settori.items.14.soluzioni.2.t">Il vostro sito, con la newsletter</h3>
+          <p data-i18n="settori.items.14.soluzioni.2.d">Gli articoli sul vostro sito e l'iscrizione alla newsletter: i lettori restano vostri.</p>
+          <a class="rimando" href="#servizio-siti-web-livello-2"><span data-i18n="servizi.items.1.name">Siti web e web app</span><span class="rim-sep" aria-hidden="true">›</span><strong data-i18n="settori.items.14.soluzioni.2.livello">Sito aziendale</strong><span class="rim-sep" aria-hidden="true">·</span><span class="prezzo-r"><span data-i18n="ui.prezzo_da">da</span> <span data-i18n="settori.items.14.soluzioni.2.da">CHF 3'500</span></span><span class="frec" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <div class="rec-settore">
+        <svg class="ico rec-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M5.5 5.5h2v2h-2zM16.5 5.5h2v2h-2zM5.5 16.5h2v2h-2z"/><path d="M17.5 13l1 2.1 2.3.3-1.7 1.6.4 2.3-2-1.1-2 1.1.4-2.3-1.7-1.6 2.3-.3z"/></svg>
+        <div class="rec-corpo">
+          <span class="eti" data-i18n="ui.recensioni">Le recensioni, nel vostro mestiere</span>
+          <dl class="dove-quando">
+            <div><dt data-i18n="ui.dove">Dove si mette</dt><dd data-i18n="settori.items.14.recensioni.dove">In fondo alla newsletter e sul vostro sito.</dd></div>
+            <div><dt data-i18n="ui.quando">Quando chiederla</dt><dd data-i18n="settori.items.14.recensioni.quando">Quando un lettore vi scrive per ringraziarvi.</dd></div>
+          </dl>
+          <a class="rimando" href="#recensioni-livello-1"><span data-i18n="recensioni.name">Customer Feedback</span><span class="rim-sep" aria-hidden="true">›</span><strong data-i18n="settori.recensioni_kit.livello">Codice QR</strong><span class="rim-sep" aria-hidden="true">·</span><span class="prezzo-r"><span data-i18n="settori.recensioni_kit.da">gratis</span></span><span class="frec" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+    <p class="nota-prezzi" data-i18n="servizi.nota_prezzi">I prezzi sono punti di partenza, non offerte. Vale il preventivo scritto.</p>
+    <div class="passo">
+      <span class="eti" data-i18n="ui.primo_passo">Da dove partire</span>
+      <p data-i18n="settori.items.14.primo_passo">Il sito con la newsletter: i lettori restano vostri, qualunque cosa decida un algoritmo.</p>
+    </div>
+    
     <a class="btn vuoto torna-home giu" href="#home"><span aria-hidden="true">←</span>&nbsp;<span data-i18n="ui.home">Home</span></a>
   </div>
 </article>
@@ -2617,7 +2903,7 @@ const I18N = {
   "header": {
    "location": "Minusio (TI) · Svizzera"
   },
-  "hero": {"titolo": "Meno lavoro a mano, più tempo per i vostri clienti.", "sottotitolo": "Nove modi per lavorare meglio, costruiti su misura per il vostro mestiere.", 
+  "hero": {"titolo": "Meno lavoro a mano, più tempo per i vostri clienti.", "sottotitolo": "Dieci modi per lavorare meglio, costruiti su misura per il vostro mestiere.", 
    "h1_before": "App fatte ",
    "h1_accent": "bene",
    "h1_after": ", da chi le costruisce in prima persona",
@@ -2706,8 +2992,8 @@ const I18N = {
   },
   "servizi": {
    "label": "Cosa facciamo",
-   "title": "Nove servizi. Uno solo, o tutti insieme.",
-   "intro": "Nove servizi: otto con il prezzo scritto, più i progetti nuovi su misura per voi. Prendete solo quello che vi serve.",
+   "title": "Dieci servizi. Uno solo, o tutti insieme.",
+   "intro": "Dieci servizi: nove con il prezzo scritto, più i progetti nuovi su misura per voi. Prendete solo quello che vi serve.",
    "nota_prezzi": "I prezzi sono punti di partenza, non offerte. Vale il preventivo scritto.",
    "come_leggere": {
     "title": "Come leggere i prezzi",
@@ -2739,7 +3025,7 @@ const I18N = {
      "livelli": [
       {
        "nome": "App semplice",
-       "da": "CHF 6'000",
+       "da": "CHF 4'900",
        "per_chi": "Informazioni, avvisi, niente registrazione.",
        "include": [
         "Fino a 6 schermate",
@@ -3145,8 +3431,8 @@ const I18N = {
    }
   },
   "google": {
-   "label": "Google e Google Maps",
-   "name": "Farsi trovare su Google",
+   "label": "La vostra scheda",
+   "name": "Google Maps",
    "lead": "Quando cercano la vostra attività, Google mostra una scheda con orari, foto e indicazioni. La completiamo noi.",
    "esempio": {
     "etichetta": "Esempio",
@@ -3182,6 +3468,41 @@ const I18N = {
    "tempo": "Pochi giorni. La verifica di Google può richiedere di più.",
    "onesta": "Il primo posto su Google non si compra e nessuno può prometterlo: Google decide in base a quanto la scheda corrisponde a ciò che si cerca, alla distanza e a quanto siete conosciuti. Una scheda completa e le recensioni vere aiutano."
   },
+  "search": {
+   "label": "Fatevi trovare nelle ricerche",
+   "name": "Google Search",
+   "lead": "Quando cercano quello che fate, Google deve capire il vostro sito. Lo prepariamo noi.",
+   "carta": {
+    "passi": [
+     "Scopriamo le parole che la gente cerca davvero.",
+     "Le mettiamo nei titoli e nei testi del vostro sito.",
+     "Lo segnaliamo a Google e sistemiamo i vostri dati su search.ch e local.ch."
+    ]
+   },
+   "cosa": [
+    "Cerchiamo le parole che la gente scrive davvero su Google per trovare quello che fate, nella vostra zona e nella vostra lingua.",
+    "Titolo e descrizione di ogni pagina con quelle parole: sono le righe che Google mostra nei risultati.",
+    "Il sito su Google Search Console, lo strumento gratuito di Google: così sa che esiste e vi dice come lo trova.",
+    "La mappa del sito inviata a Google, perché veda tutte le pagine.",
+    "Nome, indirizzo e telefono uguali dappertutto: sito, scheda Google, search.ch e local.ch.",
+    "Vi spieghiamo come controllare da soli, ogni mese, come vi trovano."
+   ],
+   "livelli": [
+    {
+     "nome": "Sito pronto per Google",
+     "da": "CHF 490",
+     "per_chi": "Per chi ha già un sito, ma su Google non si vede.",
+     "include": [
+      "Parole giuste, titoli e descrizioni",
+      "Search Console e mappa del sito",
+      "Dati giusti su search.ch e local.ch"
+     ]
+    }
+   ],
+   "rimando": "La scheda su Google Maps è un'altra cosa: da CHF 290",
+   "tempo": "Il lavoro: pochi giorni. Google può metterci alcune settimane a mostrare i cambiamenti.",
+   "onesta": "Il primo posto su Google non si compra e nessuno può prometterlo: diffidate di chi lo fa. Google sceglie da solo cosa mostrare; noi facciamo in modo che il vostro sito sia chiaro e scritto con le parole che la gente cerca davvero."
+  },
   "recensioni": {
    "home": {
     "label": "Per ogni mestiere",
@@ -3193,7 +3514,7 @@ const I18N = {
    },
    "slug": "recensioni",
    "label": "Il primo passo per tutti",
-   "name": "Recensioni Google in un clic",
+   "name": "Customer Feedback",
    "lead": "Il cliente inquadra il codice QR con il telefono, tocca le stelle e scrive due righe. Trenta secondi.",
    "problema": [
     "Chi vi cerca su Google guarda prima le stelle, poi tutto il resto.",
@@ -3849,6 +4170,150 @@ const I18N = {
      },
      "primo_passo": "Il registro sul telefono: se si scrive dove succede, si scrive giusto.",
      "nota": "VetSanit, l'app per il servizio sanitario in azienda agricola, nasce da questi problemi. È in costruzione e cerchiamo veterinari con cui parlare."
+    },
+    {
+     "slug": "influencer",
+     "name": "Influencer e creator",
+     "esempi": "Instagram, TikTok, YouTube, podcast, blog",
+     "intro": "Il lavoro vero è creare. Ma metà della giornata se ne va tra messaggi, proposte e conti.",
+     "problemi": [
+      {
+       "t": "Le proposte arrivano da tutte le parti",
+       "d": "Messaggi privati, e-mail, WhatsApp: una collaborazione si perde nel mucchio."
+      },
+      {
+       "t": "Il pubblico sta su piattaforme non vostre",
+       "d": "Se l'algoritmo cambia o il profilo si blocca, non potete più scrivere a chi vi segue."
+      },
+      {
+       "t": "Consegne e pagamenti a memoria",
+       "d": "Quando va pubblicato il video, quanto vi deve il brand, cosa manca: tutto in testa."
+      }
+     ],
+     "soluzioni": [
+      {
+       "t": "Una pagina vostra, con il media kit",
+       "d": "Chi siete, i numeri che volete mostrare e un modulo per le proposte dei brand.",
+       "servizio": "siti-web",
+       "livello": "Sito di una pagina",
+       "da": "CHF 1'500"
+      },
+      {
+       "t": "La vostra lista di contatti",
+       "d": "Iscrizione con l'e-mail dal vostro sito: se una piattaforma cambia, il pubblico resta vostro.",
+       "servizio": "automazioni",
+       "livello": "Un passaggio",
+       "da": "CHF 900"
+      },
+      {
+       "t": "Collaborazioni e scadenze in una lista",
+       "d": "Ogni brand, cosa consegnare e quando, e se ha già pagato. Il promemoria parte da solo.",
+       "servizio": "automazioni",
+       "livello": "Scadenze e liste",
+       "da": "CHF 1'800"
+      }
+     ],
+     "recensioni": {
+      "dove": "Il link nella bio e in fondo alle e-mail ai brand.",
+      "quando": "Quando un brand vi dice che la collaborazione è andata bene."
+     },
+     "primo_passo": "La pagina con il media kit: costa poco e la mandate a ogni brand che vi scrive."
+    },
+    {
+     "slug": "fotografi",
+     "name": "Fotografi e studi fotografici",
+     "esempi": "Matrimoni, ritratti, eventi, prodotti, immobili",
+     "intro": "Le foto sono pronte. Poi iniziano i messaggi: quali sceglie il cliente, come gliele mandate, quando paga.",
+     "problemi": [
+      {
+       "t": "Il portfolio è vecchio di due anni",
+       "d": "I lavori migliori stanno nel computer, non dove li vedono i clienti nuovi."
+      },
+      {
+       "t": "Date e acconti a voce",
+       "d": "Un matrimonio fissato per messaggio e mai confermato: due clienti per lo stesso sabato."
+      },
+      {
+       "t": "«Quando arrivano le foto?»",
+       "d": "Link che scadono, file troppo pesanti, la scelta delle foto fatta per messaggio."
+      }
+     ],
+     "soluzioni": [
+      {
+       "t": "Un portfolio che aggiornate voi",
+       "d": "Caricate i lavori nuovi dal telefono, divisi per tipo di servizio.",
+       "servizio": "siti-web",
+       "livello": "Sito aziendale",
+       "da": "CHF 3'500"
+      },
+      {
+       "t": "Prenotazione con acconto",
+       "d": "Il cliente sceglie una data libera, paga l'acconto e riceve la conferma. Da solo.",
+       "servizio": "automazioni",
+       "livello": "Flusso a più passaggi",
+       "da": "CHF 2'500"
+      },
+      {
+       "t": "Una galleria privata per ogni cliente",
+       "d": "Vede solo le sue foto, sceglie con un clic e scarica quelle pronte.",
+       "servizio": "siti-web",
+       "livello": "Sito che lavora",
+       "da": "CHF 8'000"
+      }
+     ],
+     "recensioni": {
+      "dove": "Il codice sul biglietto che accompagna le stampe o l'album.",
+      "quando": "Quando consegnate le foto finite."
+     },
+     "primo_passo": "La prenotazione con acconto: niente più date doppie, e l'acconto arriva prima del lavoro."
+    },
+    {
+     "slug": "giornalisti",
+     "name": "Giornalisti e redazioni",
+     "esempi": "Freelance, giornali locali, riviste, radio, newsletter",
+     "intro": "La notizia va scritta in fretta. Ma prima bisogna trovare la registrazione, la fonte e il numero giusto.",
+     "problemi": [
+      {
+       "t": "Ore a trascrivere le interviste",
+       "d": "Un'ora di registrazione, tre ore in cuffia per tirarne fuori le citazioni."
+      },
+      {
+       "t": "Fonti e contatti sparsi ovunque",
+       "d": "Il numero che serve è in un vecchio messaggio. Da qualche parte."
+      },
+      {
+       "t": "I lettori arrivano da piattaforme non vostre",
+       "d": "Se l'algoritmo cambia, chi vi legge non vi vede più."
+      }
+     ],
+     "soluzioni": [
+      {
+       "t": "Trascrizione automatica, ricontrollata da voi",
+       "d": "L'intervista diventa testo, con il minuto esatto di ogni frase. Le citazioni le verificate voi.",
+       "servizio": "automazioni",
+       "livello": "Con intelligenza artificiale",
+       "da": "CHF 6'000"
+      },
+      {
+       "t": "L'archivio delle fonti",
+       "d": "Persone, numeri e ultime telefonate in un posto solo, con la ricerca.",
+       "servizio": "software",
+       "livello": "Strumento interno",
+       "da": "CHF 7'000"
+      },
+      {
+       "t": "Il vostro sito, con la newsletter",
+       "d": "Gli articoli sul vostro sito e l'iscrizione alla newsletter: i lettori restano vostri.",
+       "servizio": "siti-web",
+       "livello": "Sito aziendale",
+       "da": "CHF 3'500"
+      }
+     ],
+     "recensioni": {
+      "dove": "In fondo alla newsletter e sul vostro sito.",
+      "quando": "Quando un lettore vi scrive per ringraziarvi."
+     },
+     "primo_passo": "Il sito con la newsletter: i lettori restano vostri, qualunque cosa decida un algoritmo."
     }
    ]
   },
@@ -3878,7 +4343,7 @@ const I18N = {
    "nota": "Un fatto",
    "sito_in_costruzione": "sito in costruzione"
   },
-  "portfolio": {"romizzu": {"name": "Romizzu", "badge": "In vendita", "riga": "Marchio di nastro per le dita per BJJ e grappling, in vendita su Amazon USA e su romizzu.com.", "cosa": "Per Romizzu abbiamo costruito il negozio online, il gestionale (vendite, magazzino, finanza) e le automazioni con Amazon.", "amazon": "Su Amazon.com: 4,6 ★ su 91 valutazioni (ottobre 2026)", "titolarita": "Azienda del fondatore di UtoApps."}, 
+  "portfolio": {"romizzu": {"name": "Romizzu", "badge": "Live", "riga": "Marchio di nastro per le dita per BJJ e grappling, in vendita su Amazon USA e su romizzu.com.", "cosa": "Per Romizzu abbiamo costruito il negozio online, il gestionale (vendite, magazzino, finanza) e le automazioni con Amazon.", "amazon": "Su Amazon.com: 4,6 ★ su 91 valutazioni (ottobre 2026)", "titolarita": "Azienda del fondatore di UtoApps."}, 
    "label": "App create da UtoApps",
    "items": [
     {
@@ -3897,9 +4362,9 @@ const I18N = {
     },
     {
      "name": "Calenzzu",
-     "badge": "In definizione",
+     "badge": "In costruzione",
      "riga": "Mette insieme i calendari di due persone e mostra i giorni liberi per entrambe.",
-     "fatto": "In definizione",
+     "fatto": "In costruzione",
      "titolarita": "Prodotto UtoApps."
     }
    ]
@@ -4001,7 +4466,7 @@ const I18N = {
   "header": {
    "location": "Minusio (TI) · Schweiz"
   },
-  "hero": {"titolo": "Weniger Handarbeit, mehr Zeit für Ihre Kunden.", "sottotitolo": "Neun Wege, besser zu arbeiten – massgeschneidert für Ihren Betrieb.", 
+  "hero": {"titolo": "Weniger Handarbeit, mehr Zeit für Ihre Kunden.", "sottotitolo": "Zehn Wege, besser zu arbeiten – massgeschneidert für Ihren Betrieb.", 
    "h1_before": "Apps aus dem Tessin – Sie reden ",
    "h1_accent": "direkt",
    "h1_after": " mit dem Entwickler.",
@@ -4090,8 +4555,8 @@ const I18N = {
   },
   "servizi": {
    "label": "Was wir machen",
-   "title": "Neun Leistungen. Eine oder alle zusammen.",
-   "intro": "Neun Leistungen: acht mit Preis, dazu neue Projekte nach Mass für Sie. Nehmen Sie nur, was Sie brauchen.",
+   "title": "Zehn Leistungen. Eine oder alle zusammen.",
+   "intro": "Zehn Leistungen: neun mit Preis, dazu neue Projekte nach Mass für Sie. Nehmen Sie nur, was Sie brauchen.",
    "nota_prezzi": "Die Preise sind Ausgangspunkte, keine Offerten. Es gilt die schriftliche Offerte.",
    "come_leggere": {
     "title": "So lesen Sie die Preise",
@@ -4123,7 +4588,7 @@ const I18N = {
      "livelli": [
       {
        "nome": "Einfache App",
-       "da": "CHF 6'000",
+       "da": "CHF 4'900",
        "per_chi": "Informationen, Meldungen, keine Anmeldung.",
        "include": [
         "Bis zu 6 Bildschirme",
@@ -4529,8 +4994,8 @@ const I18N = {
    }
   },
   "google": {
-   "label": "Google und Google Maps",
-   "name": "Auf Google gefunden werden",
+   "label": "Ihr Eintrag",
+   "name": "Google Maps",
    "lead": "Wenn jemand Ihren Betrieb sucht, zeigt Google einen Eintrag mit Öffnungszeiten, Fotos und Route. Wir vervollständigen ihn für Sie.",
    "esempio": {
     "etichetta": "Beispiel",
@@ -4566,6 +5031,41 @@ const I18N = {
    "tempo": "Wenige Tage. Die Bestätigung durch Google kann länger dauern.",
    "onesta": "Den ersten Platz bei Google kann niemand kaufen oder versprechen: Google entscheidet danach, wie gut Ihr Eintrag zur Suche passt, wie weit Sie entfernt sind und wie bekannt Sie sind. Ein vollständiger Eintrag und echte Bewertungen helfen."
   },
+  "search": {
+   "label": "In der Suche gefunden werden",
+   "name": "Google Search",
+   "lead": "Wenn jemand sucht, was Sie anbieten, muss Google Ihre Website verstehen. Wir bereiten sie dafür vor.",
+   "carta": {
+    "passi": [
+     "Wir finden heraus, mit welchen Wörtern die Leute wirklich suchen.",
+     "Diese Wörter kommen in die Titel und Texte Ihrer Website.",
+     "Wir melden Ihre Website bei Google an und bringen Ihre Angaben auf search.ch und local.ch auf den neusten Stand."
+    ]
+   },
+   "cosa": [
+    "Wir suchen die Wörter, die Leute wirklich bei Google eingeben, um zu finden, was Sie anbieten – in Ihrer Region und in Ihrer Sprache.",
+    "Titel und Beschreibung jeder Seite mit diesen Wörtern: Das sind die Zeilen, die Google in den Ergebnissen zeigt.",
+    "Ihre Website in der Google Search Console, dem kostenlosen Werkzeug von Google: So weiss Google, dass es sie gibt, und Sie sehen, wie Google sie findet.",
+    "Die Sitemap (die Liste aller Seiten) geht an Google, damit Google alle Seiten sieht.",
+    "Überall derselbe Name, dieselbe Adresse und Telefonnummer: Website, Google-Eintrag, search.ch und local.ch.",
+    "Wir zeigen Ihnen, wie Sie jeden Monat selbst prüfen, wie man Sie findet."
+   ],
+   "livelli": [
+    {
+     "nome": "Website fit für Google",
+     "da": "CHF 490",
+     "per_chi": "Für alle mit einer Website, die bei Google nicht auftaucht.",
+     "include": [
+      "Die richtigen Wörter, Titel und Beschreibungen",
+      "Search Console und Sitemap",
+      "Korrekte Angaben auf search.ch und local.ch"
+     ]
+    }
+   ],
+   "rimando": "Der Eintrag auf Google Maps ist eine eigene Leistung: ab CHF 290",
+   "tempo": "Die Arbeit: wenige Tage. Bis Google die Änderungen zeigt, können einige Wochen vergehen.",
+   "onesta": "Den ersten Platz bei Google kann niemand kaufen oder versprechen – Vorsicht bei allen, die ihn trotzdem versprechen. Google entscheidet selbst, was es zeigt. Wir sorgen dafür, dass Ihre Website klar aufgebaut ist und die Wörter enthält, nach denen die Leute wirklich suchen."
+  },
   "recensioni": {
    "home": {
     "label": "Für jeden Betrieb",
@@ -4577,7 +5077,7 @@ const I18N = {
    },
    "slug": "recensioni",
    "label": "Der erste Schritt für alle",
-   "name": "Google-Bewertungen mit einem Klick",
+   "name": "Customer Feedback",
    "lead": "Der Kunde scannt den QR-Code mit dem Handy, tippt die Sterne an und schreibt zwei Zeilen. Dreissig Sekunden.",
    "problema": [
     "Wer Sie auf Google sucht, schaut zuerst auf die Sterne, dann auf den Rest.",
@@ -5233,6 +5733,150 @@ const I18N = {
      },
      "primo_passo": "Die Aufzeichnung am Handy: Wo es passiert, wird es richtig notiert.",
      "nota": "VetSanit, die App für die tierärztliche Betreuung auf dem Hof, entstand aus diesen Problemen. Sie ist im Aufbau; wir suchen Tierärzte für Gespräche."
+    },
+    {
+     "slug": "influencer",
+     "name": "Influencer und Content-Creator",
+     "esempi": "Instagram, TikTok, YouTube, Podcasts, Blogs",
+     "intro": "Die eigentliche Arbeit: Inhalte erstellen. Doch der halbe Tag geht für Nachrichten, Anfragen und Abrechnungen drauf.",
+     "problemi": [
+      {
+       "t": "Anfragen kommen von überall",
+       "d": "Direktnachrichten, E-Mails, WhatsApp: Eine Kooperation geht in der Masse unter."
+      },
+      {
+       "t": "Ihr Publikum lebt auf fremden Plattformen",
+       "d": "Ändert sich der Algorithmus oder wird das Profil gesperrt, erreichen Sie Ihre Follower nicht mehr."
+      },
+      {
+       "t": "Termine und Zahlungen aus dem Gedächtnis",
+       "d": "Wann das Video online geht, was die Marke noch schuldet, was fehlt: alles im Kopf."
+      }
+     ],
+     "soluzioni": [
+      {
+       "t": "Eine eigene Seite mit Ihrem Media-Kit",
+       "d": "Wer Sie sind, die Zahlen, die Sie zeigen möchten, und ein Formular für Anfragen von Marken.",
+       "servizio": "siti-web",
+       "livello": "Einseitige Website",
+       "da": "CHF 1'500"
+      },
+      {
+       "t": "Ihre eigene Kontaktliste",
+       "d": "Anmeldung mit E-Mail-Adresse auf Ihrer Website: Ändert sich eine Plattform, bleibt Ihr Publikum bei Ihnen.",
+       "servizio": "automazioni",
+       "livello": "Ein Schritt",
+       "da": "CHF 900"
+      },
+      {
+       "t": "Kooperationen und Fristen in einer Liste",
+       "d": "Jede Marke, was wann zu liefern ist und ob schon bezahlt wurde. Die Erinnerung geht von selbst raus.",
+       "servizio": "automazioni",
+       "livello": "Fristen und Listen",
+       "da": "CHF 1'800"
+      }
+     ],
+     "recensioni": {
+      "dove": "Als Link in der Bio und am Ende Ihrer E-Mails an Marken.",
+      "quando": "Wenn eine Marke sagt, dass die Kooperation gut gelaufen ist."
+     },
+     "primo_passo": "Die Seite mit dem Media-Kit: kostet wenig und geht an jede Marke, die Ihnen schreibt."
+    },
+    {
+     "slug": "fotografi",
+     "name": "Fotografen und Fotostudios",
+     "esempi": "Hochzeiten, Porträts, Anlässe, Produkte, Immobilien",
+     "intro": "Die Fotos sind fertig. Dann beginnen die Nachrichten: welche der Kunde auswählt, wie Sie sie schicken, wann er zahlt.",
+     "problemi": [
+      {
+       "t": "Das Portfolio ist zwei Jahre alt",
+       "d": "Die besten Arbeiten liegen auf dem Computer, nicht dort, wo neue Kunden sie sehen."
+      },
+      {
+       "t": "Termine und Anzahlungen mündlich",
+       "d": "Eine Hochzeit per Nachricht abgemacht und nie bestätigt: zwei Kunden für denselben Samstag."
+      },
+      {
+       "t": "«Wann kommen die Fotos?»",
+       "d": "Links, die ablaufen, zu grosse Dateien, die Auswahl der Fotos per Nachricht."
+      }
+     ],
+     "soluzioni": [
+      {
+       "t": "Ein Portfolio, das Sie selbst aktualisieren",
+       "d": "Neue Arbeiten vom Handy hochladen, geordnet nach Art des Auftrags.",
+       "servizio": "siti-web",
+       "livello": "Firmenwebsite",
+       "da": "CHF 3'500"
+      },
+      {
+       "t": "Buchung mit Anzahlung",
+       "d": "Der Kunde wählt einen freien Termin, zahlt die Anzahlung und erhält die Bestätigung. Von selbst.",
+       "servizio": "automazioni",
+       "livello": "Mehrere Schritte",
+       "da": "CHF 2'500"
+      },
+      {
+       "t": "Eine private Galerie für jeden Kunden",
+       "d": "Er sieht nur seine Fotos, wählt mit einem Klick aus und lädt die fertigen herunter.",
+       "servizio": "siti-web",
+       "livello": "Website, die arbeitet",
+       "da": "CHF 8'000"
+      }
+     ],
+     "recensioni": {
+      "dove": "Der Code auf dem Kärtchen, das den Abzügen oder dem Album beiliegt.",
+      "quando": "Wenn Sie die fertigen Fotos übergeben."
+     },
+     "primo_passo": "Die Buchung mit Anzahlung: keine doppelt vergebenen Termine mehr, und die Anzahlung kommt vor der Arbeit."
+    },
+    {
+     "slug": "giornalisti",
+     "name": "Journalisten und Redaktionen",
+     "esempi": "Freie Journalisten, Lokalzeitungen, Zeitschriften, Radio, Newsletter",
+     "intro": "Die Meldung muss schnell geschrieben sein. Aber zuerst müssen Sie die Aufnahme, die Quelle und die richtige Nummer finden.",
+     "problemi": [
+      {
+       "t": "Stunden mit dem Abtippen von Interviews",
+       "d": "Eine Stunde Aufnahme, drei Stunden mit Kopfhörern, um die Zitate herauszuholen."
+      },
+      {
+       "t": "Quellen und Kontakte überall verstreut",
+       "d": "Die Nummer, die Sie brauchen, steckt in einer alten Nachricht. Irgendwo."
+      },
+      {
+       "t": "Die Leserschaft kommt über fremde Plattformen",
+       "d": "Ändert sich der Algorithmus, erreichen Sie Ihre Leserschaft nicht mehr."
+      }
+     ],
+     "soluzioni": [
+      {
+       "t": "Automatische Transkription, von Ihnen geprüft",
+       "d": "Das Interview wird zu Text, mit Zeitangabe zu jedem Satz. Die Zitate prüfen Sie.",
+       "servizio": "automazioni",
+       "livello": "Mit künstlicher Intelligenz",
+       "da": "CHF 6'000"
+      },
+      {
+       "t": "Ihr Quellenarchiv",
+       "d": "Personen, Nummern und die letzten Anrufe an einem Ort, mit Suchfunktion.",
+       "servizio": "software",
+       "livello": "Internes Werkzeug",
+       "da": "CHF 7'000"
+      },
+      {
+       "t": "Ihre Website mit Newsletter",
+       "d": "Die Artikel auf Ihrer Website und die Anmeldung zum Newsletter: Die Leserschaft bleibt Ihre.",
+       "servizio": "siti-web",
+       "livello": "Firmenwebsite",
+       "da": "CHF 3'500"
+      }
+     ],
+     "recensioni": {
+      "dove": "Am Ende des Newsletters und auf Ihrer Website.",
+      "quando": "Wenn sich jemand aus der Leserschaft bei Ihnen bedankt."
+     },
+     "primo_passo": "Die Website mit Newsletter: Die Leserschaft bleibt Ihre, was auch immer ein Algorithmus entscheidet."
     }
    ]
   },
@@ -5262,7 +5906,7 @@ const I18N = {
    "nota": "Eine Tatsache",
    "sito_in_costruzione": "Website im Aufbau"
   },
-  "portfolio": {"romizzu": {"name": "Romizzu", "badge": "Im Verkauf", "riga": "Marke für Fingertape für BJJ und Grappling, erhältlich auf Amazon USA und auf romizzu.com.", "cosa": "Für Romizzu haben wir den Onlineshop, die Verwaltungssoftware (Verkauf, Lager, Finanzen) und die Automatisierungen mit Amazon gebaut.", "amazon": "Auf Amazon.com: 4,6 ★ bei 91 Bewertungen (Oktober 2026)", "titolarita": "Unternehmen des Gründers von UtoApps."}, 
+  "portfolio": {"romizzu": {"name": "Romizzu", "badge": "Live", "riga": "Marke für Fingertape für BJJ und Grappling, erhältlich auf Amazon USA und auf romizzu.com.", "cosa": "Für Romizzu haben wir den Onlineshop, die Verwaltungssoftware (Verkauf, Lager, Finanzen) und die Automatisierungen mit Amazon gebaut.", "amazon": "Auf Amazon.com: 4,6 ★ bei 91 Bewertungen (Oktober 2026)", "titolarita": "Unternehmen des Gründers von UtoApps."}, 
    "label": "Von UtoApps entwickelte Apps",
    "items": [
     {
@@ -5281,9 +5925,9 @@ const I18N = {
     },
     {
      "name": "Calenzzu",
-     "badge": "In Abklärung",
+     "badge": "Im Aufbau",
      "riga": "Legt die Kalender von zwei Personen zusammen und zeigt die gemeinsamen freien Tage.",
-     "fatto": "In Abklärung",
+     "fatto": "Im Aufbau",
      "titolarita": "Produkt von UtoApps."
     }
    ]
@@ -5306,7 +5950,7 @@ const I18N = {
   "header": {
    "location": "Minusio (TI) · Suisse"
   },
-  "hero": {"titolo": "Moins de travail à la main, plus de temps pour vos clients.", "sottotitolo": "Neuf façons de mieux travailler, construites sur mesure pour votre métier.", 
+  "hero": {"titolo": "Moins de travail à la main, plus de temps pour vos clients.", "sottotitolo": "Dix façons de mieux travailler, conçues sur mesure pour votre métier.", 
    "h1_before": "Une application ",
    "h1_accent": "bien faite",
    "h1_after": ", par celui qui la développe.",
@@ -5474,8 +6118,8 @@ const I18N = {
   },
   "servizi": {
    "label": "Ce que nous faisons",
-   "title": "Neuf prestations. Une seule, ou toutes ensemble.",
-   "intro": "Neuf prestations : huit avec un prix écrit, plus les nouveaux projets sur mesure pour vous. Prenez seulement ce qu’il vous faut.",
+   "title": "Dix prestations. Une seule, ou toutes ensemble.",
+   "intro": "Dix prestations : neuf avec leur prix affiché, plus les nouveaux projets sur mesure pour vous. Prenez seulement ce qu’il vous faut.",
    "nota_prezzi": "Prix de départ, pas des offres. Seul le devis écrit fait foi.",
    "come_leggere": {
     "title": "Comment lire les prix",
@@ -5507,7 +6151,7 @@ const I18N = {
      "livelli": [
       {
        "nome": "App simple",
-       "da": "CHF 6'000",
+       "da": "CHF 4'900",
        "per_chi": "Informations, alertes, sans inscription.",
        "include": [
         "Jusqu’à 6 écrans",
@@ -5913,8 +6557,8 @@ const I18N = {
    }
   },
   "google": {
-   "label": "Google et Google Maps",
-   "name": "Être trouvé sur Google",
+   "label": "Votre fiche",
+   "name": "Google Maps",
    "lead": "Quand on cherche votre entreprise, Google affiche une fiche avec horaires, photos et itinéraire. Nous la complétons pour vous.",
    "esempio": {
     "etichetta": "Exemple",
@@ -5950,6 +6594,41 @@ const I18N = {
    "tempo": "Quelques jours. La validation par Google peut prendre plus de temps.",
    "onesta": "La première place sur Google ne s’achète pas et personne ne peut la promettre : Google décide selon la pertinence de votre fiche pour la recherche, la distance et votre notoriété. Une fiche complète et de vrais avis aident."
   },
+  "search": {
+   "label": "Faites-vous trouver dans les recherches",
+   "name": "Google Search",
+   "lead": "Quand on cherche ce que vous faites, Google doit comprendre votre site. Nous le préparons pour vous.",
+   "carta": {
+    "passi": [
+     "Nous trouvons les mots que les gens cherchent vraiment.",
+     "Nous les mettons dans les titres et les textes de votre site.",
+     "Nous le signalons à Google et mettons à jour vos coordonnées sur search.ch et local.ch."
+    ]
+   },
+   "cosa": [
+    "Nous cherchons les mots que les gens tapent vraiment sur Google pour trouver ce que vous faites, dans votre région et dans votre langue.",
+    "Un titre et une description pour chaque page, avec ces mots : ce sont les lignes que Google affiche dans les résultats.",
+    "Votre site dans la Google Search Console, l’outil gratuit de Google : Google sait qu’il existe et vous montre comment il le trouve.",
+    "Le plan du site envoyé à Google, pour qu’il voie toutes les pages.",
+    "Nom, adresse et téléphone identiques partout : site, fiche Google, search.ch et local.ch.",
+    "Nous vous apprenons à vérifier vous-même, chaque mois, comment on vous trouve."
+   ],
+   "livelli": [
+    {
+     "nome": "Site prêt pour Google",
+     "da": "CHF 490",
+     "per_chi": "Pour qui a déjà un site, mais qu’on ne voit pas sur Google.",
+     "include": [
+      "Les bons mots, titres et descriptions",
+      "Search Console et plan du site",
+      "Coordonnées justes sur search.ch et local.ch"
+     ]
+    }
+   ],
+   "rimando": "La fiche Google Maps, c’est autre chose : dès CHF 290",
+   "tempo": "Le travail : quelques jours. Google peut mettre quelques semaines à afficher les changements.",
+   "onesta": "La première place sur Google ne s’achète pas et personne ne peut la promettre : méfiez-vous de ceux qui le font. Google décide seul de ce qu’il affiche ; nous faisons en sorte que votre site soit clair et écrit avec les mots que les gens cherchent vraiment."
+  },
   "recensioni": {
    "home": {
     "label": "Pour tous les métiers",
@@ -5961,7 +6640,7 @@ const I18N = {
    },
    "slug": "recensioni",
    "label": "Le premier pas pour tous",
-   "name": "Avis Google en un clic",
+   "name": "Customer Feedback",
    "lead": "Le client scanne le code QR avec son téléphone, touche les étoiles et écrit deux lignes. Trente secondes.",
    "problema": [
     "Qui vous cherche sur Google regarde d’abord les étoiles, puis le reste.",
@@ -6617,6 +7296,150 @@ const I18N = {
      },
      "primo_passo": "Le registre sur le téléphone : écrit sur place, il est juste.",
      "nota": "VetSanit, l’app pour le service sanitaire en exploitation agricole, naît de ces problèmes. En construction : nous cherchons des vétérinaires à qui parler."
+    },
+    {
+     "slug": "influencer",
+     "name": "Influenceurs et créateurs de contenu",
+     "esempi": "Instagram, TikTok, YouTube, podcasts, blogs",
+     "intro": "Le vrai travail, c’est créer. Mais la moitié de la journée part en messages, propositions et factures.",
+     "problemi": [
+      {
+       "t": "Les propositions arrivent de partout",
+       "d": "Messages privés, e-mails, WhatsApp : une collaboration se perd dans le tas."
+      },
+      {
+       "t": "Votre public vit sur des plateformes qui ne sont pas à vous",
+       "d": "Si l’algorithme change ou si le profil est bloqué, vous ne pouvez plus écrire à ceux qui vous suivent."
+      },
+      {
+       "t": "Publications et paiements gérés de mémoire",
+       "d": "Quand publier la vidéo, combien la marque vous doit, ce qui manque : vous gardez tout en tête."
+      }
+     ],
+     "soluzioni": [
+      {
+       "t": "Une page à vous, avec votre media kit",
+       "d": "Qui vous êtes, les chiffres que vous voulez montrer et un formulaire pour les propositions des marques.",
+       "servizio": "siti-web",
+       "livello": "Site d’une page",
+       "da": "CHF 1'500"
+      },
+      {
+       "t": "Votre propre liste de contacts",
+       "d": "Inscription par e-mail sur votre site : si une plateforme change, le public reste à vous.",
+       "servizio": "automazioni",
+       "livello": "Une étape",
+       "da": "CHF 900"
+      },
+      {
+       "t": "Collaborations et échéances dans une liste",
+       "d": "Chaque marque, quoi livrer et quand, et si elle a déjà payé. Le rappel part tout seul.",
+       "servizio": "automazioni",
+       "livello": "Échéances et listes",
+       "da": "CHF 1'800"
+      }
+     ],
+     "recensioni": {
+      "dove": "Le lien dans la bio et au bas des e-mails aux marques.",
+      "quando": "Quand une marque vous dit que la collaboration s’est bien passée."
+     },
+     "primo_passo": "La page avec le media kit : elle coûte peu et vous l’envoyez à chaque marque qui vous écrit."
+    },
+    {
+     "slug": "fotografi",
+     "name": "Photographes et studios photo",
+     "esempi": "Mariages, portraits, événements, produits, immobilier",
+     "intro": "Les photos sont prêtes. Puis les messages commencent : lesquelles le client choisit, comment les lui envoyer, quand il paie.",
+     "problemi": [
+      {
+       "t": "Le portfolio a deux ans",
+       "d": "Les meilleurs travaux sont sur l’ordinateur, pas là où les nouveaux clients les verraient."
+      },
+      {
+       "t": "Dates et acomptes à l’oral",
+       "d": "Un mariage fixé par message et jamais confirmé : deux clients pour le même samedi."
+      },
+      {
+       "t": "« Quand arrivent les photos ? »",
+       "d": "Des liens qui expirent, des fichiers trop lourds, le choix des photos par message."
+      }
+     ],
+     "soluzioni": [
+      {
+       "t": "Un portfolio que vous mettez à jour vous-même",
+       "d": "Vous ajoutez les nouveaux travaux depuis le téléphone, classés par type de prestation.",
+       "servizio": "siti-web",
+       "livello": "Site d’entreprise",
+       "da": "CHF 3'500"
+      },
+      {
+       "t": "Réservation avec acompte",
+       "d": "Le client choisit une date libre, paie l’acompte et reçoit la confirmation. Tout seul.",
+       "servizio": "automazioni",
+       "livello": "Flux à plusieurs étapes",
+       "da": "CHF 2'500"
+      },
+      {
+       "t": "Une galerie privée pour chaque client",
+       "d": "Il ne voit que ses photos, choisit en un clic et télécharge celles qui sont prêtes.",
+       "servizio": "siti-web",
+       "livello": "Site qui travaille pour vous",
+       "da": "CHF 8'000"
+      }
+     ],
+     "recensioni": {
+      "dove": "Le code sur la carte qui accompagne les tirages ou l’album.",
+      "quando": "Quand vous livrez les photos terminées."
+     },
+     "primo_passo": "La réservation avec acompte : fini les dates en double, et l’acompte arrive avant le travail."
+    },
+    {
+     "slug": "giornalisti",
+     "name": "Journalistes et rédactions",
+     "esempi": "Pigistes, journaux locaux, magazines, radio, newsletters",
+     "intro": "L’article doit être écrit vite. Mais avant, il faut retrouver l’enregistrement, la source et le bon numéro.",
+     "problemi": [
+      {
+       "t": "Des heures à retranscrire les interviews",
+       "d": "Une heure d’enregistrement, trois heures au casque pour en tirer les citations."
+      },
+      {
+       "t": "Sources et contacts éparpillés partout",
+       "d": "Le numéro dont vous avez besoin est dans un vieux message. Quelque part."
+      },
+      {
+       "t": "Les lecteurs passent par des plateformes qui ne sont pas à vous",
+       "d": "Si l’algorithme change, ceux qui vous lisent ne vous voient plus."
+      }
+     ],
+     "soluzioni": [
+      {
+       "t": "Transcription automatique, vérifiée par vous",
+       "d": "L’interview devient un texte avec le minutage de chaque phrase. Les citations, c’est vous qui les vérifiez.",
+       "servizio": "automazioni",
+       "livello": "Avec intelligence artificielle",
+       "da": "CHF 6'000"
+      },
+      {
+       "t": "Le carnet d’adresses de vos sources",
+       "d": "Personnes, numéros et derniers appels au même endroit, avec une fonction de recherche.",
+       "servizio": "software",
+       "livello": "Outil interne",
+       "da": "CHF 7'000"
+      },
+      {
+       "t": "Votre site, avec la newsletter",
+       "d": "Les articles sur votre site et l’inscription à la newsletter : les lecteurs restent à vous.",
+       "servizio": "siti-web",
+       "livello": "Site d’entreprise",
+       "da": "CHF 3'500"
+      }
+     ],
+     "recensioni": {
+      "dove": "Au bas de la newsletter et sur votre site.",
+      "quando": "Quand un lecteur vous écrit pour vous remercier."
+     },
+     "primo_passo": "Le site avec la newsletter : les lecteurs restent à vous, quoi que décide un algorithme."
     }
    ]
   },
@@ -6646,7 +7469,7 @@ const I18N = {
    "nota": "Un fait",
    "sito_in_costruzione": "site en construction"
   },
-  "portfolio": {"romizzu": {"name": "Romizzu", "badge": "En vente", "riga": "Marque de tape pour les doigts, pour le BJJ et le grappling, en vente sur Amazon USA et sur romizzu.com.", "cosa": "Pour Romizzu, nous avons construit la boutique en ligne, le logiciel de gestion (ventes, stock, finances) et les automatisations avec Amazon.", "amazon": "Sur Amazon.com : 4,6 ★ pour 91 évaluations (octobre 2026)", "titolarita": "Entreprise du fondateur d’UtoApps."}, 
+  "portfolio": {"romizzu": {"name": "Romizzu", "badge": "En ligne", "riga": "Marque de tape pour les doigts, pour le BJJ et le grappling, en vente sur Amazon USA et sur romizzu.com.", "cosa": "Pour Romizzu, nous avons construit la boutique en ligne, le logiciel de gestion (ventes, stock, finances) et les automatisations avec Amazon.", "amazon": "Sur Amazon.com : 4,6 ★ pour 91 évaluations (octobre 2026)", "titolarita": "Entreprise du fondateur d’UtoApps."}, 
    "label": "Applications créées par UtoApps",
    "items": [
     {
@@ -6665,9 +7488,9 @@ const I18N = {
     },
     {
      "name": "Calenzzu",
-     "badge": "En définition",
+     "badge": "En construction",
      "riga": "Réunit les agendas de deux personnes et montre les jours libres pour les deux.",
-     "fatto": "En définition",
+     "fatto": "En construction",
      "titolarita": "Produit UtoApps."
     }
    ]
@@ -6690,7 +7513,7 @@ const I18N = {
   "header": {
    "location": "Minusio (TI) · Switzerland"
   },
-  "hero": {"titolo": "Less manual work, more time for your customers.", "sottotitolo": "Nine ways to work better, made to measure for your trade.", 
+  "hero": {"titolo": "Less manual work, more time for your customers.", "sottotitolo": "Ten ways to work better, made to measure for your trade.", 
    "h1_before": "Apps built ",
    "h1_accent": "properly",
    "h1_after": " – by the person you talk to.",
@@ -6858,8 +7681,8 @@ const I18N = {
   },
   "servizi": {
    "label": "What we do",
-   "title": "Nine services. One, or all together.",
-   "intro": "Nine services: eight with prices written down, plus new projects made to measure for you. Take only what you need.",
+   "title": "Ten services. One, or all together.",
+   "intro": "Ten services: nine with prices written down, plus new projects made to measure for you. Take only what you need.",
    "nota_prezzi": "Prices are starting points, not offers. The written quote is what counts.",
    "come_leggere": {
     "title": "How prices work",
@@ -6891,7 +7714,7 @@ const I18N = {
      "livelli": [
       {
        "nome": "Simple app",
-       "da": "CHF 6'000",
+       "da": "CHF 4'900",
        "per_chi": "Information, notifications, no sign-up.",
        "include": [
         "Up to 6 screens",
@@ -7297,8 +8120,8 @@ const I18N = {
    }
   },
   "google": {
-   "label": "Google and Google Maps",
-   "name": "Get found on Google",
+   "label": "Your listing",
+   "name": "Google Maps",
    "lead": "When people search for your business, Google shows a listing with your hours, photos and directions. We complete it for you.",
    "esempio": {
     "etichetta": "Example",
@@ -7334,6 +8157,41 @@ const I18N = {
    "tempo": "A few days. Google’s verification can take longer.",
    "onesta": "Nobody can buy or promise first place on Google: Google decides by how well your listing matches the search, how far away you are and how well known you are. A complete listing and real reviews help."
   },
+  "search": {
+   "label": "Get found in search results",
+   "name": "Google Search",
+   "lead": "When people search for what you do, Google has to understand your website. We get it ready.",
+   "carta": {
+    "passi": [
+     "We find the words people really search for.",
+     "We put them in your website’s titles and text.",
+     "We submit it to Google and update your details on search.ch and local.ch."
+    ]
+   },
+   "cosa": [
+    "We look for the words people really type into Google to find what you do, in your area and in your language.",
+    "A title and description for every page, using those words: they’re the lines Google shows in the results.",
+    "Your website added to Google Search Console, Google’s free tool: so Google knows it exists, and you can see how Google finds it.",
+    "A sitemap sent to Google, so it can see every page.",
+    "The same name, address and phone number everywhere: website, Google listing, search.ch and local.ch.",
+    "We show you how to check for yourself, every month, how people find you."
+   ],
+   "livelli": [
+    {
+     "nome": "Website ready for Google",
+     "da": "CHF 490",
+     "per_chi": "If you already have a website but it doesn’t show up on Google.",
+     "include": [
+      "The right words, titles and descriptions",
+      "Search Console and sitemap",
+      "Correct details on search.ch and local.ch"
+     ]
+    }
+   ],
+   "rimando": "Your Google Maps listing is a separate service: from CHF 290",
+   "tempo": "The work: a few days. Google can take a few weeks to show the changes.",
+   "onesta": "Nobody can buy or promise first place on Google, so be wary of anyone who promises it. Google decides on its own what to show; we make sure your website is clear and written with the words people really search for."
+  },
   "recensioni": {
    "home": {
     "label": "For every trade",
@@ -7345,7 +8203,7 @@ const I18N = {
    },
    "slug": "recensioni",
    "label": "The first step for everyone",
-   "name": "Google reviews in one click",
+   "name": "Customer Feedback",
    "lead": "The customer scans the QR code with their phone, taps the stars and writes two lines. Thirty seconds.",
    "problema": [
     "On Google, people look at the stars first, then everything else.",
@@ -8001,6 +8859,150 @@ const I18N = {
      },
      "primo_passo": "Records on the phone: written where it happens, written right.",
      "nota": "VetSanit, the app for vet visits on farms, grew out of these problems. It’s being built; we’re looking for vets to talk to."
+    },
+    {
+     "slug": "influencer",
+     "name": "Influencers and content creators",
+     "esempi": "Instagram, TikTok, YouTube, podcasts, blogs",
+     "intro": "The real job is creating. But half the day goes on messages, offers and invoices.",
+     "problemi": [
+      {
+       "t": "Offers come in from everywhere",
+       "d": "DMs, emails, WhatsApp: a collaboration gets lost in the pile."
+      },
+      {
+       "t": "Your audience lives on platforms you don’t own",
+       "d": "If the algorithm changes or your profile gets blocked, you can no longer reach your followers."
+      },
+      {
+       "t": "Deadlines and payments from memory",
+       "d": "When the video goes live, what the brand still owes, what’s missing: all in your head."
+      }
+     ],
+     "soluzioni": [
+      {
+       "t": "A page of your own, with your media kit",
+       "d": "Who you are, the numbers you want to show and a contact form for brands.",
+       "servizio": "siti-web",
+       "livello": "One-page site",
+       "da": "CHF 1'500"
+      },
+      {
+       "t": "Your own mailing list",
+       "d": "Email sign-up on your website: if a platform changes, your audience stays yours.",
+       "servizio": "automazioni",
+       "livello": "One step",
+       "da": "CHF 900"
+      },
+      {
+       "t": "Collaborations and deadlines in one list",
+       "d": "Every brand, what to deliver and when, and whether they’ve paid. The reminder sends itself.",
+       "servizio": "automazioni",
+       "livello": "Deadlines and lists",
+       "da": "CHF 1'800"
+      }
+     ],
+     "recensioni": {
+      "dove": "In your bio link and at the end of emails to brands.",
+      "quando": "When a brand tells you the collaboration went well."
+     },
+     "primo_passo": "The media kit page: it costs little, and you can send it to every brand that gets in touch."
+    },
+    {
+     "slug": "fotografi",
+     "name": "Photographers and photo studios",
+     "esempi": "Weddings, portraits, events, products, property",
+     "intro": "The photos are ready. Then the messages start: which ones the client picks, how you send them, when they pay.",
+     "problemi": [
+      {
+       "t": "Your portfolio is two years out of date",
+       "d": "Your best work sits on your computer, not where new clients can see it."
+      },
+      {
+       "t": "Dates and deposits agreed informally",
+       "d": "A wedding booked by message and never confirmed: two clients for the same Saturday."
+      },
+      {
+       "t": "“When are the photos coming?”",
+       "d": "Links that expire, files that are too big, photos chosen by message."
+      }
+     ],
+     "soluzioni": [
+      {
+       "t": "A portfolio you update yourself",
+       "d": "Upload new work from your phone, sorted by type of shoot.",
+       "servizio": "siti-web",
+       "livello": "Business site",
+       "da": "CHF 3'500"
+      },
+      {
+       "t": "Booking with a deposit",
+       "d": "The client picks a free date, pays the deposit and gets the confirmation. Automatically.",
+       "servizio": "automazioni",
+       "livello": "Multi-step flow",
+       "da": "CHF 2'500"
+      },
+      {
+       "t": "A private gallery for every client",
+       "d": "They see only their photos, choose with one click and download the finished ones.",
+       "servizio": "siti-web",
+       "livello": "Site that works for you",
+       "da": "CHF 8'000"
+      }
+     ],
+     "recensioni": {
+      "dove": "The code on the card that comes with the prints or the album.",
+      "quando": "When you deliver the finished photos."
+     },
+     "primo_passo": "Booking with a deposit: no more double bookings, and you get the deposit before the shoot."
+    },
+    {
+     "slug": "giornalisti",
+     "name": "Journalists and newsrooms",
+     "esempi": "Freelancers, local papers, magazines, radio, newsletters",
+     "intro": "The story has to be written fast. But first you have to find the recording, the source and the right number.",
+     "problemi": [
+      {
+       "t": "Hours spent transcribing interviews",
+       "d": "One hour of recording, three hours in headphones to pull out the quotes."
+      },
+      {
+       "t": "Sources and contacts scattered everywhere",
+       "d": "The number you need is in an old message. Somewhere."
+      },
+      {
+       "t": "Readers reach you through platforms you don’t own",
+       "d": "If the algorithm changes, your readers stop seeing you."
+      }
+     ],
+     "soluzioni": [
+      {
+       "t": "Automatic transcription, checked by you",
+       "d": "The interview becomes text, with a timestamp on every sentence. You check the quotes.",
+       "servizio": "automazioni",
+       "livello": "With AI",
+       "da": "CHF 6'000"
+      },
+      {
+       "t": "A source archive",
+       "d": "People, numbers and recent calls in one place, easy to search.",
+       "servizio": "software",
+       "livello": "Internal tool",
+       "da": "CHF 7'000"
+      },
+      {
+       "t": "Your own website, with a newsletter",
+       "d": "Your articles on your own site, plus a newsletter sign-up: your readers stay yours.",
+       "servizio": "siti-web",
+       "livello": "Business site",
+       "da": "CHF 3'500"
+      }
+     ],
+     "recensioni": {
+      "dove": "At the end of the newsletter and on your website.",
+      "quando": "When a reader writes to thank you."
+     },
+     "primo_passo": "The website with a newsletter: your readers stay yours, whatever an algorithm decides."
     }
    ]
   },
@@ -8030,7 +9032,7 @@ const I18N = {
    "nota": "A fact",
    "sito_in_costruzione": "site under construction"
   },
-  "portfolio": {"romizzu": {"name": "Romizzu", "badge": "On the market", "riga": "Finger tape brand for BJJ and grappling, sold on Amazon US and at romizzu.com.", "cosa": "For Romizzu we built the online shop, the management software (sales, stock, finance) and the automations with Amazon.", "amazon": "On Amazon.com: 4.6 ★ from 91 ratings (October 2026)", "titolarita": "Company of the UtoApps founder."}, 
+  "portfolio": {"romizzu": {"name": "Romizzu", "badge": "Live", "riga": "Finger tape brand for BJJ and grappling, sold on Amazon US and at romizzu.com.", "cosa": "For Romizzu we built the online shop, the management software (sales, stock, finance) and the automations with Amazon.", "amazon": "On Amazon.com: 4.6 ★ from 91 ratings (October 2026)", "titolarita": "Company of the UtoApps founder."}, 
    "label": "Apps built by UtoApps",
    "items": [
     {
@@ -8049,9 +9051,9 @@ const I18N = {
     },
     {
      "name": "Calenzzu",
-     "badge": "Being scoped",
+     "badge": "Being built",
      "riga": "Puts two people’s calendars together and shows the days both are free.",
-     "fatto": "Being scoped",
+     "fatto": "Being built",
      "titolarita": "UtoApps product."
     }
    ]
@@ -8074,7 +9076,7 @@ const I18N = {
   "header": {
    "location": "Minusio (TI) · Suiza"
   },
-  "hero": {"titolo": "Menos trabajo a mano, más tiempo para sus clientes.", "sottotitolo": "Nueve maneras de trabajar mejor, hechas a medida de su oficio.", 
+  "hero": {"titolo": "Menos trabajo a mano, más tiempo para sus clientes.", "sottotitolo": "Diez maneras de trabajar mejor, hechas a medida de su oficio.", 
    "h1_before": "Apps ",
    "h1_accent": "bien",
    "h1_after": " hechas, por alguien con nombre y apellido.",
@@ -8242,8 +9244,8 @@ const I18N = {
   },
   "servizi": {
    "label": "Qué hacemos",
-   "title": "Nueve servicios. Uno solo, o todos juntos.",
-   "intro": "Nueve servicios: ocho con el precio escrito, más los proyectos nuevos a medida para usted. Tome solo lo que necesite.",
+   "title": "Diez servicios. Uno solo, o todos juntos.",
+   "intro": "Diez servicios: nueve con el precio escrito, más los proyectos nuevos a medida para usted. Tome solo lo que necesite.",
    "nota_prezzi": "Los precios son puntos de partida, no ofertas. Vale el presupuesto por escrito.",
    "come_leggere": {
     "title": "Cómo leer los precios",
@@ -8275,7 +9277,7 @@ const I18N = {
      "livelli": [
       {
        "nome": "App sencilla",
-       "da": "CHF 6'000",
+       "da": "CHF 4'900",
        "per_chi": "Información, avisos, sin registro.",
        "include": [
         "Hasta 6 pantallas",
@@ -8681,8 +9683,8 @@ const I18N = {
    }
   },
   "google": {
-   "label": "Google y Google Maps",
-   "name": "Que le encuentren en Google",
+   "label": "Su ficha",
+   "name": "Google Maps",
    "lead": "Cuando buscan su negocio, Google muestra una ficha con horarios, fotos y cómo llegar. Nosotros la completamos.",
    "esempio": {
     "etichetta": "Ejemplo",
@@ -8718,6 +9720,41 @@ const I18N = {
    "tempo": "Pocos días. La verificación de Google puede tardar más.",
    "onesta": "El primer puesto en Google no se compra y nadie puede prometerlo: Google decide según lo bien que la ficha encaja con lo que se busca, la distancia y lo conocido que es su negocio. Una ficha completa y reseñas reales ayudan."
   },
+  "search": {
+   "label": "Que le encuentren en las búsquedas",
+   "name": "Google Search",
+   "lead": "Cuando buscan lo que usted hace, Google tiene que entender su sitio web. Nosotros lo preparamos.",
+   "carta": {
+    "passi": [
+     "Averiguamos las palabras que la gente busca de verdad.",
+     "Las ponemos en los títulos y los textos de su sitio.",
+     "Lo damos de alta en Google y ponemos al día sus datos en search.ch y local.ch."
+    ]
+   },
+   "cosa": [
+    "Buscamos las palabras que la gente escribe de verdad en Google para encontrar lo que usted hace, en su zona y en su idioma.",
+    "Título y descripción de cada página con esas palabras: son las líneas que Google muestra en los resultados.",
+    "Su sitio en Google Search Console, la herramienta gratuita de Google: así sabe que existe y le cuenta cómo lo encuentra.",
+    "El mapa del sitio enviado a Google, para que vea todas las páginas.",
+    "Nombre, dirección y teléfono iguales en todas partes: web, ficha de Google, search.ch y local.ch.",
+    "Le enseñamos a comprobar usted mismo, cada mes, cómo le encuentran."
+   ],
+   "livelli": [
+    {
+     "nome": "Sitio listo para Google",
+     "da": "CHF 490",
+     "per_chi": "Para quien ya tiene un sitio web, pero en Google no se ve.",
+     "include": [
+      "Palabras adecuadas, títulos y descripciones",
+      "Search Console y mapa del sitio",
+      "Datos correctos en search.ch y local.ch"
+     ]
+    }
+   ],
+   "rimando": "La ficha de Google Maps es otra cosa: desde CHF 290",
+   "tempo": "El trabajo: pocos días. Google puede tardar algunas semanas en mostrar los cambios.",
+   "onesta": "El primer puesto en Google no se compra y nadie puede prometerlo: desconfíe de quien lo haga. Es Google quien decide qué mostrar; nosotros hacemos que su sitio sea claro y esté escrito con las palabras que la gente busca de verdad."
+  },
   "recensioni": {
    "home": {
     "label": "Para cualquier oficio",
@@ -8729,7 +9766,7 @@ const I18N = {
    },
    "slug": "recensioni",
    "label": "El primer paso para todos",
-   "name": "Reseñas de Google en un clic",
+   "name": "Customer Feedback",
    "lead": "El cliente escanea el código QR con el móvil, toca las estrellas y escribe dos líneas. Treinta segundos.",
    "problema": [
     "Quien le busca en Google mira primero las estrellas, luego todo lo demás.",
@@ -9385,6 +10422,150 @@ const I18N = {
      },
      "primo_passo": "El registro en el móvil: si se escribe donde pasa, se escribe bien.",
      "nota": "VetSanit, la app para el servicio sanitario en la explotación agrícola, nace de estos problemas. Está en construcción y buscamos veterinarios con quien hablar."
+    },
+    {
+     "slug": "influencer",
+     "name": "Influencers y creadores de contenido",
+     "esempi": "Instagram, TikTok, YouTube, pódcast, blogs",
+     "intro": "El trabajo de verdad es crear. Pero media jornada se va en mensajes, propuestas y facturas.",
+     "problemi": [
+      {
+       "t": "Las propuestas llegan por todas partes",
+       "d": "Mensajes privados, correos, WhatsApp: una colaboración se pierde en el montón."
+      },
+      {
+       "t": "Su público está en plataformas ajenas",
+       "d": "Si el algoritmo cambia o le bloquean el perfil, ya no puede escribir a quien le sigue."
+      },
+      {
+       "t": "Entregas y cobros de memoria",
+       "d": "Cuándo se publica el vídeo, cuánto le debe la marca, qué falta: todo en la cabeza."
+      }
+     ],
+     "soluzioni": [
+      {
+       "t": "Una página suya, con el media kit",
+       "d": "Quién es, las cifras que quiere enseñar y un formulario para las propuestas de las marcas.",
+       "servizio": "siti-web",
+       "livello": "Sitio de una página",
+       "da": "CHF 1'500"
+      },
+      {
+       "t": "Su propia lista de contactos",
+       "d": "Suscripción por correo desde su sitio: si una plataforma cambia, el público sigue siendo suyo.",
+       "servizio": "automazioni",
+       "livello": "Un paso",
+       "da": "CHF 900"
+      },
+      {
+       "t": "Colaboraciones y plazos en una lista",
+       "d": "Cada marca, qué hay que entregar y cuándo, y si ya ha pagado. El recordatorio sale solo.",
+       "servizio": "automazioni",
+       "livello": "Vencimientos y listas",
+       "da": "CHF 1'800"
+      }
+     ],
+     "recensioni": {
+      "dove": "En el enlace de la bio y al final de los correos a las marcas.",
+      "quando": "Cuando una marca le dice que la colaboración ha ido bien."
+     },
+     "primo_passo": "La página con el media kit: cuesta poco y se la manda a cada marca que le escribe."
+    },
+    {
+     "slug": "fotografi",
+     "name": "Fotógrafos y estudios de fotografía",
+     "esempi": "Bodas, retratos, eventos, productos, inmuebles",
+     "intro": "Las fotos están listas. Luego empiezan los mensajes: cuáles elige el cliente, cómo se las manda, cuándo paga.",
+     "problemi": [
+      {
+       "t": "El portfolio tiene dos años",
+       "d": "Los mejores trabajos están en el ordenador, no donde los ven los clientes nuevos."
+      },
+      {
+       "t": "Fechas y señales, de palabra",
+       "d": "Una boda fijada por mensaje y nunca confirmada: dos clientes para el mismo sábado."
+      },
+      {
+       "t": "«¿Cuándo llegan las fotos?»",
+       "d": "Enlaces que caducan, archivos demasiado pesados, la selección de fotos por mensaje."
+      }
+     ],
+     "soluzioni": [
+      {
+       "t": "Un portfolio que actualiza usted",
+       "d": "Los trabajos nuevos los sube usted desde el móvil, ordenados por tipo de servicio.",
+       "servizio": "siti-web",
+       "livello": "Sitio de empresa",
+       "da": "CHF 3'500"
+      },
+      {
+       "t": "Reserva con señal",
+       "d": "El cliente elige una fecha libre, paga la señal y recibe la confirmación. Automático.",
+       "servizio": "automazioni",
+       "livello": "Flujo de varios pasos",
+       "da": "CHF 2'500"
+      },
+      {
+       "t": "Una galería privada para cada cliente",
+       "d": "El cliente ve solo sus fotos, elige con un clic y descarga las que están listas.",
+       "servizio": "siti-web",
+       "livello": "Sitio que trabaja",
+       "da": "CHF 8'000"
+      }
+     ],
+     "recensioni": {
+      "dove": "El código en la tarjeta que acompaña las copias o el álbum.",
+      "quando": "Cuando entrega las fotos terminadas."
+     },
+     "primo_passo": "La reserva con señal: se acabaron las reservas dobles, y la señal llega antes del trabajo."
+    },
+    {
+     "slug": "giornalisti",
+     "name": "Periodistas y redacciones",
+     "esempi": "Autónomos, periódicos locales, revistas, radio, newsletters",
+     "intro": "La noticia corre prisa. Pero antes hay que encontrar la grabación, la fuente y el número correcto.",
+     "problemi": [
+      {
+       "t": "Horas transcribiendo entrevistas",
+       "d": "Una hora de grabación, tres horas con los auriculares para sacar las citas."
+      },
+      {
+       "t": "Fuentes y contactos dispersos por todas partes",
+       "d": "El número que hace falta está en un mensaje antiguo. En algún sitio."
+      },
+      {
+       "t": "Los lectores llegan por plataformas ajenas",
+       "d": "Si el algoritmo cambia, quien le lee deja de verle."
+      }
+     ],
+     "soluzioni": [
+      {
+       "t": "Transcripción automática, revisada por usted",
+       "d": "La entrevista se convierte en texto con el minuto de cada frase. Las citas las comprueba usted.",
+       "servizio": "automazioni",
+       "livello": "Con inteligencia artificial",
+       "da": "CHF 6'000"
+      },
+      {
+       "t": "La agenda de fuentes",
+       "d": "Personas, números y últimas llamadas en un solo sitio, con buscador.",
+       "servizio": "software",
+       "livello": "Herramienta interna",
+       "da": "CHF 7'000"
+      },
+      {
+       "t": "Su sitio web, con la newsletter",
+       "d": "Los artículos en su sitio y la suscripción a la newsletter: los lectores siguen siendo suyos.",
+       "servizio": "siti-web",
+       "livello": "Sitio de empresa",
+       "da": "CHF 3'500"
+      }
+     ],
+     "recensioni": {
+      "dove": "Al final de la newsletter y en su sitio.",
+      "quando": "Cuando un lector le escribe para darle las gracias."
+     },
+     "primo_passo": "El sitio con la newsletter: los lectores siguen siendo suyos, decida lo que decida un algoritmo."
     }
    ]
   },
@@ -9414,7 +10595,7 @@ const I18N = {
    "nota": "Un dato",
    "sito_in_costruzione": "sitio en construcción"
   },
-  "portfolio": {"romizzu": {"name": "Romizzu", "badge": "A la venta", "riga": "Marca de cinta para dedos para BJJ y grappling, a la venta en Amazon EE. UU. y en romizzu.com.", "cosa": "Para Romizzu hemos construido la tienda online, el software de gestión (ventas, almacén, finanzas) y las automatizaciones con Amazon.", "amazon": "En Amazon.com: 4,6 ★ con 91 valoraciones (octubre de 2026)", "titolarita": "Empresa del fundador de UtoApps."}, 
+  "portfolio": {"romizzu": {"name": "Romizzu", "badge": "Activa", "riga": "Marca de cinta para dedos para BJJ y grappling, a la venta en Amazon EE. UU. y en romizzu.com.", "cosa": "Para Romizzu hemos construido la tienda online, el software de gestión (ventas, almacén, finanzas) y las automatizaciones con Amazon.", "amazon": "En Amazon.com: 4,6 ★ con 91 valoraciones (octubre de 2026)", "titolarita": "Empresa del fundador de UtoApps."}, 
    "label": "Apps creadas por UtoApps",
    "items": [
     {
@@ -9433,9 +10614,9 @@ const I18N = {
     },
     {
      "name": "Calenzzu",
-     "badge": "En definición",
+     "badge": "En construcción",
      "riga": "Junta los calendarios de dos personas y muestra los días libres para las dos.",
-     "fatto": "En definición",
+     "fatto": "En construcción",
      "titolarita": "Producto UtoApps."
     }
    ]
