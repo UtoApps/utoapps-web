@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>UtoApps — Less manual work, more time for your customers.</title>
+<title>An idea to bring to life or a business to grow? UtoApps has the solution.</title>
 <meta name="description" content="UtoApps designs, improves and automates workflows made to measure for your business.">
 <meta name="theme-color" content="#E1001A">
 <meta name="color-scheme" content="light dark">
@@ -22,7 +22,7 @@
 <meta property="og:locale:alternate" content="de_CH">
 <meta property="og:locale:alternate" content="fr_CH">
 <meta property="og:locale:alternate" content="es_ES">
-<meta property="og:title" content="UtoApps — Less manual work, more time for your customers.">
+<meta property="og:title" content="An idea to bring to life or a business to grow? UtoApps has the solution.">
 <meta property="og:description" content="UtoApps designs, improves and automates workflows made to measure for your business.">
 
 <style>
@@ -760,6 +760,10 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
 /* ═══ 3 ott 2026: il marchio più grande nelle schede di contatto (era 44 px) ═══ */
 .logo-contatto{height:68px;margin-bottom:24px}
 
+/* ═══ 6 ott 2026: il titolo e la riga che aprivano la home, in chiusura di «Perché noi» ═══ */
+.chiusura-perche{margin:56px 0 8px;padding-top:36px;border-top:1px solid var(--linea)}
+.chiusura-perche h2{font-size:clamp(26px,4.6vw,38px);font-weight:700;letter-spacing:-.025em;max-width:22ch;margin-bottom:12px}
+
 /* ── margen vertical de la cabecera (ver build-site.py, parche 7) ─────── */
 .testata .testata-alto{padding-block:32px 18px}
 .testata .testata-basso{padding-block:0 16px}
@@ -794,8 +798,8 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
 <div class="eroe">
 <div class="wrap eroe-griglia">
   <div class="apertura">
-    <h1 data-i18n="hero.titolo">Meno lavoro a mano, più tempo per i vostri clienti.</h1>
-    <p class="sottotitolo" data-i18n="hero.sottotitolo">Dieci modi per lavorare meglio, costruiti su misura per il vostro mestiere.</p>
+    <h1 data-i18n="hero.titolo">Un'idea da realizzare o un'attività da far crescere? UtoApps ha la soluzione.</h1>
+    <p class="sottotitolo" data-i18n="hero.sottotitolo">Dieci servizi: app, siti web, software, automazioni e più visibilità su Google.</p>
     <p class="sommario" data-i18n="hero.lead">Progettiamo, miglioriamo e automatizziamo flussi di lavoro su misura per la vostra attività.</p>
     <div class="azioni">
       <a class="btn" href="#home-servizi" data-i18n="hero.cta_primary">Guardate cosa costruiamo</a>
@@ -1206,6 +1210,10 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
         <p class="corpo" data-i18n="why.items.2.body">Codice, account degli store e nome di dominio restano intestati a voi. Se un giorno volete cambiare fornitore, potete farlo senza chiedere il permesso.</p>
       </details>
     </div>
+    <section class="chiusura-perche" aria-labelledby="h-perche-chiusura">
+      <h2 id="h-perche-chiusura" data-i18n="why.chiusura.titolo">Meno lavoro a mano, più tempo per i vostri clienti.</h2>
+      <p class="lead-pagina" data-i18n="why.chiusura.testo">Dieci modi per lavorare meglio, costruiti su misura per il vostro mestiere.</p>
+    </section>
     <a class="btn vuoto torna-home giu" href="#home"><span aria-hidden="true">←</span>&nbsp;<span data-i18n="ui.home">Home</span></a>
   </div>
 </article>
@@ -2912,7 +2920,7 @@ const I18N = {
   "header": {
    "location": "Minusio (TI) · Svizzera"
   },
-  "hero": {"titolo": "Meno lavoro a mano, più tempo per i vostri clienti.", "sottotitolo": "Dieci modi per lavorare meglio, costruiti su misura per il vostro mestiere.", 
+  "hero": {"titolo": "Un'idea da realizzare o un'attività da far crescere? UtoApps ha la soluzione.", "sottotitolo": "Dieci servizi: app, siti web, software, automazioni e più visibilità su Google.", 
    "h1_before": "App fatte ",
    "h1_accent": "bene",
    "h1_after": ", da chi le costruisce in prima persona",
@@ -2922,7 +2930,7 @@ const I18N = {
   },
   "lang": "it",
   "meta": {
-   "title": "UtoApps — Meno lavoro a mano, più tempo per i vostri clienti.",
+   "title": "Un'idea da realizzare o un'attività da far crescere? UtoApps ha la soluzione.",
    "description": "Progettiamo, miglioriamo e automatizziamo flussi di lavoro su misura per la vostra attività."
   },
   "nav": {
@@ -2997,7 +3005,11 @@ const I18N = {
      "title": "L'applicazione è vostra",
      "body": "Codice, account degli store e nome di dominio restano intestati a voi. Se un giorno volete cambiare fornitore, potete farlo senza chiedere il permesso."
     }
-   ]
+   ],
+   "chiusura": {
+    "titolo": "Meno lavoro a mano, più tempo per i vostri clienti.",
+    "testo": "Dieci modi per lavorare meglio, costruiti su misura per il vostro mestiere."
+   }
   },
   "servizi": {
    "label": "Cosa facciamo",
@@ -4486,7 +4498,7 @@ const I18N = {
   "header": {
    "location": "Minusio (TI) · Schweiz"
   },
-  "hero": {"titolo": "Weniger Handarbeit, mehr Zeit für Ihre Kunden.", "sottotitolo": "Zehn Wege, besser zu arbeiten – massgeschneidert für Ihren Betrieb.", 
+  "hero": {"titolo": "Eine Idee umsetzen oder Ihren Betrieb wachsen lassen? UtoApps hat die Lösung.", "sottotitolo": "Zehn Leistungen: Apps, Websites, Software, Automatisierungen und mehr Sichtbarkeit auf Google.", 
    "h1_before": "Apps aus dem Tessin – Sie reden ",
    "h1_accent": "direkt",
    "h1_after": " mit dem Entwickler.",
@@ -4496,7 +4508,7 @@ const I18N = {
   },
   "lang": "de",
   "meta": {
-   "title": "UtoApps — Weniger Handarbeit, mehr Zeit für Ihre Kunden.",
+   "title": "Eine Idee umsetzen oder Ihren Betrieb wachsen lassen? UtoApps hat die Lösung.",
    "description": "Wir planen, verbessern und automatisieren Arbeitsabläufe nach Mass für Ihren Betrieb."
   },
   "nav": {
@@ -4571,7 +4583,11 @@ const I18N = {
      "title": "Die App gehört Ihnen",
      "body": "Der Code gehört Ihnen, Store-Konten und Domain laufen auf Ihren Namen. Wollen Sie eines Tages den Anbieter wechseln, können Sie das tun, ohne uns zu fragen."
     }
-   ]
+   ],
+   "chiusura": {
+    "titolo": "Weniger Handarbeit, mehr Zeit für Ihre Kunden.",
+    "testo": "Zehn Wege, besser zu arbeiten – massgeschneidert für Ihren Betrieb."
+   }
   },
   "servizi": {
    "label": "Was wir machen",
@@ -5967,7 +5983,7 @@ const I18N = {
  "fr": {
   "lang": "fr",
   "meta": {
-   "title": "UtoApps — Moins de travail à la main, plus de temps pour vos clients.",
+   "title": "Une idée à concrétiser ou une entreprise à faire grandir ? UtoApps a la solution.",
    "description": "UtoApps conçoit, améliore et automatise des flux de travail sur mesure pour votre entreprise."
   },
   "nav": {
@@ -5981,7 +5997,7 @@ const I18N = {
   "header": {
    "location": "Minusio (TI) · Suisse"
   },
-  "hero": {"titolo": "Moins de travail à la main, plus de temps pour vos clients.", "sottotitolo": "Dix façons de mieux travailler, conçues sur mesure pour votre métier.", 
+  "hero": {"titolo": "Une idée à concrétiser ou une entreprise à faire grandir ? UtoApps a la solution.", "sottotitolo": "Dix prestations : applications, sites web, logiciels, automatisations et plus de visibilité sur Google.", 
    "h1_before": "Une application ",
    "h1_accent": "bien faite",
    "h1_after": ", par celui qui la développe.",
@@ -6135,7 +6151,11 @@ const I18N = {
      "title": "L’application est à vous",
      "body": "Le code, les comptes App Store et Google Play et le nom de domaine vous appartiennent. Si un jour vous voulez changer de prestataire, vous n’avez à demander l’autorisation de personne."
     }
-   ]
+   ],
+   "chiusura": {
+    "titolo": "Moins de travail à la main, plus de temps pour vos clients.",
+    "testo": "Dix façons de mieux travailler, conçues sur mesure pour votre métier."
+   }
   },
   "contact": {
    "label": "Contact",
@@ -7541,7 +7561,7 @@ const I18N = {
  "en": {
   "lang": "en",
   "meta": {
-   "title": "UtoApps — Less manual work, more time for your customers.",
+   "title": "An idea to bring to life or a business to grow? UtoApps has the solution.",
    "description": "UtoApps designs, improves and automates workflows made to measure for your business."
   },
   "nav": {
@@ -7555,7 +7575,7 @@ const I18N = {
   "header": {
    "location": "Minusio (TI) · Switzerland"
   },
-  "hero": {"titolo": "Less manual work, more time for your customers.", "sottotitolo": "Ten ways to work better, made to measure for your trade.", 
+  "hero": {"titolo": "An idea to bring to life or a business to grow? UtoApps has the solution.", "sottotitolo": "Ten services: apps, websites, software, automations and more visibility on Google.", 
    "h1_before": "Apps built ",
    "h1_accent": "properly",
    "h1_after": " – by the person you talk to.",
@@ -7709,7 +7729,11 @@ const I18N = {
      "title": "The app belongs to you",
      "body": "The code, the store accounts and the domain name stay in your name. If one day you want to change supplier, you can do it without asking anyone’s permission."
     }
-   ]
+   ],
+   "chiusura": {
+    "titolo": "Less manual work, more time for your customers.",
+    "testo": "Ten ways to work better, made to measure for your trade."
+   }
   },
   "contact": {
    "label": "Contact",
@@ -9115,7 +9139,7 @@ const I18N = {
  "es": {
   "lang": "es",
   "meta": {
-   "title": "UtoApps — Menos trabajo a mano, más tiempo para sus clientes.",
+   "title": "¿Una idea que hacer realidad o un negocio que hacer crecer? UtoApps tiene la solución.",
    "description": "UtoApps diseña, mejora y automatiza flujos de trabajo a medida para su negocio."
   },
   "nav": {
@@ -9129,7 +9153,7 @@ const I18N = {
   "header": {
    "location": "Minusio (TI) · Suiza"
   },
-  "hero": {"titolo": "Menos trabajo a mano, más tiempo para sus clientes.", "sottotitolo": "Diez maneras de trabajar mejor, hechas a medida de su oficio.", 
+  "hero": {"titolo": "¿Una idea que hacer realidad o un negocio que hacer crecer? UtoApps tiene la solución.", "sottotitolo": "Diez servicios: apps, sitios web, software, automatizaciones y más visibilidad en Google.", 
    "h1_before": "Apps ",
    "h1_accent": "bien",
    "h1_after": " hechas, por alguien con nombre y apellido.",
@@ -9283,7 +9307,11 @@ const I18N = {
      "title": "La app es suya",
      "body": "El código, las cuentas de las tiendas y el dominio quedan a su nombre. Si algún día quiere cambiar de proveedor, puede hacerlo sin pedir permiso."
     }
-   ]
+   ],
+   "chiusura": {
+    "titolo": "Menos trabajo a mano, más tiempo para sus clientes.",
+    "testo": "Diez maneras de trabajar mejor, hechas a medida de su oficio."
+   }
   },
   "contact": {
    "label": "Contacto",
