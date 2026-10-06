@@ -764,6 +764,15 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
 .chiusura-perche{margin:56px 0 8px;padding-top:36px;border-top:1px solid var(--linea)}
 .chiusura-perche h2{font-size:clamp(26px,4.6vw,38px);font-weight:700;letter-spacing:-.025em;max-width:22ch;margin-bottom:12px}
 
+/* ═══ 6 ott 2026: video d'esempio nelle pagine dei settori (fase 11) ═══ */
+.video-esempio{margin:26px 0 38px;display:grid;justify-items:center;gap:16px;text-align:center}
+.video-cornice{width:min(100%,340px);aspect-ratio:9/16;border-radius:28px;overflow:hidden;background:#141117;
+  box-shadow:0 22px 60px rgba(22,17,15,.28),0 0 0 1px var(--linea)}
+.video-cornice video{display:block;width:100%;height:100%;object-fit:cover;background:#141117}
+.video-esempio figcaption{display:grid;gap:6px;max-width:46ch}
+.video-esempio figcaption strong{font-size:clamp(18px,2.6vw,22px);font-weight:700;letter-spacing:-.01em;text-wrap:balance}
+.video-esempio .video-nota{color:var(--nebbia);font-size:15px;line-height:1.45}
+
 /* ── margen vertical de la cabecera (ver build-site.py, parche 7) ─────── */
 .testata .testata-alto{padding-block:32px 18px}
 .testata .testata-basso{padding-block:0 16px}
@@ -2008,6 +2017,19 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
       <p class="esempi-pagina" data-i18n="settori.items.4.esempi">Tatuatori, piercer, studi di micropigmentazione</p>
       <p class="lead-pagina" data-i18n="settori.items.4.intro">Il primo contatto è lungo e tutto per messaggio, di sera.</p>
     </header>
+    <figure class="video-esempio" aria-labelledby="h-video-tatuaggi">
+      <div class="video-cornice">
+        <video controls playsinline preload="none" poster="/media/inkzzu-demo-poster.jpg" width="720" height="1280" aria-describedby="nota-video-tatuaggi">
+          <source src="/media/inkzzu-demo-it.mp4" type="video/mp4">
+          <a href="/media/inkzzu-demo-it.mp4">Guardatelo in azione: un gestionale per studi di tatuaggio</a>
+        </video>
+      </div>
+      <figcaption>
+        <span class="eti" data-i18n="settori.video.eti">Esempio</span>
+        <strong id="h-video-tatuaggi" data-i18n="settori.items.4.video.titolo">Guardatelo in azione: un gestionale per studi di tatuaggio</strong>
+        <span class="video-nota" id="nota-video-tatuaggi" data-i18n="settori.items.4.video.nota">Demo di UtoApps con dati inventati: il programma è in sviluppo.</span>
+      </figcaption>
+    </figure>
     <div class="coppie">
       <div class="coppia">
         <div class="problema">
@@ -3863,7 +3885,11 @@ const I18N = {
       "dove": "Nel messaggio di controllo dopo la guarigione.",
       "quando": "Tre settimane dopo, a guarigione finita."
      },
-     "primo_passo": "Il modulo unico: smettete di cercare le richieste in cinque app."
+     "primo_passo": "Il modulo unico: smettete di cercare le richieste in cinque app.",
+     "video": {
+      "titolo": "Guardatelo in azione: un gestionale per studi di tatuaggio",
+      "nota": "Demo di UtoApps con dati inventati: il programma è in sviluppo."
+     }
     },
     {
      "slug": "copisterie",
@@ -4347,7 +4373,10 @@ const I18N = {
      },
      "primo_passo": "Il sito con la newsletter: i lettori restano vostri, qualunque cosa decida un algoritmo."
     }
-   ]
+   ],
+   "video": {
+    "eti": "Esempio"
+   }
   },
   "ui": {
    "livelli": "Livelli e prezzi",
@@ -5441,7 +5470,11 @@ const I18N = {
       "dove": "In der Kontrollnachricht nach dem Abheilen.",
       "quando": "Drei Wochen später, wenn alles abgeheilt ist."
      },
-     "primo_passo": "Das eine Formular: Schluss mit der Suche in fünf Apps."
+     "primo_passo": "Das eine Formular: Schluss mit der Suche in fünf Apps.",
+     "video": {
+      "titolo": "So funktioniert es: eine Verwaltungssoftware für Tattoostudios",
+      "nota": "Demo von UtoApps mit erfundenen Daten: Die Software ist in Entwicklung. Video auf Italienisch."
+     }
     },
     {
      "slug": "copisterie",
@@ -5925,7 +5958,10 @@ const I18N = {
      },
      "primo_passo": "Die Website mit Newsletter: Die Leserschaft bleibt Ihre, was auch immer ein Algorithmus entscheidet."
     }
-   ]
+   ],
+   "video": {
+    "eti": "Beispiel"
+   }
   },
   "ui": {
    "livelli": "Stufen und Preise",
@@ -7019,7 +7055,11 @@ const I18N = {
       "dove": "Dans le message de contrôle après la cicatrisation.",
       "quando": "Trois semaines après, une fois cicatrisé."
      },
-     "primo_passo": "Le formulaire unique : fini la chasse aux demandes dans cinq apps."
+     "primo_passo": "Le formulaire unique : fini la chasse aux demandes dans cinq apps.",
+     "video": {
+      "titolo": "Voyez-le en action : un logiciel de gestion pour studios de tatouage",
+      "nota": "Démo d’UtoApps avec des données fictives : le logiciel est en développement. Vidéo en italien."
+     }
     },
     {
      "slug": "copisterie",
@@ -7503,7 +7543,10 @@ const I18N = {
      },
      "primo_passo": "Le site avec la newsletter : les lecteurs restent à vous, quoi que décide un algorithme."
     }
-   ]
+   ],
+   "video": {
+    "eti": "Exemple"
+   }
   },
   "ui": {
    "livelli": "Niveaux et prix",
@@ -8597,7 +8640,11 @@ const I18N = {
       "dove": "In the check-in message after healing.",
       "quando": "Three weeks later, once healed."
      },
-     "primo_passo": "The single form: stop hunting for requests in five apps."
+     "primo_passo": "The single form: stop hunting for requests in five apps.",
+     "video": {
+      "titolo": "See it in action: management software for tattoo studios",
+      "nota": "UtoApps demo with made-up data: the software is in development. Video in Italian."
+     }
     },
     {
      "slug": "copisterie",
@@ -9081,7 +9128,10 @@ const I18N = {
      },
      "primo_passo": "The website with a newsletter: your readers stay yours, whatever an algorithm decides."
     }
-   ]
+   ],
+   "video": {
+    "eti": "Example"
+   }
   },
   "ui": {
    "livelli": "Levels and prices",
@@ -10175,7 +10225,11 @@ const I18N = {
       "dove": "En el mensaje de seguimiento tras la cicatrización.",
       "quando": "Tres semanas después, ya cicatrizado."
      },
-     "primo_passo": "El formulario único: deje de buscar las peticiones en cinco apps."
+     "primo_passo": "El formulario único: deje de buscar las peticiones en cinco apps.",
+     "video": {
+      "titolo": "Mírelo en acción: un programa de gestión para estudios de tatuaje",
+      "nota": "Demo de UtoApps con datos inventados: el programa está en desarrollo. Vídeo en italiano."
+     }
     },
     {
      "slug": "copisterie",
@@ -10659,7 +10713,10 @@ const I18N = {
      },
      "primo_passo": "El sitio con la newsletter: los lectores siguen siendo suyos, decida lo que decida un algoritmo."
     }
-   ]
+   ],
+   "video": {
+    "eti": "Ejemplo"
+   }
   },
   "ui": {
    "livelli": "Niveles y precios",

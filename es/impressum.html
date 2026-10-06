@@ -754,6 +754,15 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
 .chiusura-perche{margin:56px 0 8px;padding-top:36px;border-top:1px solid var(--linea)}
 .chiusura-perche h2{font-size:clamp(26px,4.6vw,38px);font-weight:700;letter-spacing:-.025em;max-width:22ch;margin-bottom:12px}
 
+/* ═══ 6 ott 2026: video d'esempio nelle pagine dei settori (fase 11) ═══ */
+.video-esempio{margin:26px 0 38px;display:grid;justify-items:center;gap:16px;text-align:center}
+.video-cornice{width:min(100%,340px);aspect-ratio:9/16;border-radius:28px;overflow:hidden;background:#141117;
+  box-shadow:0 22px 60px rgba(22,17,15,.28),0 0 0 1px var(--linea)}
+.video-cornice video{display:block;width:100%;height:100%;object-fit:cover;background:#141117}
+.video-esempio figcaption{display:grid;gap:6px;max-width:46ch}
+.video-esempio figcaption strong{font-size:clamp(18px,2.6vw,22px);font-weight:700;letter-spacing:-.01em;text-wrap:balance}
+.video-esempio .video-nota{color:var(--nebbia);font-size:15px;line-height:1.45}
+
 /* ── margen vertical de la cabecera (ver build-site.py, parche 7) ─────── */
 .testata .testata-alto{padding-block:32px 18px}
 .testata .testata-basso{padding-block:0 16px}
