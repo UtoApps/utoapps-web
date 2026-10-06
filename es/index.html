@@ -2018,9 +2018,10 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
     </header>
     <figure class="video-esempio" aria-labelledby="h-video-tatuaggi">
       <div class="video-cornice">
-        <video controls playsinline preload="none" poster="/media/inkzzu-demo-poster.jpg" width="720" height="1280" aria-describedby="nota-video-tatuaggi">
-          <source src="/media/inkzzu-demo-it.mp4" type="video/mp4">
-          <a href="/media/inkzzu-demo-it.mp4">Guardatelo in azione: un gestionale per studi di tatuaggio</a>
+        <video controls playsinline preload="none" poster="/media/inkzzu-demo-poster-es.jpg" width="720" height="1280" aria-describedby="nota-video-tatuaggi"
+               data-video='{"it":["/media/inkzzu-demo-it.mp4","/media/inkzzu-demo-poster.jpg"],"es":["/media/inkzzu-demo-es.mp4","/media/inkzzu-demo-poster-es.jpg"],"en":["/media/inkzzu-demo-en.mp4","/media/inkzzu-demo-poster-en.jpg"],"de":["/media/inkzzu-demo-de.mp4","/media/inkzzu-demo-poster-de.jpg"],"fr":["/media/inkzzu-demo-fr.mp4","/media/inkzzu-demo-poster-fr.jpg"]}'>
+          <source src="/media/inkzzu-demo-es.mp4" type="video/mp4">
+          <a href="/media/inkzzu-demo-es.mp4">Guardatelo in azione: un gestionale per studi di tatuaggio</a>
         </video>
       </div>
       <figcaption>
@@ -5473,7 +5474,7 @@ const I18N = {
      "primo_passo": "Das eine Formular: Schluss mit der Suche in fünf Apps.",
      "video": {
       "titolo": "So funktioniert es: eine Verwaltungssoftware für Tattoostudios",
-      "nota": "Demo von UtoApps mit erfundenen Daten: Die Software ist in Entwicklung. Video auf Italienisch."
+      "nota": "Demo von UtoApps mit erfundenen Daten: Die Software ist in Entwicklung."
      }
     },
     {
@@ -7058,7 +7059,7 @@ const I18N = {
      "primo_passo": "Le formulaire unique : fini la chasse aux demandes dans cinq apps.",
      "video": {
       "titolo": "Voyez-le en action : un logiciel de gestion pour studios de tatouage",
-      "nota": "Démo d’UtoApps avec des données fictives : le logiciel est en développement. Vidéo en italien."
+      "nota": "Démo d’UtoApps avec des données fictives : le logiciel est en développement."
      }
     },
     {
@@ -8643,7 +8644,7 @@ const I18N = {
      "primo_passo": "The single form: stop hunting for requests in five apps.",
      "video": {
       "titolo": "See it in action: management software for tattoo studios",
-      "nota": "UtoApps demo with made-up data: the software is in development. Video in Italian."
+      "nota": "UtoApps demo with made-up data: the software is in development."
      }
     },
     {
@@ -10228,7 +10229,7 @@ const I18N = {
      "primo_passo": "El formulario único: deje de buscar las peticiones en cinco apps.",
      "video": {
       "titolo": "Mírelo en acción: un programa de gestión para estudios de tatuaje",
-      "nota": "Demo de UtoApps con datos inventados: el programa está en desarrollo. Vídeo en italiano."
+      "nota": "Demo de UtoApps con datos inventados: el programa está en desarrollo."
      }
     },
     {
@@ -10818,6 +10819,12 @@ const I18N = {
     });
     piedeLegale(d.footer.legal_note, lingua);
     document.documentElement.lang = lingua;
+    /* 6 ott 2026: il video d'esempio dei settori nella lingua mostrata (fase 11) */
+    document.querySelectorAll("video[data-video]").forEach(function (v) {
+      var m = JSON.parse(v.getAttribute("data-video"))[lingua], s = v.querySelector("source");
+      if (!m || !s || s.getAttribute("src") === m[0]) return;
+      v.pause(); s.setAttribute("src", m[0]); v.setAttribute("poster", m[1]); v.load();
+    });
     document.title = d.meta.title;
     meta('meta[name="description"]', d.meta.description);
     meta('meta[property="og:title"]', d.meta.title);
@@ -10826,8 +10833,9 @@ const I18N = {
       b.setAttribute("aria-pressed", String(b.dataset.lang === lingua));
     });
     try { localStorage.setItem(CHIAVE, lingua); } catch (e) {}
-    /* L'indirizzo resta coerente con la lingua mostrata, senza ricaricare. */
-    try { history.replaceState(null, "", radice(lingua) + (window.FILE_PAGINA || "")); } catch (e) {}
+    /* L'indirizzo resta coerente con la lingua mostrata, senza ricaricare.
+       Il #pagina resta: senza, /es/#settore-tatuaggi apriva la home (visto il 6 ott 2026). */
+    try { history.replaceState(null, "", radice(lingua) + (window.FILE_PAGINA || "") + location.hash); } catch (e) {}
   }
   document.getElementById("lingue").addEventListener("click", function (ev) {
     var b = ev.target.closest(".lingua");
