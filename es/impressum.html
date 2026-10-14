@@ -763,6 +763,23 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
 .video-esempio figcaption strong{font-size:clamp(18px,2.6vw,22px);font-weight:700;letter-spacing:-.01em;text-wrap:balance}
 .video-esempio .video-nota{color:var(--nebbia);font-size:15px;line-height:1.45}
 
+/* ═══ 14 ott 2026: video in italiano dal sito, nelle altre lingue da YouTube solo al clic (fase 13) ═══ */
+.video-esempio[hidden],.video-cornice [hidden],.video-yt-avviso[hidden]{display:none!important}
+.video-yt{position:relative;display:block;width:100%;height:100%;margin:0;padding:0;border:0;border-radius:0;
+  background:#141117;color:#fff;cursor:pointer}
+.video-yt img{display:block;width:100%;height:100%;object-fit:cover}
+.video-yt-play{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;
+  background:rgba(20,17,23,.74);box-shadow:0 10px 28px rgba(0,0,0,.35);transition:background-color .2s,transform .2s}
+.video-yt-play::after{content:"";position:absolute;left:29px;top:22px;border-style:solid;border-width:16px 0 16px 26px;
+  border-color:transparent transparent transparent #fff}
+.video-yt:hover .video-yt-play,.video-yt:focus-visible .video-yt-play{background:#E1001A;transform:scale(1.06)}
+.video-yt:focus-visible{outline:3px solid #fff;outline-offset:-8px}
+.video-cornice iframe{display:block;width:100%;height:100%;border:0}
+.video-esempio .video-yt-avviso{color:var(--nebbia);font-size:14px;line-height:1.45}
+.video-yt-avviso a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.vh{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+@media (prefers-reduced-motion:reduce){.video-yt-play{transition:none}}
+
 /* ── margen vertical de la cabecera (ver build-site.py, parche 7) ─────── */
 .testata .testata-alto{padding-block:32px 18px}
 .testata .testata-basso{padding-block:0 16px}

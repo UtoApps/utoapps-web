@@ -773,6 +773,23 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
 .video-esempio figcaption strong{font-size:clamp(18px,2.6vw,22px);font-weight:700;letter-spacing:-.01em;text-wrap:balance}
 .video-esempio .video-nota{color:var(--nebbia);font-size:15px;line-height:1.45}
 
+/* ═══ 14 ott 2026: video in italiano dal sito, nelle altre lingue da YouTube solo al clic (fase 13) ═══ */
+.video-esempio[hidden],.video-cornice [hidden],.video-yt-avviso[hidden]{display:none!important}
+.video-yt{position:relative;display:block;width:100%;height:100%;margin:0;padding:0;border:0;border-radius:0;
+  background:#141117;color:#fff;cursor:pointer}
+.video-yt img{display:block;width:100%;height:100%;object-fit:cover}
+.video-yt-play{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;
+  background:rgba(20,17,23,.74);box-shadow:0 10px 28px rgba(0,0,0,.35);transition:background-color .2s,transform .2s}
+.video-yt-play::after{content:"";position:absolute;left:29px;top:22px;border-style:solid;border-width:16px 0 16px 26px;
+  border-color:transparent transparent transparent #fff}
+.video-yt:hover .video-yt-play,.video-yt:focus-visible .video-yt-play{background:#E1001A;transform:scale(1.06)}
+.video-yt:focus-visible{outline:3px solid #fff;outline-offset:-8px}
+.video-cornice iframe{display:block;width:100%;height:100%;border:0}
+.video-esempio .video-yt-avviso{color:var(--nebbia);font-size:14px;line-height:1.45}
+.video-yt-avviso a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.vh{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+@media (prefers-reduced-motion:reduce){.video-yt-play{transition:none}}
+
 /* ── margen vertical de la cabecera (ver build-site.py, parche 7) ─────── */
 .testata .testata-alto{padding-block:32px 18px}
 .testata .testata-basso{padding-block:0 16px}
@@ -1730,16 +1747,23 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
     </header>
     <figure class="video-esempio" aria-labelledby="h-video-negozi">
       <div class="video-cornice">
-        <video controls playsinline preload="none" poster="/media/negozzu-demo-poster-de.jpg" width="720" height="1280" aria-describedby="nota-video-negozi"
-               data-video='{"it":["/media/negozzu-demo-it.mp4","/media/negozzu-demo-poster.jpg"],"es":["/media/negozzu-demo-es.mp4","/media/negozzu-demo-poster-es.jpg"],"en":["/media/negozzu-demo-en.mp4","/media/negozzu-demo-poster-en.jpg"],"de":["/media/negozzu-demo-de.mp4","/media/negozzu-demo-poster-de.jpg"],"fr":["/media/negozzu-demo-fr.mp4","/media/negozzu-demo-poster-fr.jpg"]}'>
-          <source src="/media/negozzu-demo-de.mp4" type="video/mp4">
-          <a href="/media/negozzu-demo-de.mp4">Guardatelo in azione: un programma per negozi</a>
+        <video controls playsinline preload="none" hidden width="720" height="1280" aria-describedby="nota-video-negozi"
+               data-video='{"it":["/media/negozzu-demo-it.mp4","/media/negozzu-demo-poster.jpg"]}'>
+          <source src="/media/negozzu-demo-it.mp4" type="video/mp4">
+          <a href="/media/negozzu-demo-it.mp4">Guardatelo in azione: un programma per negozi</a>
         </video>
+        <button type="button" class="video-yt" aria-describedby="h-video-negozi nota-video-negozi"
+                data-yt='{"es":["ASPB3c6EKbU","/media/negozzu-demo-poster-es.jpg"],"en":["3csDu0Cz1gM","/media/negozzu-demo-poster-en.jpg"],"de":["o2qff7oAGcM","/media/negozzu-demo-poster-de.jpg"],"fr":["1ajmkVc5GSA","/media/negozzu-demo-poster-fr.jpg"]}'>
+          <img src="/media/negozzu-demo-poster-de.jpg" alt="" width="1080" height="1920" loading="lazy" decoding="async">
+          <span class="video-yt-play" aria-hidden="true"></span>
+          <span class="vh" data-i18n="settori.video.play">Avvia il video</span>
+        </button>
       </div>
       <figcaption>
         <span class="eti" data-i18n="settori.video.eti">Esempio</span>
         <strong id="h-video-negozi" data-i18n="settori.items.0.video.titolo">Guardatelo in azione: un programma per negozi</strong>
         <span class="video-nota" id="nota-video-negozi" data-i18n="settori.items.0.video.nota">Demo di UtoApps con dati inventati: il programma è in sviluppo.</span>
+        <span class="video-yt-avviso"><span data-i18n="settori.video.avviso">Questo video è su YouTube e si carica solo quando lo avviate.</span> <a class="link-privacy" href="/de/privacy.html" data-i18n="settori.video.privacy">Informativa sulla privacy</a></span>
       </figcaption>
     </figure>
     <div class="coppie">
@@ -1816,16 +1840,23 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
     </header>
     <figure class="video-esempio" aria-labelledby="h-video-ristoranti">
       <div class="video-cornice">
-        <video controls playsinline preload="none" poster="/media/tavolizzu-demo-poster-de.jpg" width="720" height="1280" aria-describedby="nota-video-ristoranti"
-               data-video='{"it":["/media/tavolizzu-demo-it.mp4","/media/tavolizzu-demo-poster.jpg"],"es":["/media/tavolizzu-demo-es.mp4","/media/tavolizzu-demo-poster-es.jpg"],"en":["/media/tavolizzu-demo-en.mp4","/media/tavolizzu-demo-poster-en.jpg"],"de":["/media/tavolizzu-demo-de.mp4","/media/tavolizzu-demo-poster-de.jpg"],"fr":["/media/tavolizzu-demo-fr.mp4","/media/tavolizzu-demo-poster-fr.jpg"]}'>
-          <source src="/media/tavolizzu-demo-de.mp4" type="video/mp4">
-          <a href="/media/tavolizzu-demo-de.mp4">Guardatelo in azione: un programma per ristoranti e pizzerie</a>
+        <video controls playsinline preload="none" hidden width="720" height="1280" aria-describedby="nota-video-ristoranti"
+               data-video='{"it":["/media/tavolizzu-demo-it.mp4","/media/tavolizzu-demo-poster.jpg"]}'>
+          <source src="/media/tavolizzu-demo-it.mp4" type="video/mp4">
+          <a href="/media/tavolizzu-demo-it.mp4">Guardatelo in azione: un programma per ristoranti e pizzerie</a>
         </video>
+        <button type="button" class="video-yt" aria-describedby="h-video-ristoranti nota-video-ristoranti"
+                data-yt='{"es":["bIPVNg2ABmc","/media/tavolizzu-demo-poster-es.jpg"],"en":["CTSO9LoyN3c","/media/tavolizzu-demo-poster-en.jpg"],"de":["FDtCKvOUg84","/media/tavolizzu-demo-poster-de.jpg"],"fr":["SujHIMiqmX4","/media/tavolizzu-demo-poster-fr.jpg"]}'>
+          <img src="/media/tavolizzu-demo-poster-de.jpg" alt="" width="1080" height="1920" loading="lazy" decoding="async">
+          <span class="video-yt-play" aria-hidden="true"></span>
+          <span class="vh" data-i18n="settori.video.play">Avvia il video</span>
+        </button>
       </div>
       <figcaption>
         <span class="eti" data-i18n="settori.video.eti">Esempio</span>
         <strong id="h-video-ristoranti" data-i18n="settori.items.1.video.titolo">Guardatelo in azione: un programma per ristoranti e pizzerie</strong>
         <span class="video-nota" id="nota-video-ristoranti" data-i18n="settori.items.1.video.nota">Demo di UtoApps con dati inventati: il programma è in sviluppo.</span>
+        <span class="video-yt-avviso"><span data-i18n="settori.video.avviso">Questo video è su YouTube e si carica solo quando lo avviate.</span> <a class="link-privacy" href="/de/privacy.html" data-i18n="settori.video.privacy">Informativa sulla privacy</a></span>
       </figcaption>
     </figure>
     <div class="coppie">
@@ -1902,16 +1933,23 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
     </header>
     <figure class="video-esempio" aria-labelledby="h-video-garage">
       <div class="video-cornice">
-        <video controls playsinline preload="none" poster="/media/garazzu-demo-poster-de.jpg" width="720" height="1280" aria-describedby="nota-video-garage"
-               data-video='{"it":["/media/garazzu-demo-it.mp4","/media/garazzu-demo-poster.jpg"],"es":["/media/garazzu-demo-es.mp4","/media/garazzu-demo-poster-es.jpg"],"en":["/media/garazzu-demo-en.mp4","/media/garazzu-demo-poster-en.jpg"],"de":["/media/garazzu-demo-de.mp4","/media/garazzu-demo-poster-de.jpg"],"fr":["/media/garazzu-demo-fr.mp4","/media/garazzu-demo-poster-fr.jpg"]}'>
-          <source src="/media/garazzu-demo-de.mp4" type="video/mp4">
-          <a href="/media/garazzu-demo-de.mp4">Guardatelo in azione: un programma per garage e officine</a>
+        <video controls playsinline preload="none" hidden width="720" height="1280" aria-describedby="nota-video-garage"
+               data-video='{"it":["/media/garazzu-demo-it.mp4","/media/garazzu-demo-poster.jpg"]}'>
+          <source src="/media/garazzu-demo-it.mp4" type="video/mp4">
+          <a href="/media/garazzu-demo-it.mp4">Guardatelo in azione: un programma per garage e officine</a>
         </video>
+        <button type="button" class="video-yt" aria-describedby="h-video-garage nota-video-garage"
+                data-yt='{"es":["TEdN0btTvxU","/media/garazzu-demo-poster-es.jpg"],"en":["elCYGzYLsdo","/media/garazzu-demo-poster-en.jpg"],"de":["kkR4o8TnuSo","/media/garazzu-demo-poster-de.jpg"],"fr":["vDeOQMnQUaA","/media/garazzu-demo-poster-fr.jpg"]}'>
+          <img src="/media/garazzu-demo-poster-de.jpg" alt="" width="1080" height="1920" loading="lazy" decoding="async">
+          <span class="video-yt-play" aria-hidden="true"></span>
+          <span class="vh" data-i18n="settori.video.play">Avvia il video</span>
+        </button>
       </div>
       <figcaption>
         <span class="eti" data-i18n="settori.video.eti">Esempio</span>
         <strong id="h-video-garage" data-i18n="settori.items.2.video.titolo">Guardatelo in azione: un programma per garage e officine</strong>
         <span class="video-nota" id="nota-video-garage" data-i18n="settori.items.2.video.nota">Demo di UtoApps con dati inventati: il programma è in sviluppo.</span>
+        <span class="video-yt-avviso"><span data-i18n="settori.video.avviso">Questo video è su YouTube e si carica solo quando lo avviate.</span> <a class="link-privacy" href="/de/privacy.html" data-i18n="settori.video.privacy">Informativa sulla privacy</a></span>
       </figcaption>
     </figure>
     <div class="coppie">
@@ -1988,16 +2026,23 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
     </header>
     <figure class="video-esempio" aria-labelledby="h-video-bellezza">
       <div class="video-cornice">
-        <video controls playsinline preload="none" poster="/media/bellezzu-demo-poster-de.jpg" width="720" height="1280" aria-describedby="nota-video-bellezza"
-               data-video='{"it":["/media/bellezzu-demo-it.mp4","/media/bellezzu-demo-poster.jpg"],"es":["/media/bellezzu-demo-es.mp4","/media/bellezzu-demo-poster-es.jpg"],"en":["/media/bellezzu-demo-en.mp4","/media/bellezzu-demo-poster-en.jpg"],"de":["/media/bellezzu-demo-de.mp4","/media/bellezzu-demo-poster-de.jpg"],"fr":["/media/bellezzu-demo-fr.mp4","/media/bellezzu-demo-poster-fr.jpg"]}'>
-          <source src="/media/bellezzu-demo-de.mp4" type="video/mp4">
-          <a href="/media/bellezzu-demo-de.mp4">Guardatelo in azione: un programma per parrucchieri e centri estetici</a>
+        <video controls playsinline preload="none" hidden width="720" height="1280" aria-describedby="nota-video-bellezza"
+               data-video='{"it":["/media/bellezzu-demo-it.mp4","/media/bellezzu-demo-poster.jpg"]}'>
+          <source src="/media/bellezzu-demo-it.mp4" type="video/mp4">
+          <a href="/media/bellezzu-demo-it.mp4">Guardatelo in azione: un programma per parrucchieri e centri estetici</a>
         </video>
+        <button type="button" class="video-yt" aria-describedby="h-video-bellezza nota-video-bellezza"
+                data-yt='{"es":["PGp9C1DYk94","/media/bellezzu-demo-poster-es.jpg"],"en":["3F3Vakw2pCA","/media/bellezzu-demo-poster-en.jpg"],"de":["GlkZuT8VHsg","/media/bellezzu-demo-poster-de.jpg"],"fr":["h01yTLDfbxs","/media/bellezzu-demo-poster-fr.jpg"]}'>
+          <img src="/media/bellezzu-demo-poster-de.jpg" alt="" width="1080" height="1920" loading="lazy" decoding="async">
+          <span class="video-yt-play" aria-hidden="true"></span>
+          <span class="vh" data-i18n="settori.video.play">Avvia il video</span>
+        </button>
       </div>
       <figcaption>
         <span class="eti" data-i18n="settori.video.eti">Esempio</span>
         <strong id="h-video-bellezza" data-i18n="settori.items.3.video.titolo">Guardatelo in azione: un programma per parrucchieri e centri estetici</strong>
         <span class="video-nota" id="nota-video-bellezza" data-i18n="settori.items.3.video.nota">Demo di UtoApps con dati inventati: il programma è in sviluppo.</span>
+        <span class="video-yt-avviso"><span data-i18n="settori.video.avviso">Questo video è su YouTube e si carica solo quando lo avviate.</span> <a class="link-privacy" href="/de/privacy.html" data-i18n="settori.video.privacy">Informativa sulla privacy</a></span>
       </figcaption>
     </figure>
     <div class="coppie">
@@ -2074,16 +2119,23 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
     </header>
     <figure class="video-esempio" aria-labelledby="h-video-tatuaggi">
       <div class="video-cornice">
-        <video controls playsinline preload="none" poster="/media/inkzzu-demo-poster-de.jpg" width="720" height="1280" aria-describedby="nota-video-tatuaggi"
-               data-video='{"it":["/media/inkzzu-demo-it.mp4","/media/inkzzu-demo-poster.jpg"],"es":["/media/inkzzu-demo-es.mp4","/media/inkzzu-demo-poster-es.jpg"],"en":["/media/inkzzu-demo-en.mp4","/media/inkzzu-demo-poster-en.jpg"],"de":["/media/inkzzu-demo-de.mp4","/media/inkzzu-demo-poster-de.jpg"],"fr":["/media/inkzzu-demo-fr.mp4","/media/inkzzu-demo-poster-fr.jpg"]}'>
-          <source src="/media/inkzzu-demo-de.mp4" type="video/mp4">
-          <a href="/media/inkzzu-demo-de.mp4">Guardatelo in azione: un gestionale per studi di tatuaggio</a>
+        <video controls playsinline preload="none" hidden width="720" height="1280" aria-describedby="nota-video-tatuaggi"
+               data-video='{"it":["/media/inkzzu-demo-it.mp4","/media/inkzzu-demo-poster.jpg"]}'>
+          <source src="/media/inkzzu-demo-it.mp4" type="video/mp4">
+          <a href="/media/inkzzu-demo-it.mp4">Guardatelo in azione: un gestionale per studi di tatuaggio</a>
         </video>
+        <button type="button" class="video-yt" aria-describedby="h-video-tatuaggi nota-video-tatuaggi"
+                data-yt='{"es":["aS5RUmtZezg","/media/inkzzu-demo-poster-es.jpg"],"en":["Jp2UQcmnGuQ","/media/inkzzu-demo-poster-en.jpg"],"de":["d4-0Q7GrVrk","/media/inkzzu-demo-poster-de.jpg"],"fr":["XRQvKPsgsY8","/media/inkzzu-demo-poster-fr.jpg"]}'>
+          <img src="/media/inkzzu-demo-poster-de.jpg" alt="" width="1080" height="1920" loading="lazy" decoding="async">
+          <span class="video-yt-play" aria-hidden="true"></span>
+          <span class="vh" data-i18n="settori.video.play">Avvia il video</span>
+        </button>
       </div>
       <figcaption>
         <span class="eti" data-i18n="settori.video.eti">Esempio</span>
         <strong id="h-video-tatuaggi" data-i18n="settori.items.4.video.titolo">Guardatelo in azione: un gestionale per studi di tatuaggio</strong>
         <span class="video-nota" id="nota-video-tatuaggi" data-i18n="settori.items.4.video.nota">Demo di UtoApps con dati inventati: il programma è in sviluppo.</span>
+        <span class="video-yt-avviso"><span data-i18n="settori.video.avviso">Questo video è su YouTube e si carica solo quando lo avviate.</span> <a class="link-privacy" href="/de/privacy.html" data-i18n="settori.video.privacy">Informativa sulla privacy</a></span>
       </figcaption>
     </figure>
     <div class="coppie">
@@ -2230,6 +2282,27 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
       <p class="esempi-pagina" data-i18n="settori.items.6.esempi">Idraulici, elettricisti, falegnami, imbianchini, giardinieri, piastrellisti</p>
       <p class="lead-pagina" data-i18n="settori.items.6.intro">L'ufficio è il furgone. La contabilità è la sera.</p>
     </header>
+    <figure class="video-esempio" aria-labelledby="h-video-artigiani">
+      <div class="video-cornice">
+        <video controls playsinline preload="none" hidden width="720" height="1280" aria-describedby="nota-video-artigiani"
+               data-video='{"it":["/media/attrezzu-demo-it.mp4","/media/attrezzu-demo-poster.jpg"]}'>
+          <source src="/media/attrezzu-demo-it.mp4" type="video/mp4">
+          <a href="/media/attrezzu-demo-it.mp4">Guardatelo in azione: un programma per artigiani e imprese edili</a>
+        </video>
+        <button type="button" class="video-yt" aria-describedby="h-video-artigiani nota-video-artigiani"
+                data-yt='{"de":["h7QOw4nlOPw","/media/attrezzu-demo-poster-de.jpg"]}'>
+          <img src="/media/attrezzu-demo-poster-de.jpg" alt="" width="1080" height="1920" loading="lazy" decoding="async">
+          <span class="video-yt-play" aria-hidden="true"></span>
+          <span class="vh" data-i18n="settori.video.play">Avvia il video</span>
+        </button>
+      </div>
+      <figcaption>
+        <span class="eti" data-i18n="settori.video.eti">Esempio</span>
+        <strong id="h-video-artigiani" data-i18n="settori.items.6.video.titolo">Guardatelo in azione: un programma per artigiani e imprese edili</strong>
+        <span class="video-nota" id="nota-video-artigiani" data-i18n="settori.items.6.video.nota">Demo di UtoApps con dati inventati: il programma è in sviluppo.</span>
+        <span class="video-yt-avviso"><span data-i18n="settori.video.avviso">Questo video è su YouTube e si carica solo quando lo avviate.</span> <a class="link-privacy" href="/de/privacy.html" data-i18n="settori.video.privacy">Informativa sulla privacy</a></span>
+      </figcaption>
+    </figure>
     <div class="coppie">
       <div class="coppia">
         <div class="problema">
@@ -2302,6 +2375,27 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
       <p class="esempi-pagina" data-i18n="settori.items.7.esempi">Dentisti, fisioterapisti, podologi, psicologi, osteopati</p>
       <p class="lead-pagina" data-i18n="settori.items.7.intro">I dati dei pazienti sono dati sensibili. La legge svizzera non fa sconti.</p>
     </header>
+    <figure class="video-esempio" aria-labelledby="h-video-salute">
+      <div class="video-cornice">
+        <video controls playsinline preload="none" hidden width="720" height="1280" aria-describedby="nota-video-salute"
+               data-video='{"it":["/media/curazzu-demo-it.mp4","/media/curazzu-demo-poster.jpg"]}'>
+          <source src="/media/curazzu-demo-it.mp4" type="video/mp4">
+          <a href="/media/curazzu-demo-it.mp4">Guardatelo in azione: un programma per studi medici e terapie</a>
+        </video>
+        <button type="button" class="video-yt" aria-describedby="h-video-salute nota-video-salute"
+                data-yt='{"de":["-OHiR7VxtmE","/media/curazzu-demo-poster-de.jpg"]}'>
+          <img src="/media/curazzu-demo-poster-de.jpg" alt="" width="1080" height="1920" loading="lazy" decoding="async">
+          <span class="video-yt-play" aria-hidden="true"></span>
+          <span class="vh" data-i18n="settori.video.play">Avvia il video</span>
+        </button>
+      </div>
+      <figcaption>
+        <span class="eti" data-i18n="settori.video.eti">Esempio</span>
+        <strong id="h-video-salute" data-i18n="settori.items.7.video.titolo">Guardatelo in azione: un programma per studi medici e terapie</strong>
+        <span class="video-nota" id="nota-video-salute" data-i18n="settori.items.7.video.nota">Demo di UtoApps con dati inventati: il programma è in sviluppo.</span>
+        <span class="video-yt-avviso"><span data-i18n="settori.video.avviso">Questo video è su YouTube e si carica solo quando lo avviate.</span> <a class="link-privacy" href="/de/privacy.html" data-i18n="settori.video.privacy">Informativa sulla privacy</a></span>
+      </figcaption>
+    </figure>
     <div class="coppie">
       <div class="coppia">
         <div class="problema">
@@ -2374,6 +2468,27 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
       <p class="esempi-pagina" data-i18n="settori.items.8.esempi">Alberghi piccoli, bed and breakfast, appartamenti, campeggi, agriturismi</p>
       <p class="lead-pagina" data-i18n="settori.items.8.intro">Settimane tutte piene, settimane senza una telefonata. E i portali prendono la loro parte.</p>
     </header>
+    <figure class="video-esempio" aria-labelledby="h-video-ospitalita">
+      <div class="video-cornice">
+        <video controls playsinline preload="none" hidden width="720" height="1280" aria-describedby="nota-video-ospitalita"
+               data-video='{"it":["/media/ospitezzu-demo-it.mp4","/media/ospitezzu-demo-poster.jpg"]}'>
+          <source src="/media/ospitezzu-demo-it.mp4" type="video/mp4">
+          <a href="/media/ospitezzu-demo-it.mp4">Guardatelo in azione: un programma per alberghi, B&amp;B e case di vacanza</a>
+        </video>
+        <button type="button" class="video-yt" aria-describedby="h-video-ospitalita nota-video-ospitalita"
+                data-yt='{"de":["P60DNIcJ96Q","/media/ospitezzu-demo-poster-de.jpg"]}'>
+          <img src="/media/ospitezzu-demo-poster-de.jpg" alt="" width="1080" height="1920" loading="lazy" decoding="async">
+          <span class="video-yt-play" aria-hidden="true"></span>
+          <span class="vh" data-i18n="settori.video.play">Avvia il video</span>
+        </button>
+      </div>
+      <figcaption>
+        <span class="eti" data-i18n="settori.video.eti">Esempio</span>
+        <strong id="h-video-ospitalita" data-i18n="settori.items.8.video.titolo">Guardatelo in azione: un programma per alberghi, B&amp;B e case di vacanza</strong>
+        <span class="video-nota" id="nota-video-ospitalita" data-i18n="settori.items.8.video.nota">Demo di UtoApps con dati inventati: il programma è in sviluppo.</span>
+        <span class="video-yt-avviso"><span data-i18n="settori.video.avviso">Questo video è su YouTube e si carica solo quando lo avviate.</span> <a class="link-privacy" href="/de/privacy.html" data-i18n="settori.video.privacy">Informativa sulla privacy</a></span>
+      </figcaption>
+    </figure>
     <div class="coppie">
       <div class="coppia">
         <div class="problema">
@@ -2518,6 +2633,27 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
       <p class="esempi-pagina" data-i18n="settori.items.10.esempi">Fiduciarie, avvocati, notai, agenzie immobiliari, consulenti, assicuratori</p>
       <p class="lead-pagina" data-i18n="settori.items.10.intro">Documenti, scadenze, e clienti che mandano le cose in ritardo e nel formato sbagliato.</p>
     </header>
+    <figure class="video-esempio" aria-labelledby="h-video-uffici">
+      <div class="video-cornice">
+        <video controls playsinline preload="none" hidden width="720" height="1280" aria-describedby="nota-video-uffici"
+               data-video='{"it":["/media/pratizzu-demo-it.mp4","/media/pratizzu-demo-poster.jpg"]}'>
+          <source src="/media/pratizzu-demo-it.mp4" type="video/mp4">
+          <a href="/media/pratizzu-demo-it.mp4">Guardatelo in azione: un programma per fiduciarie, studi legali e immobiliari</a>
+        </video>
+        <button type="button" class="video-yt" aria-describedby="h-video-uffici nota-video-uffici"
+                data-yt='{"de":["ojZdp1IqIlY","/media/pratizzu-demo-poster-de.jpg"]}'>
+          <img src="/media/pratizzu-demo-poster-de.jpg" alt="" width="1080" height="1920" loading="lazy" decoding="async">
+          <span class="video-yt-play" aria-hidden="true"></span>
+          <span class="vh" data-i18n="settori.video.play">Avvia il video</span>
+        </button>
+      </div>
+      <figcaption>
+        <span class="eti" data-i18n="settori.video.eti">Esempio</span>
+        <strong id="h-video-uffici" data-i18n="settori.items.10.video.titolo">Guardatelo in azione: un programma per fiduciarie, studi legali e immobiliari</strong>
+        <span class="video-nota" id="nota-video-uffici" data-i18n="settori.items.10.video.nota">Demo di UtoApps con dati inventati: il programma è in sviluppo.</span>
+        <span class="video-yt-avviso"><span data-i18n="settori.video.avviso">Questo video è su YouTube e si carica solo quando lo avviate.</span> <a class="link-privacy" href="/de/privacy.html" data-i18n="settori.video.privacy">Informativa sulla privacy</a></span>
+      </figcaption>
+    </figure>
     <div class="coppie">
       <div class="coppia">
         <div class="problema">
@@ -2662,6 +2798,27 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
       <p class="esempi-pagina" data-i18n="settori.items.12.esempi">Instagram, TikTok, YouTube, podcast, blog</p>
       <p class="lead-pagina" data-i18n="settori.items.12.intro">Il lavoro vero è creare. Ma metà della giornata se ne va tra messaggi, proposte e conti.</p>
     </header>
+    <figure class="video-esempio" aria-labelledby="h-video-influencer">
+      <div class="video-cornice">
+        <video controls playsinline preload="none" hidden width="720" height="1280" aria-describedby="nota-video-influencer"
+               data-video='{"it":["/media/creazzu-demo-it.mp4","/media/creazzu-demo-poster.jpg"]}'>
+          <source src="/media/creazzu-demo-it.mp4" type="video/mp4">
+          <a href="/media/creazzu-demo-it.mp4">Guardatelo in azione: un programma per influencer e creator</a>
+        </video>
+        <button type="button" class="video-yt" aria-describedby="h-video-influencer nota-video-influencer"
+                data-yt='{"de":["qoZKv_CNcXM","/media/creazzu-demo-poster-de.jpg"]}'>
+          <img src="/media/creazzu-demo-poster-de.jpg" alt="" width="1080" height="1920" loading="lazy" decoding="async">
+          <span class="video-yt-play" aria-hidden="true"></span>
+          <span class="vh" data-i18n="settori.video.play">Avvia il video</span>
+        </button>
+      </div>
+      <figcaption>
+        <span class="eti" data-i18n="settori.video.eti">Esempio</span>
+        <strong id="h-video-influencer" data-i18n="settori.items.12.video.titolo">Guardatelo in azione: un programma per influencer e creator</strong>
+        <span class="video-nota" id="nota-video-influencer" data-i18n="settori.items.12.video.nota">Demo di UtoApps con dati inventati: il programma è in sviluppo.</span>
+        <span class="video-yt-avviso"><span data-i18n="settori.video.avviso">Questo video è su YouTube e si carica solo quando lo avviate.</span> <a class="link-privacy" href="/de/privacy.html" data-i18n="settori.video.privacy">Informativa sulla privacy</a></span>
+      </figcaption>
+    </figure>
     <div class="coppie">
       <div class="coppia">
         <div class="problema">
@@ -4058,7 +4215,11 @@ const I18N = {
       "dove": "Sulla fattura finale e nel messaggio di fine lavoro.",
       "quando": "Una settimana dopo: il lavoro è finito e il cantiere è pulito."
      },
-     "primo_passo": "Le ore sul posto: le ore dimenticate sono soldi già lavorati."
+     "primo_passo": "Le ore sul posto: le ore dimenticate sono soldi già lavorati.",
+     "video": {
+      "titolo": "Guardatelo in azione: un programma per artigiani e imprese edili",
+      "nota": "Demo di UtoApps con dati inventati: il programma è in sviluppo."
+     }
     },
     {
      "slug": "salute",
@@ -4107,7 +4268,11 @@ const I18N = {
       "quando": "A fine cura, con un messaggio, solo a chi ha dato il consenso scritto. Nel messaggio niente dati sulla salute."
      },
      "primo_passo": "La verifica: costa poco e dice se avete un problema che non sapete di avere.",
-     "nota": "Chronic Friends, un'app per chi vive con una malattia cronica: l'abbiamo costruita noi ed è su App Store e Google Play."
+     "nota": "Chronic Friends, un'app per chi vive con una malattia cronica: l'abbiamo costruita noi ed è su App Store e Google Play.",
+     "video": {
+      "titolo": "Guardatelo in azione: un programma per studi medici e terapie",
+      "nota": "Demo di UtoApps con dati inventati: il programma è in sviluppo."
+     }
     },
     {
      "slug": "ospitalita",
@@ -4155,7 +4320,11 @@ const I18N = {
       "dove": "In camera, accanto al wifi, e nel messaggio del giorno dopo.",
       "quando": "Il giorno dopo la partenza: il ricordo è ancora buono."
      },
-     "primo_passo": "Il messaggio prima dell'arrivo: meno telefonate, ogni giorno."
+     "primo_passo": "Il messaggio prima dell'arrivo: meno telefonate, ogni giorno.",
+     "video": {
+      "titolo": "Guardatelo in azione: un programma per alberghi, B&B e case di vacanza",
+      "nota": "Demo di UtoApps con dati inventati: il programma è in sviluppo."
+     }
     },
     {
      "slug": "sport",
@@ -4251,7 +4420,11 @@ const I18N = {
       "dove": "Nell'e-mail di chiusura della pratica.",
       "quando": "A pratica chiusa: dichiarazione consegnata, rogito firmato, casa venduta. Per avvocati e notai, prima si verifica cosa permette l'ordine."
      },
-     "primo_passo": "I solleciti: recuperate le ore che se ne vanno a rincorrere la gente."
+     "primo_passo": "I solleciti: recuperate le ore che se ne vanno a rincorrere la gente.",
+     "video": {
+      "titolo": "Guardatelo in azione: un programma per fiduciarie, studi legali e immobiliari",
+      "nota": "Demo di UtoApps con dati inventati: il programma è in sviluppo."
+     }
     },
     {
      "slug": "agricoltura",
@@ -4348,7 +4521,11 @@ const I18N = {
       "dove": "Il link nella bio e in fondo alle e-mail ai brand.",
       "quando": "Quando un brand vi dice che la collaborazione è andata bene."
      },
-     "primo_passo": "La pagina con il media kit: costa poco e la mandate a ogni brand che vi scrive."
+     "primo_passo": "La pagina con il media kit: costa poco e la mandate a ogni brand che vi scrive.",
+     "video": {
+      "titolo": "Guardatelo in azione: un programma per influencer e creator",
+      "nota": "Demo di UtoApps con dati inventati: il programma è in sviluppo."
+     }
     },
     {
      "slug": "fotografi",
@@ -4448,7 +4625,10 @@ const I18N = {
     }
    ],
    "video": {
-    "eti": "Esempio"
+    "eti": "Esempio",
+    "play": "Avvia il video",
+    "avviso": "Questo video è su YouTube e si carica solo quando lo avviate.",
+    "privacy": "Informativa sulla privacy"
    }
   },
   "ui": {
@@ -5659,11 +5839,15 @@ const I18N = {
       "dove": "Auf der Schlussrechnung und in der Nachricht zum Arbeitsende.",
       "quando": "Eine Woche später: Die Arbeit ist fertig, die Baustelle sauber."
      },
-     "primo_passo": "Stunden vor Ort: Vergessene Stunden sind bereits verdientes Geld."
+     "primo_passo": "Stunden vor Ort: Vergessene Stunden sind bereits verdientes Geld.",
+     "video": {
+      "titolo": "So funktioniert es: ein Programm für Handwerk und Baufirmen",
+      "nota": "Demo von UtoApps mit erfundenen Daten: Die Software ist in Entwicklung."
+     }
     },
     {
      "slug": "salute",
-     "name": "Arztpraxen und Therapien",
+     "name": "Arzt- und Therapiepraxen",
      "esempi": "Zahnärzte, Physiotherapie, Podologie, Psychologie, Osteopathie",
      "intro": "Patientendaten sind besonders schützenswerte Daten. Das Schweizer Gesetz kennt keine Nachsicht.",
      "problemi": [
@@ -5708,7 +5892,11 @@ const I18N = {
       "quando": "Am Ende der Behandlung, per Nachricht, nur an Personen mit schriftlicher Einwilligung. Keine Gesundheitsdaten in der Nachricht."
      },
      "primo_passo": "Die Analyse: kostet wenig und sagt, ob Sie ein Problem haben, das Sie nicht kennen.",
-     "nota": "Chronic Friends, eine App für Menschen mit chronischer Krankheit: von uns gebaut, im App Store und bei Google Play."
+     "nota": "Chronic Friends, eine App für Menschen mit chronischer Krankheit: von uns gebaut, im App Store und bei Google Play.",
+     "video": {
+      "titolo": "So funktioniert es: ein Programm für Arzt- und Therapiepraxen",
+      "nota": "Demo von UtoApps mit erfundenen Daten: Die Software ist in Entwicklung."
+     }
     },
     {
      "slug": "ospitalita",
@@ -5756,7 +5944,11 @@ const I18N = {
       "dove": "Im Zimmer, neben dem WLAN, und in der Nachricht am Tag danach.",
       "quando": "Am Tag nach der Abreise: Die Erinnerung ist noch gut."
      },
-     "primo_passo": "Die Nachricht vor der Anreise: weniger Anrufe, jeden Tag."
+     "primo_passo": "Die Nachricht vor der Anreise: weniger Anrufe, jeden Tag.",
+     "video": {
+      "titolo": "So funktioniert es: ein Programm für Hotels, B&B und Ferienwohnungen",
+      "nota": "Demo von UtoApps mit erfundenen Daten: Die Software ist in Entwicklung."
+     }
     },
     {
      "slug": "sport",
@@ -5808,7 +6000,7 @@ const I18N = {
     },
     {
      "slug": "uffici",
-     "name": "Treuhand, Anwalts- und Immobilienbüros",
+     "name": "Treuhand-, Anwalts- und Immobilienbüros",
      "esempi": "Treuhänder, Anwälte, Notare, Immobilienbüros, Berater, Versicherungen",
      "intro": "Dokumente, Fristen – und Kunden, die spät und im falschen Format liefern.",
      "problemi": [
@@ -5852,7 +6044,11 @@ const I18N = {
       "dove": "In der Abschluss-E-Mail des Dossiers.",
       "quando": "Nach Abschluss: Steuererklärung eingereicht, Urkunde unterzeichnet, Haus verkauft. Bei Anwälten und Notaren prüfen wir zuerst, was die Standesregeln erlauben."
      },
-     "primo_passo": "Die Erinnerungen: Sie holen die Stunden zurück, die das Hinterherlaufen frisst."
+     "primo_passo": "Die Erinnerungen: Sie holen die Stunden zurück, die das Hinterherlaufen frisst.",
+     "video": {
+      "titolo": "So funktioniert es: ein Programm für Treuhand-, Anwalts- und Immobilienbüros",
+      "nota": "Demo von UtoApps mit erfundenen Daten: Die Software ist in Entwicklung."
+     }
     },
     {
      "slug": "agricoltura",
@@ -5949,7 +6145,11 @@ const I18N = {
       "dove": "Als Link in der Bio und am Ende Ihrer E-Mails an Marken.",
       "quando": "Wenn eine Marke sagt, dass die Kooperation gut gelaufen ist."
      },
-     "primo_passo": "Die Seite mit dem Media-Kit: kostet wenig und geht an jede Marke, die Ihnen schreibt."
+     "primo_passo": "Die Seite mit dem Media-Kit: kostet wenig und geht an jede Marke, die Ihnen schreibt.",
+     "video": {
+      "titolo": "So funktioniert es: ein Programm für Influencer und Content-Creator",
+      "nota": "Demo von UtoApps mit erfundenen Daten: Die Software ist in Entwicklung."
+     }
     },
     {
      "slug": "fotografi",
@@ -6049,7 +6249,10 @@ const I18N = {
     }
    ],
    "video": {
-    "eti": "Beispiel"
+    "eti": "Beispiel",
+    "play": "Video abspielen",
+    "avviso": "Dieses Video liegt auf YouTube und wird erst geladen, wenn Sie es starten.",
+    "privacy": "Datenschutz"
    }
   },
   "ui": {
@@ -7260,7 +7463,11 @@ const I18N = {
       "dove": "Sur la facture finale et le message de fin de chantier.",
       "quando": "Une semaine après : le travail est fini et le chantier est propre."
      },
-     "primo_passo": "Les heures sur place : les heures oubliées sont de l’argent déjà gagné."
+     "primo_passo": "Les heures sur place : les heures oubliées sont de l’argent déjà gagné.",
+     "video": {
+      "titolo": "Voyez-le en action : un logiciel pour artisans et entreprises du bâtiment",
+      "nota": "Démo d’UtoApps avec des données fictives : le logiciel est en développement."
+     }
     },
     {
      "slug": "salute",
@@ -7309,7 +7516,11 @@ const I18N = {
       "quando": "En fin de traitement, par message, seulement à qui a donné son consentement écrit. Aucune donnée de santé dans le message."
      },
      "primo_passo": "Le diagnostic : peu cher, il dit si vous avez un problème que vous ignorez.",
-     "nota": "Chronic Friends, une app pour qui vit avec une maladie chronique : nous l’avons construite, elle est sur l’App Store et Google Play."
+     "nota": "Chronic Friends, une app pour qui vit avec une maladie chronique : nous l’avons construite, elle est sur l’App Store et Google Play.",
+     "video": {
+      "titolo": "Voyez-le en action : un logiciel pour cabinets médicaux et thérapeutes",
+      "nota": "Démo d’UtoApps avec des données fictives : le logiciel est en développement."
+     }
     },
     {
      "slug": "ospitalita",
@@ -7357,7 +7568,11 @@ const I18N = {
       "dove": "En chambre, à côté du wifi, et dans le message du lendemain.",
       "quando": "Le lendemain du départ : le souvenir est encore bon."
      },
-     "primo_passo": "Le message avant l’arrivée : moins d’appels, chaque jour."
+     "primo_passo": "Le message avant l’arrivée : moins d’appels, chaque jour.",
+     "video": {
+      "titolo": "Voyez-le en action : un logiciel pour hôtels, B&B et logements de vacances",
+      "nota": "Démo d’UtoApps avec des données fictives : le logiciel est en développement."
+     }
     },
     {
      "slug": "sport",
@@ -7453,7 +7668,11 @@ const I18N = {
       "dove": "Dans l’e-mail de clôture du dossier.",
       "quando": "Dossier clos : déclaration déposée, acte signé, maison vendue. Pour avocats et notaires, on vérifie d’abord ce que permet l’ordre professionnel."
      },
-     "primo_passo": "Les relances : récupérez les heures passées à courir après les gens."
+     "primo_passo": "Les relances : récupérez les heures passées à courir après les gens.",
+     "video": {
+      "titolo": "Voyez-le en action : un logiciel pour fiduciaires, études d’avocats et agences immobilières",
+      "nota": "Démo d’UtoApps avec des données fictives : le logiciel est en développement."
+     }
     },
     {
      "slug": "agricoltura",
@@ -7550,7 +7769,11 @@ const I18N = {
       "dove": "Le lien dans la bio et au bas des e-mails aux marques.",
       "quando": "Quand une marque vous dit que la collaboration s’est bien passée."
      },
-     "primo_passo": "La page avec le media kit : elle coûte peu et vous l’envoyez à chaque marque qui vous écrit."
+     "primo_passo": "La page avec le media kit : elle coûte peu et vous l’envoyez à chaque marque qui vous écrit.",
+     "video": {
+      "titolo": "Voyez-le en action : un logiciel pour influenceurs et créateurs de contenu",
+      "nota": "Démo d’UtoApps avec des données fictives : le logiciel est en développement."
+     }
     },
     {
      "slug": "fotografi",
@@ -7650,7 +7873,10 @@ const I18N = {
     }
    ],
    "video": {
-    "eti": "Exemple"
+    "eti": "Exemple",
+    "play": "Lancer la vidéo",
+    "avviso": "Cette vidéo est sur YouTube et ne se charge que lorsque vous la lancez.",
+    "privacy": "Protection des données"
    }
   },
   "ui": {
@@ -8861,7 +9087,11 @@ const I18N = {
       "dove": "On the final invoice and the job-done message.",
       "quando": "A week later: the job is done and the site is clean."
      },
-     "primo_passo": "Hours on site: forgotten hours are money already earned."
+     "primo_passo": "Hours on site: forgotten hours are money already earned.",
+     "video": {
+      "titolo": "See it in action: software for tradespeople and builders",
+      "nota": "UtoApps demo with made-up data: the software is in development."
+     }
     },
     {
      "slug": "salute",
@@ -8910,7 +9140,11 @@ const I18N = {
       "quando": "At the end of treatment, by message, only to those who gave written consent. No health data in the message."
      },
      "primo_passo": "The check-up: cheap, and it shows whether you have a problem you don’t know about.",
-     "nota": "Chronic Friends, an app for people with a chronic illness: we built it, and it’s on the App Store and Google Play."
+     "nota": "Chronic Friends, an app for people with a chronic illness: we built it, and it’s on the App Store and Google Play.",
+     "video": {
+      "titolo": "See it in action: software for medical practices and therapists",
+      "nota": "UtoApps demo with made-up data: the software is in development."
+     }
     },
     {
      "slug": "ospitalita",
@@ -8958,7 +9192,11 @@ const I18N = {
       "dove": "In the room by the wifi, and in the next-day message.",
       "quando": "The day after departure: the memory is still good."
      },
-     "primo_passo": "The pre-arrival message: fewer calls, every day."
+     "primo_passo": "The pre-arrival message: fewer calls, every day.",
+     "video": {
+      "titolo": "See it in action: software for hotels, B&Bs and holiday homes",
+      "nota": "UtoApps demo with made-up data: the software is in development."
+     }
     },
     {
      "slug": "sport",
@@ -9054,7 +9292,11 @@ const I18N = {
       "dove": "In the case-closed email.",
       "quando": "Case closed: return filed, deed signed, house sold. Lawyers and notaries: first check what your professional body allows."
      },
-     "primo_passo": "The reminders: win back the hours spent chasing people."
+     "primo_passo": "The reminders: win back the hours spent chasing people.",
+     "video": {
+      "titolo": "See it in action: software for accountants, lawyers and estate agents",
+      "nota": "UtoApps demo with made-up data: the software is in development."
+     }
     },
     {
      "slug": "agricoltura",
@@ -9151,7 +9393,11 @@ const I18N = {
       "dove": "In your bio link and at the end of emails to brands.",
       "quando": "When a brand tells you the collaboration went well."
      },
-     "primo_passo": "The media kit page: it costs little, and you can send it to every brand that gets in touch."
+     "primo_passo": "The media kit page: it costs little, and you can send it to every brand that gets in touch.",
+     "video": {
+      "titolo": "See it in action: software for influencers and content creators",
+      "nota": "UtoApps demo with made-up data: the software is in development."
+     }
     },
     {
      "slug": "fotografi",
@@ -9251,7 +9497,10 @@ const I18N = {
     }
    ],
    "video": {
-    "eti": "Example"
+    "eti": "Example",
+    "play": "Play video",
+    "avviso": "This video is on YouTube and only loads when you start it.",
+    "privacy": "Privacy policy"
    }
   },
   "ui": {
@@ -10462,7 +10711,11 @@ const I18N = {
       "dove": "En la factura final y en el mensaje de fin de obra.",
       "quando": "Una semana después: el trabajo está acabado y la obra, limpia."
      },
-     "primo_passo": "Las horas en obra: las horas olvidadas son dinero ya trabajado."
+     "primo_passo": "Las horas en obra: las horas olvidadas son dinero ya trabajado.",
+     "video": {
+      "titolo": "Mírelo en acción: un programa para gremios y empresas de construcción",
+      "nota": "Demo de UtoApps con datos inventados: el programa está en desarrollo."
+     }
     },
     {
      "slug": "salute",
@@ -10511,7 +10764,11 @@ const I18N = {
       "quando": "Al acabar el tratamiento, con un mensaje, solo a quien dio su consentimiento por escrito. En el mensaje, ningún dato de salud."
      },
      "primo_passo": "La revisión: cuesta poco y dice si tiene un problema que no sabe que tiene.",
-     "nota": "Chronic Friends, una app para quien vive con una enfermedad crónica: la construimos nosotros y está en App Store y Google Play."
+     "nota": "Chronic Friends, una app para quien vive con una enfermedad crónica: la construimos nosotros y está en App Store y Google Play.",
+     "video": {
+      "titolo": "Mírelo en acción: un programa para consultas médicas y terapias",
+      "nota": "Demo de UtoApps con datos inventados: el programa está en desarrollo."
+     }
     },
     {
      "slug": "ospitalita",
@@ -10559,7 +10816,11 @@ const I18N = {
       "dove": "En la habitación, junto al wifi, y en el mensaje del día siguiente.",
       "quando": "El día después de la salida: el recuerdo aún es bueno."
      },
-     "primo_passo": "El mensaje antes de la llegada: menos llamadas, cada día."
+     "primo_passo": "El mensaje antes de la llegada: menos llamadas, cada día.",
+     "video": {
+      "titolo": "Mírelo en acción: un programa para hoteles, B&B y casas de vacaciones",
+      "nota": "Demo de UtoApps con datos inventados: el programa está en desarrollo."
+     }
     },
     {
      "slug": "sport",
@@ -10655,7 +10916,11 @@ const I18N = {
       "dove": "En el correo de cierre del expediente.",
       "quando": "Con el expediente cerrado: declaración entregada, escritura firmada, casa vendida. Para abogados y notarios, antes se comprueba qué permite el colegio."
      },
-     "primo_passo": "Los recordatorios: recupera las horas que se van persiguiendo a la gente."
+     "primo_passo": "Los recordatorios: recupera las horas que se van persiguiendo a la gente.",
+     "video": {
+      "titolo": "Mírelo en acción: un programa para gestorías, despachos de abogados e inmobiliarias",
+      "nota": "Demo de UtoApps con datos inventados: el programa está en desarrollo."
+     }
     },
     {
      "slug": "agricoltura",
@@ -10752,7 +11017,11 @@ const I18N = {
       "dove": "En el enlace de la bio y al final de los correos a las marcas.",
       "quando": "Cuando una marca le dice que la colaboración ha ido bien."
      },
-     "primo_passo": "La página con el media kit: cuesta poco y se la manda a cada marca que le escribe."
+     "primo_passo": "La página con el media kit: cuesta poco y se la manda a cada marca que le escribe.",
+     "video": {
+      "titolo": "Mírelo en acción: un programa para influencers y creadores de contenido",
+      "nota": "Demo de UtoApps con datos inventados: el programa está en desarrollo."
+     }
     },
     {
      "slug": "fotografi",
@@ -10852,7 +11121,10 @@ const I18N = {
     }
    ],
    "video": {
-    "eti": "Ejemplo"
+    "eti": "Ejemplo",
+    "play": "Reproducir el vídeo",
+    "avviso": "Este vídeo está en YouTube y solo se carga cuando usted lo inicia.",
+    "privacy": "Política de privacidad"
    }
   },
   "ui": {
@@ -10941,6 +11213,38 @@ const I18N = {
       link[i].setAttribute("href", radice(lingua) + LEGALI[i]);
     }
   }
+  /* 14 ott 2026 (fase 13): ogni video d'esempio ha due pezzi nella stessa cornice. Se la lingua ha il suo mp4
+     (oggi solo l'italiano) si vede il <video>; altrimenti la copertina col pulsante, che carica YouTube
+     (youtube-nocookie.com) solo al clic. Senza né l'uno né l'altro la figura si nasconde. */
+  function chiudiYouTube(b) {
+    var f = b.parentNode.querySelector("iframe");
+    if (f) f.parentNode.removeChild(f);
+  }
+  function videoSettori(lingua) {
+    document.querySelectorAll("figure.video-esempio").forEach(function (fig) {
+      var v = fig.querySelector("video[data-video]"), b = fig.querySelector("button.video-yt"),
+          avviso = fig.querySelector(".video-yt-avviso"), privacy = fig.querySelector("a.link-privacy"),
+          mp4 = v ? JSON.parse(v.getAttribute("data-video"))[lingua] : null,
+          yt = !mp4 && b ? JSON.parse(b.getAttribute("data-yt"))[lingua] : null;
+      if (b) chiudiYouTube(b);
+      if (v) {
+        var s = v.querySelector("source");
+        if (!mp4) v.pause();
+        else {
+          if (s.getAttribute("src") !== mp4[0]) { v.pause(); s.setAttribute("src", mp4[0]); v.load(); }
+          v.setAttribute("poster", mp4[1]);
+        }
+        v.hidden = !mp4;
+      }
+      if (b) {
+        b.hidden = !yt;
+        if (yt) b.querySelector("img").setAttribute("src", yt[1]);
+      }
+      if (avviso) avviso.hidden = !yt;
+      if (privacy) privacy.setAttribute("href", (lingua === "it" ? "/" : "/" + lingua + "/") + "privacy.html");
+      fig.hidden = !mp4 && !yt;
+    });
+  }
   function applica(lingua) {
     var d = I18N[lingua];
     if (!d) return;
@@ -10955,12 +11259,8 @@ const I18N = {
     });
     piedeLegale(d.footer.legal_note, lingua);
     document.documentElement.lang = lingua;
-    /* 6 ott 2026: il video d'esempio dei settori nella lingua mostrata (fase 11) */
-    document.querySelectorAll("video[data-video]").forEach(function (v) {
-      var m = JSON.parse(v.getAttribute("data-video"))[lingua], s = v.querySelector("source");
-      if (!m || !s || s.getAttribute("src") === m[0]) return;
-      v.pause(); s.setAttribute("src", m[0]); v.setAttribute("poster", m[1]); v.load();
-    });
+    /* 14 ott 2026: video d'esempio dei settori — italiano dal sito, altre lingue da YouTube (fase 13) */
+    videoSettori(lingua);
     document.title = d.meta.title;
     meta('meta[name="description"]', d.meta.description);
     meta('meta[property="og:title"]', d.meta.title);
@@ -10976,6 +11276,29 @@ const I18N = {
   document.getElementById("lingue").addEventListener("click", function (ev) {
     var b = ev.target.closest(".lingua");
     if (b) applica(b.dataset.lang);
+  });
+  /* 14 ott 2026 (fase 13): YouTube si carica qui, al clic, e mai prima */
+  document.addEventListener("click", function (ev) {
+    var b = ev.target.closest ? ev.target.closest("button.video-yt") : null;
+    if (!b) return;
+    var yt = JSON.parse(b.getAttribute("data-yt"))[document.documentElement.lang];
+    if (!yt) return;
+    chiudiYouTube(b);
+    var f = document.createElement("iframe"), t = document.getElementById(b.getAttribute("aria-describedby").split(" ")[0]);
+    f.src = "https://www.youtube-nocookie.com/embed/" + yt[0] + "?autoplay=1&playsinline=1&rel=0";
+    f.title = t ? t.textContent : "YouTube";
+    f.setAttribute("allow", "autoplay; encrypted-media; picture-in-picture; fullscreen");
+    f.setAttribute("allowfullscreen", "");
+    f.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+    b.hidden = true;
+    b.parentNode.appendChild(f);
+    f.focus();
+  });
+  window.addEventListener("hashchange", function () {
+    document.querySelectorAll("button.video-yt").forEach(function (b) {
+      if (b.parentNode.querySelector("iframe")) { chiudiYouTube(b); b.hidden = false; }
+    });
+    document.querySelectorAll("video[data-video]").forEach(function (v) { v.pause(); });
   });
   /* /de/ /fr/ /en/ /es/ fissano window.LINGUA_PAGINA: lì comanda l'indirizzo.
      Nella radice comanda invece la scelta salvata dal visitatore. */
