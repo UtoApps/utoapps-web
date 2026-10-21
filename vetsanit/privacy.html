@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy · VetSanit</title>
+<style>
+    /* Archivo y Newsreader son fuentes VARIABLES: un solo .woff2 contiene todos
+   los pesos, y el font-weight de cada @font-face fija el eje. Por eso varios
+   apuntan al mismo fichero — no es un error. Verificado midiendo el ancho del
+   mismo texto en cada peso: 406 / 415 / 432 / 457 px. */
+  @font-face { font-family: 'Archivo'; src: url('fonts/archivo.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Archivo'; src: url('fonts/archivo.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Archivo'; src: url('fonts/archivo.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Archivo'; src: url('fonts/archivo.woff2') format('woff2'); font-weight: 800; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Newsreader'; src: url('fonts/newsreader.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Newsreader'; src: url('fonts/newsreader.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'IBM Plex Mono'; src: url('fonts/ibmplexmono-500.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'IBM Plex Mono'; src: url('fonts/ibmplexmono-600.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: swap; }
+
+    html, body { margin: 0; padding: 0; background: #FBF9F8; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Archivo', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #16110F; -webkit-font-smoothing: antialiased; }
+    p, li { font-family: 'Newsreader', Georgia, 'Times New Roman', serif; }
+    a { color: #0E5A63; }
+    a:hover { color: #2D5E64; }
+    :focus-visible { outline: 3px solid #3B757C; outline-offset: 3px; border-radius: 6px; }
+
+    .band { background: radial-gradient(120% 90% at 50% 0%, #375458 0%, #30474A 45%, #283C3E 100%); color: #E8FBFD; }
+    .wrap { max-width: 820px; margin: 0 auto; padding: 0 32px; }
+    .nav { max-width: 1140px; margin: 0 auto; padding: 26px 32px 30px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+    .navback { text-decoration: none; color: #ffffff; font-size: 14px; font-weight: 700; padding: 11px 22px; border-radius: 30px; border: 1px solid rgba(255,255,255,.28); background: rgba(255,255,255,.08); }
+    .navback:hover { background: rgba(255,255,255,.18); color: #ffffff; }
+    .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: #81DCE7; }
+    h1 { margin: 0; font-size: 40px; line-height: 1.08; font-weight: 800; letter-spacing: -0.02em; color: #ffffff; text-wrap: balance; }
+    .lede { margin: 0; max-width: 60ch; font-size: 16px; line-height: 1.65; font-weight: 500; color: #E8FBFD; text-wrap: pretty; }
+    .card { background: #ffffff; border-radius: 26px; padding: 32px 34px; box-shadow: 0 12px 30px -12px rgba(30,55,58,.22); display: flex; flex-direction: column; gap: 14px; }
+    .card h2 { margin: 0; display: flex; align-items: baseline; gap: 12px; font-size: 21px; font-weight: 800; letter-spacing: -0.01em; color: #16110F; text-wrap: balance; }
+    .num { font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 13px; font-weight: 600; color: #3B757C; flex: none; }
+    .card p { margin: 0; font-size: 15.5px; line-height: 1.7; font-weight: 500; color: #3D4F52; text-wrap: pretty; }
+    .card ul { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 9px; color: #3D4F52; }
+    .card li { font-size: 15.5px; line-height: 1.65; text-wrap: pretty; }
+    strong { color: #16110F; font-weight: 700; }
+    .todo { background: #ffffff; border: 1px solid rgba(178,42,23,.28); border-radius: 20px; padding: 22px 26px; display: flex; flex-direction: column; gap: 9px; }
+    .todo .tag { font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #B22A17; }
+    .todo p { margin: 0; font-size: 15px; line-height: 1.65; font-weight: 500; color: #3D4F52; }
+    footer { border-top: 1px solid rgba(120,137,139,.18); padding: 44px 32px 40px; margin-top: 96px; }
+    .foot { max-width: 1140px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px; }
+    .footgrid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 32px; background: linear-gradient(180deg, rgba(65,148,158,.07), rgba(65,148,158,.025)); border: 1px solid rgba(120,137,139,.16); border-radius: 26px; padding: 34px 40px; }
+    .footlinks { display: flex; flex-wrap: wrap; gap: 20px; justify-content: flex-end; }
+    .footlinks a { font-size: 13px; font-weight: 500; color: #3D4F52; text-decoration: none; }
+    .footlinks a:hover { color: #0E5A63; }
+    .footbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; border-top: 1px solid rgba(120,137,139,.14); padding-top: 22px; }
+    .footbar span { font-size: 12px; font-weight: 500; color: #5A6D6F; }
+
+    @media (max-width: 880px) {
+      .nav { justify-content: center; padding: 30px 20px 20px; }
+      .nav img { height: 60px; }
+      h1 { font-size: 32px; }
+      .wrap { padding: 0 20px; }
+      .card { padding: 26px 24px; }
+      .footgrid { grid-template-columns: 1fr; padding: 28px 26px; }
+      .footlinks { justify-content: flex-start; }
+      footer { padding-left: 20px; padding-right: 20px; }
+    }
+    @media (max-width: 480px) { h1 { font-size: 28px; } }
+</style>
+</head>
+<body>
+
+<div class="band">
+  <nav class="nav">
+    <a href="./" style="line-height: 0;"><img src="assets/vetsanit-horizontal-invertida.svg" alt="VetSanit" style="height: 88px; width: auto; display: block;"></a>
+    <a class="navback" href="./">Torna alla pagina</a>
+  </nav>
+  <div class="wrap" style="padding-bottom: 72px; display: flex; flex-direction: column; gap: 18px;">
+    <div class="eyebrow">Legale</div>
+    <h1>Privacy</h1>
+    <p class="lede">Che cosa conserva VetSanit, con chi la condivide e per quanto. In breve: i dati stanno sul tuo telefono, e ne sale una copia cifrata su un server in Svizzera — cifrata sul telefono, in modo che né noi né chi tiene il server possiamo aprirla. Il backup del sistema operativo, invece, sì che può portarsi via i dati in chiaro.</p>
+  </div>
+</div>
+
+<main class="wrap" style="padding-top: 60px; display: flex; flex-direction: column; gap: 22px;">
+  <section class="card">
+    <h2><span class="num">01</span>Chi è il titolare</h2>
+    <p><strong>UtoApps — Gerard Mir Ferrera</strong>, ditta individuale, Minusio (TI), Svizzera.</p>
+    <p>Il contatto è solo per posta elettronica: <a href="mailto:info@utoapps.ch">info@utoapps.ch</a>. Non c'è un numero di telefono.</p>
+  </section>
+
+  <section class="card">
+    <h2><span class="num">02</span>Chi risponde dei dati delle aziende agricole</h2>
+    <p>I dati delle aziende, degli animali e dei trattamenti li decide e li usa <strong>il veterinario</strong>. Nel diritto svizzero chi decide lo scopo e i mezzi del trattamento è il <strong>titolare del trattamento</strong>: per quei dati, quindi, il titolare è il veterinario e non UtoApps.</p>
+    <p>Con il conto cambia una cosa, e va detta chiaramente: la <strong>copia cifrata</strong> che sale dal telefono la <strong>custodiamo noi</strong>. Per quella custodia — e solo per quella — UtoApps agisce <strong>su tuo incarico</strong>, alle condizioni d'uso. Non cambia chi decide: il <strong>titolare</strong> di quei dati resti tu.</p>
+    <p>Quello che non facciamo è <strong>leggerli</strong>. La copia si cifra sul tuo telefono prima di partire e la chiave non esce di lì: sul server c'è un pacco chiuso che non possiamo aprire né noi, né chi ospita il server, né chi entrasse nel server.</p>
+    <p>Questo non è un esonero generale. Per i pochi dati personali che UtoApps tratta davvero — <strong>quello che scrivi all'indirizzo di supporto</strong> e <strong>quello che lo store comunica su un acquisto</strong> — UtoApps <strong>è titolare del trattamento</strong> e ne risponde: quei dati servono a risponderti e a gestire l'acquisto, e non vengono usati per altro.</p>
+  </section>
+
+  <section class="card">
+    <h2><span class="num">03</span>Che cosa conserva l'app, e dove</h2>
+    <p>Aziende, animali, interventi, tempi di attesa e i dati di fatturazione del veterinario stesso. Tutto <strong>nella memoria del dispositivo</strong>.</p>
+    <p>Se apri un <strong>conto</strong>, di quegli stessi dati sale una <strong>copia cifrata</strong> su un server in <strong>Svizzera</strong>. È l'unica cosa che parte dal telefono, e parte già chiusa: serve a riaverli se perdi il telefono, lo cambi o disinstalli l'app.</p>
+    <p>Senza conto l'app funziona lo stesso e non parte niente. E in entrambi i casi l'app <strong>lavora intera senza campo</strong>: la rete serve solo per la copia.</p>
+  </section>
+
+  <section class="card">
+    <h2><span class="num">04</span>Terzi: uno solo, e non può leggere niente</h2>
+    <p>Lo diciamo espressamente e non per omissione: <strong>non ci sono strumenti di analisi, non ci sono servizi di tracciamento e non ci sono componenti pubblicitari</strong>. Nessuno riceve i tuoi dati per farci qualcosa.</p>
+    <p>C'è un terzo, ed è uno solo: <strong>l'azienda che ospita il server</strong> dove sta la copia cifrata, con i dati tenuti <strong>in Svizzera</strong>. Riceve un pacco chiuso: non ha la chiave, e la chiave non esce dal tuo telefono. Se non apri nessun conto, non riceve niente di tuo.</p>
+  </section>
+
+  <section class="card">
+    <h2><span class="num">05</span>Il conto e la copia cifrata</h2>
+    <p>Il conto serve a una cosa sola: <strong>riaverti i tuoi dati</strong> se perdi il telefono. Per farlo funzionare, sul server stanno queste cose e nient'altro:</p>
+    <ul>
+      <li>il tuo <strong>indirizzo e-mail</strong>, che è il nome del conto;</li>
+      <li>una <strong>verifica della password</strong>, non la password: dalla password non si torna indietro;</li>
+      <li>il <strong>pacco cifrato</strong> con il tuo lavoro, e la data dell'ultima copia;</li>
+      <li>due <strong>buste chiuse</strong> con la chiave dentro: una si apre con la tua password, l'altra con il tuo codice di recupero. Le apre il tuo telefono, non il server.</li>
+    </ul>
+    <p>Il <strong>codice di recupero</strong> te lo mostra l'app una volta e non lo conserviamo: se perdi la password <em>e</em> il codice, la copia non la può aprire più nessuno — nemmeno noi. È il prezzo di una cifratura vera, ed è voluto.</p>
+    <p>Del conto puoi fare due cose in qualsiasi momento, dalle impostazioni dell'app: <strong>chiudere il conto</strong>, che cancella il conto e la copia dal server, e <strong>continuare senza</strong>. I dati sul telefono restano tuoi in tutti e due i casi.</p>
+  </section>
+
+  <section class="card">
+    <h2><span class="num">06</span>I pagamenti</h2>
+    <p>Gli acquisti (abbonamenti e piano a vita) li gestiscono <strong>Apple</strong> e <strong>Google</strong> attraverso i loro store. VetSanit non vede e non conserva i dati della tua carta.</p>
+    <p>Il trattamento dei dati di pagamento è regolato dalle condizioni di Apple e di Google.</p>
+  </section>
+
+  <section class="card">
+    <h2><span class="num">07</span>Conservazione e cancellazione</h2>
+    <p>I dati sul telefono restano <strong>fino a quando li cancelli tu</strong>. Non c'è una scadenza automatica.</p>
+    <p>La cancellazione è <strong>interamente in mano tua</strong>: dalle impostazioni dell'app, oppure disinstallandola. È immediata e irreversibile.</p>
+    <p>La <strong>copia sul server</strong> la cancelli dallo stesso posto, chiudendo il conto: spariscono insieme il conto e la copia, e non ne teniamo un'altra da nessuna parte. Non serve scriverci per chiederlo, e non c'è un cestino da cui recuperarla dopo.</p>
+    <p>Se non apri nessun conto, sul server non c'è niente di tuo da cancellare.</p>
+  </section>
+
+  <section class="card">
+    <h2><span class="num">08</span>Il backup del sistema operativo</h2>
+    <p>Vanno tenute distinte due cose. Quello che <strong>manda VetSanit</strong> è solo la copia cifrata del conto, e va chiusa: questo è vero ed è verificabile.</p>
+    <p>Ma <strong>il sistema operativo del telefono può includere i dati dell'app nel proprio backup</strong> — iCloud su iPhone, il backup di Google su Android. Quel backup è tuo, lo attivi e lo disattivi tu nelle impostazioni del telefono, e si regge sulle condizioni di Apple o di Google, non sulle nostre.</p>
+  </section>
+
+  <section class="card">
+    <h2><span class="num">09</span>Dove viene offerta l'app</h2>
+    <p>VetSanit è rivolta ai <strong>veterinari che lavorano in Svizzera</strong>, ed è il diritto svizzero — la <strong>LPD</strong> — che si applica a questa informativa. Non offriamo l'app nell'Unione europea e non ci rivolgiamo a chi vi risiede.</p>
+    <p>Se un giorno l'app sarà offerta anche nell'Unione europea, questa informativa sarà aggiornata prima, con le menzioni del RGPD che quel caso richiede.</p>
+  </section>
+
+  <div class="todo">
+    <div class="tag">TODO · senza verificare</div>
+    <p><strong>Il ruolo di UtoApps sulla copia cifrata.</strong> Con il conto, UtoApps custodisce dati del veterinario — cifrati e illeggibili, ma li custodisce. La qualifica giuridica di questa custodia (art. 9 LPD) e la clausola d'incarico nelle condizioni d'uso <strong>non sono state verificate da un professionista</strong>. Da controllare prima di pubblicare l'app.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="foot">
+    <div class="footgrid">
+      <a href="./" style="line-height: 0;"><img src="assets/vetsanit-horizontal.svg" alt="VetSanit" style="width: 190px; max-width: 100%; height: auto; display: block;"></a>
+      <div class="footlinks">
+        <a href="./">Pagina iniziale</a>
+        <a href="terms.html">Condizioni</a>
+        <a href="mailto:info@utoapps.ch">info@utoapps.ch</a>
+      </div>
+    </div>
+    <div class="footbar">
+      <span>UtoApps — Gerard Mir Ferrera, ditta individuale · Minusio (TI) · info@utoapps.ch</span>
+      <span>VetSanit non fornisce consulenza veterinaria.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

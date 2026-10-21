@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Condizioni · VetSanit</title>
+<style>
+    /* Archivo y Newsreader son fuentes VARIABLES: un solo .woff2 contiene todos
+   los pesos, y el font-weight de cada @font-face fija el eje. Por eso varios
+   apuntan al mismo fichero — no es un error. Verificado midiendo el ancho del
+   mismo texto en cada peso: 406 / 415 / 432 / 457 px. */
+  @font-face { font-family: 'Archivo'; src: url('fonts/archivo.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Archivo'; src: url('fonts/archivo.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Archivo'; src: url('fonts/archivo.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Archivo'; src: url('fonts/archivo.woff2') format('woff2'); font-weight: 800; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Newsreader'; src: url('fonts/newsreader.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Newsreader'; src: url('fonts/newsreader.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'IBM Plex Mono'; src: url('fonts/ibmplexmono-500.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'IBM Plex Mono'; src: url('fonts/ibmplexmono-600.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: swap; }
+
+    html, body { margin: 0; padding: 0; background: #FBF9F8; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Archivo', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #16110F; -webkit-font-smoothing: antialiased; }
+    p, li { font-family: 'Newsreader', Georgia, 'Times New Roman', serif; }
+    a { color: #0E5A63; }
+    a:hover { color: #2D5E64; }
+    :focus-visible { outline: 3px solid #3B757C; outline-offset: 3px; border-radius: 6px; }
+
+    .band { background: radial-gradient(120% 90% at 50% 0%, #375458 0%, #30474A 45%, #283C3E 100%); color: #E8FBFD; }
+    .wrap { max-width: 820px; margin: 0 auto; padding: 0 32px; }
+    .nav { max-width: 1140px; margin: 0 auto; padding: 26px 32px 30px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+    .navback { text-decoration: none; color: #ffffff; font-size: 14px; font-weight: 700; padding: 11px 22px; border-radius: 30px; border: 1px solid rgba(255,255,255,.28); background: rgba(255,255,255,.08); }
+    .navback:hover { background: rgba(255,255,255,.18); color: #ffffff; }
+    .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: #81DCE7; }
+    h1 { margin: 0; font-size: 40px; line-height: 1.08; font-weight: 800; letter-spacing: -0.02em; color: #ffffff; text-wrap: balance; }
+    .lede { margin: 0; max-width: 60ch; font-size: 16px; line-height: 1.65; font-weight: 500; color: #E8FBFD; text-wrap: pretty; }
+    .card { background: #ffffff; border-radius: 26px; padding: 32px 34px; box-shadow: 0 12px 30px -12px rgba(30,55,58,.22); display: flex; flex-direction: column; gap: 14px; }
+    .card h2 { margin: 0; display: flex; align-items: baseline; gap: 12px; font-size: 21px; font-weight: 800; letter-spacing: -0.01em; color: #16110F; text-wrap: balance; }
+    .num { font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 13px; font-weight: 600; color: #3B757C; flex: none; }
+    .card p { margin: 0; font-size: 15.5px; line-height: 1.7; font-weight: 500; color: #3D4F52; text-wrap: pretty; }
+    .card ul { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 9px; color: #3D4F52; }
+    .card li { font-size: 15.5px; line-height: 1.65; text-wrap: pretty; }
+    strong { color: #16110F; font-weight: 700; }
+    .todo { background: #ffffff; border: 1px solid rgba(178,42,23,.28); border-radius: 20px; padding: 22px 26px; display: flex; flex-direction: column; gap: 9px; }
+    .todo .tag { font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #B22A17; }
+    .todo p { margin: 0; font-size: 15px; line-height: 1.65; font-weight: 500; color: #3D4F52; }
+    footer { border-top: 1px solid rgba(120,137,139,.18); padding: 44px 32px 40px; margin-top: 96px; }
+    .foot { max-width: 1140px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px; }
+    .footgrid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 32px; background: linear-gradient(180deg, rgba(65,148,158,.07), rgba(65,148,158,.025)); border: 1px solid rgba(120,137,139,.16); border-radius: 26px; padding: 34px 40px; }
+    .footlinks { display: flex; flex-wrap: wrap; gap: 20px; justify-content: flex-end; }
+    .footlinks a { font-size: 13px; font-weight: 500; color: #3D4F52; text-decoration: none; }
+    .footlinks a:hover { color: #0E5A63; }
+    .footbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; border-top: 1px solid rgba(120,137,139,.14); padding-top: 22px; }
+    .footbar span { font-size: 12px; font-weight: 500; color: #5A6D6F; }
+
+    @media (max-width: 880px) {
+      .nav { justify-content: center; padding: 30px 20px 20px; }
+      .nav img { height: 60px; }
+      h1 { font-size: 32px; }
+      .wrap { padding: 0 20px; }
+      .card { padding: 26px 24px; }
+      .footgrid { grid-template-columns: 1fr; padding: 28px 26px; }
+      .footlinks { justify-content: flex-start; }
+      footer { padding-left: 20px; padding-right: 20px; }
+    }
+    @media (max-width: 480px) { h1 { font-size: 28px; } }
+</style>
+</head>
+<body>
+
+<div class="band">
+  <nav class="nav">
+    <a href="./" style="line-height: 0;"><img src="assets/vetsanit-horizontal-invertida.svg" alt="VetSanit" style="height: 88px; width: auto; display: block;"></a>
+    <a class="navback" href="./">Torna alla pagina</a>
+  </nav>
+  <div class="wrap" style="padding-bottom: 72px; display: flex; flex-direction: column; gap: 18px;">
+    <div class="eyebrow">Legale</div>
+    <h1>Condizioni d'uso</h1>
+    <p class="lede">Che cosa si usa e a che prezzo, a cosa serve il conto, e che cosa VetSanit non fa.</p>
+  </div>
+</div>
+
+<main class="wrap" style="padding-top: 60px; display: flex; flex-direction: column; gap: 22px;">
+  <section class="card">
+    <h2><span class="num">01</span>Chi è il titolare</h2>
+    <p><strong>UtoApps — Gerard Mir Ferrera</strong>, ditta individuale, Minusio (TI), Svizzera.</p>
+    <p>Contatto: <a href="mailto:info@utoapps.ch">info@utoapps.ch</a>. Solo per posta elettronica; non c'è un numero di telefono.</p>
+  </section>
+
+  <section class="card">
+    <h2><span class="num">02</span>Quanto costa</h2>
+    <p>La versione gratuita comprende <strong>un'azienda intera</strong>: tutti gli animali, gli interventi, l'anagrafe, il calendario e le fatture di quell'azienda, senza limiti. Non è una prova che scade e per usarla non chiediamo la carta.</p>
+    <p>Per aggiungere altre aziende serve un piano a pagamento: <strong>USD 3.99</strong> al mese, <strong>USD 14.99</strong> ogni 6 mesi, <strong>USD 24.99</strong> all'anno, oppure <strong>USD 74.99</strong> una volta sola (a vita). I prezzi sono in dollari USA: il prezzo che paghi è quello che lo store ti mostra nella tua valuta.</p>
+  </section>
+
+  <section class="card">
+    <h2><span class="num">03</span>Abbonamento: prova, rinnovo e disdetta</h2>
+    <p>I piani mensile, semestrale e annuale hanno <strong>un mese di prova gratis</strong>, la prima volta che ti abboni. Se li disdici prima che la prova finisca (con Apple, almeno 24 ore prima), non paghi niente; altrimenti paghi il primo periodo e poi si rinnovano da soli alla fine di ogni periodo, finché non li disdici dalle impostazioni dello store (con Apple, almeno 24 ore prima della scadenza). Disinstallare l'app o chiudere il conto non disdice l'abbonamento.</p>
+    <p>Il piano <strong>a vita</strong> si paga una volta e non si rinnova. Resta legato all'account Apple o Google con cui l'hai comprato e vale finché VetSanit è disponibile. Se hai già un abbonamento, comprarlo non lo disdice: va disdetto dallo store.</p>
+    <p>Gli acquisti passano dallo store con cui li hai fatti (Apple o Google): pagamento, rinnovo, disdetta e rimborsi seguono le condizioni di quello store.</p>
+    <p>Se l'abbonamento finisce, <strong>non si toglie niente</strong>: le aziende che hai già restano tue e continuano a funzionare, fatture comprese. Serve un piano solo per aggiungerne un'altra.</p>
+  </section>
+
+  <section class="card">
+    <h2><span class="num">04</span>Il conto: a cosa serve e a cosa no</h2>
+    <p>Il conto è <strong>facoltativo</strong>: senza, l'app funziona intera e i dati stanno solo nel telefono. Serve a una cosa sola — <strong>riaverti i tuoi dati</strong> se perdi il telefono, lo cambi o disinstalli l'app.</p>
+    <p>Se apri un conto, di quello che registri sale una <strong>copia cifrata</strong> su un server in Svizzera. La cifra il tuo telefono prima di mandarla, e la <strong>custodiamo per tuo conto</strong> senza poterla leggere: la chiave non esce dal tuo telefono. Che cosa c'è esattamente su quel server è scritto nella <a href="privacy.html">privacy</a>.</p>
+    <p>Due cose restano tue e non le abbiamo: la <strong>password</strong> e il <strong>codice di recupero</strong>. Se li perdi tutti e due, quella copia non la può più aprire nessuno — <strong>nemmeno noi</strong>. Non è un disservizio: è quello che rende la cifratura vera.</p>
+    <p>Il conto lo chiudi quando vuoi dalle impostazioni dell'app, e chiudendolo spariscono il conto e la copia.</p>
+  </section>
+
+  <section class="card">
+    <h2><span class="num">05</span>L'app non dà consulenza veterinaria</h2>
+    <p>VetSanit è uno strumento di registrazione e di fatturazione. <strong>Non diagnostica, non raccomanda trattamenti e non calcola i tempi di attesa dei farmaci.</strong></p>
+    <p>I tempi di attesa del latte e della carne <strong>li scrive il veterinario</strong> per ogni intervento; l'app <strong>somma le date</strong> e mostra il giorno in cui l'attesa che lui ha registrato scade. La responsabilità del dato inserito e della decisione clinica resta del veterinario.</p>
+  </section>
+
+  <section class="card">
+    <h2><span class="num">06</span>Uso dell'app</h2>
+    <p>L'app è destinata a un uso professionale da parte del veterinario e, quando quel modo sarà disponibile, alla consultazione da parte del proprietario dell'azienda a cui il veterinario abilita l'accesso.</p>
+    <p>I dati inseriti restano sul dispositivo di chi li inserisce, e — se apri un conto — in una copia cifrata sul server. La loro conservazione e la loro cancellazione sono descritte nella <a href="privacy.html">privacy</a>.</p>
+    <p>Resti tu il responsabile della tenuta del giornale dei trattamenti e del rispetto dei tempi d'attesa previsti dall'ordinanza sui medicamenti per uso veterinario (<strong>OMVet, RS 812.212.27</strong>). VetSanit è uno strumento di supporto: non sostituisce quell'obbligo e non garantisce da solo la conservazione dei dati.</p>
+  </section>
+
+  <section class="card">
+    <h2><span class="num">07</span>Legge applicabile e foro</h2>
+    <p>A queste condizioni si applica il <strong>diritto svizzero</strong>.</p>
+    <p>Per ogni controversia il foro competente è quello di <strong>Locarno (Cantone Ticino, Svizzera)</strong>, sede del titolare. Restano salve le disposizioni imperative che assegnano un altro foro.</p>
+    <p>VetSanit è offerta a veterinari che lavorano <strong>in Svizzera</strong>.</p>
+  </section>
+
+  <div class="todo">
+    <div class="tag">TODO · senza verificare</div>
+    <p><strong>La clausola d'incarico per la copia cifrata.</strong> Con il conto, UtoApps custodisce dati del veterinario per suo conto (art. 9 LPD). Il testo del punto 04 descrive questa custodia, ma la sua <strong>forma giuridica non è stata verificata da un professionista</strong>. Da controllare prima di pubblicare l'app.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="foot">
+    <div class="footgrid">
+      <a href="./" style="line-height: 0;"><img src="assets/vetsanit-horizontal.svg" alt="VetSanit" style="width: 190px; max-width: 100%; height: auto; display: block;"></a>
+      <div class="footlinks">
+        <a href="./">Pagina iniziale</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="mailto:info@utoapps.ch">info@utoapps.ch</a>
+      </div>
+    </div>
+    <div class="footbar">
+      <span>UtoApps — Gerard Mir Ferrera, ditta individuale · Minusio (TI) · info@utoapps.ch</span>
+      <span>VetSanit non fornisce consulenza veterinaria.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

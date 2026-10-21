@@ -121,4 +121,13 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.utoapps.ch/en/privacy.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.utoapps.ch/es/privacy.html"/>
   </url>
+  <url>
+    <loc>https://www.utoapps.ch/vetsanit/</loc>
+  </url>
+  <url>
+    <loc>https://www.utoapps.ch/vetsanit/privacy.html</loc>
+  </url>
+  <url>
+    <loc>https://www.utoapps.ch/vetsanit/terms.html</loc>
+  </url>
 </urlset>
