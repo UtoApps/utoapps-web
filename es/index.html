@@ -793,6 +793,8 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
 
 /* 14 ott 2026 (fase 14): pagina #servizi — 8 schede + «progetti nuovi»: in 3 colonne quest'ultima prende la 9ª casella (griglia 3×3); in 2 colonne resta a tutta larghezza */
 @media (min-width:760px){.servizi > .servizio.nuovo{grid-column:auto}}
+/* fase 17 (21 ott 2026): il pulsante dell'app sotto ogni video d'esempio */
+.video-esempio .cta-app{margin:2px 0 0}
 
 /* ── margen vertical de la cabecera (ver build-site.py, parche 7) ─────── */
 .testata .testata-alto{padding-block:32px 18px}
@@ -1078,7 +1080,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
       <span class="eti" data-i18n="apps.label">Il nostro lavoro</span>
       <span class="loghi-striscia" aria-hidden="true">
         <img class="logo-mini" src="/img/logo-chronicfriends.png" alt="" width="36" height="36">
-        <img class="logo-mini tavola" src="/img/logo-romizzu.png" alt="" width="36" height="36">
+        <img class="logo-mini tavola" src="/img/logo-romizzu.png" alt="" width="36" height="36"> <img class="logo-mini tavola" src="/img/logo-inkzzu.png" alt="" width="36" height="36">
         <img class="logo-mini tavola" src="/img/logo-vetsanit.svg" alt="" width="36" height="36">
         <img class="logo-mini tavola" src="/img/logo-calenzzu.svg" alt="" width="36" height="36">
       </span>
@@ -1266,6 +1268,19 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
           <a class="link-app" href="https://romizzu.com" target="_blank" rel="noopener">romizzu.com <span class="frec" aria-hidden="true">↗</span></a>
         </div>
       </div>
+          <div class="app-creata">
+            <a class="logo-link" href="/inkzzu/" target="_blank" rel="noopener" aria-label="Inkzzu (nuova scheda)"><img class="logo-app tavola" src="/img/logo-inkzzu.png" alt="Inkzzu" width="64" height="64"></a>
+            <div class="corpo-app">
+              <div class="riga-titolo">
+                <h3 data-i18n="portfolio.items.3.name">Inkzzu</h3>
+                <span class="pastiglia corso" data-i18n="portfolio.items.3.badge">In prova</span>
+              </div>
+              <p class="riga-app" data-i18n="portfolio.items.3.riga">Il gestionale per studi di tatuaggio e piercing: agenda, consenso nella lingua del cliente, cura dopo la seduta e fattura QR.</p>
+              <p class="fatto-app" data-i18n="portfolio.items.3.fatto">Online dal 21 ottobre 2026 · gratis su un telefono</p>
+              <p class="titolarita" data-i18n="portfolio.items.3.titolarita">Prodotto UtoApps.</p>
+              <a class="link-app" href="/inkzzu/" target="_blank" rel="noopener">utoapps.ch/inkzzu <span class="frec" aria-hidden="true">↗</span></a>
+            </div>
+          </div>
       <div class="app-creata">
         <a class="logo-link" href="/vetsanit/" target="_blank" rel="noopener" aria-label="VetSanit (nuova scheda)"><img class="logo-app tavola" src="/img/logo-vetsanit.svg" alt="VetSanit" width="64" height="64"></a>
         <div class="corpo-app">
@@ -1704,7 +1719,8 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
         <span class="video-nota" id="nota-video-negozi" data-i18n="settori.items.0.video.nota">Demo di UtoApps con dati inventati: il programma è in sviluppo.</span>
         <span class="video-yt-avviso"><span data-i18n="settori.video.avviso">Questo video è su YouTube e si carica solo quando lo avviate.</span> <a class="link-privacy" href="/es/privacy.html" data-i18n="settori.video.privacy">Informativa sulla privacy</a></span>
       </figcaption>
-    </figure>
+    <p class="cta-app"><a class="btn vuoto" href="mailto:info@utoapps.ch?subject=App%20Negozzu%3A%20avvisatemi%20quando%20%C3%A8%20pronta&amp;body=Buongiorno%2C%0A%0Avi%20chiedo%20di%20avvisarmi%20quando%20l%27app%20Negozzu%20sar%C3%A0%20pronta.%0A%0ANome%20dell%27attivit%C3%A0%3A%0ALocalit%C3%A0%3A%0A%0AGrazie." data-app-avvisa="Negozzu" data-i18n="app_cta.avvisami">Avvisatemi quando è pronto</a></p>
+      </figure>
     <div class="coppie">
       <div class="coppia">
         <div class="problema">
@@ -1797,7 +1813,8 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
         <span class="video-nota" id="nota-video-ristoranti" data-i18n="settori.items.1.video.nota">Demo di UtoApps con dati inventati: il programma è in sviluppo.</span>
         <span class="video-yt-avviso"><span data-i18n="settori.video.avviso">Questo video è su YouTube e si carica solo quando lo avviate.</span> <a class="link-privacy" href="/es/privacy.html" data-i18n="settori.video.privacy">Informativa sulla privacy</a></span>
       </figcaption>
-    </figure>
+    <p class="cta-app"><a class="btn vuoto" href="mailto:info@utoapps.ch?subject=App%20Tavolizzu%3A%20avvisatemi%20quando%20%C3%A8%20pronta&amp;body=Buongiorno%2C%0A%0Avi%20chiedo%20di%20avvisarmi%20quando%20l%27app%20Tavolizzu%20sar%C3%A0%20pronta.%0A%0ANome%20dell%27attivit%C3%A0%3A%0ALocalit%C3%A0%3A%0A%0AGrazie." data-app-avvisa="Tavolizzu" data-i18n="app_cta.avvisami">Avvisatemi quando è pronto</a></p>
+      </figure>
     <div class="coppie">
       <div class="coppia">
         <div class="problema">
@@ -1890,7 +1907,8 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
         <span class="video-nota" id="nota-video-garage" data-i18n="settori.items.2.video.nota">Demo di UtoApps con dati inventati: il programma è in sviluppo.</span>
         <span class="video-yt-avviso"><span data-i18n="settori.video.avviso">Questo video è su YouTube e si carica solo quando lo avviate.</span> <a class="link-privacy" href="/es/privacy.html" data-i18n="settori.video.privacy">Informativa sulla privacy</a></span>
       </figcaption>
-    </figure>
+    <p class="cta-app"><a class="btn vuoto" href="mailto:info@utoapps.ch?subject=App%20Garazzu%3A%20avvisatemi%20quando%20%C3%A8%20pronta&amp;body=Buongiorno%2C%0A%0Avi%20chiedo%20di%20avvisarmi%20quando%20l%27app%20Garazzu%20sar%C3%A0%20pronta.%0A%0ANome%20dell%27attivit%C3%A0%3A%0ALocalit%C3%A0%3A%0A%0AGrazie." data-app-avvisa="Garazzu" data-i18n="app_cta.avvisami">Avvisatemi quando è pronto</a></p>
+      </figure>
     <div class="coppie">
       <div class="coppia">
         <div class="problema">
@@ -1983,7 +2001,8 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
         <span class="video-nota" id="nota-video-bellezza" data-i18n="settori.items.3.video.nota">Demo di UtoApps con dati inventati: il programma è in sviluppo.</span>
         <span class="video-yt-avviso"><span data-i18n="settori.video.avviso">Questo video è su YouTube e si carica solo quando lo avviate.</span> <a class="link-privacy" href="/es/privacy.html" data-i18n="settori.video.privacy">Informativa sulla privacy</a></span>
       </figcaption>
-    </figure>
+    <p class="cta-app"><a class="btn vuoto" href="mailto:info@utoapps.ch?subject=App%20Bellezzu%3A%20avvisatemi%20quando%20%C3%A8%20pronta&amp;body=Buongiorno%2C%0A%0Avi%20chiedo%20di%20avvisarmi%20quando%20l%27app%20Bellezzu%20sar%C3%A0%20pronta.%0A%0ANome%20dell%27attivit%C3%A0%3A%0ALocalit%C3%A0%3A%0A%0AGrazie." data-app-avvisa="Bellezzu" data-i18n="app_cta.avvisami">Avvisatemi quando è pronto</a></p>
+      </figure>
     <div class="coppie">
       <div class="coppia">
         <div class="problema">
@@ -2076,7 +2095,8 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
         <span class="video-nota" id="nota-video-tatuaggi" data-i18n="settori.items.4.video.nota">Demo di UtoApps con dati inventati: il programma è in sviluppo.</span>
         <span class="video-yt-avviso"><span data-i18n="settori.video.avviso">Questo video è su YouTube e si carica solo quando lo avviate.</span> <a class="link-privacy" href="/es/privacy.html" data-i18n="settori.video.privacy">Informativa sulla privacy</a></span>
       </figcaption>
-    </figure>
+    <p class="cta-app"><a class="btn" href="/inkzzu/" data-i18n="app_cta.scarica">Scaricate l'app</a></p>
+      </figure>
     <div class="coppie">
       <div class="coppia">
         <div class="problema">
@@ -2241,7 +2261,8 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
         <span class="video-nota" id="nota-video-artigiani" data-i18n="settori.items.6.video.nota">Demo di UtoApps con dati inventati: il programma è in sviluppo.</span>
         <span class="video-yt-avviso"><span data-i18n="settori.video.avviso">Questo video è su YouTube e si carica solo quando lo avviate.</span> <a class="link-privacy" href="/es/privacy.html" data-i18n="settori.video.privacy">Informativa sulla privacy</a></span>
       </figcaption>
-    </figure>
+    <p class="cta-app"><a class="btn vuoto" href="mailto:info@utoapps.ch?subject=App%20Attrezzu%3A%20avvisatemi%20quando%20%C3%A8%20pronta&amp;body=Buongiorno%2C%0A%0Avi%20chiedo%20di%20avvisarmi%20quando%20l%27app%20Attrezzu%20sar%C3%A0%20pronta.%0A%0ANome%20dell%27attivit%C3%A0%3A%0ALocalit%C3%A0%3A%0A%0AGrazie." data-app-avvisa="Attrezzu" data-i18n="app_cta.avvisami">Avvisatemi quando è pronto</a></p>
+      </figure>
     <div class="coppie">
       <div class="coppia">
         <div class="problema">
@@ -2334,7 +2355,8 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
         <span class="video-nota" id="nota-video-salute" data-i18n="settori.items.7.video.nota">Demo di UtoApps con dati inventati: il programma è in sviluppo.</span>
         <span class="video-yt-avviso"><span data-i18n="settori.video.avviso">Questo video è su YouTube e si carica solo quando lo avviate.</span> <a class="link-privacy" href="/es/privacy.html" data-i18n="settori.video.privacy">Informativa sulla privacy</a></span>
       </figcaption>
-    </figure>
+    <p class="cta-app"><a class="btn vuoto" href="mailto:info@utoapps.ch?subject=App%20Curazzu%3A%20avvisatemi%20quando%20%C3%A8%20pronta&amp;body=Buongiorno%2C%0A%0Avi%20chiedo%20di%20avvisarmi%20quando%20l%27app%20Curazzu%20sar%C3%A0%20pronta.%0A%0ANome%20dell%27attivit%C3%A0%3A%0ALocalit%C3%A0%3A%0A%0AGrazie." data-app-avvisa="Curazzu" data-i18n="app_cta.avvisami">Avvisatemi quando è pronto</a></p>
+      </figure>
     <div class="coppie">
       <div class="coppia">
         <div class="problema">
@@ -2427,7 +2449,8 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
         <span class="video-nota" id="nota-video-ospitalita" data-i18n="settori.items.8.video.nota">Demo di UtoApps con dati inventati: il programma è in sviluppo.</span>
         <span class="video-yt-avviso"><span data-i18n="settori.video.avviso">Questo video è su YouTube e si carica solo quando lo avviate.</span> <a class="link-privacy" href="/es/privacy.html" data-i18n="settori.video.privacy">Informativa sulla privacy</a></span>
       </figcaption>
-    </figure>
+    <p class="cta-app"><a class="btn vuoto" href="mailto:info@utoapps.ch?subject=App%20Ospitezzu%3A%20avvisatemi%20quando%20%C3%A8%20pronta&amp;body=Buongiorno%2C%0A%0Avi%20chiedo%20di%20avvisarmi%20quando%20l%27app%20Ospitezzu%20sar%C3%A0%20pronta.%0A%0ANome%20dell%27attivit%C3%A0%3A%0ALocalit%C3%A0%3A%0A%0AGrazie." data-app-avvisa="Ospitezzu" data-i18n="app_cta.avvisami">Avvisatemi quando è pronto</a></p>
+      </figure>
     <div class="coppie">
       <div class="coppia">
         <div class="problema">
@@ -2592,7 +2615,8 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
         <span class="video-nota" id="nota-video-uffici" data-i18n="settori.items.10.video.nota">Demo di UtoApps con dati inventati: il programma è in sviluppo.</span>
         <span class="video-yt-avviso"><span data-i18n="settori.video.avviso">Questo video è su YouTube e si carica solo quando lo avviate.</span> <a class="link-privacy" href="/es/privacy.html" data-i18n="settori.video.privacy">Informativa sulla privacy</a></span>
       </figcaption>
-    </figure>
+    <p class="cta-app"><a class="btn vuoto" href="mailto:info@utoapps.ch?subject=App%20Pratizzu%3A%20avvisatemi%20quando%20%C3%A8%20pronta&amp;body=Buongiorno%2C%0A%0Avi%20chiedo%20di%20avvisarmi%20quando%20l%27app%20Pratizzu%20sar%C3%A0%20pronta.%0A%0ANome%20dell%27attivit%C3%A0%3A%0ALocalit%C3%A0%3A%0A%0AGrazie." data-app-avvisa="Pratizzu" data-i18n="app_cta.avvisami">Avvisatemi quando è pronto</a></p>
+      </figure>
     <div class="coppie">
       <div class="coppia">
         <div class="problema">
@@ -2757,7 +2781,8 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
         <span class="video-nota" id="nota-video-influencer" data-i18n="settori.items.12.video.nota">Demo di UtoApps con dati inventati: il programma è in sviluppo.</span>
         <span class="video-yt-avviso"><span data-i18n="settori.video.avviso">Questo video è su YouTube e si carica solo quando lo avviate.</span> <a class="link-privacy" href="/es/privacy.html" data-i18n="settori.video.privacy">Informativa sulla privacy</a></span>
       </figcaption>
-    </figure>
+    <p class="cta-app"><a class="btn vuoto" href="mailto:info@utoapps.ch?subject=App%20Creazzu%3A%20avvisatemi%20quando%20%C3%A8%20pronta&amp;body=Buongiorno%2C%0A%0Avi%20chiedo%20di%20avvisarmi%20quando%20l%27app%20Creazzu%20sar%C3%A0%20pronta.%0A%0ANome%20dell%27attivit%C3%A0%3A%0ALocalit%C3%A0%3A%0A%0AGrazie." data-app-avvisa="Creazzu" data-i18n="app_cta.avvisami">Avvisatemi quando è pronto</a></p>
+      </figure>
     <div class="coppie">
       <div class="coppia">
         <div class="problema">
@@ -3000,6 +3025,12 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
 window.LINGUA_PAGINA = "es";
 const I18N = {
  "it": {
+  "app_cta": {
+   "scarica": "Scaricate l'app",
+   "avvisami": "Avvisatemi quando è pronto",
+   "oggetto": "App {app}: avvisatemi quando è pronta",
+   "corpo": "Buongiorno,\n\nvi chiedo di avvisarmi quando l'app {app} sarà pronta.\n\nNome dell'attività:\nLocalità:\n\nGrazie."
+  },
   "apps": {
    "label": "Il nostro lavoro",
    "title": "Una pubblicata, una in costruzione, una in definizione.",
@@ -4621,11 +4652,24 @@ const I18N = {
      "riga": "Mette insieme i calendari di due persone e mostra i giorni liberi per entrambe.",
      "fatto": "In costruzione",
      "titolarita": "Prodotto UtoApps."
+    },
+    {
+     "name": "Inkzzu",
+     "badge": "In prova",
+     "riga": "Il gestionale per studi di tatuaggio e piercing: agenda, consenso nella lingua del cliente, cura dopo la seduta e fattura QR.",
+     "fatto": "Online dal 21 ottobre 2026 · gratis su un telefono",
+     "titolarita": "Prodotto UtoApps."
     }
    ]
   }
  },
  "de": {
+  "app_cta": {
+   "scarica": "App herunterladen",
+   "avvisami": "Benachrichtigen, wenn verfügbar",
+   "oggetto": "{app}: Bitte um Nachricht, sobald die App verfügbar ist",
+   "corpo": "Guten Tag\n\nBitte geben Sie mir Bescheid, sobald {app} verfügbar ist.\n\nName des Betriebs:\nOrt:\n\nVielen Dank"
+  },
   "apps": {
    "label": "Unsere Arbeit",
    "title": "Drei Apps, drei Etappen",
@@ -6247,6 +6291,13 @@ const I18N = {
      "riga": "Legt die Kalender von zwei Personen zusammen und zeigt die gemeinsamen freien Tage.",
      "fatto": "Im Aufbau",
      "titolarita": "Produkt von UtoApps."
+    },
+    {
+     "name": "Inkzzu",
+     "badge": "Im Testbetrieb",
+     "riga": "Verwaltungssoftware für Tattoo- und Piercingstudios: Agenda, Einwilligung in der Sprache der Kundschaft, Nachsorge und QR-Rechnung.",
+     "fatto": "Online seit 21. Oktober 2026 · kostenlos auf einem Handy",
+     "titolarita": "Produkt von UtoApps."
     }
    ]
   }
@@ -6275,6 +6326,12 @@ const I18N = {
    "lead": "UtoApps conçoit, améliore et automatise des flux de travail sur mesure pour votre entreprise.",
    "cta_primary": "Voir nos réalisations",
    "cta_secondary": "Écrivez-nous"
+  },
+  "app_cta": {
+   "scarica": "Télécharger l’app",
+   "avvisami": "Me prévenir à sa sortie",
+   "oggetto": "{app} : merci de me prévenir à sa sortie",
+   "corpo": "Bonjour,\n\nPourriez-vous me prévenir quand {app} sortira ?\n\nNom de l’entreprise :\nLocalité :\n\nMerci d’avance."
   },
   "apps": {
    "label": "Nos réalisations",
@@ -7873,6 +7930,13 @@ const I18N = {
      "riga": "Réunit les agendas de deux personnes et montre les jours libres pour les deux.",
      "fatto": "En construction",
      "titolarita": "Produit UtoApps."
+    },
+    {
+     "name": "Inkzzu",
+     "badge": "En test",
+     "riga": "Le logiciel de gestion pour studios de tatouage et de piercing : agenda, consentement dans la langue du client, soins après la séance et facture QR.",
+     "fatto": "En ligne depuis le 21 octobre 2026 · gratuit sur un seul téléphone",
+     "titolarita": "Produit UtoApps."
     }
    ]
   }
@@ -7901,6 +7965,12 @@ const I18N = {
    "lead": "UtoApps designs, improves and automates workflows made to measure for your business.",
    "cta_primary": "See our work",
    "cta_secondary": "Get in touch"
+  },
+  "app_cta": {
+   "scarica": "Get the app",
+   "avvisami": "Notify me when it’s ready",
+   "oggetto": "{app}: please let me know when it's ready",
+   "corpo": "Hello,\n\nPlease let me know when {app} is ready.\n\nBusiness name:\nLocation:\n\nThank you."
   },
   "apps": {
    "label": "Our work",
@@ -9499,6 +9569,13 @@ const I18N = {
      "riga": "Puts two people’s calendars together and shows the days both are free.",
      "fatto": "Being built",
      "titolarita": "UtoApps product."
+    },
+    {
+     "name": "Inkzzu",
+     "badge": "Being tested",
+     "riga": "Management software for tattoo and piercing studios: appointment diary, consent forms in the client’s language, aftercare and QR-bills.",
+     "fatto": "Online since 21 October 2026 · free to use on one phone",
+     "titolarita": "UtoApps product."
     }
    ]
   }
@@ -9527,6 +9604,12 @@ const I18N = {
    "lead": "UtoApps diseña, mejora y automatiza flujos de trabajo a medida para su negocio.",
    "cta_primary": "Ver nuestro trabajo",
    "cta_secondary": "Escríbanos"
+  },
+  "app_cta": {
+   "scarica": "Descargar la app",
+   "avvisami": "Avisarme cuando esté disponible",
+   "oggetto": "{app}: avísenme cuando esté disponible",
+   "corpo": "Hola:\n\nMe gustaría que me avisaran cuando {app} esté disponible.\n\nNombre del negocio:\nLocalidad:\n\nGracias."
   },
   "apps": {
    "label": "Nuestro trabajo",
@@ -11125,6 +11208,13 @@ const I18N = {
      "riga": "Junta los calendarios de dos personas y muestra los días libres para las dos.",
      "fatto": "En construcción",
      "titolarita": "Producto UtoApps."
+    },
+    {
+     "name": "Inkzzu",
+     "badge": "En pruebas",
+     "riga": "El programa de gestión para estudios de tatuaje y piercing: agenda, consentimiento en el idioma del cliente, cuidados después de la sesión y factura QR.",
+     "fatto": "En línea desde el 21 de octubre de 2026 · gratis en un solo teléfono",
+     "titolarita": "Producto UtoApps."
     }
    ]
   }
@@ -11206,6 +11296,8 @@ const I18N = {
       var t = leggi(d, el.getAttribute("data-i18n-aria"));
       if (t !== null) el.setAttribute("aria-label", t);
     });
+      /* 21 ott 2026 (fase 17): «Avvisami quando è pronta» sotto i video delle app che non esistono ancora — l'email nella lingua della pagina */
+      document.querySelectorAll("[data-app-avvisa]").forEach(function (el) { var c = d.app_cta || I18N.it.app_cta, n = el.getAttribute("data-app-avvisa"); el.setAttribute("href", "mailto:info@utoapps.ch?subject=" + encodeURIComponent(c.oggetto.replace("{app}", n)) + "&body=" + encodeURIComponent(c.corpo.replace("{app}", n))); });
     piedeLegale(d.footer.legal_note, lingua);
     document.documentElement.lang = lingua;
     /* 14 ott 2026: video d'esempio dei settori — italiano dal sito, altre lingue da YouTube (fase 13) */
