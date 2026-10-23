@@ -803,6 +803,14 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
 /* fase 17 (21 ott 2026): il pulsante dell'app sotto ogni video d'esempio */
 .video-esempio .cta-app{margin:2px 0 0}
 
+/* ═══ fase 19 (23 ott 2026): accessibilità. .solo-lettore = testo che sente solo il lettore di schermo ·
+   .salta = «Passare al contenuto principale», si vede solo col fuoco (S15) · il main riceve il fuoco senza cornice ═══ */
+.solo-lettore{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;clip-path:inset(50%)!important;white-space:nowrap!important;border:0!important}
+.salta{position:absolute;left:12px;top:12px;z-index:1000;padding:12px 20px;border-radius:999px;background:#FFFFFF;color:#16110F;font-family:var(--display);font-weight:700;font-size:16px;line-height:1.25;letter-spacing:0;text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,.35)}
+.salta:hover{color:#16110F}
+.salta:not(:focus){width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;box-shadow:none}
+#contenuto:focus{outline:none}
+
 /* ── margen vertical de la cabecera (ver build-site.py, parche 7) ─────── */
 .testata .testata-alto{padding-block:32px 18px}
 .testata .testata-basso{padding-block:0 16px}
@@ -813,6 +821,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
 </head>
 
 <body>
+<a class="salta" href="#contenuto" data-i18n="a11y.salta">Passare al contenuto principale</a>
 
 <div class="fascia"></div>
 
@@ -828,11 +837,13 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
       <button type="button" class="lingua" data-lang="en" lang="en" aria-pressed="false">EN</button>
       <button type="button" class="lingua" data-lang="es" lang="es" aria-pressed="false">ES</button>
     </div>
+    <p class="solo-lettore" id="annuncio-lingua" role="status" aria-live="polite" aria-atomic="true"></p>
     <a class="btn cta-testata" href="mailto:info@utoapps.ch" data-i18n="hero.cta_secondary">Scriveteci</a>
   </div>
 </header>
 
-<main id="home">
+<main id="contenuto" tabindex="-1">
+<div id="home">
 
 <div class="eroe">
 <div class="wrap eroe-griglia">
@@ -1097,7 +1108,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
   </section>
 </div>
 
-</main>
+</div>
 
 <!-- ═══ PAGINA: Cosa facciamo — la versione completa dei servizi, prima stava in home ═══ -->
 <article class="pagina" id="servizi" aria-labelledby="h-servizi">
@@ -1249,7 +1260,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
     </header>
     <div class="apps-create quattro">
       <div class="app-creata">
-        <a class="logo-link" href="https://www.chronicfriends.org" target="_blank" rel="noopener" aria-label="chronicfriends.org (nuova scheda)"><img class="logo-app" src="/img/logo-chronicfriends.png" alt="Chronic Friends" width="64" height="64"></a>
+        <a class="logo-link" href="https://www.chronicfriends.org" target="_blank" rel="noopener"><img class="logo-app" src="/img/logo-chronicfriends.png" alt="Chronic Friends" width="64" height="64"> <span class="solo-lettore" data-i18n="a11y.nuova_scheda">(si apre in una nuova scheda)</span></a>
         <div class="corpo-app">
           <div class="riga-titolo">
             <h3 data-i18n="portfolio.items.0.name">Chronic Friends</h3>
@@ -1258,11 +1269,11 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
           <p class="riga-app" data-i18n="portfolio.items.0.riga">Diario dei sintomi per chi convive con una malattia infiammatoria cronica intestinale.</p>
           <p class="fatto-app" data-i18n="portfolio.items.0.fatto">Nell'App Store e su Google Play dal 15 agosto 2026</p>
           <p class="titolarita" data-i18n="portfolio.items.0.titolarita">L'applicazione appartiene a un'altra organizzazione: noi l'abbiamo progettata, sviluppata e pubblicata.</p>
-          <a class="link-app" href="https://www.chronicfriends.org" target="_blank" rel="noopener">www.chronicfriends.org <span class="frec" aria-hidden="true">↗</span></a>
+          <a class="link-app" href="https://www.chronicfriends.org" target="_blank" rel="noopener">www.chronicfriends.org <span class="frec" aria-hidden="true">↗</span><span class="solo-lettore" data-i18n="a11y.nuova_scheda">(si apre in una nuova scheda)</span></a>
         </div>
       </div>
       <div class="app-creata">
-        <a class="logo-link" href="https://romizzu.com" target="_blank" rel="noopener" aria-label="romizzu.com (nuova scheda)"><img class="logo-app tavola" src="/img/logo-romizzu.png" alt="Romizzu" width="64" height="64"></a>
+        <a class="logo-link" href="https://romizzu.com" target="_blank" rel="noopener"><img class="logo-app tavola" src="/img/logo-romizzu.png" alt="Romizzu" width="64" height="64"> <span class="solo-lettore" data-i18n="a11y.nuova_scheda">(si apre in una nuova scheda)</span></a>
         <div class="corpo-app">
           <div class="riga-titolo">
             <h3 data-i18n="portfolio.romizzu.name">Romizzu</h3>
@@ -1270,13 +1281,13 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
           </div>
           <p class="riga-app" data-i18n="portfolio.romizzu.riga">Marchio di nastro per le dita per BJJ e grappling, in vendita su Amazon USA e su romizzu.com.</p>
           <p class="riga-app" data-i18n="portfolio.romizzu.cosa">Per Romizzu abbiamo costruito il negozio online, il gestionale (vendite, magazzino, finanza) e le automazioni con Amazon.</p>
-          <p class="fatto-app"><a class="link-amazon" href="https://www.amazon.com/dp/B0DXFDCNDB" target="_blank" rel="noopener"><span data-i18n="portfolio.romizzu.amazon">Su Amazon.com: 4,6 ★ su 91 valutazioni (ottobre 2026)</span> <span class="frec" aria-hidden="true">↗</span></a></p>
+          <p class="fatto-app"><a class="link-amazon" href="https://www.amazon.com/dp/B0DXFDCNDB" target="_blank" rel="noopener"><span data-i18n="portfolio.romizzu.amazon">Su Amazon.com: 4,6 ★ su 91 valutazioni (ottobre 2026)</span> <span class="frec" aria-hidden="true">↗</span><span class="solo-lettore" data-i18n="a11y.nuova_scheda">(si apre in una nuova scheda)</span></a></p>
           <p class="titolarita" data-i18n="portfolio.romizzu.titolarita">Azienda del fondatore di UtoApps.</p>
-          <a class="link-app" href="https://romizzu.com" target="_blank" rel="noopener">romizzu.com <span class="frec" aria-hidden="true">↗</span></a>
+          <a class="link-app" href="https://romizzu.com" target="_blank" rel="noopener">romizzu.com <span class="frec" aria-hidden="true">↗</span><span class="solo-lettore" data-i18n="a11y.nuova_scheda">(si apre in una nuova scheda)</span></a>
         </div>
       </div>
           <div class="app-creata">
-            <a class="logo-link" href="/inkzzu/" target="_blank" rel="noopener" aria-label="Inkzzu (nuova scheda)"><img class="logo-app tavola" src="/img/logo-inkzzu.png" alt="Inkzzu" width="64" height="64"></a>
+            <a class="logo-link" href="/inkzzu/" target="_blank" rel="noopener"><img class="logo-app tavola" src="/img/logo-inkzzu.png" alt="Inkzzu" width="64" height="64"> <span class="solo-lettore" data-i18n="a11y.nuova_scheda">(si apre in una nuova scheda)</span></a>
             <div class="corpo-app">
               <div class="riga-titolo">
                 <h3 data-i18n="portfolio.items.3.name">Inkzzu</h3>
@@ -1285,11 +1296,11 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
               <p class="riga-app" data-i18n="portfolio.items.3.riga">Il gestionale per studi di tatuaggio e piercing: agenda, consenso nella lingua del cliente, cura dopo la seduta e fattura QR.</p>
               <p class="fatto-app" data-i18n="portfolio.items.3.fatto">Online dal 21 ottobre 2026 · gratis su un telefono</p>
               <p class="titolarita" data-i18n="portfolio.items.3.titolarita">Prodotto UtoApps.</p>
-              <a class="link-app" href="/inkzzu/" target="_blank" rel="noopener">utoapps.ch/inkzzu <span class="frec" aria-hidden="true">↗</span></a>
+              <a class="link-app" href="/inkzzu/" target="_blank" rel="noopener">utoapps.ch/inkzzu <span class="frec" aria-hidden="true">↗</span><span class="solo-lettore" data-i18n="a11y.nuova_scheda">(si apre in una nuova scheda)</span></a>
             </div>
           </div>
       <div class="app-creata">
-        <a class="logo-link" href="/vetsanit/" target="_blank" rel="noopener" aria-label="VetSanit (nuova scheda)"><img class="logo-app tavola" src="/img/logo-vetsanit.svg" alt="VetSanit" width="64" height="64"></a>
+        <a class="logo-link" href="/vetsanit/" target="_blank" rel="noopener"><img class="logo-app tavola" src="/img/logo-vetsanit.svg" alt="VetSanit" width="64" height="64"> <span class="solo-lettore" data-i18n="a11y.nuova_scheda">(si apre in una nuova scheda)</span></a>
         <div class="corpo-app">
           <div class="riga-titolo">
             <h3 data-i18n="portfolio.items.1.name">VetSanit</h3>
@@ -1298,7 +1309,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
           <p class="riga-app" data-i18n="portfolio.items.1.riga">Il veterinario registra l'intervento in azienda agricola ed emette la fattura sul posto.</p>
           <p class="fatto-app" data-i18n="portfolio.items.1.fatto">In costruzione</p>
           <p class="titolarita" data-i18n="portfolio.items.1.titolarita">Prodotto UtoApps.</p>
-          <a class="link-app" href="/vetsanit/" target="_blank" rel="noopener">utoapps.ch/vetsanit <span class="frec" aria-hidden="true">↗</span></a>
+          <a class="link-app" href="/vetsanit/" target="_blank" rel="noopener">utoapps.ch/vetsanit <span class="frec" aria-hidden="true">↗</span><span class="solo-lettore" data-i18n="a11y.nuova_scheda">(si apre in una nuova scheda)</span></a>
         </div>
       </div>
       <div class="app-creata">
@@ -3120,6 +3131,8 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
 </div>
 </div>
 
+</main>
+
 <div class="wrap">
   <footer>
     <nav class="nav nav-pie" aria-label="Sezioni">
@@ -3142,6 +3155,11 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
 window.LINGUA_PAGINA = "en";
 const I18N = {
  "it": {
+  "a11y": {
+   "salta": "Passare al contenuto principale",
+   "nuova_scheda": "(si apre in una nuova scheda)",
+   "annuncio_lingua": "Pagina in italiano"
+  },
   "app_cta": {
    "scarica": "Scaricate l'app",
    "avvisami": "Avvisatemi quando è pronto",
@@ -4801,6 +4819,11 @@ const I18N = {
   }
  },
  "de": {
+  "a11y": {
+   "salta": "Zum Hauptinhalt springen",
+   "nuova_scheda": "(öffnet in einem neuen Tab)",
+   "annuncio_lingua": "Seite auf Deutsch"
+  },
   "app_cta": {
    "scarica": "App herunterladen",
    "avvisami": "Benachrichtigen, wenn verfügbar",
@@ -6460,6 +6483,11 @@ const I18N = {
   }
  },
  "fr": {
+  "a11y": {
+   "salta": "Aller au contenu principal",
+   "nuova_scheda": "(s’ouvre dans un nouvel onglet)",
+   "annuncio_lingua": "Langue de la page : français"
+  },
   "lang": "fr",
   "meta": {
    "title": "Une idée à concrétiser ou une entreprise à faire grandir ? UtoApps a la solution.",
@@ -8119,6 +8147,11 @@ const I18N = {
   }
  },
  "en": {
+  "a11y": {
+   "salta": "Skip to main content",
+   "nuova_scheda": "(opens in new tab)",
+   "annuncio_lingua": "Page language: English"
+  },
   "lang": "en",
   "meta": {
    "title": "An idea to bring to life or a business to grow? UtoApps has the solution.",
@@ -9778,6 +9811,11 @@ const I18N = {
   }
  },
  "es": {
+  "a11y": {
+   "salta": "Saltar al contenido principal",
+   "nuova_scheda": "(se abre en una pestaña nueva)",
+   "annuncio_lingua": "Página en español"
+  },
   "lang": "es",
   "meta": {
    "title": "¿Una idea que hacer realidad o un negocio que hacer crecer? UtoApps tiene la solución.",
@@ -11440,6 +11478,11 @@ const I18N = {
 
 (function () {
   var CHIAVE = "utoapps.lingua";
+  /* 23 ott 2026 (fase 19, S17): una lingua vale solo se è una chiave PROPRIA di I18N. Con I18N[x] passavano anche
+     «toString», «constructor» o «__proto__» (vengono da Object) e applica() si rompeva su d.footer. */
+  function linguaValida(l) {
+    return typeof l === "string" && Object.prototype.hasOwnProperty.call(I18N, l) && !!I18N[l] && typeof I18N[l] === "object";
+  }
   var LEGALI = ["impressum.html", "privacy.html"];
 
   function leggi(dizionario, percorso) {
@@ -11502,8 +11545,8 @@ const I18N = {
     });
   }
   function applica(lingua) {
+    if (!linguaValida(lingua)) return;
     var d = I18N[lingua];
-    if (!d) return;
     document.querySelectorAll("[data-i18n]").forEach(function (el) {
       var t = leggi(d, el.getAttribute("data-i18n"));
       if (t === null) t = leggi(I18N.it, el.getAttribute("data-i18n"));
@@ -11531,9 +11574,18 @@ const I18N = {
        Il #pagina resta: senza, /es/#settore-tatuaggi apriva la home (visto il 6 ott 2026). */
     try { history.replaceState(null, "", radice(lingua) + (window.FILE_PAGINA || "") + location.hash); } catch (e) {}
   }
-  document.getElementById("lingue").addEventListener("click", function (ev) {
-    var b = ev.target.closest(".lingua");
-    if (b) applica(b.dataset.lang);
+  /* fase 19: la lingua nuova si annuncia ai lettori di schermo (S16, solo al clic) · il listener solo se il gruppo
+     delle lingue c'è · se applica() si rompe, la pagina torna all'italiano invece di restare a metà (S17) */
+  function annunciaLingua(lingua) {
+    var el = document.getElementById("annuncio-lingua"), t = leggi(I18N[lingua], "a11y.annuncio_lingua");
+    if (el && t) el.textContent = t;
+  }
+  var gruppoLingue = document.getElementById("lingue");
+  if (gruppoLingue) gruppoLingue.addEventListener("click", function (ev) {
+    var b = ev.target && ev.target.closest ? ev.target.closest(".lingua") : null;
+    if (!b || !linguaValida(b.dataset.lang)) return;
+    try { applica(b.dataset.lang); annunciaLingua(b.dataset.lang); }
+    catch (e) { if (window.console) console.warn("UtoApps: lingua", b.dataset.lang, e); try { applica("it"); } catch (e2) {} }
   });
   /* 14 ott 2026 (fase 13): YouTube si carica qui, al clic, e mai prima */
   document.addEventListener("click", function (ev) {
@@ -11558,6 +11610,10 @@ const I18N = {
     });
     document.querySelectorAll("video[data-video]").forEach(function (v) { v.pause(); });
   });
+  /* fase 19 (S17): una lingua salvata che non esiste si cancella; l'avvio va in try/catch: se qualcosa si rompe,
+     la pagina resta in italiano e il resto dello script (il router, i pulsanti) continua a funzionare */
+  try { var vecchia = localStorage.getItem(CHIAVE); if (vecchia !== null && !linguaValida(vecchia)) localStorage.removeItem(CHIAVE); } catch (e) {}
+  try {
   /* /de/ /fr/ /en/ /es/ fissano window.LINGUA_PAGINA: lì comanda l'indirizzo.
      Nella radice comanda invece la scelta salvata dal visitatore. */
   var iniziale = (window.LINGUA_PAGINA && I18N[window.LINGUA_PAGINA]) ? window.LINGUA_PAGINA : null;
@@ -11566,6 +11622,10 @@ const I18N = {
   }
   if (iniziale && iniziale !== "it") applica(iniziale);
   else piedeLegale(I18N.it.footer.legal_note, "it");
+  } catch (e) {
+    if (window.console) console.warn("UtoApps: avvio", e);
+    try { applica("it"); } catch (e2) {}
+  }
 
   /* Le pagine interne funzionano già con :target. Qui solo un ritocco:
      all'apertura di una pagina si torna in cima; tornando alla home si scorre alla sezione. */
@@ -11585,6 +11645,14 @@ const I18N = {
     }
   }
   window.addEventListener("hashchange", posiziona);
+
+  /* fase 19 (S15): «Passare al contenuto principale» porta il fuoco nel main SENZA cambiare l'indirizzo: le pagine
+     interne vivono di :target e un salto a #contenuto chiuderebbe la pagina aperta */
+  var salta = document.querySelector("a.salta"), contenuto = document.getElementById("contenuto");
+  if (salta && contenuto) salta.addEventListener("click", function (ev) {
+    ev.preventDefault();
+    contenuto.focus();
+  });
 })();
 </script>
 

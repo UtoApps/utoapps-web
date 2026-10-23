@@ -786,6 +786,14 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
 /* fase 17 (21 ott 2026): il pulsante dell'app sotto ogni video d'esempio */
 .video-esempio .cta-app{margin:2px 0 0}
 
+/* ═══ fase 19 (23 ott 2026): accessibilità. .solo-lettore = testo che sente solo il lettore di schermo ·
+   .salta = «Passare al contenuto principale», si vede solo col fuoco (S15) · il main riceve il fuoco senza cornice ═══ */
+.solo-lettore{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;clip-path:inset(50%)!important;white-space:nowrap!important;border:0!important}
+.salta{position:absolute;left:12px;top:12px;z-index:1000;padding:12px 20px;border-radius:999px;background:#FFFFFF;color:#16110F;font-family:var(--display);font-weight:700;font-size:16px;line-height:1.25;letter-spacing:0;text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,.35)}
+.salta:hover{color:#16110F}
+.salta:not(:focus){width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;box-shadow:none}
+#contenuto:focus{outline:none}
+
 /* ── margen vertical de la cabecera (ver build-site.py, parche 7) ─────── */
 .testata .testata-alto{padding-block:32px 18px}
 .testata .testata-basso{padding-block:0 16px}
@@ -811,6 +819,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
 </style>
 </head>
 <body>
+<a class="salta" href="#contenuto">Zum Hauptinhalt springen</a>
 <div class="legale">
   <header>
     <a class="marchio" href="/de/">
@@ -818,7 +827,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
     </a>
     <a class="torna" href="/de/">Zurück zur Startseite</a>
   </header>
-  <main>
+  <main id="contenuto" tabindex="-1">
     <p class="occhiello">UtoApps</p>
     <h1>Impressum</h1>
     <p class="guida">Wer hinter dieser Website steht und an wen Sie sich wenden.</p>
