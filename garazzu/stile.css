@@ -1,0 +1,122 @@
+/* Garazzu — la pagina in www.utoapps.ch/garazzu/ (25 ott 2026). Stessa struttura della pagina di Allenazzu; colori e marchio
+   della app (apps/garazzu/app.css): grafite + ambra, come l'app (scura); chiara se il telefono lo preferisce, con l'ambra scura per
+   i testi e l'ambra della app solo come fondo dei pulsanti. Contrasti misurati (WCAG, testo ≥ 4,5:1, rgba composti sul loro fondo):
+   scuro muted 8,1 (fondo) · 7,3 (schede) · accento 8,9 · 8,0 · testo sul pulsante 9,0 · «presto» 6,4 · «% in meno» 5,7;
+   chiaro muted 5,7 · 6,3 · accento 5,4 · 5,9 · testo sul pulsante 9,0 · «presto» 5,8 · «% in meno» 4,8.
+   Il marchio si scrive in minuscolo e si mostra in maiuscolo (text-transform), GARA·ZZ·U come nella app. Nessun file da server esterni. */
+:root{
+  --bg:#141619; --surface:#1d2024; --raised:#272b30; --line:#363b42;
+  --fg:#f1f3f5; --muted:#a6aeb8; --stencil:#f5a524; --fill:#f5a524; --on-fill:#1b1300;
+  --ok:#4cc38a; --warn:#f0b04a; --ok-bg:rgba(76,195,138,.14); --warn-bg:rgba(240,176,74,.14); --stencil-bg:rgba(245,165,36,.10);
+  --mark-acc:#f5a524;
+  --shadow:0 18px 40px rgba(0,0,0,.5);
+  --f-mark:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-ui:"Archivo","Helvetica Neue",Arial,sans-serif;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#f5f4f1; --surface:#ffffff; --raised:#eae9e5; --line:#d9d8d3;
+    --fg:#16181b; --muted:#5b6168; --stencil:#8a5a00; --fill:#f5a524; --on-fill:#1b1300;
+    --ok:#17784a; --warn:#8a4b08; --ok-bg:rgba(23,120,74,.10); --warn-bg:rgba(138,75,8,.11); --stencil-bg:rgba(245,165,36,.14);
+    --mark-acc:#b8740a;
+    --shadow:0 18px 40px rgba(20,20,20,.14);
+    color-scheme:light;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 var(--f-ui);-webkit-text-size-adjust:100%}
+a{color:var(--stencil)}
+img,video{max-width:100%;display:block}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+:focus-visible{outline:3px solid var(--stencil);outline-offset:3px;border-radius:6px}
+
+/* testata */
+.top{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}
+.mark{font-family:var(--f-mark);font-weight:800;font-stretch:125%;letter-spacing:.03em;font-size:24px;line-height:1;color:var(--fg);text-decoration:none;text-transform:uppercase}
+.mark span{color:var(--mark-acc)}
+.top nav{display:flex;align-items:center;gap:18px}
+.top nav a{color:var(--muted);text-decoration:none;font-weight:600;font-size:14.5px}
+.top nav a:hover{color:var(--fg)}
+@media (max-width:620px){.top nav a.solo-largo{display:none}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:12px;padding:12px 18px;font-weight:700;text-decoration:none;border:0;cursor:pointer;font-size:15.5px}
+.btn.primario{background:var(--fill);color:var(--on-fill)}
+.btn.secondario{background:var(--raised);color:var(--fg)}
+.top .btn{padding:9px 14px;font-size:14px}
+
+/* apertura */
+.hero{padding:56px 0 40px}
+.hero .wrap{display:grid;gap:40px;align-items:center}
+@media (min-width:860px){.hero .wrap{grid-template-columns:1.1fr .9fr}}
+.occhiello{font-size:12px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--stencil);margin:0 0 12px}
+h1{font-size:clamp(32px,5.2vw,52px);line-height:1.06;letter-spacing:-.02em;margin:0 0 18px;font-weight:800;font-stretch:92%}
+.sotto{font-size:18px;color:var(--muted);margin:0 0 26px;max-width:560px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.nota{font-size:14px;color:var(--muted);margin:16px 0 0}
+.telefono{justify-self:center;width:min(320px,82vw);border-radius:34px;padding:10px;background:#0b0b0d;box-shadow:var(--shadow);border:1px solid var(--line)}
+.telefono img{border-radius:26px;width:100%;height:auto}
+
+section{padding:56px 0}
+h2{font-size:clamp(26px,3.6vw,38px);line-height:1.12;letter-spacing:-.015em;margin:0 0 12px;font-weight:800;font-stretch:92%}
+.intro{color:var(--muted);max-width:640px;margin:0 0 30px;font-size:17px}
+
+/* video */
+.video{border-radius:24px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);background:#000;max-width:340px}   /* il video è verticale, 1080×1920 */
+.video video{width:100%;height:auto}
+.didascalia{font-size:13.5px;color:var(--muted);margin:10px 0 0}
+
+/* funzioni */
+.griglia{display:grid;gap:18px}
+@media (min-width:720px){.griglia{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1000px){.griglia.tre{grid-template-columns:repeat(3,1fr)}}
+.scheda{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:24px}
+.scheda h3{margin:0 0 8px;font-size:19px;letter-spacing:-.01em}
+.scheda p{margin:0;color:var(--muted)}
+.presto{display:inline-block;margin-top:12px;font-size:13px;font-weight:700;color:var(--warn);background:var(--warn-bg);border-radius:999px;padding:3px 10px}
+.schermi{display:grid;gap:16px;grid-template-columns:repeat(2,1fr);margin-top:26px}
+@media (min-width:860px){.schermi{grid-template-columns:repeat(4,1fr)}}
+.schermi figure{margin:0}
+.schermi img{border-radius:18px;border:1px solid var(--line);width:100%;height:auto}
+.schermi figcaption{font-size:13.5px;color:var(--muted);margin-top:8px;text-align:center}
+
+/* installare */
+.passi{display:grid;gap:14px;counter-reset:passo}
+@media (min-width:860px){.passi{grid-template-columns:repeat(3,1fr)}}
+.passi .scheda strong{display:block;margin-bottom:6px}
+
+/* prezzo */
+.gratis{display:flex;gap:18px;align-items:flex-start}
+.spunta{flex:none;width:46px;height:46px;border-radius:14px;background:var(--fill);color:var(--on-fill);display:grid;place-items:center}
+.piani{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));margin-top:18px}   /* due per riga sul telefono */
+.piano .titolo{font-size:11.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--stencil);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.piano .risparmio{letter-spacing:.02em;text-transform:none;font-weight:700;color:var(--ok);background:var(--ok-bg);border-radius:999px;padding:2px 8px;font-size:11.5px}
+.piano .cifra{font-size:clamp(22px,5.6vw,30px);font-weight:800;letter-spacing:-.02em;margin:10px 0 0;color:var(--fg);white-space:nowrap}
+.piano .per{color:var(--muted);font-size:14px;font-weight:600}
+
+/* te la installiamo noi */
+.installiamo{display:grid;gap:14px;margin-top:22px}
+@media (min-width:720px){.installiamo{grid-template-columns:1fr auto;align-items:center}}
+.installiamo .cifra{font-size:clamp(22px,5.6vw,30px);font-weight:800;letter-spacing:-.02em;margin:0;white-space:nowrap;color:var(--fg)}
+.installiamo .per{color:var(--muted);font-size:14px;font-weight:600;margin:2px 0 0}
+
+/* su misura */
+.misura{background:var(--stencil-bg);border:1px solid var(--line);border-radius:20px;padding:26px}
+
+/* piede */
+footer{border-top:1px solid var(--line);padding:30px 0 46px;color:var(--muted);font-size:14.5px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between}
+footer a{color:var(--muted)}
+footer nav{display:flex;flex-wrap:wrap;gap:8px 18px}
+
+/* pagine legali */
+.legale{max-width:780px;margin:0 auto;padding:40px 20px 60px}
+.legale h1{font-size:clamp(28px,4.6vw,40px)}
+.legale .scheda{margin-top:16px}
+.legale .scheda h2{font-size:20px;margin:0 0 10px;display:flex;gap:10px;align-items:baseline}
+.legale .num{font-size:13px;color:var(--stencil);font-weight:700;letter-spacing:.06em}
+.legale .scheda p{color:var(--fg);margin:0 0 10px}
+.legale .scheda p:last-child{margin-bottom:0}
+.legale .agg{color:var(--muted);font-size:14px;margin:0 0 6px}
