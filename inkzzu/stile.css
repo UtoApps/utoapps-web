@@ -109,3 +109,10 @@ footer nav{display:flex;flex-wrap:wrap;gap:8px 18px}
 .legale .scheda p{color:var(--fg);margin:0 0 10px}
 .legale .scheda p:last-child{margin-bottom:0}
 .legale .agg{color:var(--muted);font-size:14px;margin:0 0 6px}
+/* la via di ritorno a www.utoapps.ch, sopra la testata (30 ott 2026: Gerhard, «no está la opción de volver a Home page» e poi
+   «se tiene que ver más claro»): un bottone vero, col logo di UtoApps */
+.casa{background:var(--raised);border-bottom:1px solid var(--line)}
+.casa .wrap{display:flex;align-items:center;min-height:52px}
+.casa a{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:4px 16px 4px 12px;border:1.5px solid var(--fg);border-radius:999px;background:var(--surface);color:var(--fg);text-decoration:none;font-weight:700;font-size:15px;line-height:1.2}
+.casa a:hover,.casa a:focus-visible{background:var(--fg);color:var(--bg)}
+.casa img{width:22px;height:22px;border-radius:6px;flex:none}
