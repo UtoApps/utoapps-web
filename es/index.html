@@ -811,6 +811,31 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
 .salta:not(:focus){width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;box-shadow:none}
 #contenuto:focus{outline:none}
 
+/* ═══ fase 20 (30 ott 2026): le 14 app di UtoApps in «Il nostro lavoro». In home una seconda striscia «Le nostre app» con
+   le icone (2 righe da 7 sul telefono, 1 riga da 760 px); nella pagina #lavoro il gruppo con la griglia (2 colonne sul
+   telefono, 3 da 560 px, 4 da 900 px). Colori: solo i token della pagina (--scheda, --inchiostro, --nebbia, --rosso-testo). ═══ */
+.striscia-lavoro.striscia-app{margin-top:12px}
+.striscia-app .loghi-striscia{display:grid;grid-template-columns:repeat(7,minmax(0,36px));gap:6px;justify-content:start}
+.striscia-app .logo-mini{width:100%;height:auto;aspect-ratio:1/1;max-width:36px;border:1px solid var(--linea)}
+@media (min-width:560px){
+  .striscia-lavoro.striscia-app{grid-template-columns:auto minmax(0,1fr) auto}
+  .striscia-app .loghi-striscia{grid-column:1/-1;grid-row:2}
+}
+@media (min-width:760px){.striscia-app .loghi-striscia{grid-template-columns:repeat(14,36px)}}
+.nostre-app{margin-top:48px;padding-top:36px;border-top:1px solid var(--linea)}
+.nostre-app h2{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;line-height:1.15;color:var(--inchiostro);margin:0;max-width:none}
+.nostre-app .intro-nostre{margin:8px 0 22px;font-size:17px;line-height:1.5;color:var(--nebbia)}
+.griglia-app{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.griglia-app li{display:flex;min-width:0}
+.app-tessera{flex:1;min-width:0;display:grid;grid-template-columns:36px minmax(0,1fr);grid-template-areas:"logo nome" "settore settore";align-items:center;align-content:start;gap:10px;padding:12px 12px 14px;background:var(--scheda);border:1px solid var(--bordo-scheda);border-radius:var(--raggio-s);box-shadow:var(--ombra);text-decoration:none;color:inherit;transition:border-color .16s ease}
+.app-tessera:hover{border-color:var(--rosso);color:inherit}
+.logo-tessera{grid-area:logo;display:block;width:36px;height:36px;border-radius:9px;border:1px solid var(--linea);object-fit:cover}
+.nome-app{grid-area:nome;min-width:0;font-family:var(--display);font-size:16px;font-weight:700;letter-spacing:-.01em;line-height:1.2;color:var(--inchiostro);overflow-wrap:break-word}
+.app-tessera:hover .nome-app{color:var(--rosso-testo)}
+.settore-app{grid-area:settore;align-self:start;min-width:0;font-size:14px;line-height:1.4;color:var(--nebbia);overflow-wrap:break-word}
+@media (min-width:560px){.griglia-app{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.app-tessera{padding:14px 14px 16px}}
+@media (min-width:900px){.griglia-app{grid-template-columns:repeat(4,minmax(0,1fr))}.app-tessera{grid-template-columns:40px minmax(0,1fr)}.logo-tessera{width:40px;height:40px;border-radius:10px}}
+
 /* ── margen vertical de la cabecera (ver build-site.py, parche 7) ─────── */
 .testata .testata-alto{padding-block:32px 18px}
 .testata .testata-basso{padding-block:0 16px}
@@ -1105,6 +1130,27 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
       <span class="nomi-striscia"><span data-i18n="portfolio.items.0.name">Chronic Friends</span> · <span data-i18n="portfolio.romizzu.name">Romizzu</span> · <span data-i18n="portfolio.items.1.name">VetSanit</span> · <span data-i18n="portfolio.items.2.name">Calenzzu</span></span>
       <span class="frec" aria-hidden="true">→</span>
     </a>
+    <a class="striscia-lavoro striscia-app" href="#le-nostre-app">
+      <span class="eti" data-i18n="portfolio.nostre.titolo">Nuestras apps</span>
+      <span class="loghi-striscia" aria-hidden="true">
+        <img class="logo-mini" src="/img/logo-negozzu.png" alt="" width="36" height="36" loading="lazy" decoding="async">
+        <img class="logo-mini" src="/img/logo-tavolizzu.png" alt="" width="36" height="36" loading="lazy" decoding="async">
+        <img class="logo-mini" src="/img/logo-garazzu.png" alt="" width="36" height="36" loading="lazy" decoding="async">
+        <img class="logo-mini" src="/img/logo-bellezzu.png" alt="" width="36" height="36" loading="lazy" decoding="async">
+        <img class="logo-mini" src="/img/logo-inkzzu.png" alt="" width="36" height="36" loading="lazy" decoding="async">
+        <img class="logo-mini" src="/img/logo-stampizzu.png" alt="" width="36" height="36" loading="lazy" decoding="async">
+        <img class="logo-mini" src="/img/logo-attrezzu.png" alt="" width="36" height="36" loading="lazy" decoding="async">
+        <img class="logo-mini" src="/img/logo-curazzu.png" alt="" width="36" height="36" loading="lazy" decoding="async">
+        <img class="logo-mini" src="/img/logo-ospitezzu.png" alt="" width="36" height="36" loading="lazy" decoding="async">
+        <img class="logo-mini" src="/img/logo-allenazzu.png" alt="" width="36" height="36" loading="lazy" decoding="async">
+        <img class="logo-mini" src="/img/logo-pratizzu.png" alt="" width="36" height="36" loading="lazy" decoding="async">
+        <img class="logo-mini" src="/img/logo-creazzu.png" alt="" width="36" height="36" loading="lazy" decoding="async">
+        <img class="logo-mini" src="/img/logo-scattizzu.png" alt="" width="36" height="36" loading="lazy" decoding="async">
+        <img class="logo-mini" src="/img/logo-notizzu.png" alt="" width="36" height="36" loading="lazy" decoding="async">
+      </span>
+      <span class="nomi-striscia" data-i18n="portfolio.nostre.intro">Productos UtoApps, uno por sector.</span>
+      <span class="frec" aria-hidden="true">→</span>
+    </a>
   </section>
 </div>
 
@@ -1326,6 +1372,26 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
         </div>
       </div>
     </div>
+    <section class="nostre-app" id="le-nostre-app" aria-labelledby="h-nostre-app">
+      <h2 id="h-nostre-app" data-i18n="portfolio.nostre.titolo">Nuestras apps</h2>
+      <p class="intro-nostre" data-i18n="portfolio.nostre.intro">Productos UtoApps, uno por sector.</p>
+      <ul class="griglia-app">
+        <li><a class="app-tessera" href="/negozzu/" data-app="negozzu"><img class="logo-tessera" src="/img/logo-negozzu.png" alt="" width="40" height="40" loading="lazy" decoding="async"> <span class="nome-app">Negozzu</span> <span class="settore-app" data-i18n="settori.items.0.name">Tiendas</span></a></li>
+        <li><a class="app-tessera" href="/tavolizzu/" data-app="tavolizzu"><img class="logo-tessera" src="/img/logo-tavolizzu.png" alt="" width="40" height="40" loading="lazy" decoding="async"> <span class="nome-app">Tavolizzu</span> <span class="settore-app" data-i18n="settori.items.1.name">Restaurantes, bares y pizzerías</span></a></li>
+        <li><a class="app-tessera" href="/garazzu/" data-app="garazzu"><img class="logo-tessera" src="/img/logo-garazzu.png" alt="" width="40" height="40" loading="lazy" decoding="async"> <span class="nome-app">Garazzu</span> <span class="settore-app" data-i18n="settori.items.2.name">Talleres y concesionarios</span></a></li>
+        <li><a class="app-tessera" href="/bellezzu/" data-app="bellezzu"><img class="logo-tessera" src="/img/logo-bellezzu.png" alt="" width="40" height="40" loading="lazy" decoding="async"> <span class="nome-app">Bellezzu</span> <span class="settore-app" data-i18n="settori.items.3.name">Peluquerías y centros de estética</span></a></li>
+        <li><a class="app-tessera" href="/inkzzu/" data-app="inkzzu"><img class="logo-tessera" src="/img/logo-inkzzu.png" alt="" width="40" height="40" loading="lazy" decoding="async"> <span class="nome-app">Inkzzu</span> <span class="settore-app" data-i18n="settori.items.4.name">Estudios de tatuaje y piercing</span></a></li>
+        <li><a class="app-tessera" href="#settore-copisterie" data-app="stampizzu"><img class="logo-tessera" src="/img/logo-stampizzu.png" alt="" width="40" height="40" loading="lazy" decoding="async"> <span class="nome-app">Stampizzu</span> <span class="settore-app" data-i18n="settori.items.5.name">Copisterías e imprentas</span></a></li>
+        <li><a class="app-tessera" href="/attrezzu/" data-app="attrezzu"><img class="logo-tessera" src="/img/logo-attrezzu.png" alt="" width="40" height="40" loading="lazy" decoding="async"> <span class="nome-app">Attrezzu</span> <span class="settore-app" data-i18n="settori.items.6.name">Gremios y empresas de construcción</span></a></li>
+        <li><a class="app-tessera" href="#settore-salute" data-app="curazzu"><img class="logo-tessera" src="/img/logo-curazzu.png" alt="" width="40" height="40" loading="lazy" decoding="async"> <span class="nome-app">Curazzu</span> <span class="settore-app" data-i18n="settori.items.7.name">Consultas médicas y terapias</span></a></li>
+        <li><a class="app-tessera" href="#settore-ospitalita" data-app="ospitezzu"><img class="logo-tessera" src="/img/logo-ospitezzu.png" alt="" width="40" height="40" loading="lazy" decoding="async"> <span class="nome-app">Ospitezzu</span> <span class="settore-app" data-i18n="settori.items.8.name">Hoteles, B&amp;B y casas de vacaciones</span></a></li>
+        <li><a class="app-tessera" href="/allenazzu/" data-app="allenazzu"><img class="logo-tessera" src="/img/logo-allenazzu.png" alt="" width="40" height="40" loading="lazy" decoding="async"> <span class="nome-app">Allenazzu</span> <span class="settore-app" data-i18n="settori.items.9.name">Gimnasios, escuelas y centros deportivos</span></a></li>
+        <li><a class="app-tessera" href="#settore-uffici" data-app="pratizzu"><img class="logo-tessera" src="/img/logo-pratizzu.png" alt="" width="40" height="40" loading="lazy" decoding="async"> <span class="nome-app">Pratizzu</span> <span class="settore-app" data-i18n="settori.items.10.name">Gestorías, despachos de abogados e inmobiliarias</span></a></li>
+        <li><a class="app-tessera" href="/creazzu/" data-app="creazzu"><img class="logo-tessera" src="/img/logo-creazzu.png" alt="" width="40" height="40" loading="lazy" decoding="async"> <span class="nome-app">Creazzu</span> <span class="settore-app" data-i18n="settori.items.12.name">Influencers y creadores de contenido</span></a></li>
+        <li><a class="app-tessera" href="#settore-fotografi" data-app="scattizzu"><img class="logo-tessera" src="/img/logo-scattizzu.png" alt="" width="40" height="40" loading="lazy" decoding="async"> <span class="nome-app">Scattizzu</span> <span class="settore-app" data-i18n="settori.items.13.name">Fotógrafos y estudios de fotografía</span></a></li>
+        <li><a class="app-tessera" href="#settore-giornalisti" data-app="notizzu"><img class="logo-tessera" src="/img/logo-notizzu.png" alt="" width="40" height="40" loading="lazy" decoding="async"> <span class="nome-app">Notizzu</span> <span class="settore-app" data-i18n="settori.items.14.name">Periodistas y redacciones</span></a></li>
+      </ul>
+    </section>
     <a class="btn vuoto torna-home giu" href="#home"><span aria-hidden="true">←</span>&nbsp;<span data-i18n="ui.home">Inicio</span></a>
   </div>
 </article>
@@ -1725,7 +1791,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
           <a href="/media/negozzu-demo-it.mp4">Guardatelo in azione: un programma per negozi</a>
         </video>
         <button type="button" class="video-yt" aria-describedby="h-video-negozi nota-video-negozi"
-                data-yt='{"es":["ASPB3c6EKbU","/media/negozzu-demo-poster-es.jpg"],"en":["EwADsCBO5-0","/media/negozzu-demo-poster-en.jpg"],"de":["m1a9TJbAH4M","/media/negozzu-demo-poster-de.jpg"],"fr":["f-cgGYOQR3I","/media/negozzu-demo-poster-fr.jpg"]}'>
+                data-yt='{"es":["O4P1z2fP_vc","/media/negozzu-demo-poster-es.jpg"],"en":["EwADsCBO5-0","/media/negozzu-demo-poster-en.jpg"],"de":["m1a9TJbAH4M","/media/negozzu-demo-poster-de.jpg"],"fr":["f-cgGYOQR3I","/media/negozzu-demo-poster-fr.jpg"]}'>
           <img src="/media/negozzu-demo-poster-es.jpg" alt="" width="1080" height="1920" loading="lazy" decoding="async">
           <span class="video-yt-play" aria-hidden="true"></span>
           <span class="vh" data-i18n="settori.video.play">Reproducir el vídeo</span>
@@ -1819,7 +1885,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
           <a href="/media/tavolizzu-demo-it.mp4">Guardatelo in azione: un programma per ristoranti e pizzerie</a>
         </video>
         <button type="button" class="video-yt" aria-describedby="h-video-ristoranti nota-video-ristoranti"
-                data-yt='{"es":["bIPVNg2ABmc","/media/tavolizzu-demo-poster-es.jpg"],"en":["9Bs1_AVg8jk","/media/tavolizzu-demo-poster-en.jpg"],"de":["62UwaUqWFaM","/media/tavolizzu-demo-poster-de.jpg"],"fr":["PchRfEWPF-g","/media/tavolizzu-demo-poster-fr.jpg"]}'>
+                data-yt='{"es":["JC7GKxAj6Po","/media/tavolizzu-demo-poster-es.jpg"],"en":["9Bs1_AVg8jk","/media/tavolizzu-demo-poster-en.jpg"],"de":["62UwaUqWFaM","/media/tavolizzu-demo-poster-de.jpg"],"fr":["PchRfEWPF-g","/media/tavolizzu-demo-poster-fr.jpg"]}'>
           <img src="/media/tavolizzu-demo-poster-es.jpg" alt="" width="1080" height="1920" loading="lazy" decoding="async">
           <span class="video-yt-play" aria-hidden="true"></span>
           <span class="vh" data-i18n="settori.video.play">Reproducir el vídeo</span>
@@ -1913,7 +1979,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
           <a href="/media/garazzu-demo-it.mp4">Guardatelo in azione: un programma per garage e officine</a>
         </video>
         <button type="button" class="video-yt" aria-describedby="h-video-garage nota-video-garage"
-                data-yt='{"es":["TEdN0btTvxU","/media/garazzu-demo-poster-es.jpg"],"en":["yAHkzPLTzkw","/media/garazzu-demo-poster-en.jpg"],"de":["pSYUVdhK97Q","/media/garazzu-demo-poster-de.jpg"],"fr":["wDlU3O3In4s","/media/garazzu-demo-poster-fr.jpg"]}'>
+                data-yt='{"es":["WFGSF9wRrxk","/media/garazzu-demo-poster-es.jpg"],"en":["yAHkzPLTzkw","/media/garazzu-demo-poster-en.jpg"],"de":["pSYUVdhK97Q","/media/garazzu-demo-poster-de.jpg"],"fr":["wDlU3O3In4s","/media/garazzu-demo-poster-fr.jpg"]}'>
           <img src="/media/garazzu-demo-poster-es.jpg" alt="" width="1080" height="1920" loading="lazy" decoding="async">
           <span class="video-yt-play" aria-hidden="true"></span>
           <span class="vh" data-i18n="settori.video.play">Reproducir el vídeo</span>
@@ -2007,7 +2073,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
           <a href="/media/bellezzu-demo-it.mp4">Guardatelo in azione: un programma per parrucchieri e centri estetici</a>
         </video>
         <button type="button" class="video-yt" aria-describedby="h-video-bellezza nota-video-bellezza"
-                data-yt='{"es":["PGp9C1DYk94","/media/bellezzu-demo-poster-es.jpg"],"en":["InM-EsNHYuM","/media/bellezzu-demo-poster-en.jpg"],"de":["UMlBdwEg06E","/media/bellezzu-demo-poster-de.jpg"],"fr":["fekSG2FQ2Wg","/media/bellezzu-demo-poster-fr.jpg"]}'>
+                data-yt='{"es":["3p1sDC6oink","/media/bellezzu-demo-poster-es.jpg"],"en":["InM-EsNHYuM","/media/bellezzu-demo-poster-en.jpg"],"de":["UMlBdwEg06E","/media/bellezzu-demo-poster-de.jpg"],"fr":["fekSG2FQ2Wg","/media/bellezzu-demo-poster-fr.jpg"]}'>
           <img src="/media/bellezzu-demo-poster-es.jpg" alt="" width="1080" height="1920" loading="lazy" decoding="async">
           <span class="video-yt-play" aria-hidden="true"></span>
           <span class="vh" data-i18n="settori.video.play">Reproducir el vídeo</span>
@@ -2101,7 +2167,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
           <a href="/media/inkzzu-demo-it.mp4">Guardatelo in azione: un gestionale per studi di tatuaggio</a>
         </video>
         <button type="button" class="video-yt" aria-describedby="h-video-tatuaggi nota-video-tatuaggi"
-                data-yt='{"es":["aS5RUmtZezg","/media/inkzzu-demo-poster-es.jpg"],"en":["onP4AWhm3iE","/media/inkzzu-demo-poster-en.jpg"],"de":["Fzlg0KFgS-M","/media/inkzzu-demo-poster-de.jpg"],"fr":["h6CVjRopEQw","/media/inkzzu-demo-poster-fr.jpg"]}'>
+                data-yt='{"es":["wlFO2Hat5lQ","/media/inkzzu-demo-poster-es.jpg"],"en":["onP4AWhm3iE","/media/inkzzu-demo-poster-en.jpg"],"de":["Fzlg0KFgS-M","/media/inkzzu-demo-poster-de.jpg"],"fr":["h6CVjRopEQw","/media/inkzzu-demo-poster-fr.jpg"]}'>
           <img src="/media/inkzzu-demo-poster-es.jpg" alt="" width="1080" height="1920" loading="lazy" decoding="async">
           <span class="video-yt-play" aria-hidden="true"></span>
           <span class="vh" data-i18n="settori.video.play">Reproducir el vídeo</span>
@@ -2289,7 +2355,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
           <a href="/media/attrezzu-demo-it.mp4">Guardatelo in azione: un programma per artigiani e imprese edili</a>
         </video>
         <button type="button" class="video-yt" aria-describedby="h-video-artigiani nota-video-artigiani"
-                data-yt='{"es":["sZW2pPKxeQs","/media/attrezzu-demo-poster-es.jpg"],"en":["mLtdVtrUIRQ","/media/attrezzu-demo-poster-en.jpg"],"de":["100xwpFg76o","/media/attrezzu-demo-poster-de.jpg"],"fr":["h9Ppps4_HG4","/media/attrezzu-demo-poster-fr.jpg"]}'>
+                data-yt='{"es":["xADepXZ2HpY","/media/attrezzu-demo-poster-es.jpg"],"en":["mLtdVtrUIRQ","/media/attrezzu-demo-poster-en.jpg"],"de":["100xwpFg76o","/media/attrezzu-demo-poster-de.jpg"],"fr":["h9Ppps4_HG4","/media/attrezzu-demo-poster-fr.jpg"]}'>
           <img src="/media/attrezzu-demo-poster-es.jpg" alt="" width="1080" height="1920" loading="lazy" decoding="async">
           <span class="video-yt-play" aria-hidden="true"></span>
           <span class="vh" data-i18n="settori.video.play">Reproducir el vídeo</span>
@@ -2383,7 +2449,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
           <a href="/media/curazzu-demo-it.mp4">Guardatelo in azione: un programma per studi medici e terapie</a>
         </video>
         <button type="button" class="video-yt" aria-describedby="h-video-salute nota-video-salute"
-                data-yt='{"es":["LUUgWJSfqu4","/media/curazzu-demo-poster-es.jpg"],"en":["F0tGTPbwl3E","/media/curazzu-demo-poster-en.jpg"],"de":["tuEFsBt1ILY","/media/curazzu-demo-poster-de.jpg"],"fr":["4RFvuwO8Vu4","/media/curazzu-demo-poster-fr.jpg"]}'>
+                data-yt='{"es":["O32nGCqFlMs","/media/curazzu-demo-poster-es.jpg"],"en":["F0tGTPbwl3E","/media/curazzu-demo-poster-en.jpg"],"de":["tuEFsBt1ILY","/media/curazzu-demo-poster-de.jpg"],"fr":["4RFvuwO8Vu4","/media/curazzu-demo-poster-fr.jpg"]}'>
           <img src="/media/curazzu-demo-poster-es.jpg" alt="" width="1080" height="1920" loading="lazy" decoding="async">
           <span class="video-yt-play" aria-hidden="true"></span>
           <span class="vh" data-i18n="settori.video.play">Reproducir el vídeo</span>
@@ -2477,7 +2543,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
           <a href="/media/ospitezzu-demo-it.mp4">Guardatelo in azione: un programma per alberghi, B&amp;B e case di vacanza</a>
         </video>
         <button type="button" class="video-yt" aria-describedby="h-video-ospitalita nota-video-ospitalita"
-                data-yt='{"es":["bM-_q-MFkH0","/media/ospitezzu-demo-poster-es.jpg"],"en":["RL-6EFZkhWM","/media/ospitezzu-demo-poster-en.jpg"],"de":["KrvDK_KnGpY","/media/ospitezzu-demo-poster-de.jpg"],"fr":["DEId_w5h2Q4","/media/ospitezzu-demo-poster-fr.jpg"]}'>
+                data-yt='{"es":["NSNiIkic_UQ","/media/ospitezzu-demo-poster-es.jpg"],"en":["F6Qvx0bHio0","/media/ospitezzu-demo-poster-en.jpg"],"de":["KrvDK_KnGpY","/media/ospitezzu-demo-poster-de.jpg"],"fr":["DEId_w5h2Q4","/media/ospitezzu-demo-poster-fr.jpg"]}'>
           <img src="/media/ospitezzu-demo-poster-es.jpg" alt="" width="1080" height="1920" loading="lazy" decoding="async">
           <span class="video-yt-play" aria-hidden="true"></span>
           <span class="vh" data-i18n="settori.video.play">Reproducir el vídeo</span>
@@ -2665,7 +2731,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
           <a href="/media/pratizzu-demo-it.mp4">Guardatelo in azione: un programma per fiduciarie, studi legali e immobiliari</a>
         </video>
         <button type="button" class="video-yt" aria-describedby="h-video-uffici nota-video-uffici"
-                data-yt='{"es":["dU5JLbxhdXA","/media/pratizzu-demo-poster-es.jpg"],"en":["EvbPV2hsEts","/media/pratizzu-demo-poster-en.jpg"],"de":["pDKvGneYQ-c","/media/pratizzu-demo-poster-de.jpg"],"fr":["GFpWTsx-G5I","/media/pratizzu-demo-poster-fr.jpg"]}'>
+                data-yt='{"es":["l1Feu-XLyeQ","/media/pratizzu-demo-poster-es.jpg"],"en":["EvbPV2hsEts","/media/pratizzu-demo-poster-en.jpg"],"de":["pDKvGneYQ-c","/media/pratizzu-demo-poster-de.jpg"],"fr":["GFpWTsx-G5I","/media/pratizzu-demo-poster-fr.jpg"]}'>
           <img src="/media/pratizzu-demo-poster-es.jpg" alt="" width="1080" height="1920" loading="lazy" decoding="async">
           <span class="video-yt-play" aria-hidden="true"></span>
           <span class="vh" data-i18n="settori.video.play">Reproducir el vídeo</span>
@@ -2853,7 +2919,7 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
           <a href="/media/creazzu-demo-it.mp4">Guardatelo in azione: un programma per influencer e creator</a>
         </video>
         <button type="button" class="video-yt" aria-describedby="h-video-influencer nota-video-influencer"
-                data-yt='{"es":["hYSu9SO9bow","/media/creazzu-demo-poster-es.jpg"],"en":["24GnEQhJRt4","/media/creazzu-demo-poster-en.jpg"],"de":["K0uii_pQdfc","/media/creazzu-demo-poster-de.jpg"],"fr":["0r6zx-b4ZHk","/media/creazzu-demo-poster-fr.jpg"]}'>
+                data-yt='{"es":["CQVY3iuy8Ic","/media/creazzu-demo-poster-es.jpg"],"en":["24GnEQhJRt4","/media/creazzu-demo-poster-en.jpg"],"de":["K0uii_pQdfc","/media/creazzu-demo-poster-de.jpg"],"fr":["0r6zx-b4ZHk","/media/creazzu-demo-poster-fr.jpg"]}'>
           <img src="/media/creazzu-demo-poster-es.jpg" alt="" width="1080" height="1920" loading="lazy" decoding="async">
           <span class="video-yt-play" aria-hidden="true"></span>
           <span class="vh" data-i18n="settori.video.play">Reproducir el vídeo</span>
@@ -4784,7 +4850,7 @@ const I18N = {
    "nota": "Un fatto",
    "sito_in_costruzione": "sito in costruzione"
   },
-  "portfolio": {"romizzu": {"name": "Romizzu", "badge": "Live", "riga": "Marchio di nastro per le dita per BJJ e grappling, in vendita su Amazon USA e su romizzu.com.", "cosa": "Per Romizzu abbiamo costruito il negozio online, il gestionale (vendite, magazzino, finanza) e le automazioni con Amazon.", "amazon": "Su Amazon.com: 4,6 ★ su 91 valutazioni (ottobre 2026)", "titolarita": "Azienda del fondatore di UtoApps."}, 
+  "portfolio": {"nostre": {"titolo": "Le nostre app", "intro": "Prodotti UtoApps, uno per settore."}, "romizzu": {"name": "Romizzu", "badge": "Live", "riga": "Marchio di nastro per le dita per BJJ e grappling, in vendita su Amazon USA e su romizzu.com.", "cosa": "Per Romizzu abbiamo costruito il negozio online, il gestionale (vendite, magazzino, finanza) e le automazioni con Amazon.", "amazon": "Su Amazon.com: 4,6 ★ su 91 valutazioni (ottobre 2026)", "titolarita": "Azienda del fondatore di UtoApps."}, 
    "label": "App create da UtoApps",
    "items": [
     {
@@ -6448,7 +6514,7 @@ const I18N = {
    "nota": "Eine Tatsache",
    "sito_in_costruzione": "Website im Aufbau"
   },
-  "portfolio": {"romizzu": {"name": "Romizzu", "badge": "Live", "riga": "Marke für Fingertape für BJJ und Grappling, erhältlich auf Amazon USA und auf romizzu.com.", "cosa": "Für Romizzu haben wir den Onlineshop, die Verwaltungssoftware (Verkauf, Lager, Finanzen) und die Automatisierungen mit Amazon gebaut.", "amazon": "Auf Amazon.com: 4,6 ★ bei 91 Bewertungen (Oktober 2026)", "titolarita": "Unternehmen des Gründers von UtoApps."}, 
+  "portfolio": {"nostre": {"titolo": "Unsere Apps", "intro": "Produkte von UtoApps, eines pro Branche."}, "romizzu": {"name": "Romizzu", "badge": "Live", "riga": "Marke für Fingertape für BJJ und Grappling, erhältlich auf Amazon USA und auf romizzu.com.", "cosa": "Für Romizzu haben wir den Onlineshop, die Verwaltungssoftware (Verkauf, Lager, Finanzen) und die Automatisierungen mit Amazon gebaut.", "amazon": "Auf Amazon.com: 4,6 ★ bei 91 Bewertungen (Oktober 2026)", "titolarita": "Unternehmen des Gründers von UtoApps."}, 
    "label": "Von UtoApps entwickelte Apps",
    "items": [
     {
@@ -8112,7 +8178,7 @@ const I18N = {
    "nota": "Un fait",
    "sito_in_costruzione": "site en construction"
   },
-  "portfolio": {"romizzu": {"name": "Romizzu", "badge": "En ligne", "riga": "Marque de tape pour les doigts, pour le BJJ et le grappling, en vente sur Amazon USA et sur romizzu.com.", "cosa": "Pour Romizzu, nous avons construit la boutique en ligne, le logiciel de gestion (ventes, stock, finances) et les automatisations avec Amazon.", "amazon": "Sur Amazon.com : 4,6 ★ pour 91 évaluations (octobre 2026)", "titolarita": "Entreprise du fondateur d’UtoApps."}, 
+  "portfolio": {"nostre": {"titolo": "Nos applications", "intro": "Produits UtoApps, un par métier."}, "romizzu": {"name": "Romizzu", "badge": "En ligne", "riga": "Marque de tape pour les doigts, pour le BJJ et le grappling, en vente sur Amazon USA et sur romizzu.com.", "cosa": "Pour Romizzu, nous avons construit la boutique en ligne, le logiciel de gestion (ventes, stock, finances) et les automatisations avec Amazon.", "amazon": "Sur Amazon.com : 4,6 ★ pour 91 évaluations (octobre 2026)", "titolarita": "Entreprise du fondateur d’UtoApps."}, 
    "label": "Applications créées par UtoApps",
    "items": [
     {
@@ -9776,7 +9842,7 @@ const I18N = {
    "nota": "A fact",
    "sito_in_costruzione": "site under construction"
   },
-  "portfolio": {"romizzu": {"name": "Romizzu", "badge": "Live", "riga": "Finger tape brand for BJJ and grappling, sold on Amazon US and at romizzu.com.", "cosa": "For Romizzu we built the online shop, the management software (sales, stock, finance) and the automations with Amazon.", "amazon": "On Amazon.com: 4.6 ★ from 91 ratings (October 2026)", "titolarita": "Company of the UtoApps founder."}, 
+  "portfolio": {"nostre": {"titolo": "Our apps", "intro": "UtoApps products, one for each trade."}, "romizzu": {"name": "Romizzu", "badge": "Live", "riga": "Finger tape brand for BJJ and grappling, sold on Amazon US and at romizzu.com.", "cosa": "For Romizzu we built the online shop, the management software (sales, stock, finance) and the automations with Amazon.", "amazon": "On Amazon.com: 4.6 ★ from 91 ratings (October 2026)", "titolarita": "Company of the UtoApps founder."}, 
    "label": "Apps built by UtoApps",
    "items": [
     {
@@ -11440,7 +11506,7 @@ const I18N = {
    "nota": "Un dato",
    "sito_in_costruzione": "sitio en construcción"
   },
-  "portfolio": {"romizzu": {"name": "Romizzu", "badge": "Activa", "riga": "Marca de cinta para dedos para BJJ y grappling, a la venta en Amazon EE. UU. y en romizzu.com.", "cosa": "Para Romizzu hemos construido la tienda online, el software de gestión (ventas, almacén, finanzas) y las automatizaciones con Amazon.", "amazon": "En Amazon.com: 4,6 ★ con 91 valoraciones (octubre de 2026)", "titolarita": "Empresa del fundador de UtoApps."}, 
+  "portfolio": {"nostre": {"titolo": "Nuestras apps", "intro": "Productos UtoApps, uno por sector."}, "romizzu": {"name": "Romizzu", "badge": "Activa", "riga": "Marca de cinta para dedos para BJJ y grappling, a la venta en Amazon EE. UU. y en romizzu.com.", "cosa": "Para Romizzu hemos construido la tienda online, el software de gestión (ventas, almacén, finanzas) y las automatizaciones con Amazon.", "amazon": "En Amazon.com: 4,6 ★ con 91 valoraciones (octubre de 2026)", "titolarita": "Empresa del fundador de UtoApps."}, 
    "label": "Apps creadas por UtoApps",
    "items": [
     {

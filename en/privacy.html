@@ -794,6 +794,31 @@ body:has(.pagina:target) .zona-contatto.in-fondo,body:has(.pagina :target) .zona
 .salta:not(:focus){width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;box-shadow:none}
 #contenuto:focus{outline:none}
 
+/* ═══ fase 20 (30 ott 2026): le 14 app di UtoApps in «Il nostro lavoro». In home una seconda striscia «Le nostre app» con
+   le icone (2 righe da 7 sul telefono, 1 riga da 760 px); nella pagina #lavoro il gruppo con la griglia (2 colonne sul
+   telefono, 3 da 560 px, 4 da 900 px). Colori: solo i token della pagina (--scheda, --inchiostro, --nebbia, --rosso-testo). ═══ */
+.striscia-lavoro.striscia-app{margin-top:12px}
+.striscia-app .loghi-striscia{display:grid;grid-template-columns:repeat(7,minmax(0,36px));gap:6px;justify-content:start}
+.striscia-app .logo-mini{width:100%;height:auto;aspect-ratio:1/1;max-width:36px;border:1px solid var(--linea)}
+@media (min-width:560px){
+  .striscia-lavoro.striscia-app{grid-template-columns:auto minmax(0,1fr) auto}
+  .striscia-app .loghi-striscia{grid-column:1/-1;grid-row:2}
+}
+@media (min-width:760px){.striscia-app .loghi-striscia{grid-template-columns:repeat(14,36px)}}
+.nostre-app{margin-top:48px;padding-top:36px;border-top:1px solid var(--linea)}
+.nostre-app h2{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;line-height:1.15;color:var(--inchiostro);margin:0;max-width:none}
+.nostre-app .intro-nostre{margin:8px 0 22px;font-size:17px;line-height:1.5;color:var(--nebbia)}
+.griglia-app{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.griglia-app li{display:flex;min-width:0}
+.app-tessera{flex:1;min-width:0;display:grid;grid-template-columns:36px minmax(0,1fr);grid-template-areas:"logo nome" "settore settore";align-items:center;align-content:start;gap:10px;padding:12px 12px 14px;background:var(--scheda);border:1px solid var(--bordo-scheda);border-radius:var(--raggio-s);box-shadow:var(--ombra);text-decoration:none;color:inherit;transition:border-color .16s ease}
+.app-tessera:hover{border-color:var(--rosso);color:inherit}
+.logo-tessera{grid-area:logo;display:block;width:36px;height:36px;border-radius:9px;border:1px solid var(--linea);object-fit:cover}
+.nome-app{grid-area:nome;min-width:0;font-family:var(--display);font-size:16px;font-weight:700;letter-spacing:-.01em;line-height:1.2;color:var(--inchiostro);overflow-wrap:break-word}
+.app-tessera:hover .nome-app{color:var(--rosso-testo)}
+.settore-app{grid-area:settore;align-self:start;min-width:0;font-size:14px;line-height:1.4;color:var(--nebbia);overflow-wrap:break-word}
+@media (min-width:560px){.griglia-app{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.app-tessera{padding:14px 14px 16px}}
+@media (min-width:900px){.griglia-app{grid-template-columns:repeat(4,minmax(0,1fr))}.app-tessera{grid-template-columns:40px minmax(0,1fr)}.logo-tessera{width:40px;height:40px;border-radius:10px}}
+
 /* ── margen vertical de la cabecera (ver build-site.py, parche 7) ─────── */
 .testata .testata-alto{padding-block:32px 18px}
 .testata .testata-basso{padding-block:0 16px}

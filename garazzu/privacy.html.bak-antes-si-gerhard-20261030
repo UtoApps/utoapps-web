@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Informativa sulla privacy · Garazzu</title>
+<meta name="description" content="Quali dati usa Garazzu, dove stanno e chi ne risponde.">
+<link rel="canonical" href="https://www.utoapps.ch/garazzu/privacy.html">
+<meta name="theme-color" content="#141619">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/garazzu-192.png">
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="stile.css">
+<!-- Informativa di Garazzu (25 ott 2026, RoadMap T6/T13): quella di Allenazzu (revisione del 25 ott, [756]), cambiato solo quello che
+     è diverso in Garazzu. I dati del punto 02 sono quelli che l'app salva davvero (apps/garazzu/js/db.js e app.js: clienti, veicoli,
+     lavori, preventivi con le foto, fatture, storia, deposito, appuntamenti, inviti, chi lavora in officina); nessun minorenne; le
+     foto restano nel telefono e partono solo con il preventivo (PDF e immagine); la copia non è cifrata (JSON, con le foto). Il titolare come sul sito:
+     «Gerard Mir» ([219] [254]). -->
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="./" aria-label="Garazzu, pagina iniziale">gara<span>zz</span>u</a>
+    <nav aria-label="Sezioni"><a href="./">Torna alla pagina</a></nav>
+  </div>
+</header>
+
+<main class="legale">
+  <p class="agg">Aggiornata il 26 ottobre 2026</p>
+  <h1>Informativa sulla privacy</h1>
+
+  <section class="scheda">
+    <h2><span class="num">01</span>Chi siamo</h2>
+    <p>UtoApps è il nome commerciale di <strong>Gerard Mir</strong>, ditta individuale, 6648 Minusio (TI), Svizzera. Contatto: <a href="mailto:info@utoapps.ch">info@utoapps.ch</a>.</p>
+    <p>UtoApps è titolare del trattamento per i dati di chi acquista l'app, per l'indirizzo IP di chi la apre (punto 05) e per queste pagine.</p>
+  </section>
+
+  <section class="scheda">
+    <h2><span class="num">02</span>Chi risponde dei dati dei clienti</h2>
+    <p>Per i dati dei clienti dell'officina (nomi, signora o signore, telefoni, e-mail, lingua, come preferiscono essere avvisati, indirizzo per la fattura, il no ai promemoria con la data, note) e dei loro veicoli (targa, marca, modello e motore, anno, chilometri, tagliandi, collaudi e promemoria, lavori con i messaggi mandati e le note, preventivi con le foto, fatture, storia, gomme nel deposito, appuntamenti e inviti) è l'officina a decidere perché e come usarli. Lo stesso vale per i nomi di chi lavora in officina. Per questi dati il titolare del trattamento è l'officina, non UtoApps.</p>
+    <p>I clienti li informa l'officina.</p>
+  </section>
+
+  <section class="scheda">
+    <h2><span class="num">03</span>Che cosa conserva l'app, e dove</h2>
+    <p>Tutto resta nella memoria del telefono, del tablet o del computer dove usi Garazzu, anche il codice dell'app: l'app lo controlla da sola, senza mandarlo a nessuno. Garazzu non ha un server: verso UtoApps non parte nessun dato dell'officina.</p>
+    <p>Le foto dei preventivi restano nel telefono e partono solo con il preventivo che mandi al cliente, dentro il PDF e come immagine. La fattura QR si prepara nel telefono: il cliente la paga con l'app della sua banca e Garazzu non vede i pagamenti.</p>
+    <p>La copia che scarichi dalle Impostazioni è un file che tieni tu, con dentro anche le foto. Non è cifrata: conservala in un posto sicuro. Se la mandi per e-mail o la metti in un cloud, i dati dei clienti finiscono anche lì.</p>
+  </section>
+
+  <section class="scheda">
+    <h2><span class="num">04</span>Le foto e gli inviti</h2>
+    <p>Le foto servono a mostrare al cliente il pezzo da cambiare. Se si vede la targa o una persona, sono dati personali: meglio inquadrare solo il pezzo.</p>
+    <p>Garazzu prepara gli inviti al cambio gomme solo per i clienti che non hanno detto di no, e in fondo aggiunge il nome dell'officina e, nella loro lingua, il modo di non riceverne più; se un cliente dice di no, l'officina lo segna nella sua scheda, con la data, e Garazzu non gli prepara più inviti. Informare i clienti di questa possibilità quando si prendono i loro recapiti è compito dell'officina.</p>
+  </section>
+
+  <section class="scheda">
+    <h2><span class="num">05</span>Chi altro tratta i dati</h2>
+    <p>L'app si scarica da Firebase Hosting, una rete di server di Google in tutto il mondo, anche negli Stati Uniti: vede l'indirizzo IP di chi apre l'app e lo tiene qualche mese, per far funzionare il servizio e proteggerlo dagli abusi. Google LLC aderisce allo Swiss-U.S. Data Privacy Framework, che il Consiglio federale riconosce come protezione adeguata.</p>
+    <p>Quando l'officina scrive a un cliente, il messaggio parte dal telefono dell'officina, su WhatsApp, per SMS o per e-mail, e il preventivo e la fattura in PDF dal menu «Condividi» del telefono: li manda l'officina, non UtoApps.</p>
+  </section>
+
+  <section class="scheda">
+    <h2><span class="num">06</span>Quando acquisti l'app</h2>
+    <p>Per mandarti la fattura e il codice usiamo il tuo nome, la tua e-mail, l'indirizzo per la fattura e i dati dell'officina; il codice porta il nome dell'officina. Teniamo l'elenco dei codici rilasciati e una copia protetta di ogni codice, per potertelo rimandare, e conserviamo le fatture per il tempo che chiede la legge.</p>
+    <p>La posta di info@utoapps.ch passa da Google Workspace e le nostre copie di sicurezza (clienti e fatture) stanno anche su GitHub: Google e GitHub trattano i dati anche negli Stati Uniti e aderiscono allo Swiss-U.S. Data Privacy Framework.</p>
+    <p>Se l'app te la installiamo noi e ci chiedi di inserire i tuoi clienti, lo facciamo sul tuo dispositivo, per tuo conto, e non ne teniamo copia: l'elenco che ci dai lo cancelliamo appena finito.</p>
+  </section>
+
+  <section class="scheda">
+    <h2><span class="num">07</span>Conservazione e cancellazione</h2>
+    <p>I dati dell'officina restano nel suo dispositivo finché non li cancella (Impostazioni → «Cancella tutto da questo telefono»). Un veicolo si cancella dalla sua scheda, con la sua storia e le sue gomme; restano i suoi lavori, i preventivi con le loro foto e le fatture. Un cliente senza veicoli si cancella dalla sua scheda; le sue fatture restano, con il suo nome e il suo indirizzo. Una foto tolta da un preventivo resta nel telefono finché non si cancella tutto.</p>
+    <p>Conservare le fatture per dieci anni, come chiede la legge, è compito dell'officina: tieni anche il PDF di ogni fattura fuori dal telefono («Vedi il PDF»), perché la copia dei dati si apre solo con Garazzu. Prima di cancellare tutto conviene scaricare una copia.</p>
+  </section>
+
+  <section class="scheda">
+    <h2><span class="num">08</span>I tuoi diritti</h2>
+    <p>Chi acquista l'app può chiederci quali dati suoi conserviamo, e farli correggere o cancellare, salvo quelli che la legge ci obbliga a tenere: <a href="mailto:info@utoapps.ch">info@utoapps.ch</a>.</p>
+    <p>Per i dati dei clienti, il cliente si rivolge all'officina, che ne è la titolare. Ci si può rivolgere anche all'Incaricato federale della protezione dei dati e della trasparenza (IFPDT).</p>
+  </section>
+
+  <section class="scheda">
+    <h2><span class="num">09</span>Queste pagine</h2>
+    <p>Le pagine di Garazzu su www.utoapps.ch non usano cookie né strumenti di statistica. Per il resto vale l'informativa del sito di UtoApps: <a href="https://www.utoapps.ch/privacy.html">www.utoapps.ch/privacy.html</a>.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Garazzu è un'app di <a href="https://www.utoapps.ch/">UtoApps</a> · <a href="mailto:info@utoapps.ch">info@utoapps.ch</a></span>
+    <nav aria-label="Note legali"><a href="./">Pagina iniziale</a><a href="terms.html">Condizioni d'uso</a></nav>
+  </div>
+</footer>
+</body>
+</html>
