@@ -482,6 +482,11 @@ section[id]{scroll-margin-top:12px;}
 }
 
 </style>
+<style>/* El anuncio con voz y música, entre el buscador y «Lo stress da trasferta» (Gerhard, 2 nov 2026) */
+.sj-sec.sj-spot{padding-top:48px;padding-bottom:0}
+.sj-spot-video{display:block;width:100%;height:auto;aspect-ratio:16/9;border-radius:var(--radius-card);background:#0E1B45;box-shadow:0 22px 44px -18px rgba(20,40,110,.38)}
+@media (max-width:600px){.sj-sec.sj-spot{padding-top:28px}}
+</style>
 </head>
 <body>
 <div class="sj-top" id="top">
@@ -568,6 +573,15 @@ section[id]{scroll-margin-top:12px;}
       <button type="submit" class="btn3d"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7.5"></circle><path d="m20.5 20.5-4.2-4.2"></path></svg><span data-i18n="search_cta">Cerca chi si scambia</span></button>
     </form>
   </div>
+
+  <section class="sj-sec sj-spot" id="spot">
+    <div class="sj-wrap">
+      <video class="sj-spot-video" controls preload="none" playsinline poster="video/slowjob-spot-poster.jpg"
+             aria-label="Lo spot di Slow-Job (30 secondi, con audio)">
+        <source src="video/slowjob-spot.mp4" type="video/mp4">
+      </video>
+    </div>
+  </section>
 
   <section class="sj-sec" id="scenario">
     <div class="sj-wrap sj-duo">
