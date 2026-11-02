@@ -1,0 +1,142 @@
+/* Slow-Job — la pagina in www.utoapps.ch/slowjob/ (2 nov 2026).
+   Stile: quello dell'app di Chronic Friends in blu (docs/ESTILO-app-slowjob.css: stessi token, stessi bottoni 3D,
+   Poppins servito da qui, niente da internet). Struttura come le pagine delle app di UtoApps (pagine-app/allenazzu).
+   Contrasti MISURATI il 2 nov 2026 (formula WCAG, testo normale ≥ 4,5:1): #1B2340 su carta #F7F9FD 14,64:1 · #3E4A6B su
+   carta 8,31:1 e su #EEF3FF 7,89:1 · blu #1F45B8 su carta 7,66:1, su #EEF3FF 7,26:1, su bianco 8,07:1 · bianco su #3D6FE0
+   4,62:1 · verde #0D6B50 su #E3F8F0 5,86:1 · #3F2A00 su #FFF1CC 12,13:1 · #12286C su #E6EEFF 11,67:1.
+   I colori vivono SOLO in :root: quando arriva il marchio (A5) si cambia questo blocco. */
+
+@font-face{font-family:'Poppins';font-weight:400;font-style:normal;font-display:swap;src:url('fonts/Poppins-400.woff2') format('woff2')}
+@font-face{font-family:'Poppins';font-weight:500;font-style:normal;font-display:swap;src:url('fonts/Poppins-500.woff2') format('woff2')}
+@font-face{font-family:'Poppins';font-weight:600;font-style:normal;font-display:swap;src:url('fonts/Poppins-600.woff2') format('woff2')}
+@font-face{font-family:'Poppins';font-weight:700;font-style:normal;font-display:swap;src:url('fonts/Poppins-700.woff2') format('woff2')}
+
+:root{
+  color-scheme:light;
+  --blue-100:#E6EEFF; --blue-200:#C9D9FF; --blue-300:#9FB8FF; --blue-500:#3D6FE0; --blue-600:#1F45B8; --blue-800:#12286C;
+  --green-bg:#E3F8F0; --green-ink:#0D6B50; --green-arrow:#12A177;
+  --amber-bg:#FFF1CC; --amber-line:#F0C860; --amber-ink:#3F2A00;
+  --paper:#F7F9FD; --card:#FFFFFF; --card-soft:#EEF3FF; --line:#DCE4F5;
+  --ink:#1B2340; --ink-soft:#3E4A6B;
+  --radius-card:26px; --radius-btn:16px;
+  --shadow:0 18px 40px rgba(18,40,108,.12);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;-webkit-text-size-adjust:100%}
+a{color:var(--blue-600)}
+img,svg{max-width:100%;display:block}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+:focus-visible{outline:3px solid var(--blue-600);outline-offset:3px;border-radius:6px}
+h1,h2,h3{color:var(--ink);font-weight:700;letter-spacing:-.015em}
+h1{font-size:clamp(32px,5.4vw,54px);line-height:1.08;margin:0 0 18px}
+h2{font-size:clamp(25px,3.6vw,36px);line-height:1.15;margin:0 0 14px}
+h3{font-size:19px;line-height:1.3;margin:0 0 8px}
+p{margin:0 0 14px}
+.occhiello{font-size:12.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--blue-600);margin:0 0 10px}
+.intro{color:var(--ink-soft);max-width:720px;font-size:17px;margin:0 0 28px}
+.nota{font-size:14px;color:var(--ink-soft);margin:16px 0 0}
+section{padding:60px 0}
+section.tinta{background:var(--card-soft)}
+
+/* Barra «torna a UtoApps» (uguale alle pagine delle app di UtoApps) */
+.casa{background:var(--card);border-bottom:1px solid var(--line)}
+.casa .wrap{display:flex;align-items:center;min-height:52px}
+.casa a{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:4px 16px 4px 12px;border:1.5px solid var(--ink);border-radius:999px;background:var(--card);color:var(--ink);text-decoration:none;font-weight:600;font-size:15px;line-height:1.2}
+.casa img{width:22px;height:22px;border-radius:6px}
+
+/* Testata */
+.top{position:sticky;top:0;z-index:5;background:rgba(247,249,253,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:66px}
+.mark{font-weight:700;font-size:26px;letter-spacing:-.02em;line-height:1;color:var(--blue-600);text-decoration:none;white-space:nowrap}
+.mark span{color:var(--ink)}
+.top nav{display:flex;align-items:center;gap:20px}
+.top nav a{color:var(--ink-soft);text-decoration:none;font-weight:600;font-size:14.5px}
+.top nav a:hover{color:var(--ink)}
+.top nav a.btn3d{color:#fff}
+.solo-largo{display:none}
+@media (min-width:900px){.solo-largo{display:inline}}
+
+/* Bottoni 3D (gli stessi dell'app: degradado + un'ombra proiettata + due interne) */
+.btn3d{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:0;cursor:pointer;color:#fff;font:inherit;font-weight:700;font-size:15.5px;text-decoration:none;
+  border-radius:var(--radius-btn);padding:14px 22px;background:linear-gradient(180deg,var(--blue-500) 0%,var(--blue-600) 100%);
+  box-shadow:0 8px 16px rgba(31,69,184,.42),inset 0 2px 2px rgba(255,255,255,.55),inset 0 -4px 6px rgba(12,30,100,.45);transition:transform .12s ease,box-shadow .12s ease}
+.btn3d:active{transform:translateY(3px);box-shadow:0 3px 7px rgba(31,69,184,.4),inset 0 2px 4px rgba(12,30,100,.4)}
+.btn3d.soft{background:linear-gradient(180deg,#fff,#E8EEF8);color:var(--ink);box-shadow:0 7px 14px rgba(110,125,170,.30),inset 0 2px 2px rgba(255,255,255,.9),inset 0 -3px 6px rgba(130,145,190,.35)}
+.btn3d.piccolo{padding:9px 15px;font-size:14px;border-radius:13px}
+.btn3d[aria-disabled="true"]{cursor:default}
+.cta{display:flex;flex-wrap:wrap;gap:14px}
+
+/* Hero */
+.hero{padding:54px 0 46px}
+.hero .wrap{display:grid;gap:34px;align-items:center}
+@media (min-width:900px){.hero .wrap{grid-template-columns:1.1fr .9fr}}
+.sotto{font-size:18px;color:var(--ink-soft);max-width:580px;margin:0 0 26px}
+.schema{margin:0;justify-self:center;width:min(420px,92vw)}
+.schema figcaption{font-size:13.5px;color:var(--ink-soft);text-align:center;margin-top:6px}
+
+/* Griglie e schede */
+.duo{display:grid;gap:34px}
+@media (min-width:900px){.duo{grid-template-columns:1fr 1fr}}
+.griglia{display:grid;gap:18px}
+@media (min-width:700px){.griglia.due{grid-template-columns:1fr 1fr}.griglia.tre{grid-template-columns:repeat(3,1fr)}}
+.scheda{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-card);padding:24px;box-shadow:0 2px 0 rgba(18,40,108,.03)}
+.scheda p:last-child{margin-bottom:0}
+.scheda ul{margin:0;padding-left:20px}
+.scheda li{margin:4px 0}
+
+/* I numeri del Ticino */
+.numeri{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));margin:6px 0 22px}
+.numero{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:20px 22px}
+.numero .cifra{font-size:clamp(26px,4vw,34px);font-weight:700;color:var(--blue-600);letter-spacing:-.02em;line-height:1.1;margin:0}
+.numero .etichetta{margin:6px 0 0;color:var(--ink-soft);font-size:15px}
+.fonti{font-size:13.5px;color:var(--ink-soft);margin:18px 0 0;padding-left:20px;max-width:860px}
+.fonti li{margin:6px 0}
+sup{font-size:.65em;line-height:0}
+
+/* I 4 passi */
+.passi{list-style:none;margin:0;padding:0;display:grid;gap:18px}
+@media (min-width:800px){.passi{grid-template-columns:1fr 1fr}}
+.passi .n{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:12px;background:linear-gradient(180deg,var(--blue-500),var(--blue-600));color:#fff;font-weight:700;margin-bottom:10px;box-shadow:inset 0 2px 2px rgba(255,255,255,.45),inset 0 -3px 5px rgba(12,30,100,.4)}
+.modi{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;padding:0;list-style:none}
+.modi li{background:var(--blue-100);color:var(--blue-800);border-radius:999px;padding:4px 12px;font-size:13.5px;font-weight:600}
+.avviso{margin:26px 0 0;background:var(--card);border:1.5px solid var(--blue-300);border-radius:18px;padding:14px 18px;color:var(--ink);font-weight:600}
+
+/* Vantaggi */
+.vantaggio h3{color:var(--blue-600);font-size:15px;letter-spacing:.08em;text-transform:uppercase}
+
+/* Prezzi */
+.piani{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));margin:8px 0 18px}
+.piano .titolo{font-size:12px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--blue-600)}
+.piano .cifra{font-size:clamp(26px,5vw,32px);font-weight:700;letter-spacing:-.02em;margin:8px 0 0;white-space:nowrap}
+.piano .per{color:var(--ink-soft);font-size:14px;font-weight:600;margin:0}
+.sblocco{background:var(--amber-bg);border-color:var(--amber-line)}
+.sblocco .titolo,.sblocco .cifra,.sblocco p{color:var(--amber-ink)}
+.matchnota{background:var(--green-bg);border:1px solid #B5EBD6;border-radius:18px;padding:14px 18px;color:var(--green-ink);font-weight:600;margin:18px 0 0}
+
+/* Realtà a confronto */
+.confronto{display:grid;gap:16px;align-items:center}
+@media (min-width:800px){.confronto{grid-template-columns:1fr auto 1fr}}
+.confronto .scheda h3{color:var(--blue-600);text-transform:uppercase;font-size:15px;letter-spacing:.08em}
+.confronto dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 12px}
+.confronto dt{color:var(--ink-soft)}
+.confronto dd{margin:0;font-weight:600}
+.scambio{justify-self:center;color:var(--green-arrow)}
+
+/* Installare */
+.passi-installa{display:grid;gap:14px}
+@media (min-width:800px){.passi-installa{grid-template-columns:repeat(3,1fr)}}
+.passi-installa strong{display:block;margin-bottom:6px}
+
+footer{border-top:1px solid var(--line);padding:30px 0 46px;color:var(--ink-soft);font-size:14.5px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between}
+footer a{color:var(--ink-soft)}
+footer nav{display:flex;flex-wrap:wrap;gap:8px 18px}
+
+/* Pagine legali */
+.legale{max-width:780px;margin:0 auto;padding:40px 20px 60px}
+.legale h1{font-size:clamp(28px,4.6vw,40px)}
+.legale .scheda{margin-top:16px}
+.legale .scheda h2{font-size:20px;margin:0 0 10px}
+.legale .agg{color:var(--ink-soft);font-size:14px;margin:0 0 6px}
