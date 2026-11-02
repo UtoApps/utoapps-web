@@ -3,40 +3,722 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Informativa sulla privacy — Slow-Job</title>
+<title data-i18n="pp_meta_title">Informativa sulla privacy — Slow-Job</title>
+<meta name="description" content="Informativa sulla privacy di Slow-Job: quali dati tratta, perché e chi può vederli.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="canonical" href="https://www.utoapps.ch/slowjob/privacy.html">
 <meta name="theme-color" content="#1F45B8">
-<link rel="icon" type="image/png" sizes="192x192" href="assets/slowjob-192.png">
-<link rel="stylesheet" href="stile.css">
+<!-- Slow-Job · pagina autonoma: stile, testi, foto e codice sono qui dentro. Fuori restano solo fonts/ (Poppins) e video/ (vídeo della portada). -->
+<style>
+/* =============================================================================
+   SLOW-JOB — LANDING (ronda 3) · www.utoapps.ch/slowjob/
+   Base: copia de ESTILO-app-slowjob.css (tokens, botones 3D, tarjetas, campos,
+   pastillas, avisos) sin tocar una cifra. Quitado solo lo que la página ya no
+   usa: marco del móvil, barra inferior, cabecera curva de la app y tarjeta del
+   match. Al final, bloque LANDING: lo que la página necesita además, con los
+   mismos ingredientes.
+   ============================================================================= */
+
+/* 1. TOKENS — verbatim */
+:root{
+  --blue-100:#E6EEFF;
+  --blue-200:#C9D9FF;
+  --blue-300:#9FB8FF;
+  --blue-400:#5B8DEF;
+  --blue-500:#3D6FE0;
+  --blue-600:#1F45B8;
+  --blue-700:#183691;
+  --blue-800:#12286C;
+  --blue-900:#0D1D4F;
+
+  --green-100:#DCFBF0;
+  --green-200:#A7F3D8;
+  --green-300:#53E8B2;
+  --green-400:#2ACF97;
+  --green-500:#12A177;
+  --green-600:#0D8562;
+
+  --amber-100:#FFF6E0;
+  --amber-300:#FFD37A;
+  --amber-400:#F5B841;
+  --amber-500:#E39B12;
+  --amber-ink:#3F2A00;
+
+  --canvas:#122356;
+  --canvas-2:#0B1638;
+  --paper:#F7F9FD;
+  --card:#FFFFFF;
+  --card-soft:#EEF3FF;
+
+  --ink:#1B2340;
+  --ink-soft:#3E4A6B;
+  --muted:#7A86A8;
+  --muted-2:#A3ACC6;
+  --on-blue:#FFFFFF;
+
+  --hdr-top:#3D6FE0;
+  --hdr-bot:#1F45B8;
+
+  --radius-card:26px;
+  --radius-btn:16px;
+  --radius-pill:30px;
+}
+
+/* 2. BASE */
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{margin:0;}
+
+/* Poppins servita dal sito (fonts/), mai da servizi esterni. Vedi fonts/LEGGIMI.txt */
+@font-face{font-family:'Poppins';font-weight:400;font-style:normal;font-display:swap;src:url('fonts/Poppins-400.woff2') format('woff2');}
+@font-face{font-family:'Poppins';font-weight:500;font-style:normal;font-display:swap;src:url('fonts/Poppins-500.woff2') format('woff2');}
+@font-face{font-family:'Poppins';font-weight:600;font-style:normal;font-display:swap;src:url('fonts/Poppins-600.woff2') format('woff2');}
+@font-face{font-family:'Poppins';font-weight:700;font-style:normal;font-display:swap;src:url('fonts/Poppins-700.woff2') format('woff2');}
+@font-face{font-family:'Poppins';font-weight:800;font-style:normal;font-display:swap;src:url('fonts/Poppins-800.woff2') format('woff2');}
+
+body{
+  font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  min-height:100%;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,.ttl,.hero-num{font-weight:800;letter-spacing:-0.01em;}
+a{color:var(--blue-600);}
+a:hover{color:var(--blue-700);}
+::selection{background:var(--blue-200);}
+:focus-visible{outline:3px solid rgba(91,141,239,.6);outline-offset:2px;}
+
+/* 3. BOTONES 3D — verbatim */
+.btn3d{
+  border:none;cursor:pointer;color:#fff;font-family:inherit;font-weight:700;
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  min-width:0;
+  border-radius:var(--radius-btn);
+  padding:14px 22px;font-size:15px;
+  background:linear-gradient(180deg,var(--blue-500) 0%,var(--blue-600) 100%);
+  box-shadow:
+    0 8px 16px rgba(31,69,184,.42),
+    inset 0 2px 2px rgba(255,255,255,.55),
+    inset 0 -4px 6px rgba(12,30,100,.45);
+  transition:transform .12s ease,box-shadow .12s ease;
+  text-decoration:none;
+}
+.btn3d:active{
+  transform:translateY(3px);
+  box-shadow:0 3px 7px rgba(31,69,184,.4),inset 0 2px 4px rgba(12,30,100,.4);
+}
+.btn3d.round{border-radius:50%;}
+.btn3d.pill{border-radius:var(--radius-pill);padding:13px 22px;}
+.btn3d.full{width:100%;}
+.btn3d.match{
+  background:linear-gradient(180deg,var(--green-300) 0%,var(--green-500) 100%);
+  box-shadow:
+    0 8px 16px rgba(18,161,119,.40),
+    inset 0 2px 2px rgba(255,255,255,.60),
+    inset 0 -4px 6px rgba(8,105,78,.45);
+  color:#052A1A;
+}
+.btn3d.match:active{
+  box-shadow:0 3px 7px rgba(18,161,119,.4),inset 0 2px 4px rgba(8,105,78,.4);
+}
+.btn3d.unlock{
+  background:linear-gradient(180deg,var(--amber-300) 0%,var(--amber-500) 100%);
+  box-shadow:
+    0 8px 16px rgba(227,155,18,.40),
+    inset 0 2px 2px rgba(255,255,255,.65),
+    inset 0 -4px 6px rgba(140,90,0,.40);
+  color:var(--amber-ink);
+}
+.btn3d.unlock:active{
+  box-shadow:0 3px 7px rgba(227,155,18,.4),inset 0 2px 4px rgba(140,90,0,.4);
+}
+.btn3d.dark{
+  background:radial-gradient(120% 120% at 32% 26%, #2E4F9E, #122356);
+  box-shadow:0 7px 14px rgba(10,20,60,.5),inset 0 2px 2px rgba(255,255,255,.28),inset 0 -4px 7px rgba(5,12,45,.55);
+  color:#E6EEFF;
+}
+.btn3d.soft{
+  background:linear-gradient(180deg,#ffffff,#E8EEF8);
+  color:var(--ink-soft);
+  box-shadow:0 7px 14px rgba(110,125,170,.30),inset 0 2px 2px rgba(255,255,255,.9),inset 0 -3px 6px rgba(130,145,190,.35);
+}
+
+/* 4. TARJETAS — verbatim */
+.card{
+  background:rgba(255,255,255,.72);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-radius:var(--radius-card);border:1px solid rgba(255,255,255,.65);
+  box-shadow:0 12px 30px -10px rgba(20,40,110,.25),inset 0 1px 1px rgba(255,255,255,.7);
+  padding:16px;
+}
+.card-solid{
+  background:var(--card);border-radius:var(--radius-card);
+  box-shadow:0 12px 30px -12px rgba(20,40,110,.22);
+  padding:16px;
+}
+.card-dark{
+  border-radius:var(--radius-card);
+  background:linear-gradient(160deg,#2E4F9E 0%,var(--blue-800) 100%);
+  box-shadow:0 14px 34px -10px rgba(18,40,120,.5),inset 0 2px 3px rgba(255,255,255,.35),inset 0 -5px 10px rgba(5,15,60,.4);
+  color:#fff;padding:20px;
+}
+.badge-ic{
+  width:46px;height:46px;border-radius:16px;flex:none;
+  display:flex;align-items:center;justify-content:center;color:#EAF0FF;
+  background:radial-gradient(120% 120% at 30% 25%, #6E9BF5, #183691);
+  box-shadow:0 5px 10px rgba(15,30,90,.3),inset 0 2px 2px rgba(255,255,255,.3),inset 0 -3px 5px rgba(12,25,80,.4);
+}
+.badge-ic.verde{background:radial-gradient(120% 120% at 30% 25%, var(--green-300), var(--green-500));color:#052A1A;}
+.badge-ic.ambar{background:radial-gradient(120% 120% at 30% 25%, var(--amber-300), var(--amber-500));color:var(--amber-ink);}
+.check{
+  width:34px;height:34px;border-radius:50%;flex:none;
+  display:flex;align-items:center;justify-content:center;color:#052A1A;
+  background:linear-gradient(180deg,var(--green-300),var(--green-500));
+  box-shadow:0 4px 8px rgba(18,161,119,.4),inset 0 1px 2px rgba(255,255,255,.5);
+}
+.seclabel{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-600);padding:14px 22px 6px;}
+
+/* 5. PASTILLAS DE SELECCIÓN — verbatim */
+.modos{display:flex;gap:8px;padding:12px 16px;}
+.modo{
+  flex:1 1 0;min-width:0;border:none;cursor:pointer;font-family:inherit;
+  height:40px;border-radius:var(--radius-pill);
+  font-size:13.5px;font-weight:700;white-space:nowrap;
+  background:linear-gradient(180deg,#ffffff,#E8EEF8);
+  color:var(--ink-soft);
+  box-shadow:0 5px 10px rgba(110,125,170,.22),inset 0 1px 1px rgba(255,255,255,.9);
+  transition:transform .12s ease,box-shadow .12s ease,color .12s ease;
+}
+.modo.sel{
+  background:linear-gradient(180deg,var(--blue-500) 0%,var(--blue-600) 100%);
+  color:#fff;
+  box-shadow:0 8px 16px rgba(31,69,184,.42),inset 0 2px 2px rgba(255,255,255,.55),inset 0 -4px 6px rgba(12,30,100,.45);
+  transform:translateY(-1px);
+}
+
+/* 6. CAMPOS DE FORMULARIO — verbatim */
+.field{display:flex;flex-direction:column;gap:6px;padding:8px 22px;}
+.field label{font-size:12.5px;font-weight:700;color:var(--ink-soft);}
+.field input,.field select,.field textarea{
+  font-family:inherit;font-size:15px;color:var(--ink);
+  border:none;border-radius:var(--radius-btn);padding:14px 16px;
+  background:linear-gradient(180deg,#EEF2FA,#FFFFFF);
+  box-shadow:inset 0 2px 5px rgba(60,80,140,.18),inset 0 -1px 1px rgba(255,255,255,.9);
+  outline:none;
+}
+.field input:focus,.field select:focus,.field textarea:focus{
+  box-shadow:inset 0 2px 5px rgba(60,80,140,.18),0 0 0 3px rgba(91,141,239,.45);
+}
+
+/* 7. AVISOS — verbatim */
+.aviso{
+  background:linear-gradient(180deg,var(--amber-100),#FDEFC9);
+  border:1.5px solid #F0C860;border-radius:var(--radius-card);
+  padding:16px;color:#5B4410;font-size:14px;line-height:1.5;
+  box-shadow:0 10px 24px -12px rgba(120,90,20,.35);
+}
+.aviso strong{color:#3F2F06;}
+.aviso.info{
+  background:linear-gradient(180deg,#EEF3FF,#E0E9FF);border-color:#B7C8FA;color:#1E2F66;
+  box-shadow:0 10px 24px -12px rgba(30,60,150,.3);
+}
+
+/* =============================================================================
+   LANDING — lo que la página necesita además. Mismos ingredientes.
+   ============================================================================= */
+html{scroll-behavior:smooth;}
+img,video,svg{max-width:100%;}
+.sj-wrap{width:100%;max-width:1120px;margin:0 auto;padding-left:20px;padding-right:20px;}
+.sj-narrow{max-width:820px;}
+section[id]{scroll-margin-top:12px;}
+.btn3d:hover{filter:brightness(1.07);}
+.btn3d.soft:hover{filter:brightness(1.03);color:var(--ink);}
+
+/* Barra fina de UtoApps */
+.sj-top{background:var(--blue-900);}
+.sj-top a{display:inline-flex;align-items:center;gap:8px;padding:8px 0;font-size:13px;font-weight:600;color:#DCE6FF;text-decoration:none;}
+.sj-top a:hover{color:#fff;text-decoration:underline;text-underline-offset:3px;}
+
+/* Cabecera: el cristal de la barra de la app, arriba */
+.sj-nav{
+  position:relative;z-index:100;
+  background:rgba(247,249,253,.92);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(122,134,168,.14);
+}
+.sj-nav-in{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;padding-top:10px;padding-bottom:10px;}
+.sj-mark{margin-right:auto;font-size:24px;line-height:1.1;font-weight:800;letter-spacing:-0.02em;color:var(--blue-600);text-decoration:none;}
+.sj-mark span{color:var(--blue-400);}
+.sj-mark:hover{color:var(--blue-700);}
+.sj-links{display:none;align-items:center;gap:24px;}
+.sj-links a{font-size:14.5px;font-weight:600;color:var(--ink-soft);text-decoration:none;}
+.sj-links a:hover{color:var(--blue-600);}
+.sj-lang{padding:0;gap:4px;}
+.sj-lang .modo{flex:0 0 auto;height:34px;padding:0 12px;font-size:12.5px;}
+.sj-acc{display:flex;gap:8px;flex:1 1 100%;}
+.sj-acc .btn3d{flex:1 1 0;padding:11px 14px;font-size:14px;}
+@media (min-width:640px){
+  .sj-nav{position:sticky;top:0;}
+  section[id]{scroll-margin-top:76px;}
+  .sj-acc{flex:0 0 auto;}
+  .sj-acc .btn3d{flex:0 0 auto;}
+}
+@media (min-width:1080px){
+  .sj-mark{margin-right:10px;}
+  .sj-links{display:flex;margin-right:auto;}
+}
+
+/* Portada: vídeo de fondo a pantalla completa, capa oscura, curva de la app */
+.sj-hero{position:relative;isolation:isolate;display:flex;align-items:flex-end;min-height:clamp(540px,82svh,880px);overflow:hidden;background:var(--blue-900);color:#fff;}
+.sj-hero-video{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:50% 50%;}
+.sj-hero-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(13,29,79,.35) 0%,rgba(13,29,79,.05) 26%,rgba(13,29,79,.62) 58%,rgba(13,29,79,.92) 100%);}
+.sj-hero-in{padding-top:72px;padding-bottom:132px;}
+.sj-hero::after{
+  content:"";position:absolute;left:-10%;right:-10%;bottom:-2px;height:56px;
+  background:var(--paper);border-radius:50% 50% 0 0 / 100% 100% 0 0;
+  box-shadow:0 -6px 22px rgba(155,184,255,.85),0 -2px 6px rgba(255,255,255,.9);
+}
+.sj-h1{margin:0;max-width:12ch;font-size:clamp(40px,7.2vw,84px);line-height:1.02;font-weight:800;letter-spacing:-0.025em;text-shadow:0 2px 24px rgba(5,12,45,.35);text-wrap:balance;}
+.sj-hero-sub{margin:18px 0 0;max-width:46ch;font-size:clamp(16px,1.8vw,20px);line-height:1.5;font-weight:500;color:#EEF3FF;text-shadow:0 1px 10px rgba(5,12,45,.4);text-wrap:pretty;}
+.sj-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;}
+@media (min-width:900px){
+  .sj-hero-shade{background:linear-gradient(90deg,rgba(13,29,79,.88) 0%,rgba(13,29,79,.6) 38%,rgba(13,29,79,0) 68%),linear-gradient(180deg,rgba(13,29,79,.25) 0%,rgba(13,29,79,0) 30%,rgba(13,29,79,.45) 100%);}
+}
+
+/* Buscador de tres campos, justo debajo de la portada */
+.sj-search-wrap{position:relative;z-index:2;margin-top:-88px;}
+.sj-search{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;padding:16px;margin:0;}
+.sj-search .field{padding:0;}
+.sj-search .btn3d{min-height:50px;}
+.field select{
+  appearance:none;-webkit-appearance:none;padding-right:42px;width:100%;
+  background-image:linear-gradient(180deg,#EEF2FA,#FFFFFF),url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%233E4A6B' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='m6 9 6 6 6-6'/></svg>");
+  background-repeat:no-repeat,no-repeat;background-position:0 0,right 16px center;background-size:100% 100%,16px 16px;
+}
+@media (min-width:820px){
+  .sj-search{grid-template-columns:repeat(3,minmax(0,1fr)) auto;align-items:end;gap:14px;padding:18px;}
+}
+
+/* Secciones */
+.sj-sec{padding:64px 0;}
+.sj-tint{background:var(--card-soft);}
+.sj-kicker{display:block;margin:0 0 10px;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-600);}
+.sj-h2{margin:0;max-width:22ch;font-size:clamp(28px,4.2vw,46px);line-height:1.08;font-weight:800;letter-spacing:-0.018em;color:var(--ink);text-wrap:balance;}
+.sj-h2:focus{outline:none;}
+.sj-lead{margin:14px 0 0;max-width:60ch;font-size:clamp(16px,1.6vw,18px);line-height:1.6;color:var(--ink-soft);text-wrap:pretty;}
+.sj-mt{margin-top:36px;}
+.sj-small{margin:18px 0 0;max-width:80ch;font-size:13.5px;line-height:1.55;color:var(--ink-soft);}
+@media (min-width:900px){.sj-sec{padding:96px 0;}}
+
+/* Fotos: grandes, recortadas, con el radio de las tarjetas */
+.sj-photo{position:relative;margin:0;overflow:hidden;aspect-ratio:4/3;border-radius:var(--radius-card);background:var(--blue-100);box-shadow:0 22px 44px -18px rgba(20,40,110,.38);}
+.sj-photo img{display:block;width:100%;height:100%;object-fit:cover;}
+
+/* Estrés y tiempo: díptico */
+.sj-duo{display:grid;grid-template-columns:minmax(0,1fr);gap:56px;}
+.sj-story .sj-photo{margin-bottom:24px;}
+.sj-h3x{margin:0;font-size:clamp(24px,2.8vw,32px);line-height:1.12;font-weight:800;letter-spacing:-0.015em;color:var(--ink);text-wrap:balance;}
+.sj-text{margin:12px 0 0;max-width:52ch;font-size:16.5px;line-height:1.65;color:var(--ink-soft);text-wrap:pretty;}
+.sj-text strong{color:var(--ink);font-weight:700;}
+@media (min-width:860px){
+  .sj-duo{grid-template-columns:repeat(2,minmax(0,1fr));gap:40px;align-items:start;}
+  .sj-duo > :nth-child(2){margin-top:88px;}
+}
+
+/* Canton Ticino: banda oscura con cifras grandes */
+.sj-dark{background:linear-gradient(160deg,#2E4F9E 0%,var(--blue-800) 55%,var(--blue-900) 100%);color:#fff;}
+.sj-dark .sj-kicker{color:var(--blue-300);}
+.sj-dark .sj-h2{color:#fff;}
+.sj-dark .sj-lead{color:#DCE6FF;}
+.sj-nums{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:40px;border-top:2px solid rgba(255,255,255,.18);}
+.sj-num{padding:24px 12px 24px 0;border-bottom:2px solid rgba(255,255,255,.18);}
+.sj-num:nth-child(even){padding-left:16px;border-left:2px solid rgba(255,255,255,.18);}
+.sj-num-v{margin:0;font-size:clamp(28px,4vw,46px);line-height:1;font-weight:800;letter-spacing:-0.025em;color:#fff;white-space:nowrap;}
+.sj-num-v small{margin-left:.08em;font-size:.38em;font-weight:700;letter-spacing:0;color:#DCE6FF;}
+.sj-num-l{margin:10px 0 0;font-size:14px;line-height:1.4;font-weight:500;color:#DCE6FF;}
+.sj-num-l sup,.sj-src sup{font-size:.7em;}
+.sj-range{margin:32px 0 0;max-width:58ch;font-size:clamp(17px,2vw,21px);line-height:1.5;color:#fff;}
+.sj-range strong{color:var(--amber-300);font-weight:800;}
+.sj-src{margin-top:32px;padding-top:20px;border-top:2px solid rgba(255,255,255,.18);}
+.sj-src-t{margin:0 0 8px;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-300);}
+.sj-src ol{margin:0;padding-left:18px;display:grid;gap:6px;max-width:96ch;font-size:13px;line-height:1.55;color:#C9D6F5;}
+@media (min-width:900px){
+  .sj-nums{grid-template-columns:repeat(4,minmax(0,1fr));}
+  .sj-num{padding:28px 20px;border-left:2px solid rgba(255,255,255,.18);}
+  .sj-num:first-child{padding-left:0;border-left:0;}
+}
+
+/* Cómo funciona: esquema + 4 pasos */
+.sj-how-head{display:grid;grid-template-columns:minmax(0,1fr);gap:32px;align-items:center;}
+.sj-schema{margin:0;padding:20px;display:flex;flex-direction:column;align-items:center;gap:8px;}
+.sj-schema svg{display:block;width:100%;max-width:340px;height:auto;}
+.sj-schema figcaption{font-size:14px;font-weight:600;line-height:1.4;color:var(--ink-soft);text-align:center;}
+.sj-steps{list-style:none;margin:40px 0 0;padding:0;display:grid;grid-template-columns:minmax(0,1fr);gap:16px;}
+.sj-step{padding:22px;display:flex;flex-direction:column;gap:12px;}
+.sj-step-hd,.sj-card-hd{display:flex;align-items:center;gap:14px;}
+.sj-step-hd h3,.sj-card-hd h3{margin:0;font-size:19px;line-height:1.2;font-weight:800;color:var(--ink);}
+.sj-step-hd .badge-ic{font-size:18px;font-weight:800;}
+.sj-step p,.sj-card p{margin:0;font-size:15.5px;line-height:1.6;color:var(--ink-soft);}
+.sj-step-3{display:grid;grid-template-columns:minmax(0,1fr);gap:20px;}
+.sj-step-3 .sj-photo{aspect-ratio:16/10;border-radius:18px;box-shadow:none;}
+.sj-step-body{display:flex;flex-direction:column;gap:12px;}
+.sj-modes{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px;}
+.sj-modes li{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:var(--radius-pill);background:var(--card-soft);color:var(--blue-700);font-size:14px;font-weight:700;}
+.sj-modes svg{flex:none;}
+.sj-legal{margin:16px 0 0;display:flex;gap:12px;align-items:flex-start;font-size:15px;font-weight:600;}
+.sj-legal svg{flex:none;margin-top:1px;}
+@media (min-width:760px){
+  .sj-steps{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .sj-step-wide{grid-column:1 / -1;}
+  .sj-step-3{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);align-items:center;padding:24px;}
+}
+@media (min-width:900px){
+  .sj-how-head{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:48px;}
+}
+
+/* Rejillas y tarjetas de contenido */
+.sj-grid2,.sj-grid3,.sj-plans{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;}
+.sj-card{padding:24px;display:flex;flex-direction:column;gap:14px;}
+.sj-checks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;}
+.sj-checks li{display:flex;align-items:flex-start;gap:12px;font-size:15.5px;font-weight:600;line-height:1.4;color:var(--ink);}
+.sj-checks .check{width:24px;height:24px;margin-top:-1px;}
+@media (min-width:700px){
+  .sj-grid2{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .sj-plans{grid-template-columns:repeat(3,minmax(0,1fr));}
+}
+@media (min-width:860px){.sj-grid3{grid-template-columns:repeat(3,minmax(0,1fr));}}
+
+/* Precios */
+.sj-plan{padding:24px;display:flex;flex-direction:column;gap:6px;}
+.sj-plan-t{margin:0;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-600);}
+.sj-plan-p{margin:8px 0 0;font-size:clamp(36px,4.4vw,48px);line-height:1;font-weight:800;letter-spacing:-0.02em;color:var(--ink);}
+.sj-plan-per{margin:0;font-size:15px;font-weight:600;color:var(--ink-soft);}
+.sj-plan-txt{margin:8px 0 0;font-size:16px;line-height:1.5;font-weight:600;color:var(--ink);}
+.sj-plan-unlock{background:linear-gradient(180deg,var(--amber-100),#FDEFC9);box-shadow:0 12px 30px -12px rgba(120,90,20,.32);}
+.sj-plan-unlock .sj-plan-t{color:#6B4A00;}
+.sj-plan-note{margin:10px 0 0;font-size:14px;line-height:1.5;color:#5B4410;}
+.sj-plan-why h3{margin:0;font-size:17px;font-weight:800;color:#1E2F66;}
+.sj-plan-why p{margin:8px 0 0;font-size:15px;line-height:1.55;color:#1E2F66;}
+.sj-plans + .sj-plans{margin-top:16px;}
+
+/* Aziende: texto + foto */
+.sj-split{display:grid;grid-template-columns:minmax(0,1fr);gap:32px;align-items:center;}
+.sj-split .sj-photo{aspect-ratio:16/10;}
+@media (min-width:860px){
+  .sj-split{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:56px;}
+  .sj-split > .sj-photo{order:2;}
+}
+
+/* Realtà a confronto */
+.sj-cmp{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;justify-items:center;}
+.sj-cmp > article{width:100%;}
+.sj-cmp-card{padding:24px;}
+.sj-cmp-card h3{margin:0 0 12px;font-size:18px;font-weight:800;color:var(--blue-600);}
+.sj-cmp-card dl{margin:0;}
+.sj-cmp-card dl > div{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 12px;padding:11px 0;border-top:1px solid rgba(122,134,168,.22);}
+.sj-cmp-card dt{font-size:14.5px;font-weight:600;color:var(--ink-soft);}
+.sj-cmp-card dd{margin:0;font-size:15.5px;font-weight:800;color:var(--ink);}
+.sj-swap{width:56px;height:56px;border-radius:50%;transform:rotate(90deg);}
+@media (min-width:760px){
+  .sj-cmp{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:20px;align-items:center;}
+  .sj-swap{transform:none;}
+}
+
+/* Instalar */
+.sj-soon{opacity:.6;cursor:default;pointer-events:none;}
+
+/* FAQ: <details> nativo dentro de una tarjeta */
+.sj-faqs{display:flex;flex-direction:column;gap:12px;max-width:820px;}
+.sj-faq{padding:0;overflow:hidden;}
+.sj-faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 20px;font-weight:700;font-size:15.5px;color:var(--ink);}
+.sj-faq summary::-webkit-details-marker{display:none;}
+.sj-faq summary .chev{flex:none;transition:transform .2s ease;color:var(--blue-600);}
+.sj-faq[open] summary .chev{transform:rotate(180deg);}
+.sj-faq p{margin:0;padding:0 20px 18px;font-size:15px;line-height:1.6;color:var(--ink-soft);}
+
+/* La tua privacy */
+.sj-priv{padding:clamp(22px,4vw,44px);display:grid;grid-template-columns:minmax(0,1fr);gap:28px;}
+.sj-priv-h{margin:0;font-size:clamp(24px,3vw,34px);line-height:1.15;font-weight:800;color:var(--ink);text-wrap:balance;}
+.sj-priv-sub{margin:12px 0 0;font-size:17px;font-weight:700;color:var(--blue-600);}
+.sj-priv-list{list-style:none;margin:0;padding:0;display:grid;gap:18px;}
+.sj-priv-list li{display:flex;gap:14px;align-items:flex-start;}
+.sj-priv-list .badge-ic{width:40px;height:40px;border-radius:14px;}
+.sj-priv-list b{display:block;font-size:15.5px;font-weight:800;color:var(--ink);}
+.sj-priv-list li > div > span{display:block;margin-top:2px;font-size:14.5px;line-height:1.5;color:var(--ink-soft);}
+@media (min-width:900px){.sj-priv{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:48px;}}
+
+/* Pie */
+.sj-foot{background:linear-gradient(160deg,#2E4F9E 0%,var(--blue-800) 100%);color:#fff;padding:40px 0 44px;}
+.sj-foot-in{display:flex;flex-direction:column;gap:16px;}
+.sj-foot p{margin:0;font-size:14px;line-height:1.6;font-weight:500;color:#DCE6FF;}
+.sj-foot nav{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:14px;}
+.sj-foot a{color:#fff;font-weight:600;text-decoration:underline;text-underline-offset:3px;}
+.sj-foot a:hover{color:var(--blue-200);}
+
+/* Páginas legales */
+.sj-legal-main{padding:36px 0 80px;}
+.sj-back{padding:9px 16px;font-size:13px;gap:6px;}
+.sj-legal-h1{margin:28px 0 6px;font-size:clamp(30px,4.6vw,46px);line-height:1.08;font-weight:800;letter-spacing:-0.02em;color:var(--ink);}
+.sj-updated{margin:0 0 6px;font-size:13px;font-weight:700;color:var(--ink-soft);}
+.sj-legal-list{display:flex;flex-direction:column;gap:12px;margin-top:28px;}
+.sj-legal-sec{padding:22px;}
+.sj-legal-sec h2{margin:0 0 8px;font-size:18px;line-height:1.25;font-weight:800;color:var(--ink);}
+.sj-legal-sec p{margin:0;font-size:15px;line-height:1.6;color:var(--ink-soft);}
+
+/* Entrada suave de la portada */
+@keyframes sj-rise{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+.sj-rise{animation:sj-rise .6s cubic-bezier(.2,.8,.3,1) both;}
+.sj-d1{animation-delay:.08s;}
+.sj-d2{animation-delay:.16s;}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *{animation:none !important;transition:none !important;}
+}
+
+</style>
 </head>
 <body>
-<nav class="casa" aria-label="UtoApps"><div class="wrap"><a href="./"><span aria-hidden="true">←</span> Torna a Slow-Job</a></div></nav>
-<main class="legale">
-  <h1>Informativa sulla privacy</h1>
-  <p class="agg">Pagina di presentazione di Slow-Job · aggiornata il 2 novembre 2026</p>
-  <div class="scheda">
-    <h2>Questa pagina non raccoglie dati</h2>
-    <p>Questa pagina presenta Slow-Job, un'app ancora in sviluppo. Non raccoglie dati personali: nessun modulo, nessun cookie, nessuno strumento di statistica o di pubblicità. Caratteri e immagini arrivano da questo stesso sito.</p>
+<div class="sj-top" id="top">
+  <div class="sj-wrap"><a href="https://www.utoapps.ch/"><span aria-hidden="true">←</span><span data-i18n="home_back">Torna alla home di UtoApps</span></a></div>
+</div>
+
+<header class="sj-nav">
+  <div class="sj-wrap sj-nav-in">
+    <a class="sj-mark" href="index.html" data-i18n-aria="mark_aria" aria-label="Slow-Job, pagina iniziale">Slow<span>-Job</span></a>
+    <div class="modos sj-lang" role="group" data-i18n-aria="lang_label" aria-label="Lingua">
+      <button type="button" class="modo sel" data-lang="it" aria-pressed="true">IT</button>
+      <button type="button" class="modo" data-lang="en" aria-pressed="false">EN</button>
+    </div>
   </div>
-  <div class="scheda">
-    <h2>Chi ospita il sito</h2>
-    <p>Il sito www.utoapps.ch è pubblicato con GitHub Pages (GitHub, Inc.). Come ogni server, GitHub registra per motivi tecnici e di sicurezza l'indirizzo IP di chi visita il sito. Per il resto vale l'<a href="/privacy.html">informativa generale di www.utoapps.ch</a>.</p>
-  </div>
-  <div class="scheda">
-    <h2>L'app</h2>
-    <p>Quando l'app sarà disponibile avrà la sua informativa, da leggere prima di registrarsi: quali dati raccoglie, perché, per quanto tempo e chi ne è responsabile, secondo la legge svizzera sulla protezione dei dati (LPD).</p>
-  </div>
-  <div class="scheda">
-    <h2>Contatto</h2>
-    <p>Per domande su questa pagina: <a href="mailto:info@utoapps.ch">info@utoapps.ch</a>.</p>
+</header>
+
+<main class="sj-legal-main">
+  <div class="sj-wrap sj-narrow">
+    <a class="btn3d pill soft sj-back" href="index.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg><span data-i18n="legal_back">Torna a Slow-Job</span></a>
+    <h1 class="sj-legal-h1" data-i18n="pp_title">Informativa sulla privacy</h1>
+    <p class="sj-updated" data-i18n="legal_updated">Ultimo aggiornamento: 2 novembre 2026</p>
+    <p class="sj-lead" data-i18n="pp_intro">Quali dati tratta Slow-Job, perché e chi può vederli, secondo la legge federale sulla protezione dei dati (LPD). Slow-Job è un progetto in sviluppo: l'informativa descrive il servizio come funzionerà con l'app.</p>
+    <div class="sj-legal-list">
+      <section class="card-solid sj-legal-sec"><h2 data-i18n="pp1_t">Titolare del trattamento</h2><p data-i18n="pp1_d">[Titolare: da completare]. Per domande su questa informativa: <a href="mailto:info@utoapps.ch">info@utoapps.ch</a>.</p></section>
+      <section class="card-solid sj-legal-sec"><h2 data-i18n="pp2_t">Che cosa fa Slow-Job</h2><p data-i18n="pp2_d">Mette in contatto persone con un lavoro simile che vogliono lavorare vicino a casa, e aziende che cercano personale locale. Il cambio di posto lo decidono i due datori di lavoro.</p></section>
+      <section class="card-solid sj-legal-sec"><h2 data-i18n="pp3_t">Quali dati trattiamo</h2><p data-i18n="pp3_d">Nome, numero di cellulare, indirizzo e-mail, professione e competenze, comune in cui vivi e in cui lavori, azienda, fascia di stipendio e ricerche salvate.</p></section>
+      <section class="card-solid sj-legal-sec"><h2 data-i18n="pp4_t">Verifica di cellulare ed e-mail</h2><p data-i18n="pp4_d">Verifichiamo il numero di cellulare con un codice via SMS e l'indirizzo e-mail con un link di conferma, perché dietro ogni profilo ci sia una persona reale.</p></section>
+      <section class="card-solid sj-legal-sec"><h2 data-i18n="pp5_t">Chi vede i tuoi dati</h2><p data-i18n="pp5_d">Gli altri iscritti, aziende comprese, vedono solo professione, tratta e tipo di azienda. Nome e azienda solo dopo un «mi interessa» reciproco e lo sblocco. Non vendiamo dati a nessuno.</p></section>
+      <section class="card-solid sj-legal-sec"><h2 data-i18n="pp6_t">Appuntamenti</h2><p data-i18n="pp6_d">Se fissate un appuntamento con l'agenda dell'app, di persona o in videochiamata, salviamo data, ora e modalità, visibili solo a voi due.</p></section>
+      <section class="card-solid sj-legal-sec"><h2 data-i18n="pp7_t">Collegamento a Facebook</h2><p data-i18n="pp7_d">È facoltativo. Se colleghi il profilo a Facebook o a un altro social, riceviamo solo i dati che autorizzi; puoi scollegarlo quando vuoi.</p></section>
+      <section class="card-solid sj-legal-sec"><h2 data-i18n="pp8_t">Pagamenti</h2><p data-i18n="pp8_d">Abbonamento e sblocco si pagano online su questo sito, tramite un fornitore di pagamento: Slow-Job non vede né conserva i dati della carta. Niente App Store né Google Play.</p></section>
+      <section class="card-solid sj-legal-sec"><h2 data-i18n="pp9_t">Statistiche</h2><p data-i18n="pp9_d">Agli enti locali forniamo solo statistiche anonime e aggregate, da cui non si può risalire a nessuna persona.</p></section>
+      <section class="card-solid sj-legal-sec"><h2 data-i18n="pp10_t">Questo sito</h2><p data-i18n="pp10_d">Nessun cookie di terzi, nessuna analitica, nessuna pubblicità. Il sito ricorda solo la lingua scelta, nel tuo browser. Il sito www.utoapps.ch è pubblicato con GitHub Pages (GitHub, Inc.): come ogni server, GitHub registra per motivi tecnici e di sicurezza l'indirizzo IP di chi visita il sito.</p></section>
+      <section class="card-solid sj-legal-sec"><h2 data-i18n="pp11_t">Conservazione e dati all'estero</h2><p data-i18n="pp11_d">Teniamo i dati finché il profilo è attivo; se lo chiudi li cancelliamo, salvo quelli che la legge obbliga a conservare (per esempio i dati contabili). Se dei dati vengono trattati all'estero, solo in Paesi con una protezione adeguata secondo la LPD.</p></section>
+      <section class="card-solid sj-legal-sec"><h2 data-i18n="pp12_t">I tuoi diritti</h2><p data-i18n="pp12_d">Puoi chiedere di vedere, correggere o cancellare i tuoi dati e di riceverne una copia, scrivendo a <a href="mailto:info@utoapps.ch">info@utoapps.ch</a>. Puoi rivolgerti anche all'Incaricato federale della protezione dei dati e della trasparenza (IFPDT).</p></section>
+      <section class="card-solid sj-legal-sec"><h2 data-i18n="pp13_t">Modifiche</h2><p data-i18n="pp13_d">Se cambia qualcosa di importante, aggiorniamo questa pagina e la data in alto.</p></section>
+    </div>
   </div>
 </main>
-<footer>
-  <div class="wrap">
-    <span>Slow-Job · un progetto in sviluppo · pagina realizzata da <a href="https://www.utoapps.ch/">UtoApps</a> · Minusio (TI)</span>
-    <nav aria-label="Note legali"><a href="privacy.html">Informativa sulla privacy</a><a href="terms.html">Condizioni d'uso</a></nav>
+
+<footer class="sj-foot">
+  <div class="sj-wrap sj-foot-in">
+    <p>Slow-Job · <span data-i18n="foot_project">un progetto in sviluppo</span> · <span data-i18n="foot_by">pagina realizzata da</span> <a href="https://www.utoapps.ch/">UtoApps</a> · Minusio (TI) · <a href="mailto:info@utoapps.ch">info@utoapps.ch</a></p>
+    <nav data-i18n-aria="foot_legal_aria" aria-label="Note legali"><a href="privacy.html" data-i18n="foot_privacy">Informativa sulla privacy</a><a href="terms.html" data-i18n="foot_terms">Condizioni d'uso</a></nav>
   </div>
 </footer>
+<script>
+window.I18N = {
+  "it": {
+    "pp_meta_title": "Informativa sulla privacy — Slow-Job",
+    "home_back": "Torna alla home di UtoApps",
+    "legal_back": "Torna a Slow-Job",
+    "pp_title": "Informativa sulla privacy",
+    "legal_updated": "Ultimo aggiornamento: 2 novembre 2026",
+    "pp_intro": "Quali dati tratta Slow-Job, perché e chi può vederli, secondo la legge federale sulla protezione dei dati (LPD). Slow-Job è un progetto in sviluppo: l'informativa descrive il servizio come funzionerà con l'app.",
+    "pp1_t": "Titolare del trattamento",
+    "pp1_d": "[Titolare: da completare]. Per domande su questa informativa: <a href=\"mailto:info@utoapps.ch\">info@utoapps.ch<\/a>.",
+    "pp2_t": "Che cosa fa Slow-Job",
+    "pp2_d": "Mette in contatto persone con un lavoro simile che vogliono lavorare vicino a casa, e aziende che cercano personale locale. Il cambio di posto lo decidono i due datori di lavoro.",
+    "pp3_t": "Quali dati trattiamo",
+    "pp3_d": "Nome, numero di cellulare, indirizzo e-mail, professione e competenze, comune in cui vivi e in cui lavori, azienda, fascia di stipendio e ricerche salvate.",
+    "pp4_t": "Verifica di cellulare ed e-mail",
+    "pp4_d": "Verifichiamo il numero di cellulare con un codice via SMS e l'indirizzo e-mail con un link di conferma, perché dietro ogni profilo ci sia una persona reale.",
+    "pp5_t": "Chi vede i tuoi dati",
+    "pp5_d": "Gli altri iscritti, aziende comprese, vedono solo professione, tratta e tipo di azienda. Nome e azienda solo dopo un «mi interessa» reciproco e lo sblocco. Non vendiamo dati a nessuno.",
+    "pp6_t": "Appuntamenti",
+    "pp6_d": "Se fissate un appuntamento con l'agenda dell'app, di persona o in videochiamata, salviamo data, ora e modalità, visibili solo a voi due.",
+    "pp7_t": "Collegamento a Facebook",
+    "pp7_d": "È facoltativo. Se colleghi il profilo a Facebook o a un altro social, riceviamo solo i dati che autorizzi; puoi scollegarlo quando vuoi.",
+    "pp8_t": "Pagamenti",
+    "pp8_d": "Abbonamento e sblocco si pagano online su questo sito, tramite un fornitore di pagamento: Slow-Job non vede né conserva i dati della carta. Niente App Store né Google Play.",
+    "pp9_t": "Statistiche",
+    "pp9_d": "Agli enti locali forniamo solo statistiche anonime e aggregate, da cui non si può risalire a nessuna persona.",
+    "pp10_t": "Questo sito",
+    "pp10_d": "Nessun cookie di terzi, nessuna analitica, nessuna pubblicità. Il sito ricorda solo la lingua scelta, nel tuo browser. Il sito www.utoapps.ch è pubblicato con GitHub Pages (GitHub, Inc.): come ogni server, GitHub registra per motivi tecnici e di sicurezza l'indirizzo IP di chi visita il sito.",
+    "pp11_t": "Conservazione e dati all'estero",
+    "pp11_d": "Teniamo i dati finché il profilo è attivo; se lo chiudi li cancelliamo, salvo quelli che la legge obbliga a conservare (per esempio i dati contabili). Se dei dati vengono trattati all'estero, solo in Paesi con una protezione adeguata secondo la LPD.",
+    "pp12_t": "I tuoi diritti",
+    "pp12_d": "Puoi chiedere di vedere, correggere o cancellare i tuoi dati e di riceverne una copia, scrivendo a <a href=\"mailto:info@utoapps.ch\">info@utoapps.ch<\/a>. Puoi rivolgerti anche all'Incaricato federale della protezione dei dati e della trasparenza (IFPDT).",
+    "pp13_t": "Modifiche",
+    "pp13_d": "Se cambia qualcosa di importante, aggiorniamo questa pagina e la data in alto.",
+    "foot_project": "un progetto in sviluppo",
+    "foot_by": "pagina realizzata da",
+    "foot_privacy": "Informativa sulla privacy",
+    "foot_terms": "Condizioni d'uso",
+    "mark_aria": "Slow-Job, pagina iniziale",
+    "lang_label": "Lingua",
+    "foot_legal_aria": "Note legali"
+  },
+  "en": {
+    "pp_meta_title": "Privacy policy — Slow-Job",
+    "home_back": "Back to the UtoApps home page",
+    "legal_back": "Back to Slow-Job",
+    "pp_title": "Privacy policy",
+    "legal_updated": "Last updated: 2 November 2026",
+    "pp_intro": "Which data Slow-Job processes, why, and who can see it, under the Swiss Federal Act on Data Protection (FADP). Slow-Job is a project in development: this policy describes the service as it will work with the app.",
+    "pp1_t": "Data controller",
+    "pp1_d": "[Controller: to be completed]. Questions about this policy: <a href=\"mailto:info@utoapps.ch\">info@utoapps.ch<\/a>.",
+    "pp2_t": "What Slow-Job does",
+    "pp2_d": "It connects people with a similar job who want to work close to home, and companies looking for local staff. The job swap is decided by the two employers.",
+    "pp3_t": "What data we process",
+    "pp3_d": "Name, mobile number, e-mail address, profession and skills, the towns where you live and work, company, salary range and saved searches.",
+    "pp4_t": "Mobile and e-mail check",
+    "pp4_d": "We verify your mobile number with a code by SMS and your e-mail address with a confirmation link, so that every profile belongs to a real person.",
+    "pp5_t": "Who sees your data",
+    "pp5_d": "Other members, companies included, see only profession, route and type of company. Name and company only after a mutual “I'm interested” and the unlock. We do not sell data to anyone.",
+    "pp6_t": "Meetings",
+    "pp6_d": "If you arrange a meeting with the app's calendar, in person or by video call, we store date, time and format, visible only to the two of you.",
+    "pp7_t": "Linking to Facebook",
+    "pp7_d": "It is optional. If you link your profile to Facebook or another social network, we receive only the data you authorise; you can unlink it at any time.",
+    "pp8_t": "Payments",
+    "pp8_d": "Subscription and unlock are paid online on this site through a payment provider: Slow-Job neither sees nor stores card details. No App Store or Google Play.",
+    "pp9_t": "Statistics",
+    "pp9_d": "We give local authorities only anonymous, aggregated statistics, which cannot be traced back to any individual.",
+    "pp10_t": "This website",
+    "pp10_d": "No third-party cookies, no analytics, no advertising. The site only remembers your chosen language, in your browser. The site www.utoapps.ch is published with GitHub Pages (GitHub, Inc.): like any server, GitHub records the IP address of visitors for technical and security reasons.",
+    "pp11_t": "Retention and data abroad",
+    "pp11_d": "We keep data while your profile is active; if you close it we delete them, except for those the law requires us to keep (for example accounting records). If any data is processed abroad, it is only in countries with adequate protection under the FADP.",
+    "pp12_t": "Your rights",
+    "pp12_d": "You can ask to see, correct or delete your data and to receive a copy by writing to <a href=\"mailto:info@utoapps.ch\">info@utoapps.ch<\/a>. You can also contact the Federal Data Protection and Information Commissioner (FDPIC).",
+    "pp13_t": "Changes",
+    "pp13_d": "If anything important changes, we update this page and the date at the top.",
+    "foot_project": "a project in development",
+    "foot_by": "page by",
+    "foot_privacy": "Privacy policy",
+    "foot_terms": "Terms of use",
+    "mark_aria": "Slow-Job, home page",
+    "lang_label": "Language",
+    "foot_legal_aria": "Legal notes"
+  }
+};
+/* Slow-Job · comportamento delle pagine, senza librerie:
+   lingua IT/EN (testi in I18N), buscador → sezione «installare», vídeo della portada. */
+(function () {
+  'use strict';
+  var KEY = 'slowjob.lang';
+  var shown = 'it';
+
+  function each(list, fn) { Array.prototype.forEach.call(list, fn); }
+  function dict(lang) { var I = window.I18N || {}; return I[lang] || I.it || {}; }
+
+  function initialLang() {
+    try {
+      var q = new URLSearchParams(location.search).get('lang');
+      if (q === 'it' || q === 'en') return q;
+    } catch (e) {}
+    try { if (localStorage.getItem(KEY) === 'en') return 'en'; } catch (e) {}
+    return 'it';
+  }
+
+  function apply(lang) {
+    var t = dict(lang);
+    each(document.querySelectorAll('[data-i18n]'), function (el) {
+      var v = t[el.getAttribute('data-i18n')];
+      if (typeof v === 'string') el.innerHTML = v;
+    });
+    each(document.querySelectorAll('[data-i18n-alt]'), function (el) {
+      var v = t[el.getAttribute('data-i18n-alt')];
+      if (typeof v === 'string') el.setAttribute('alt', v);
+    });
+    each(document.querySelectorAll('[data-i18n-aria]'), function (el) {
+      var v = t[el.getAttribute('data-i18n-aria')];
+      if (typeof v === 'string') el.setAttribute('aria-label', v);
+    });
+    document.documentElement.setAttribute('lang', lang);
+    each(document.querySelectorAll('[data-lang]'), function (b) {
+      var on = b.getAttribute('data-lang') === lang;
+      b.classList.toggle('sel', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    shown = lang;
+  }
+
+  function setLang(lang) {
+    try { localStorage.setItem(KEY, lang); } catch (e) {}
+    if (lang !== shown) apply(lang);
+  }
+
+  function reduceMotion() {
+    return !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  }
+
+  function goTo(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    var hdr = document.querySelector('.sj-nav');
+    var off = (hdr && getComputedStyle(hdr).position === 'sticky') ? hdr.offsetHeight : 0;
+    var top = el.getBoundingClientRect().top + window.pageYOffset - off;
+    window.scrollTo({ top: Math.max(0, top), behavior: reduceMotion() ? 'auto' : 'smooth' });
+    var h = el.querySelector('h2');
+    if (h) {
+      h.setAttribute('tabindex', '-1');
+      try { h.focus({ preventScroll: true }); } catch (e) {}
+    }
+  }
+
+  /* Vídeo della portada: senza vídeo (o con «riduci movimento») resta il poster. */
+  function setupVideo() {
+    var v = document.querySelector('.sj-hero-video');
+    if (!v || v.getAttribute('data-ready')) return;
+    v.setAttribute('data-ready', '1');
+    function posterOnly() {
+      try { v.pause(); } catch (e) {}
+      v.removeAttribute('autoplay');
+      if (v.getAttribute('src')) { v.removeAttribute('src'); try { v.load(); } catch (e) {} }
+    }
+    if (reduceMotion()) { posterOnly(); return; }
+    v.muted = true;
+    var mq = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (mq && mq.addEventListener) mq.addEventListener('change', function (e) { if (e.matches) posterOnly(); });
+    var p = v.play && v.play();
+    if (p && p.catch) p.catch(function () {});
+  }
+
+  document.addEventListener('click', function (e) {
+    var b = e.target && e.target.closest ? e.target.closest('[data-lang]') : null;
+    if (b) { e.preventDefault(); setLang(b.getAttribute('data-lang')); }
+  });
+
+  document.addEventListener('submit', function (e) {
+    var f = e.target;
+    if (f && f.hasAttribute && f.hasAttribute('data-search')) { e.preventDefault(); goTo('installare'); }
+  });
+
+  function init() {
+    setupVideo();
+    var l = initialLang();
+    if (l !== shown) apply(l);
+  }
+
+  function whenReady(fn) {
+    if (document.querySelector('[data-i18n]')) { fn(); return; }
+    var mo = new MutationObserver(function () {
+      if (document.querySelector('[data-i18n]')) { mo.disconnect(); setTimeout(fn, 0); }
+    });
+    mo.observe(document.documentElement, { childList: true, subtree: true });
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { whenReady(init); });
+  else whenReady(init);
+})();
+
+</script>
 </body>
 </html>
