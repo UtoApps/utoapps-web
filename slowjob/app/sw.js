@@ -1,6 +1,6 @@
-// Service worker de la app de prueba de Slow-Job — versión 028ddb03fe
+// Service worker de la app de prueba de Slow-Job — versión 7964c511ed
 // Página: primero la red (así llegan las versiones nuevas) y, sin conexión, la copia guardada. Resto: primero la copia.
-const CACHE = 'slowjob-app-028ddb03fe';
+const CACHE = 'slowjob-app-7964c511ed';
 const FICHEROS = ["./", "./manifest.webmanifest", "./icons/icon-192.png", "./icons/icon-512.png", "./icons/apple-touch-icon.png", "./fonts/Poppins-400.woff2", "./fonts/Poppins-500.woff2", "./fonts/Poppins-600.woff2", "./fonts/Poppins-700.woff2", "./fonts/Poppins-800.woff2"];
 self.addEventListener('install', e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(FICHEROS))); self.skipWaiting(); });
 self.addEventListener('activate', e => {
