@@ -486,6 +486,15 @@ section[id]{scroll-margin-top:12px;}
 .sj-sec.sj-spot{padding-top:48px;padding-bottom:0}
 .sj-spot-video{display:block;width:100%;height:auto;aspect-ratio:16/9;border-radius:var(--radius-card);background:#0E1B45;box-shadow:0 22px 44px -18px rgba(20,40,110,.38)}
 @media (max-width:600px){.sj-sec.sj-spot{padding-top:28px}}
+/* 3 nov 2026: el vídeo de la app (vertical, ~1 min, voz italiana) va ENCIMA del anuncio; marco como el de utoapps.ch */
+.sj-sec.sj-appvideo{padding-top:48px;padding-bottom:0}
+.sj-appvideo-fig{margin:0;display:grid;justify-items:center;gap:14px;text-align:center}
+.sj-appvideo-cornice{width:min(100%,340px);aspect-ratio:9/16;border-radius:var(--radius-card);overflow:hidden;background:#0E1B45;box-shadow:0 22px 44px -18px rgba(20,40,110,.38)}
+.sj-appvideo-cornice video{display:block;width:100%;height:100%;object-fit:cover;background:#0E1B45}
+.sj-appvideo-fig figcaption{display:grid;gap:4px;max-width:46ch}
+.sj-appvideo-fig strong{font-size:clamp(18px,2.6vw,22px);font-weight:700;letter-spacing:-.01em;color:var(--ink);text-wrap:balance}
+.sj-appvideo-nota{color:var(--ink-soft);font-size:15px;line-height:1.45}
+@media (max-width:600px){.sj-sec.sj-appvideo{padding-top:28px}}
 </style>
 </head>
 <body>
@@ -573,6 +582,24 @@ section[id]{scroll-margin-top:12px;}
       <button type="submit" class="btn3d"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7.5"></circle><path d="m20.5 20.5-4.2-4.2"></path></svg><span data-i18n="search_cta">Cerca chi si scambia</span></button>
     </form>
   </div>
+
+  <section class="sj-sec sj-appvideo" id="video-app">
+    <div class="sj-wrap">
+      <figure class="sj-appvideo-fig" aria-labelledby="h-video-app">
+        <div class="sj-appvideo-cornice">
+          <video controls playsinline preload="none" poster="video/slowjob-app-poster.jpg" width="1080" height="1920"
+                 aria-describedby="nota-video-app">
+            <source src="video/slowjob-app-it.mp4" type="video/mp4">
+            <a href="video/slowjob-app-it.mp4" data-i18n="appvideo_link">Guarda il video</a>
+          </video>
+        </div>
+        <figcaption>
+          <strong id="h-video-app" data-i18n="appvideo_title">Come funziona l'app, in un minuto</strong>
+          <span class="sj-appvideo-nota" id="nota-video-app" data-i18n="appvideo_note">Anteprima con dati inventati: l'app è in arrivo.</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
 
   <section class="sj-sec sj-spot" id="spot">
     <div class="sj-wrap">
@@ -1094,7 +1121,10 @@ window.I18N = {
     "nav_aria": "Sezioni",
     "lang_label": "Lingua",
     "cmp_swap": "si scambiano il posto",
-    "foot_legal_aria": "Note legali"
+    "foot_legal_aria": "Note legali",
+    "appvideo_title": "Come funziona l'app, in un minuto",
+    "appvideo_note": "Anteprima con dati inventati: l'app è in arrivo.",
+    "appvideo_link": "Guarda il video"
   },
   "en": {
     "meta_title": "Slow-Job — Improve your quality of life",
@@ -1281,7 +1311,10 @@ window.I18N = {
     "nav_aria": "Sections",
     "lang_label": "Language",
     "cmp_swap": "they swap jobs",
-    "foot_legal_aria": "Legal notes"
+    "foot_legal_aria": "Legal notes",
+    "appvideo_title": "How the app works, in one minute",
+    "appvideo_note": "Preview with made-up data, in Italian: the app is coming soon.",
+    "appvideo_link": "Watch the video"
   }
 };
 /* Slow-Job · comportamento delle pagine, senza librerie:
